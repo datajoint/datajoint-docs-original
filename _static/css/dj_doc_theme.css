@@ -1,0 +1,139 @@
+body {
+    font-family: "Catamaran", "Helvetica Neue", Arial, sans-serif;
+}
+
+h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend, p.caption {
+    font-family: "Catamaran", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+/* Sidebar background - pale blue #fcfeff > #f4fdfe (paleness)*/
+.wy-side-nav-search {
+    background-color: #f4fdfe;
+    border-right: solid 1px #54a8b7;
+}
+.wy-side-nav-search > a:hover {
+    background-color: #f4fdfe;
+}
+
+/* Background color(darkest shade of DJ blue) for the bottom portion of sidebar */
+.wy-nav-side {
+    background-color:#54a8b7;
+}
+
+/* White background for selected menu */
+.wy-nav-content-wrap, .wy-menu li.current > a  {
+    background-color: #fcfeff;
+}
+
+/* White background for main section and pale DJ blue for wrapper  */
+@media screen and (min-width: 1400px) {
+    .wy-nav-content-wrap {
+        background-color: #f4fdfe;
+    }
+    .wy-nav-content {
+        background-color: #fff; 
+    }
+}
+
+/* for mobile */
+.wy-nav-top {
+    background-image: url('../img/djopen-fullLogo.svg'); 
+    background-color: #f4fdfe;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    color: #333;
+}
+
+.wy-nav-top > a {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .wy-side-nav-search>a img.logo {
+        height: 60px;
+    }
+    .wy-nav-top > i { /* for the collapsed menu */
+        color: #54a8b7;
+    }
+}
+
+/* To scale the side bar logo correctly */
+.wy-side-nav-search a {
+    display: block;
+}
+
+/* This ensures that multiple constructors will remain in separate lines. */
+.rst-content dl:not(.docutils) dt {
+    display: table;
+}
+
+/* Use dark orange for literals */
+.rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal {
+    color: #d85124;
+}
+
+.rst-content tt.xref, a .rst-content tt, .rst-content tt.xref,
+.rst-content code.xref, a .rst-content tt, a .rst-content code {
+    color: #404040;
+}
+
+/* Make code blocks have a background */
+.codeblock,pre.literal-block,.rst-content .literal-block,.rst-content pre.literal-block,div[class^='highlight'] {
+        background: rgba(0, 0, 0, 0.05);
+}
+
+/* Change link colors */
+a {
+    color: #2bc4c4; /*DataJoint blue*/
+}
+
+a:hover {
+    color: #2bc4c4;
+}
+
+a:visited {
+    color: #24adad; /*DataJoint blue darker*/
+}
+
+a.icon.icon-home {
+    color: #54a8b7; 
+}
+
+.wy-menu a {
+    color: #fff;
+}
+
+.wy-menu a:hover {
+    color: #fff;
+}
+
+.caption-text {
+    color: #fbb85d; /* dj yellow */
+}
+
+
+/* Resize the default footer text size */
+footer {
+    font-size: 82%;
+}
+/* For the navigation buttons, make the font larger - appr. original size */
+footer .rst-footer-buttons {
+    font-size: 122%;
+}
+
+footer p {
+    font-size: 100%;
+}
+
+/* Workd around for hidden headers that appear in TOC tree */
+.rst-content .hidden-section {
+    display: none;
+}
+
+nav .hidden-section {
+    display: inherit;
+}
+
+
