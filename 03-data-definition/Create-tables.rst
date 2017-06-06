@@ -1,3 +1,5 @@
+
+=============
 Create Tables
 =============
 
@@ -14,8 +16,11 @@ The table class must inherit from one of the following superclasses: ``dj.Lookup
 Defining a table
 ----------------
 
-MATLAB
+
+|matlab| MATLAB
 ^^^^^^
+
+
 DataJoint for MATLAB provides the interactive script ``dj.new`` for creating a new table.  It will prompt to enter the new table's class name in the form ``package.ClassName``.  This will create the file ``+package/ClassName.m``.
 
 For example, define the table ``experiment.Person``
@@ -55,8 +60,9 @@ The most important part of the table definition is the comment preceding the ``c
 
 The class will become usable after you edit this comment as described in :doc:`Table-definition`.
 
-Defining a table in Python
+|python| Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To define a DataJoint table in Python:
 1. Define a class inheriting from the appropriate DataJoint class: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 2. Decorate the class with the schema object (See :doc:`Create-a-schema`)
@@ -78,8 +84,10 @@ For example, the following code defines the table ``Person``:
 
 The class will become usable after you edit the ``definition`` property as described in :doc:`Table-definition`.
 
+-------------------
+
 Valid class names
-^^^^^^^^^^^^^^^^^^
+=================
 Note that in both MATLAB and Python, the class names must follow the CamelCase compound word notation: 
 * start with a capital letter and 
 * contain only alphanumerical characters (no underscores).  
@@ -94,3 +102,7 @@ Invalid class names
 ++++++++++++++++++++
 ``Two_photon_Scan``, ``twoPhotonScan``, ``2PhotonScan``, ``membranePotential``, ``membrane_potential``
 
+
+.. |python| image:: ../_static/img/python-tiny.png
+
+.. |matlab| image:: ../_static/img/matlab-tiny.png

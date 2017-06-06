@@ -1,4 +1,4 @@
-# DataJoint Documentations
+# DataJoint Documentation
 
 All DataJoint documentations are presented at [DataJoint documentation website](http://docs.datajoint.io/).
 Documentations are generated using [Sphinx](http://www.sphinx-doc.org/en/stable/) with custom rendering theme 

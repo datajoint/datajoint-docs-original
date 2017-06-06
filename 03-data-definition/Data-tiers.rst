@@ -4,26 +4,32 @@ Data Tiers
 DataJoint assigns all tables to one of the following data tiers that
 differentiate how the data originate.
 
-============  =================  =================  ===============================
-Tier          Superclass         Internal prefix    Description
-============  =================  =================  ===============================
-**Lookup**    ``dj.Lookup``      ``#``              General facts and settings of 
-                                                    the data pipe line; not 
-                                                    specific to any experiment or 
-                                                    dataset.
+.. list-table:: Table tiers
+   :widths: 15 20 20 30
+   :header-rows: 1
 
-**Manual**    ``dj.Manual``                         Data entered from outside  
-                                                    the pipeline.
-
-**Imported**  ``dj.Imported``    ``_``              Data computed automatically by 
-                                                    inside the pipeline but 
-                                                    requiring external data.
-
-**Computed**  ``dj.Computed``    ``__``             Data computed automatically
-                                                    inside the pipeline without
-                                                    needing anything else.
-============  =================  =================  ===============================
-
+   * - Tier
+     - Superclass
+     - Prefix
+     - Description
+   * - **Lookup**
+     - ``dj.Lookup``
+     - ``#``
+     - Small tables containing general facts and settings of 
+       the data pipeline; not specific to any experiment or dataset.
+   * - **Manual**
+     - ``dj.Manual``
+     - 
+     - Data entered from outside the pipeline
+   * - **Imported**
+     - ``dj.Imported``
+     - ``_``
+     - Data computed automatically inside the pipeline but requires
+       access to data outside the pipeline.
+   * - **Computed**
+     - ``dj.Computed``
+     - ``__``
+     - Data computed automatically entirely inside the pipeline.
 
 Table tiers indicate to database administrators how valuable the data
 are. For example, manual data are most valuable. Computed data can
@@ -37,7 +43,7 @@ can use these prefixes to set different backup and access policies.
 
 Furthermore, the classes for *imported* and *computed* tables have
 additional capabilities for automated processing as described in
-[[Automatic computation]].
+:doc:`../06-computation/Auto-populate`.
 
 Specifying a table's tier
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,7 +53,7 @@ The tier of a table is specified by the superclass of its class.
 Part tables
 ~~~~~~~~~~~
 
-[[Part tables]]] do not have their own tier. Instead,
+:doc:`Part-tables` do not have their own tier. Instead,
 they share the same tier as their master table.
 
 Internal conventions for naming tables
@@ -58,7 +64,7 @@ generate the table name corresponding to a given class:
 
 First, the name of the class is converted from ``CamelCase`` to
 ``underscore_delimited_words``. Then the name is prefixed according to
-the `Data tiers <#data-tiers>`__.
+the :doc:`Data-tiers`.
 
 For example:
 
@@ -68,7 +74,7 @@ will be named ``structural_scan``.
 The table for the class ``SpatialFilter`` subclassing ``dj.Lookup`` will
 be named ``#spatial_filter``.
 
-[[Part tables]] are treated differently. They are
+:doc:`Part-tables` are treated differently. They are
 prefixed by the name of their master table, separated by two
 underscores.
 
