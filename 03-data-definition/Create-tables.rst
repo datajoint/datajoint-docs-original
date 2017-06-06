@@ -2,16 +2,6 @@ Create Tables
 =============
 
 
-.. toctree::
-   :maxdepth: 6
-   :hidden:
-   :titlesonly:
-   :includehidden:
-
-   Notes-on-terminology
-   Data-tiers
-
-
 Relational Data Model
 ---------------------
 

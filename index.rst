@@ -1,16 +1,13 @@
-Welcome to DataJoint Documentations
+Welcome to DataJoint Documentation
 ====================================
 
-Here you will find an extensive documentation on DataJoint core concepts, both in Python
-and MATLAB! 
+Here you will find extensive documentation of DataJoint core concepts in Python and MATLAB. 
 
-If you are completely new to DataJoint, start by reading :doc:`What Is a Data Pipeline? <01-introduction/Data-pipelines>` to find out
-what DataJoint is all about! (spoiler - DataJoint is for building data pipelines).
+If you are new to DataJoint, start by reading :doc:`What Is a Data Pipeline? <01-introduction/Data-pipelines>`
 
-Although the documentation can be read sequentially from start to end, it is best used as a quick
-reference for a specific topic of your interest.
+This documentation can be read sequentially from start to end or used as quick reference for specific topics.
 
-For a more guided tour of DataJoint, explore our tutorials at http://tutorials.datajoint.io!
+For a more guided tour of DataJoint, explore our tutorials at http://tutorials.datajoint.io
 
 
 .. toctree::
@@ -33,15 +30,22 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    02-setup/Install-and-connect
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :hidden:
    :includehidden:
    :titlesonly:
    :caption: Data Definition
 
+   03-data-definition/Notes-on-terminology
+   03-data-definition/Data-tiers
    03-data-definition/Create-a-schema
    03-data-definition/Create-tables
    03-data-definition/Table-definition
+   03-data-definition/Data-types
+   03-data-definition/Primary-key
+   03-data-definition/Foreign-keys
+   03-data-definition/Lookup-tables
+   03-data-definition/Manual-tables
    03-data-definition/Drop
    03-data-definition/ERD
 
@@ -55,8 +59,6 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    04-data-manipulation/Insert
    04-data-manipulation/Delete
    04-data-manipulation/No-update
-   04-data-manipulation/Manual-tables
-   04-data-manipulation/Lookup-tables
 
 .. toctree::
    :maxdepth: 3
@@ -89,9 +91,6 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    :includehidden:
    :titlesonly:
    :caption: Examples
-
-   07-examples/Mysterious-blobs
-   .. 07-examples/Multipatch
 
 .. toctree::
    :maxdepth: 2

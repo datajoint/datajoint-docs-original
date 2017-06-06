@@ -68,15 +68,15 @@ Examples
 ^^^^^^^^^^^
 This is a matching pair of tuples:
 
-![](../_static/img/matched_tuples1.png)
+.. image:: ../_static/img/matched_tuples1.png
 
 and so is this one:
 
-![](../_static/img/matched_tuples2.png)
+.. image:: ../_static/img/matched_tuples2.png
 
 but these tuples do *not* match:
 
-![](../_static/img/matched_tuples3.png)
+.. image:: ../_static/img/matched_tuples3.png
 
 Join compatibility
 -------------------
