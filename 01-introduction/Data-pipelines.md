@@ -10,4 +10,4 @@ Data pipelines become the central tool for the operation of a data-intensive lab
 In DataJoint, a pipeline consists of nodes grouped into *schemas*. Each node is a table in a database as well as a class in MATLAB and Python that server as the interface to the table and implements computations for that node. Edges between nodes express dependencies between data as well as the direction of the workflow for the data.
 
 The diagram below is an example of a pipeline used for multi-patching experiments. 
-![](https://github.com/dimitri-yatsenko/andrew-multipatch/blob/master/erd.png)
+![](../_static/img/mp-erd.png)
