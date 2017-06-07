@@ -1,2 +1,2 @@
-Relation U
+Bulk store
 ==========
