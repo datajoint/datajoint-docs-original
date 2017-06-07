@@ -41,7 +41,7 @@ The internal prefix is used for for table names on the server side as
 described below. These are never visible to the user but database admins
 can use these prefixes to set different backup and access policies.
 
-Furthermore, the classes for *imported* and *computed* tables have
+Furthermore, the classes for **imported** and **computed** tables have
 additional capabilities for automated processing as described in
 :doc:`../computation/Auto-populate`.
 
@@ -53,7 +53,7 @@ The tier of a table is specified by the superclass of its class.
 Part tables
 ~~~~~~~~~~~
 
-:doc:`Part-tables` do not have their own tier. Instead,
+:doc:`../computation/Part-tables` do not have their own tier. Instead,
 they share the same tier as their master table.
 
 Internal conventions for naming tables
@@ -64,7 +64,7 @@ generate the table name corresponding to a given class:
 
 First, the name of the class is converted from ``CamelCase`` to
 ``underscore_delimited_words``. Then the name is prefixed according to
-the :doc:`Data-tiers`.
+the data tier.
 
 For example:
 
@@ -74,7 +74,7 @@ will be named ``structural_scan``.
 The table for the class ``SpatialFilter`` subclassing ``dj.Lookup`` will
 be named ``#spatial_filter``.
 
-:doc:`Part-tables` are treated differently. They are
+:doc:`../computation/Part-tables` are treated differently. They are
 prefixed by the name of their master table, separated by two
 underscores.
 

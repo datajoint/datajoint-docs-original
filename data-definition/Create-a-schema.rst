@@ -1,5 +1,5 @@
 ===============
-Create a Schema
+Create a schema
 ===============
 
 Relational Data Model
@@ -15,7 +15,7 @@ Users never need to see the database directly and interact with data in the data
 
 Schemas
 -------
-On the database server, related tables are grouped into a named collection called *database* or *schema*.  This allows organizing the data and controlling access by users.  Therefore, we need a way of associating DataJoint classes with their schema.  This way we may address tables as ``schema.TableClassName``.  Before we create any tables, we must create a schema.
+On the database server, related tables are grouped into a named collection called **database** or **schema**.  This allows organizing the data and controlling access by users.  Therefore, we need a way of associating DataJoint classes with their schema.  This way we may address tables as ``schema.TableClassName``.  Before we create any tables, we must create a schema.
 
 |matlab| MATLAB
 ---------------------------
@@ -35,7 +35,7 @@ Note that you must have create privileges for the database name pattern (as desc
 
 **Step 2.**  Create the MATLAB package
 
-Before you proceed, please be sure to understand:
+DataJoint for matlab organizes schemas as MATLAB packages. If you are not familiar with them, please review
 
 * how to work with MATLAB **packages**: https://www.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html 
 * how to manage MATLAB's **search paths** work: https://www.mathworks.com/help/matlab/search-path.html.
@@ -61,7 +61,7 @@ In the ``+experiment`` folder, create the file ``getSchema.m`` with the followin
 This function returns a persistent object of type ``dj.Schema``, establishing the link between the ``experiment`` package in MATLAB and the database ``alice_experiment`` on the database server.
 
 Automatically
-^^^^^^
+^^^^^^^^^^^^^
 
 Alternatively, you can execute 
 
@@ -77,6 +77,7 @@ This automated script will walk you through the steps 1--3 above and will create
 Create a new schema using the ``dj.schema`` function:
 
 .. code-block:: python
+
     import datajoint as dj
     schema = dj.schema('alice_experiment', locals())
 
@@ -88,7 +89,7 @@ The returned object ``schema`` will then serve as a decorator for DataJoint clas
 It is a common practice to have a separate Python module for each schema.  Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
 
 Working with existing data
--------------
+--------------------------
 What if the database already exists?  For example, what if we created the schema in Python but want to access the data from MATLAB or vice versa?  No problem.  Follow the same process for creating the schema and specify the existing database name.  We will show how to work with existing tables later.
 
 .. |matlab| image:: ../_static/img/matlab-tiny.png

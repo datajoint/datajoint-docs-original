@@ -41,13 +41,17 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    data-definition/Create-a-schema
    data-definition/Create-tables
    data-definition/Table-definition
+   data-definition/Definition-syntax
    data-definition/Data-types
+   data-definition/Bulk-store
+   data-definition/Semistructured-tables
    data-definition/Primary-key
    data-definition/Foreign-keys
    data-definition/Lookup-tables
    data-definition/Manual-tables
    data-definition/Drop
    data-definition/ERD
+  
 
 .. toctree::
    :maxdepth: 2
@@ -56,9 +60,9 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    :titlesonly:
    :caption: Data Manipulation
 
-   manipulation/Insert
-   manipulation/Delete
-   manipulation/No-update
+   data-manipulation/Insert
+   data-manipulation/Delete
+   data-manipulation/No-update
 
 .. toctree::
    :maxdepth: 3
@@ -71,7 +75,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    queries/Fetch
    queries/Farfetch
    queries/Operators
-   .. queries/Relation-U
+   queries/Relation-U
 
 .. toctree::
    :maxdepth: 2
@@ -80,10 +84,10 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    :titlesonly:
    :caption: Computation
 
-   .. computation/Automatic-computation
+   computation/Auto-populate
    computation/Part-tables
-   .. computation/Customizing-the-key-source
-   .. computation/Distributed-computing
+   computation/Custom-key-source
+   computation/Distributed-computing
 
 .. toctree::
    :maxdepth: 3
@@ -100,38 +104,3 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    :caption: Principles
 
    principles/Relational-data-model
-   .. principles/Normalization
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :includehidden:
-   :titlesonly:
-   :caption: Common Design Patterns
-
-   .. common-design-patterns/1:1-relationships
-   .. common-design-patterns/1:N-relationships
-   .. common-design-patterns/M:N-relationships
-   .. common-design-patterns/Parameterized-computations
-   .. common-design-patterns/Versions
-   .. common-design-patterns/Specialization
-   .. common-design-patterns/Graphs
-   .. common-design-patterns/Alternative-groupings
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :includehidden:
-   :titlesonly:
-   :caption: Maintenance and Utilities
-
-   .. maintenance-and-utilities/Web-interfaces
-   .. maintenance-and-utilities/Synchronization
-   .. maintenance-and-utilities/Migration
-   .. maintenance-and-utilities/Altering-designs
-   .. maintenance-and-utilities/Logs
-   .. maintenance-and-utilities/Access-management
-   .. maintenance-and-utilities/Troubleshooting
-
-
-
