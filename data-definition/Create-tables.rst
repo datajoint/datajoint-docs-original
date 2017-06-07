@@ -104,5 +104,4 @@ Invalid class names
 
 
 .. |python| image:: ../_static/img/python-tiny.png
-
 .. |matlab| image:: ../_static/img/matlab-tiny.png

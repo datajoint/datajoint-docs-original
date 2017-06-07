@@ -41,7 +41,7 @@ The internal prefix is used for for table names on the server side as
 described below. These are never visible to the user but database admins
 can use these prefixes to set different backup and access policies.
 
-Furthermore, the classes for *imported* and *computed* tables have
+Furthermore, the classes for **imported** and **computed** tables have
 additional capabilities for automated processing as described in
 :doc:`../computation/Auto-populate`.
 
@@ -64,7 +64,7 @@ generate the table name corresponding to a given class:
 
 First, the name of the class is converted from ``CamelCase`` to
 ``underscore_delimited_words``. Then the name is prefixed according to
-the :doc:`Data-tiers`.
+the data tier.
 
 For example:
 

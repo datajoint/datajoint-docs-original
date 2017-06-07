@@ -69,6 +69,7 @@ DataJoint objects provide the ``describe`` method to see the table definition to
 Examples
 ++++++++
 |matlab| MATLAB
+
 .. code-block:: matlab
 
 	s = describe(lab.User)

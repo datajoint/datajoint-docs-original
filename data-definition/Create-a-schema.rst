@@ -1,5 +1,5 @@
 ===============
-Create a Schema
+Create a schema
 ===============
 
 Relational Data Model
@@ -15,7 +15,7 @@ Users never need to see the database directly and interact with data in the data
 
 Schemas
 -------
-On the database server, related tables are grouped into a named collection called *database* or *schema*.  This allows organizing the data and controlling access by users.  Therefore, we need a way of associating DataJoint classes with their schema.  This way we may address tables as ``schema.TableClassName``.  Before we create any tables, we must create a schema.
+On the database server, related tables are grouped into a named collection called **database** or **schema**.  This allows organizing the data and controlling access by users.  Therefore, we need a way of associating DataJoint classes with their schema.  This way we may address tables as ``schema.TableClassName``.  Before we create any tables, we must create a schema.
 
 |matlab| MATLAB
 ---------------------------
@@ -35,7 +35,7 @@ Note that you must have create privileges for the database name pattern (as desc
 
 **Step 2.**  Create the MATLAB package
 
-Before you proceed, please be sure to understand:
+DataJoint for matlab organizes schemas as MATLAB packages. If you are not familiar with them, please review
 
 * how to work with MATLAB **packages**: https://www.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html 
 * how to manage MATLAB's **search paths** work: https://www.mathworks.com/help/matlab/search-path.html.
