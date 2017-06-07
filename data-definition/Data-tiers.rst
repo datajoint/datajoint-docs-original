@@ -43,7 +43,7 @@ can use these prefixes to set different backup and access policies.
 
 Furthermore, the classes for *imported* and *computed* tables have
 additional capabilities for automated processing as described in
-:doc:`../06-computation/Auto-populate`.
+:doc:`../computation/Auto-populate`.
 
 Specifying a table's tier
 ~~~~~~~~~~~~~~~~~~~~~~~~~
