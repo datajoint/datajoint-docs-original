@@ -11,14 +11,14 @@ As already mentioned in :doc:`Create-a-schema`, all data in DataJoint are repres
 
 Data Tiers
 ^^^^^^^^^^
-The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.  See :doc:`Data-tiers` and :doc:`Part-tables`.
+The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.  See :doc:`Data-tiers` and :doc:`../computation/Part-tables`.
 
 Defining a table
 ----------------
 
 
 |matlab| MATLAB
-^^^^^^
+^^^^^^^^^^^^^^^
 
 
 DataJoint for MATLAB provides the interactive script ``dj.new`` for creating a new table.  It will prompt to enter the new table's class name in the form ``package.ClassName``.  This will create the file ``+package/ClassName.m``.

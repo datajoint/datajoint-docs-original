@@ -53,7 +53,7 @@ The tier of a table is specified by the superclass of its class.
 Part tables
 ~~~~~~~~~~~
 
-:doc:`Part-tables` do not have their own tier. Instead,
+:doc:`../computation/Part-tables` do not have their own tier. Instead,
 they share the same tier as their master table.
 
 Internal conventions for naming tables
@@ -74,7 +74,7 @@ will be named ``structural_scan``.
 The table for the class ``SpatialFilter`` subclassing ``dj.Lookup`` will
 be named ``#spatial_filter``.
 
-:doc:`Part-tables` are treated differently. They are
+:doc:`../computation/Part-tables` are treated differently. They are
 prefixed by the name of their master table, separated by two
 underscores.
 

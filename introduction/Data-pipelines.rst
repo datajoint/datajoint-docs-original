@@ -1,6 +1,7 @@
-# What Is a Data Pipeline?
+What Is a Data Pipeline?
+========================
 
-DataJoint is a free open-source framework for creating scientific data pipelines using MATLAB or Python (or any mixture of the two). 
+DataJoint is a free open-source framework for creating scientific data pipelines using MATLAB or Python (or any mixture of the two) with a relational database and non-relational store as the backend. 
 
 A data pipeline is a sequence of steps (more generally a directed acyclic graph) with integrated storage at each step.  These steps may be thought of as nodes in a graph.
 
@@ -9,13 +10,18 @@ In the later nodes of the pipeline, data are automatically processed and compute
 
 For example, the figure below depicts the pipeline for a simple two-photon imaging experiment using mice as subjects.
 
-![](../_static/img/pipeline.png)
+.. image:: ../_static/img/pipeline.png
+    :width: 250px
+    :align: center
+    :alt: A data pipeline
 
 The experimenter first enters information about the mouse information, then the imaging session information, then information for each scan.  Then the automated portion of the pipeline takes over to perform image alignment to compensate for motion alignment, image segmentation to identify cells in the images and to extract calcium traces. Finally, the receptive field (RF) computation is performed by relating the calcium signals to the visual stimulus information.
 
 To the user, each node appears as a MATLAB or Python object that represents data and computations but underneath each object is connected to its own table in a relational database, which can be hosted locally or in the cloud. 
 
-![](../_static/img/high-level-pipeline.png)
+.. image:: ../_static/img/high-level-pipeline.png
+  :align: center 
+  :alt: Data ecosystem
 
 Thus all the data becomes immediately available to all participates of the project.  This may include computational units that perform processing and analysis, including cloud computing solutions. 
 
