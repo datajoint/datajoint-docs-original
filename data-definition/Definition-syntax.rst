@@ -1,5 +1,5 @@
-Table definition format
-=======================
+Definition syntax 
+=================
 
 The table definition consist of lines.  Each line can be one of the following:
 
