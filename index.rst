@@ -43,8 +43,8 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    data-definition/Table-definition
    data-definition/Definition-syntax
    data-definition/Data-types
-   data-definition/Bulk-store
-   data-definition/Semistructured-tables
+   data-definition/External-store
+   data-definition/Composite-attributes
    data-definition/Primary-key
    data-definition/Foreign-keys
    data-definition/Lookup-tables

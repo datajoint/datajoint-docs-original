@@ -59,7 +59,7 @@ Once the table is created in the database, the definition string has no effect. 
 
 Therefore, in the initial phases of designing a DataJoint pipeline, it is common to experiment with various variations of the design before populating it with substantial amounts of data.
 
-It is possible to modify a table without dropping it.  This topic is covered separately in [[Modifying designs]].
+It is possible to modify a table without dropping it.  This topic is covered separately.
 
 Reverse-engineering the table definition
 ----------------------------------------
