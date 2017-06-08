@@ -98,5 +98,34 @@ The part table must declare the property ``master`` containing an object of the 
         end
     end
 
+
+Populating
+----------
+To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, it is sufficient to call the ``populate`` method of the master:
+
+|matlab|
+
+.. code-block:: matlab
+
+    populate(Segmentation)
+
+|python|
+
+.. code-block:: python
+
+    Segmentation().populate()
+
+
+Note that the tuples in the master and the matching tuples in the part are inserted within a single ``make-tuples`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.  This ensures that partial results never appear in the database.
+
+For example, imagine that a segmentation is performed and an error occurs half way through inserting the results.  If this situation was allowed to persist, then it might appear that 20 ROIs were detected were 45 would really be found.
+
+Deleting
+--------
+
+To delete from a master-part pair, one should never delete from the part tables directly. The only valid method to delete from a part table is to delete the master.  This has been an unenforced rule but upcoming versions of DataJoint will prohibit direct deletes from the master table.  DataJoint's :doc:`../data-manipulation/Delete` operation is also enclosed in a transaction.  Therefore, deleting 
+
+Together, the rules master-part relationships ensure a key aspect of data integrity: results of computations involving multiple components and steps appear in their entirety or not at all.
+
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
