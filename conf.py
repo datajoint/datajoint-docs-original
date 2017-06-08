@@ -41,7 +41,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = 'DataJoint Documentations'
+project = 'DataJoint Documentation'
 copyright = '2017, Vathes LLC'
 author = 'DataJoint contributors'
 
@@ -92,7 +92,7 @@ html_static_path = ['_static']
 
 html_theme = 'datajoint_theme'
 html_theme_path = ['.']
-html_logo = '_static/img/djopen-fullLogo.svg'
+html_logo = '_static/img/djDocsLogo.svg'
 html_theme_options = {
     'collapse_navigation': False,
     'display_version': False,

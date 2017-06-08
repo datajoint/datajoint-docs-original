@@ -38,7 +38,7 @@ h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend, p.capti
 
 /* for mobile */
 .wy-nav-top {
-    background-image: url('../img/djopen-fullLogo.svg'); 
+    background-image: url('../img/djDocsLogo.svg'); 
     background-color: #f4fdfe;
     background-repeat: no-repeat;
     background-position: center;
@@ -58,6 +58,21 @@ h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend, p.capti
         color: #54a8b7;
     }
 }
+
+/* link images to dj.io and docs.dj */
+#footerThumbnail {
+    width: 120px;
+    display: inline-block;
+    float: right;
+}
+
+#breadcrumbsThumbnail {
+    width: 120px;
+    display: inline-block;
+    float: right;
+}
+
+
 
 /* To scale the side bar logo correctly */
 .wy-side-nav-search a {

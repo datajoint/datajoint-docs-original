@@ -21,8 +21,13 @@
         {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
       {%- endif %}
     {%- endif %}
+    <a href="http://docs.datajoint.io" target="_blank">
+      <img id="footerThumbnail" src="./_static/img/djTutorialLogo.svg">
+    </a>
     <br />
     <a href="https://datajoint.io" target="_blank">DataJoint.io</a>
+    </p>
+
     {%- if build_id and build_url %}
       {% trans build_url=build_url, build_id=build_id %}
         <span class="build">
@@ -40,7 +45,6 @@
       {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
     {%- endif %}
 
-    </p>
   </div>
 
 
