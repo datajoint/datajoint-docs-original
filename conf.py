@@ -41,7 +41,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = 'DataJoint Documentations'
+project = 'DataJoint Documentation'
 copyright = '2017, Vathes LLC'
 author = 'DataJoint contributors'
 
@@ -64,8 +64,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-exclude_patterns += ['*/index.rst']
+exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'default'
@@ -92,7 +91,7 @@ html_static_path = ['_static']
 
 html_theme = 'datajoint_theme'
 html_theme_path = ['.']
-html_logo = '_static/img/djopen-fullLogo.svg'
+html_logo = '_static/img/djDocsLogo.svg'
 html_theme_options = {
     'collapse_navigation': False,
     'display_version': False,
