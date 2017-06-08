@@ -11,8 +11,20 @@ DataJoint introduces a new datatype, ``external`` to store large data objects wi
 Defining an attribute of type ``external`` is done using the same :doc:`Definition-syntax` and, to the user, the work the same way as a ``blob`` datatype.  However, internally, the data are stored in an external storage system.  
 This can be a shared file system accessible to all team members with access to these objects or in cloud storage solutions such as the AWS S3 system.  
 
+For example, in the following table defines the storage of motion-aligned two-photon movies.
+
+.. code-block:: text
+
+    # Motion aligned movies
+    -> twophoton.Scan
+    ---
+    aligned_movie :  external  # motion-aligned movie
+
 .. important::
    Desicribe configuration of external storage 
 
 .. important:: 
    Describe the internal linkage between tuples in tables and external stored objects
+
+.. important::
+   Describe the caching mechanism for 
