@@ -36,7 +36,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 1. An external storage location is specified in the DataJoint connection configuration.  This means that only one storage system can be used at a time.  This restriction may be resolved in the future along with the restriction of using one database server at a time.  At this point, DataJoint work with a single database server and a single external storage location at a time.
 
-2. Each schema specifies a dedicated folder (or 'bucket') at the storage location.  No two schemas can share the same folder. The schema folder is specified in the schema object in MATLAB and Python.
+2. Each schema specifies a dedicated folder at the storage location.  No two schemas can share the same folder. The schema folder is specified in the schema object in MATLAB and Python.
 
 3. Externally stored objects are identified by the `SHA-256 <https://en.wikipedia.org/wiki/SHA-2>`_ hash (in web-safe base-64 ASCII) of 
 
@@ -96,7 +96,7 @@ The following steps must be performed to enable external storage:
 
   ``exteral-account`` and ``external-token`` specify the credentials for accessing the external location.
 
-2. For each schema, specify the name of the folder or bucket for that schema.
+2. For each schema, specify the name of the folder for that schema.
 
    In Python, this is  be done using the ``set_external_storage`` method of the schema object.
 
