@@ -134,7 +134,7 @@ Note that the design of the ``Synapse`` table above imposes the constraint that 
 
     ## synapse between two cells
     (presynaptic_slice, presynaptic_cell) -> Cell(slice_id, cell_id)
-    (postsynaptic_slice, postsynaptic_cell) -> Cell(cell_id)
+    (postsynaptic_slice, postsynaptic_cell) -> Cell(slice_id, cell_id)
     ---
     connection_strength : double  # (pA) peak synaptic current
 

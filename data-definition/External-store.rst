@@ -92,7 +92,7 @@ The following steps must be performed to enable external storage:
 
   In MATLAB, this is performed using ``dj.set``.
 
-  ``external-location`` specifies the root path to the external data for all schemas as well as the protocol in the prefix such as ``file://`` or ``s3:``.
+  ``external-location`` specifies the root path to the external data for all schemas as well as the protocol in the prefix such as ``file://`` or ``s3://``.
 
   ``exteral-account`` and ``external-token`` specify the credentials for accessing the external location.
 
