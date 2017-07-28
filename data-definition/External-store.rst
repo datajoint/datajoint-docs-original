@@ -36,7 +36,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 1. An external storage location is specified in the DataJoint connection configuration.  This means that only one storage system can be used at a time.  This restriction may be resolved in the future along with the restriction of using one database server at a time.  At this point, DataJoint work with a single database server and a single external storage location at a time.
 
-2. Each schema specifies a dedicated folder at the storage location.  No two schemas can share the same folder. The schema folder is specified in the schema object in MATLAB and Python.
+2. Each schema specifies a dedicated folder at the storage location.  No two schemas can share the same schema folder. The schema folder is specified in the schema object in MATLAB and Python.
 
 3. Externally stored objects are identified by the `SHA-256 <https://en.wikipedia.org/wiki/SHA-2>`_ hash (in web-safe base-64 ASCII) of 
 
@@ -74,7 +74,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 8. The :doc:`../data-manipulation/Delete` operation first deletes the specified tuples, then updates the status of the item in ``~external`` to ``deleted`` and only then commits the transaction. The object is not actually deleted at this time.
 
-9. The :doc:`../queries/Fetch` operations uses the hash value to find the data.  It need not access ``~external``.  If the cache folder is configured, then ``fetch`` operator retrieves the cached object without downloading it from external storage.  It also `touches` the file to update its creation date.
+9. The :doc:`../queries/Fetch` operation uses the hash values to find the data.  It need not access ``~external``.  If the cache folder is configured, then ``fetch`` operator retrieves the cached object without downloading it from external storage.  It also `touches` the file to update its creation date.
 
 10.  Cleanup is performed regularly when the database is in light use or off-line.  Shallow cleanup removes all objects from external storage with ``status="deleted"`` in ``~external``.   Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
 
