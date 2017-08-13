@@ -1,5 +1,6 @@
 Definition syntax 
 =================
+.. todo?: provide unique index example?
 
 The table definition consist of lines.  Each line can be one of the following:
 
@@ -12,6 +13,7 @@ The table definition consist of lines.  Each line can be one of the following:
   - ``name = default : datatype  # comment``
 * The divider ``---`` (at least three dashes) separating primary key attributes above from non-primary attributes below.
 * A foreign key in the format ``-> ReferencedTable``. (See :doc:`Foreign-keys`.)
+* A ``unique index`` attribute modifier in the format ``unique index(attribute, ...)``.
 
 For example, the table for Persons may have the following definition:
 

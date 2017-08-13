@@ -35,3 +35,16 @@ DataJoint supports the following datatypes. Use the smallest most restrictive da
  * `bit`
 
 For additional information about these datatypes, see http://dev.mysql.com/doc/refman/5.6/en/data-types.html
+
+## A note on fields and MySQL
+
+Currently, DataJoint simply passes field declarations to MySQL without parsing it to restrict the use of SQL's modifiers such as `DEFAULT`, `NOT NULL`, and `UNIQUE`. However, DataJoint provides its way to implement each of these features in its own way and so it is best to use these features.
+
+In DataJoint, there are three ways to impose a unique constraint.
+
+ * Make it the primary key. We have seen some designs with a surrogate primary key with autoincrement and then a separate unique index on the natural attributes. In some cases, a better design is to use the unique fields as the primary key instead.
+
+ * Use a `UNIQUE INDEX (...)` line in the declaration. This is documented in [definition syntax](Definition-syntax.html). It works the same way as in SQL, however it's more general than the UNIQUE modifier on a field since it can be applied to any number of attributes.
+
+ * Use the unique option in the foreign key (datajoint >v0.8.1). This is documented in [foreign keys](Foreign-keys.html). This is the preferred way since it is consonant with the concept that DataJoint keeps the focus on entities rather than attributes.
+
