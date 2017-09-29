@@ -70,34 +70,32 @@ The part table must declare the property ``master`` containing an object of the 
 
 .. code-block:: matlab
 
-    %{
-    # Region of interest resulting from segmentation
-    -> Segmentation
-    roi  : smallint   # roi number
-    ---
-    roi_pixels  : longblob   #  indices of pixels
-    roi_weights : longblob   #  weights of pixels
-    %}
+   %{
+   # Region of interest resulting from segmentation
+   -> Segmentation
+   roi  : smallint   # roi number
+   ---
+   roi_pixels  : longblob   #  indices of pixels
+   roi_weights : longblob   #  weights of pixels
+   %}
 
-    classdef SegmentationROI < dj.Part
-        properties
-            master = test.Segmentation
-        end
-        methods 
-            function makeTuples(self, key)
-                image = fetch1(test.Image & key, 'image');
-                [roi_pixels, roi_weighs] = mylib.segment(image);
-                part = test.SegmentationROI;
-                for roi=1:length(roi_pixels)
-                    tuple = key;
-                    tuple.roi_pixels = roi_pixels{i};
-                    tuple.roi_weights = roi_weights{i};
-                    self.insert(tuple)
-                end
-            end 
-        end
-    end
-
+   classdef SegmentationROI < dj.Part
+       properties
+           master = test.Segmentation
+       end
+       methods
+           function makeTuples(self, key)
+               image = fetch1(test.Image & key, 'image');
+               [roi_pixels, roi_weighs] = mylib.segment(image);
+               for roi=1:length(roi_pixels)
+                   tuple = key;
+                   tuple.roi_pixels = roi_pixels{roi};
+                   tuple.roi_weights = roi_weights{roi};
+                   self.insert(tuple)
+               end
+           end
+       end
+   end
 
 Populating
 ----------
