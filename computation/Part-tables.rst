@@ -66,7 +66,7 @@ The part table must declare the property ``master`` containing an object of the 
         end
     end
     
-``+test/Segmentation/ROI.m``
+``+test/SegmentationROI.m``
 
 .. code-block:: matlab
 
