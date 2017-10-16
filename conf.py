@@ -91,7 +91,7 @@ html_static_path = ['_static']
 
 html_theme = 'datajoint_theme'
 html_theme_path = ['.']
-html_logo = '_static/img/djDocsBETAside.svg'
+html_logo = '_static/img/djDocsLogo.svg'
 html_theme_options = {
     'collapse_navigation': False,
     'display_version': False,
