@@ -73,23 +73,26 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 5. Each database schema has an auxiliary table named ``~external`` for representing externally stored objects.  
 
-    It is automatically created the first time external storage is used.  The primary key of ``~external`` is the data hash. Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
+    It is automatically created the first time external storage is used.  The primary key of ``~external`` is the external storage name and the hash.  Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
 
     Below are sample entries in ``~external``.
 
     .. list-table:: ~external
-       :widths: 12 12 12 12
+       :widths: 12 12 12 12 12
        :header-rows: 1
 
-       * - HASH
+       * - STORAGE
+         - HASH
          - count 
          - size
          - timestamp
-       * - 1GEqtEU6JYEOLS4sZHeHDxWQ3JJfLlHVZio1ga25vd2
-         - 1
+       * - raw
+         - 1GEqtEU6JYEOLS4sZHeHDxWQ3JJfLlHVZio1ga25vd2
+         - 3
          - 1039536788
          - 2017-06-07 23:14:01
-       * - wqsKbNB1LKSX7aLEV+ACKWGr-XcB6+h6x91Wrfh9uf7
+       * - 
+         - wqsKbNB1LKSX7aLEV+ACKWGr-XcB6+h6x91Wrfh9uf7
          - 0
          - 168849430
          - 2017-06-07 22:47:58
