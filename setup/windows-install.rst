@@ -1,9 +1,9 @@
 
-Datajoint Python Windows Install Guide
+DataJoint Python Windows Install Guide
 ======================================
 
-This document outlines the steps necessary to install datajoint on
-windows for use in connecting to a remote server hosting a datajoint
+This document outlines the steps necessary to install DataJoint on
+windows for use in connecting to a remote server hosting a DataJoint
 database. Some limited discussion of installing MySQL is discussed
 in `MySQL for Windows`_, but is not covered in-depth since this is
 an uncommon usage scenario and not strictly required to connect to
@@ -64,7 +64,7 @@ verified by running `python -V` and `pip -V`, respectively:
 
 .. image:: ../_static/img/windows/verify-python-install.png
 
-If you recieve the error message that either `pip` or `python` is not
+If you relieve the error message that either `pip` or `python` is not
 a recognized command, please uninstall python and ensure that the
 option to add python to the PATH variable was properly configured.
 
@@ -105,7 +105,7 @@ builds of the 64 bit version, which are available here:
 
 https://ci.appveyor.com/project/ellson/graphviz-pl238
 
-More specificially, we use the build artifacts from the 'Win64; Configuration: Release' which are available `here <https://ci.appveyor.com/api/buildjobs/hlkclpfhf6gnakjq/artifacts/build%2FGraphviz-install.exe>`_ .
+More specifically, we use the build artifacts from the 'Win64; Configuration: Release' which are available `here <https://ci.appveyor.com/api/buildjobs/hlkclpfhf6gnakjq/artifacts/build%2FGraphviz-install.exe>`_ .
 
 This is a regular windows installer executable, and will present a dialog
 when starting:
@@ -127,7 +127,7 @@ as follows:
 
 .. image:: ../_static/img/windows/verify-graphviz-install.png
 
-If you recieve the error message that the `dot` program is not a
+If you receive the error message that the `dot` program is not a
 recognized command, please uninstall `graphviz` and ensure that the
 option to add python to the PATH variable was properly configured.
 
@@ -155,7 +155,7 @@ installed via `pip`:
 (Optional) Step 5: Install Jupyter Notebook
 -------------------------------------------
 
-As describred on `the jupyter.org website <http://jupyter.org>`_:
+As described on `the jupyter.org website <http://jupyter.org>`_:
 
 'The Jupyter Notebook is an open-source web application that allows
 you to create and share documents that contain live code, equations,
