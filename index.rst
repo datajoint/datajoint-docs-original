@@ -28,6 +28,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
 
    setup/Database-hosting
    setup/Install-and-connect
+   setup/windows-install
 
 .. toctree::
    :maxdepth: 2
