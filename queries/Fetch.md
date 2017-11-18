@@ -25,6 +25,12 @@ The following command retrieves all data from the relation in the form of a colu
 data = rel.fetch('*');
 ```
 
+In some cases, the amount of data returned by fetch can be quite
+large; in these cases it can be useful to use the ```rel.sizeOnDisk()```
+function to detemrine if running a bare fetch would be wise.  Please
+note that it is only currently possible to query the size of entire
+tables stored directly in the database at this time.
+
 ### As separate variables 
 Two fetch methods are used to retrieve individual attributes `fetch1` and `fetchn`.  `rel.fetch1` is used when `rel` is known to contain exactly one tuple. Then the retrieved strings and blobs are retrieved unwrapped. `rel.fetchn` is used for an arbitrary number of tuples in `rel`.  In this case, strings and blobs are returned in the form of cell arrays.
 
@@ -93,7 +99,37 @@ for row in rel.fetch:
    # row is a dict
 ```
 
+In some cases, the amount of data returned by fetch can be quite
+large; in these cases it can be useful to use the ```size_on_disk```
+attirbute to detemrine if running a bare fetch would be wise. Please note
+that it is only currently possible to query the size of entire tables
+stored directly in the database at this time.
+
 ### As separate variables 
-...
+
+```
+name, img = rel.fetch1('name', 'image')  # vale when rel has exactly one tuple
+name, img = rel.fetch('name', 'image')  # [name, ...] [image, ...] otherwise
+```
+
 ### Primary key values
-...
+
+```
+keydict = rel.fetch1(dj.key)  # single key dict when rel has exactly one tuple
+keylist = rel.fetch(dj.key)  # list of key dictionaries [{}, ...] otherwise
+```
+
+### Usage with Pandas
+
+
+The [`pandas`](http://pandas.pydata.org/) library is a popular
+library for data analysis in python which can easily be used with
+DataJoint query results.  Since the records returned by ```fetch()```
+are contained within a ```numpy.recarray```, they can be easily
+converted to ```pandas.DataFrame``` objects by passing them into
+the ```pandas.DataFrame``` constructor. For example:
+
+```
+import pandas as pd
+frame = pd.DataFrame(rel.fetch())
+```
