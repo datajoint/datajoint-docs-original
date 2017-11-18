@@ -24,6 +24,12 @@ rel = experiment.Session * experiment.Scan & 'animal_id = 102';
 # python or matlab
 rel = experiment.Session() * experiment.Scan() & 'animal_id = 102'
 ```
+In python, querying via attribute dictionaries is also permitted:
+
+```
+# python 
+rel = experiment.Session() * experiment.Scan() & {'animal_id': 102}
+```
 
 You can preview the contents of the relation in Python, Jupyter Notebook, or MATLAB by simply display the object:
 
