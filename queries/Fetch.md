@@ -96,14 +96,14 @@ for row in rel.fetch:
 ### As separate variables 
 
 ```
-name, img = rel.fetch1('name', 'image')  # direct values when rel has exactly one tuple
-name, img = rel.fetch('name', 'image')  # [name, ...] [image, ...]
+name, img = rel.fetch1('name', 'image')  # vale when rel has exactly one tuple
+name, img = rel.fetch('name', 'image')  # [name, ...] [image, ...] otherwise
 ```
 
 ### Primary key values
 
 ```
 keydict = rel.fetch1(dj.key)  # single key dict when rel has exactly one tuple
-keylist = rel.fetch(dj.key)  # list of key dictionaries [{}, ...]
+keylist = rel.fetch(dj.key)  # list of key dictionaries [{}, ...] otherwise
 ```
 
