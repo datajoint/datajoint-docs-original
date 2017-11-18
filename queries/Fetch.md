@@ -88,12 +88,6 @@ The following statement retrieves the entire relation as a [`numpy.recarray`](ht
 data = rel.fetch()
 ```
 
-In some cases, the amount of data returned by fetch can be quite
-large; in these cases it can be useful to use the ```size_on_disk```
-attirbute to detemrine if running a bare fetch would be wise. Please note
-that it is only currently possible to query the size of entire tables
-stored directly in the database at this time.
-
 To retrieve the data as a list of `dict`:
 ```python
 data = rel.fetch.as_dict()
@@ -104,6 +98,12 @@ Furthermore, the `fetch` object can be used as a generator for loops:
 for row in rel.fetch:
    # row is a dict
 ```
+
+In some cases, the amount of data returned by fetch can be quite
+large; in these cases it can be useful to use the ```size_on_disk```
+attirbute to detemrine if running a bare fetch would be wise. Please note
+that it is only currently possible to query the size of entire tables
+stored directly in the database at this time.
 
 ### As separate variables 
 
@@ -119,3 +119,17 @@ keydict = rel.fetch1(dj.key)  # single key dict when rel has exactly one tuple
 keylist = rel.fetch(dj.key)  # list of key dictionaries [{}, ...] otherwise
 ```
 
+### Usage with Pandas
+
+
+The [`pandas`](http://pandas.pydata.org/) library is a popular
+library for data analysis in python which can easily be used with
+DataJoint query results.  Since the records returned by ```fetch()```
+are contained within a ```numpy.recarray```, they can be easily
+converted to ```pandas.DataFrame``` objects by passing them into
+the ```pandas.DataFrame``` constructor. For example:
+
+```
+import pandas as pd
+frame = pd.DataFrame(rel.fetch())
+```
