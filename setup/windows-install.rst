@@ -14,13 +14,13 @@ Quick Steps
 
 Quick install steps for advanced users are as follows:
 
-- install latest python 3.x and ensure it is in PATH
+- install latest python 3.x and ensure it is in ``PATH``
   (3.6.3 current at time of writing)
 - pip install datajoint
 
 For ERD drawing support:
 
-- Install graphviz for windows and ensure it is in PATH
+- Install graphviz for windows and ensure it is in ``PATH``
   (64 bit builds currently tested; URL below.)
 - pip install pydotplus matplotlib
 
@@ -39,7 +39,7 @@ from the python site <https://www.python.org/ftp/python/3.6.3/python-3.6.3-amd64
 From here, run the installer to install python.
 
 For a single-user machine, the regular installation process is sufficient -
-be sure to select the `Add Python to PATH` option:
+be sure to select the ``Add Python to PATH`` option:
 
 .. image:: ../_static/img/windows/install-python-simple.png
 
@@ -54,28 +54,29 @@ Step 2: Verify Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To verify the python installation and make sure that your system
-is ready to install datajoint, open a command window by entering 'cmd'
+is ready to install datajoint, open a command window by entering ``cmd``
 into the windows search bar:
 
 .. image:: ../_static/img/windows/cmd-prompt.png
 
-From here, python and the python package manager, `pip` can be
-verified by running `python -V` and `pip -V`, respectively:
+From here, ``python`` and the python package manager, ``pip`` can be
+verified by running ``python -V`` and ``pip -V``, respectively:
 
 .. image:: ../_static/img/windows/verify-python-install.png
 
-If you relieve the error message that either `pip` or `python` is not
-a recognized command, please uninstall python and ensure that the
-option to add python to the PATH variable was properly configured.
+If you relieve the error message that either ``pip`` or ``python``
+is not a recognized command, please uninstall python and ensure
+that the option to add python to the PATH variable was properly
+configured.
 
 Step 3: Install DataJoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DataJoint (and other python modules) can be easily installed using
-the `pip` python package manager which is installed as a part of python
+the ``pip`` python package manager which is installed as a part of python
 and was verified in the previous step.
 
-To install datajoint simply run `pip install datajoint`:
+To install datajoint simply run ``pip install datajoint``:
 
 .. image:: ../_static/img/windows/install-datajoint-1.png
 
@@ -85,8 +86,9 @@ the activity should be presented:
 
 .. image:: ../_static/img/windows/install-datajoint-2.png
 
-You can find out more about the packages installed and many freely
-available other open source packages via `pypi <https://pypi.python.org/pypi>`_, the python package index site.
+.. note:: You can find out more about the packages installed and many freely 
+   available other open source packages via
+   `pypi <https://pypi.python.org/pypi>`_, the python package index site.
 
 (Optional) Step 4: Install Packages for ERD Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,14 +107,14 @@ builds of the 64 bit version, which are available here:
 
 https://ci.appveyor.com/project/ellson/graphviz-pl238
 
-More specifically, we use the build artifacts from the 'Win64; Configuration: Release' which are available `here <https://ci.appveyor.com/api/buildjobs/hlkclpfhf6gnakjq/artifacts/build%2FGraphviz-install.exe>`_ .
+More specifically, we use the build artifacts from the ``Win64; Configuration: Release`` which are available `here <https://ci.appveyor.com/api/buildjobs/hlkclpfhf6gnakjq/artifacts/build%2FGraphviz-install.exe>`_ .
 
 This is a regular windows installer executable, and will present a dialog
 when starting:
 
 .. image:: ../_static/img/windows/install-graphviz-1.png
 
-It is important that an option to place graphviz in the PATH be selected.
+It is important that an option to place graphviz in the ``PATH`` be selected.
 
 For a personal installation:
 
@@ -131,15 +133,14 @@ If you receive the error message that the `dot` program is not a
 recognized command, please uninstall `graphviz` and ensure that the
 option to add python to the PATH variable was properly configured.
 
-Also please note: in the case of the system-wide install, running
-the 'dot -c' command was required to properly initialize the graphviz
-installation.
+.. important:: in some cases, running the ``dot -c`` command in a command 
+   prompt is required to properly initialize the graphviz installation.
 
 Install Pydotplus
 ~~~~~~~~~~~~~~~~~
 
 The pydotplus library links the graphviz installation to DataJoint,
-and is easily installed via `pip`:  
+and is easily installed via ``pip``:
 
 .. image:: ../_static/img/windows/install-pydotplus.png
 
@@ -148,7 +149,7 @@ Install Matplotlib
 
 The matplotlib library provides useful plotting utilities which are
 also used by DataJoint's ERD drawing facility, and is and is easily
-installed via `pip`:
+installed via ``pip``:
 
 .. image:: ../_static/img/windows/install-matplotlib.png
 
@@ -157,18 +158,20 @@ installed via `pip`:
 
 As described on `the jupyter.org website <http://jupyter.org>`_:
 
-'The Jupyter Notebook is an open-source web application that allows
-you to create and share documents that contain live code, equations,
-visualizations and narrative text.'
+.. 
+
+  'The Jupyter Notebook is an open-source web application that allows
+  you to create and share documents that contain live code, equations,
+  visualizations and narrative text.'
 
 Although not a part of datajoint, jupyter notebook can be a very
 useful tool for building and interacting with datajoint pipelines,
-and is easily installed from `pip` as well:
+and is easily installed from ``pip`` as well:
 
 .. image:: ../_static/img/windows/install-jupyter-1.png
 .. image:: ../_static/img/windows/install-jupyter-2.png
 
-Once installed, jupyter notebook can be started via the `jupyter notebook`
+Once installed, jupyter notebook can be started via the ``jupyter notebook``
 command, which should now be on your path:
 
 .. image:: ../_static/img/windows/verify-jupyter-install.png
