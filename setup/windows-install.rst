@@ -131,9 +131,8 @@ If you receive the error message that the `dot` program is not a
 recognized command, please uninstall `graphviz` and ensure that the
 option to add python to the PATH variable was properly configured.
 
-Also please note: in the case of the system-wide install, running
-the 'dot -c' command was required to properly initialize the graphviz
-installation.
+.. important:: in some cases, running the 'dot -c' command in a command prompt is required to properly initialize the graphviz installation.
+
 
 Install Pydotplus
 ~~~~~~~~~~~~~~~~~
