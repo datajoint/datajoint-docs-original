@@ -61,7 +61,7 @@ See the [[proj]] operator for an in-depth description of projection.
 
 
 ### Sorting and limiting the results
-To sort the result, add the additional `ORDER BY` argument in `fetch` and `fetchn` methods. 
+To sort the result, add the additional `ORDER BY` argument in `fetch` and `fetchn` methods as the last argument.
 ```matlab
 % retrieve field `notes` from experiment sessions 
 % performed by Alice, sorted by session date
@@ -73,7 +73,7 @@ The ORDER BY argument is passed directly to SQL and follows the same syntax as t
 
 Similarly, the LIMIT and OFFSET clauses can be used to limit the result to a subset of tuples.  For example, to return the top most recent sessions, one could do the following:
 ```matlab
-s = fetch(experiment.Session, '*', 'ORDER BY session_date DESC', 'LIMIT 5')
+s = fetch(experiment.Session, '*', 'ORDER BY session_date DESC LIMIT 5')
 ```
 
 The limit clause is passed directly to SQL and follows the same [rules](https://dev.mysql.com/doc/refman/5.7/en/select.html)
