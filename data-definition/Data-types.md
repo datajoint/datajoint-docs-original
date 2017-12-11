@@ -44,7 +44,7 @@ In DataJoint, there are three ways to impose a unique constraint.
 
  * Make it the primary key. We have seen some designs with a surrogate primary key with autoincrement and then a separate unique index on the natural attributes. In some cases, a better design is to use the unique fields as the primary key instead.
 
- * Use a `UNIQUE INDEX (...)` line in the declaration. This is documented in [definition syntax](Definition-syntax.html). It works the same way as in SQL, however it's more general than the UNIQUE modifier on a field since it can be applied to any number of attributes.
+ * Use a `UNIQUE INDEX (...)` line in the declaration. This is documented in [definition syntax](Definition-syntax.html). This creates a unique constraint on the given attributes and indexes the combination for faster queries.
 
- * Use the unique option in the foreign key (datajoint >v0.8.1). This is documented in [foreign keys](Foreign-keys.html). This is the preferred way since it is consonant with the concept that DataJoint keeps the focus on entities rather than attributes.
+ * Use the unique option in the foreign key (datajoint >v0.9.0). This is documented in [foreign keys](Foreign-keys.html). This is the preferred way since it is consonant with the concept that DataJoint keeps the focus on entities rather than attributes.
 
