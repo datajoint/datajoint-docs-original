@@ -82,13 +82,17 @@ done by simply making the schema objects have unique names. For example:
 Using Schemas via Database Introspection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are two primary ways to use schemas via Database introspection, each of
-which will create basic DataJoint user relations (table classes) suitable for
-querying and retrieving associated data within DataJoint. These methods are
-`spawn_missing_classes`, which will define the classes in the current namespace,
-and `create_virtual_module`, which will create a stub module in the currently
-running interpreter and return a valid schema object for that module. A usage
-example of each method follows.
+There are two primary ways to use schemas via Database introspection,
+each of which will create basic DataJoint user relations (table
+classes) suitable for querying and retrieving associated data within
+DataJoint. These are the `spawn_missing_classes` method of a schema
+object, which will define the generated classes in the same context
+passed into the schema object constructor (typically 'locals()' in
+the module where the schema object was first instantiated), and
+`dj.create_virtual_module`, which returns a reference to a generated
+module containing the generated table classes. A usage example of
+each method follows.
+
 
 |python| Python
 ---------------
