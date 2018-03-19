@@ -1,7 +1,7 @@
 External store
 ==============
 
-.. important:: This section serves as the feature specification.  The implementation of this feature is schedule for the upcoming release.
+.. important:: This section serves primarily as a work in progress specification.  The complete implementation of this feature is scheduled for future release.
 
 DataJoint organizes most of its data in a relational database.  
 Relational databases excel at representing relationships between entities and storing structured data.
@@ -30,15 +30,15 @@ For example, the following table stores motion-aligned two-photon movies.
 All :doc:`../data-manipulation/Insert` and :doc:`../queries/Fetch` operations work identically for ``external`` attributes as for blob attributes with the same serialization protocol.  
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
-Multiple external storages may be configured and used simultaneously.  
-In this case, the name of the external storage is specified in parentheses:
+Multiple external storage configurations may be used simultaneously.  
+In this case, the specific external storage name is specified:
 
 .. code-block:: text
 
     # Motion aligned movies
     -> twophoton.Scan
     ---
-    aligned_movie :  external.preprocess  # motion-aligned movie
+    aligned_movie :  external-raw  # motion-aligned movie
 
 
 Principles of operation
@@ -46,22 +46,28 @@ Principles of operation
 External storage is organized to emulate individual attribute values in the relational database.  
 DataJoint organizes external storage to preserve the same data integrity principles in external storage as for relational storage.
 
-1. The external storage locations are specified in the DataJoint connection configuration, one for each storage. 
+1. The external storage locations are specified in the DataJoint connection configuration, one for each store. 
 
 .. code-block:: python
 
    # default external storage
    dj.config['external'] = dict(
-                 location='s3://microns-pipeline/analysis-store', 
-                 account='vathes/chris-turner', 
-                 token='LatVARch')
-    
-   # raw data storage 
-   dj.config['extnernal.raw'] = dict(
+                 protocol='s3',
+                 region_name = 'us-east-1',
+                 bucket = 'testbucket',
+                 location = '/datajoint-projects/myschema',
+                 aws_access_key_id='1234567',
+                 aws_secret_access_key='foaf1234')
 
-   # preprocess external storage
-   dj.config['external.preprocess'] = dict(
-                 location='file://lab.ad.bcm.edu/store003') 
+   # raw data storage 
+   dj.config['extnernal-raw'] = dict(
+                 protocol='file',
+                 location='/net/djblobs/myschema')
+
+   # external object cache - see fetch operation below for details.
+   dj.config['cache'] = dict(
+                 protocol='file',
+                 location='/net/djcache')
 
 
 2. Each schema corresponds to a dedicated folder at the storage location with the same name as the database schema.   
@@ -73,9 +79,9 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 5. Each database schema has an auxiliary table named ``~external`` for representing externally stored objects.  
 
-    It is automatically created the first time external storage is used.  The primary key of ``~external`` is the external storage name and the hash.  Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
+It is automatically created the first time external storage is used.  The primary key of ``~external`` is the external storage name and the hash.  Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
 
-    Below are sample entries in ``~external``.
+Below are sample entries in ``~external``.
 
     .. list-table:: ~external
        :widths: 12 12 12 12 12
@@ -103,7 +109,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 8. The :doc:`../data-manipulation/Delete` operation first deletes the specified tuples, then decrements the ``count`` of the item in ``~external`` and only then commits the entire transaction. The object is not actually deleted at this time.
 
-9. The :doc:`../queries/Fetch` operation uses the hash values to find the data.  It need not access ``~external``.  If the cache folder is configured, then ``fetch`` operator retrieves the cached object without downloading it from external storage.  It does also ``touch`` the file to update its creation date to enable access recency check.
+9. The :doc:`../queries/Fetch` operation uses the hash values to find the data.  In order to prevent excessive network overhead, a special external store named ``cache`` can be configured. If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store. 
 
 10.  Cleanup is performed regularly when the database is in light use or off-line.  Shallow cleanup removes all objects from external storage with ``count=0`` in ``~external``.   Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
 
