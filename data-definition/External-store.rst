@@ -53,11 +53,11 @@ DataJoint organizes external storage to preserve the same data integrity princip
    # default external storage
    dj.config['external'] = dict(
                  protocol='s3',
-                 region_name = 'us-east-1',
+                 endpoint='https://s3.amazonaws.com',
                  bucket = 'testbucket',
                  location = '/datajoint-projects/myschema',
-                 aws_access_key_id='1234567',
-                 aws_secret_access_key='foaf1234')
+                 access_key='1234567',
+                 secret_key='foaf1234')
 
    # raw data storage 
    dj.config['extnernal-raw'] = dict(
