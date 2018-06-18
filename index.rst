@@ -89,6 +89,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    computation/Part-tables
    computation/Custom-key-source
    computation/Distributed-computing
+   computation/Multi-schema
 
 .. toctree::
    :maxdepth: 3
