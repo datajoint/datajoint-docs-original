@@ -3,8 +3,8 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = DataJointTutorial
-SOURCEDIR     = .
+SPHINXPROJ    = DataJointDocumentation
+SOURCEDIR     = contents
 BUILDDIR      = _build
 GH_PAGES_SOURCES = $(SOURCEDIR) Makefile
 

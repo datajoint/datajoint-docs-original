@@ -26,7 +26,7 @@ User accounts and privileges
 
 Create user accounts on the MySQL server. For example, if your username is ``alice``, the SQL code for this step is
 
-.. code-block:: SQL
+.. code-block:: mysql
 
     CREATE USER 'alice'@'%' IDENTIFIED BY 'alices-secret-password';
 
@@ -34,9 +34,9 @@ Teams that use DataJoint typically divide their data into schemas grouped togeth
 
 For example, ``alice`` may have privileges to select and insert data from the common schemas (but not create new tables), and have all privileges to the pipeline schemas.
 
-Then the SQL code to grant her priviges might look like
+Then the SQL code to grant her privileges might look like
 
-.. code-block:: SQL
+.. code-block:: mysql
 
     GRANT SELECT, INSERT ON `common\_%`.* TO 'alice'@'%';
     GRANT ALL PRIVILEGES ON `pipeline\_%`.* TO 'alice'@'%';
