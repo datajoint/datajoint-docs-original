@@ -11,7 +11,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:
@@ -20,7 +20,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    introduction/Data-pipelines
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:
@@ -31,7 +31,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    setup/windows-install
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:
@@ -55,7 +55,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
   
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:
@@ -66,7 +66,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    data-manipulation/No-update
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :hidden:
    :includehidden:
    :titlesonly:
@@ -79,7 +79,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    queries/Relation-U
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:
@@ -91,14 +91,14 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    computation/Distributed-computing
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :hidden:
    :includehidden:
    :titlesonly:
    :caption: Examples
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:

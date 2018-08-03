@@ -38,11 +38,12 @@ source_parsers = {
 source_suffix = ['.rst', '.md']
 
 # The master toctree document.
+# master_doc = 'index'
 master_doc = 'index'
 
 # General information about the project.
 project = 'DataJoint Documentation'
-copyright = '2017, Vathes LLC'
+copyright = '2017-2018, Vathes LLC'
 author = 'DataJoint contributors'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -79,7 +80,8 @@ todo_include_todos = False
 # # Add any paths that contain custom static files (such as style sheets) here,
 # # relative to this directory. They are copied after the builtin static files,
 # # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['./docContents/_static']
+html_static_path = ['../datajoint_theme/static']
 
 # # Custom sidebar templates, maps document names to template names.
 # html_sidebars = {
@@ -90,14 +92,17 @@ html_static_path = ['_static']
 
 
 html_theme = 'datajoint_theme'
-html_theme_path = ['.']
-html_logo = '_static/img/djDocsLogo.svg'
+html_theme_path = ['../']
+html_logo = '../datajoint_theme/static/themeImages/djDocsLogo.svg'
 html_theme_options = {
     'collapse_navigation': False,
     'display_version': False,
     'logo_only': True,
 }
-html_favicon = 'favicon.ico'
+html_favicon = '../datajoint_theme/static/favicons/favicon.ico'
+
+# -- The URL which points to the root of the HTML documentation ----------
+html_baseurl = ''
 
 # -- Options for HTMLHelp output ------------------------------------------
 
