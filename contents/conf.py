@@ -80,7 +80,6 @@ todo_include_todos = False
 # # Add any paths that contain custom static files (such as style sheets) here,
 # # relative to this directory. They are copied after the builtin static files,
 # # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['./docContents/_static']
 html_static_path = ['../datajoint_theme/static']
 
 # # Custom sidebar templates, maps document names to template names.
@@ -102,7 +101,7 @@ html_theme_options = {
 html_favicon = '../datajoint_theme/static/favicons/favicon.ico'
 
 # -- The URL which points to the root of the HTML documentation ----------
-html_baseurl = ''
+# html_baseurl = ''
 
 # -- Options for HTMLHelp output ------------------------------------------
 
