@@ -14,3 +14,14 @@ The documentation can be distributed for free use under the [Creative Commons At
 - Install requirements using `pip3 install -r requirements.txt`
 - Build the website by running `make site`. This will build and generate the static website in the `_build/html` directory.
 - Some structural changes might require you to first clean the output directory by running `make clean` before generating the doc with `make html`.
+
+# Guidelines for Writing
+- For inserting a SQL code-block, be sure to use `.. code-block:: mysql` (and NOT `SQL`)
+- For inserting an image, make sure to put the image inside the `contents/_static/img` folder and refer to it using the `image` directive:
+    ```rst
+    .. image:: ../_static/img/pipeline.png
+        :width: 250px
+        :align: center
+        :alt: A data pipeline
+    ```
+    Alternatively you can also use `figure` directive. For more information, refer to the documentation of [image](http://docutils.sourceforge.net/docs/ref/rst/directives.html#image) and/or [figure](http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure) directives.
