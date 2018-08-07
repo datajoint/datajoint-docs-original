@@ -24,11 +24,24 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
    :hidden:
    :includehidden:
    :titlesonly:
+   :caption: IT
+
+   IT/Hosting
+   IT/Configuration
+   IT/User-accounts
+   IT/Bulk-storage 
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :includehidden:
+   :titlesonly:
    :caption: Setup
 
    setup/Database-hosting
    setup/Install-and-connect
    setup/windows-install
+..
 
 .. toctree::
    :maxdepth: 2
@@ -63,7 +76,7 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
 
    data-manipulation/Insert
    data-manipulation/Delete
-   data-manipulation/No-update
+   data-manipulation/Cautious-update
 
 .. toctree::
    :maxdepth: 3
