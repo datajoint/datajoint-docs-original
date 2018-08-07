@@ -167,4 +167,14 @@ nav .hidden-section {
     display: inherit;
 }
 
+/* fix for wide table content not wrapping even in large screens */
+@media screen and (min-width: 767px) {
 
+   .wy-table-responsive table td {
+      white-space: normal; 
+   }
+
+   .wy-table-responsive {
+      overflow: visible; 
+   }
+}
