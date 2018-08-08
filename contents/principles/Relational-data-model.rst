@@ -14,7 +14,7 @@ may differ from other descriptions.
     thought of as entities.
 2.  Relations have unique rows (also called *tuples*).
 3.  Tuples in a given relation are independent of each other and
-    represent distinct real-world *entities* or a *relationships*
+    represent distinct real-world *entities* or *relationships*
     between entities.
 4.  Relations have named columns (also called *attributes*) with a fixed
     data type. All tuples in the same relation have the same sets of
