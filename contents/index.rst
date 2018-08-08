@@ -51,6 +51,12 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    definition/*
   
+.. toctree::
+   :maxdepth: 2
+   :caption: Schema diagrams
+   :glob:
+
+   diagrams/*
 
 .. toctree::
    :maxdepth: 2
