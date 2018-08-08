@@ -11,18 +11,20 @@ For a more guided tour of DataJoint, explore our tutorials at http://tutorials.d
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :includehidden:
    :titlesonly:
    :caption: Introduction
 
    introduction/Data-pipelines
+   introduction/What-data
+   introduction/Data-input
+   introduction/Data-output
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
-   :includehidden:
    :titlesonly:
    :caption: IT
 
