@@ -1,18 +1,6 @@
 Operators
 =============
 
-.. toctree::
-   :maxdepth: 6
-   :hidden:
-   :titlesonly:
-   :includehidden:
-
-   Restriction
-   Join
-   proj
-   Union
-   Aggr
-
 Relational operators
 -----------------------
 [Data queries](Query basics) have the form of expressions using operators to derive the desired relation.  The expressions themselves do not contain any data.  They represent the desired data symbolically.
@@ -21,17 +9,16 @@ Once a query is formed, the [`fetch`](Fetching) methods are used to bring the da
 
 DataJoint implements a complete algebra of operators on relations:
 
-================================  =======================================   =================================================================================
-operator                          notation                                  meaning 
-================================  =======================================   =================================================================================
-:doc:`restriction <Restriction>`  ``A & cond``    													The subset of relation ``A`` the meets condition ``cond`` 
-:doc:`difference <Restriction>`   ``A - cond``  														The subset of relation ``A`` the does not meet condition ``cond`` 
-:doc:`join <Join>`                ``A * B``     														Combines all matching information from ``A`` and ``B``  
-:doc:`left join <Join>`           ``A ** B`` (Python) ``A .* B`` (MATLAB)   Combines matching information from ``B`` into ``A`` 
-:doc:`union <Union>`              ``A + B``     														All unique tuples from ``A`` and ``B`` 
-:doc:`projection <proj>`          ``A.proj(...)``  												  Selects and renames attributes from ``A`` or computes new attributes 
-:doc:`aggregation <Aggr>`         ``A.aggr(B, ...)``  											Same as projection but allows computations based on matching information in ``B`` 
-================================  =======================================   =================================================================================
+==================================  =======================================   =================================================================================
+operator                            notation                                  meaning 
+==================================  =======================================   =================================================================================
+:doc:`restriction <4-restriction>`  ``A & cond``                              The subset of relation ``A`` the meets condition ``cond`` 
+:doc:`exclusion <4-restriction>`    ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond`` 
+:doc:`join <5-join>`                ``A * B``     							  Combines all matching information from ``A`` and ``B``  
+:doc:`projection <6-proj>`          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes 
+:doc:`aggregation <7-aggr>`         ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B`` 
+:doc:`union <8-union>`              ``A + B``     							  All unique tuples from both ``A`` and ``B`` 
+==================================  =======================================   =================================================================================
 
 
 Principles of relational algebra
@@ -65,7 +52,7 @@ It may be conceptually convenient to imagine that all relations always have an a
 Matching tuples can be *merged* into a single tuple without any conflicts of attribute names and values.
 
 Examples
-^^^^^^^^^^^
+^^^^^^^^
 This is a matching pair of tuples:
 
 .. image:: ../_static/img/matched_tuples1.png

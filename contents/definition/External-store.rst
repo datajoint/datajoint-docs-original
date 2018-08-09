@@ -27,7 +27,7 @@ For example, the following table stores motion-aligned two-photon movies.
     aligned_movie :  external  # motion-aligned movie
 
 
-All :doc:`../manipulation/Insert` and :doc:`../queries/Fetch` operations work identically for ``external`` attributes as for blob attributes with the same serialization protocol.  
+All :doc:`../manipulation/Insert` and :doc:`../queries/2-fetch` operations work identically for ``external`` attributes as for blob attributes with the same serialization protocol.  
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
 Multiple external storage configurations may be used simultaneously.  
@@ -109,7 +109,7 @@ Below are sample entries in ``~external``.
 
 8. The :doc:`../manipulation/Delete` operation first deletes the specified tuples, then decrements the ``count`` of the item in ``~external`` and only then commits the entire transaction. The object is not actually deleted at this time.
 
-9. The :doc:`../queries/Fetch` operation uses the hash values to find the data.  In order to prevent excessive network overhead, a special external store named ``cache`` can be configured. If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store. 
+9. The :doc:`../queries/2-fetch` operation uses the hash values to find the data.  In order to prevent excessive network overhead, a special external store named ``cache`` can be configured. If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store. 
 
 10.  Cleanup is performed regularly when the database is in light use or off-line.  Shallow cleanup removes all objects from external storage with ``count=0`` in ``~external``.   Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
 
