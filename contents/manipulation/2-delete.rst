@@ -2,7 +2,7 @@ Delete
 ======
 
 The ``delete`` (Python) and ``del`` (Matlab) method deletes tuples from a table and all dependent entries in dependent tables.  
-Delete is often used in conjunction with the :doc:`../queries/Restriction` operator to define the subset of tuples to delete.  Delete is performed as an atomic transaction so that partial deletes never occur.
+Delete is often used in conjunction with the :doc:`../queries/4-restriction` operator to define the subset of tuples to delete.  Delete is performed as an atomic transaction so that partial deletes never occur.
 
 |matlab| MATLAB examples
 ------------------------
@@ -36,7 +36,7 @@ Delete the entire contents of the table ``tuning.VonMises`` and all its dependen
 
 Deleting from part tables
 -------------------------
-:doc:`../computation/Part-tables` prohibit direct deletion. The only way to delete from a part table is to delete from its master.
+:doc:`../computation/04-master-part` prohibit direct deletion. The only way to delete from a part table is to delete from its master.
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png

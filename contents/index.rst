@@ -1,107 +1,107 @@
 Welcome to DataJoint Documentation
 ====================================
 
-Here you will find extensive documentation of DataJoint core concepts in Python and MATLAB. 
+This is a detailed manual for active users of DataJoint in Python and MATLAB. 
 
-If you are new to DataJoint, start by reading :doc:`What Is a Data Pipeline? <introduction/Data-pipelines>`
+This documentation can be read sequentially from start to end or used as reference for specific topics.
 
-This documentation can be read sequentially from start to end or used as quick reference for specific topics.
-
-For a more guided tour of DataJoint, explore our tutorials at http://tutorials.datajoint.io
+For a guided introduction to DataJoint, please explore our tutorials at http://tutorials.datajoint.io
 
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
-   :titlesonly:
-   :caption: Introduction
+   :caption: Introduction 
+   :glob: 
 
-   introduction/Data-pipelines
+   intro/*
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
-   :includehidden:
-   :titlesonly:
-   :caption: Setup
+   :caption: Administration
+   :glob:
 
-   setup/Database-hosting
-   setup/Install-and-connect
-   setup/windows-install
+   admin/*
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
-   :titlesonly:
+   :caption: Client setup
+   :glob:
+
+   setup/* 
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: Concepts
+   :glob:
+
+   concepts/*
+
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
    :caption: Data Definition
+   :glob:
 
-   data-definition/Notes-on-terminology
-   data-definition/Data-tiers
-   data-definition/Create-a-schema
-   data-definition/Create-tables
-   data-definition/Table-definition
-   data-definition/Definition-syntax
-   data-definition/Data-types
-   data-definition/External-store
-   data-definition/Composite-attributes
-   data-definition/Primary-key
-   data-definition/Foreign-keys
-   data-definition/Lookup-tables
-   data-definition/Manual-tables
-   data-definition/Drop
-   data-definition/ERD
+   definition/*
   
+.. toctree::
+   :maxdepth: 2
+   :caption: Schema diagrams
+   :glob:
+
+   diagrams/*
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
+   :caption: Work with existing pipelines
+   :glob:
+   
+   existing/*
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Design principles
+   :glob:
+
+   design/*
+
+.. toctree::
+   :maxdepth: 2
    :includehidden:
-   :titlesonly:
    :caption: Data Manipulation
+   :glob:
 
-   data-manipulation/Insert
-   data-manipulation/Delete
-   data-manipulation/No-update
+   manipulation/*
 
 .. toctree::
-   :maxdepth: 3
-   :hidden:
+   :maxdepth: 2
    :includehidden:
-   :titlesonly:
    :caption: Queries
+   :glob:
 
-   queries/Query-basics
-   queries/Fetch
-   queries/Farfetch
-   queries/Operators
-   queries/Relation-U
+   queries/*
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
-   :titlesonly:
    :caption: Computation
+   :glob:
 
-   computation/Auto-populate
-   computation/Part-tables
-   computation/Custom-key-source
-   computation/Distributed-computing
-
-.. toctree::
-   :maxdepth: 3
-   :hidden:
-   :includehidden:
-   :titlesonly:
-   :caption: Examples
+   computation/*
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
-   :titlesonly:
-   :caption: Principles
+   :caption: Feature Matrix
+   :glob:
+   
+   features/*
 
-   principles/Relational-data-model
+.. toctree::
+   :maxdepth: 2
+   :caption: Contribute
+   :glob: 
+
+   contribute/*

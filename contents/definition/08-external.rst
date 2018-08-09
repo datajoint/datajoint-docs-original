@@ -12,7 +12,7 @@ In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) ma
 
 DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.  
 
-Defining an attribute of type ``external`` is done using the same :doc:`Definition-syntax` and, to the user, it works the same way as a ``longblob`` attribute.  
+Defining an attribute of type ``external`` is done using the same :doc:`04-syntax` and, to the user, it works the same way as a ``longblob`` attribute.  
 However, its data are stored in an external storage system.  
 
 Various systems can play the role of external storage: a shared file system accessible to all team members with access to these objects or a cloud storage solutions such as the AWS S3.  
@@ -27,7 +27,7 @@ For example, the following table stores motion-aligned two-photon movies.
     aligned_movie :  external  # motion-aligned movie
 
 
-All :doc:`../data-manipulation/Insert` and :doc:`../queries/Fetch` operations work identically for ``external`` attributes as for blob attributes with the same serialization protocol.  
+All :doc:`../manipulation/1-insert` and :doc:`../queries/2-fetch` operations work identically for ``external`` attributes as for blob attributes with the same serialization protocol.  
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
 Multiple external storage configurations may be used simultaneously.  
@@ -105,11 +105,11 @@ Below are sample entries in ``~external``.
 
 6. Attributes of type ``external`` are declared as renamed foreign keys referencing the ``~external`` table (but are not shown as such to the user).  
 
-7. The :doc:`../data-manipulation/Insert` operation first saves all the external objects in the external storage, then inserts the corresponding tuples in ``~external`` or, on duplicate, increments the ``count``, and only then inserts the specified tuples.
+7. The :doc:`../manipulation/1-insert` operation first saves all the external objects in the external storage, then inserts the corresponding tuples in ``~external`` or, on duplicate, increments the ``count``, and only then inserts the specified tuples.
 
-8. The :doc:`../data-manipulation/Delete` operation first deletes the specified tuples, then decrements the ``count`` of the item in ``~external`` and only then commits the entire transaction. The object is not actually deleted at this time.
+8. The :doc:`../manipulation/2-delete` operation first deletes the specified tuples, then decrements the ``count`` of the item in ``~external`` and only then commits the entire transaction. The object is not actually deleted at this time.
 
-9. The :doc:`../queries/Fetch` operation uses the hash values to find the data.  In order to prevent excessive network overhead, a special external store named ``cache`` can be configured. If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store. 
+9. The :doc:`../queries/2-fetch` operation uses the hash values to find the data.  In order to prevent excessive network overhead, a special external store named ``cache`` can be configured. If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store. 
 
 10.  Cleanup is performed regularly when the database is in light use or off-line.  Shallow cleanup removes all objects from external storage with ``count=0`` in ``~external``.   Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
 

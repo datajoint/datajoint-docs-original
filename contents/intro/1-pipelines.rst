@@ -1,11 +1,11 @@
-What Is a Data Pipeline?
+What is a data pipeline?
 ========================
 
 DataJoint is a free open-source framework for creating scientific data pipelines using MATLAB or Python (or any mixture of the two) with a relational database and non-relational store as the backend. 
 
 A data pipeline is a sequence of steps (more generally a directed acyclic graph) with integrated storage at each step.  These steps may be thought of as nodes in a graph.
 
-In the initial nodes of the pipeline, data are typed in by the experimenters or are entered by data acqusition software.
+In the initial nodes of the pipeline, data are typed in by the experimenters or are entered by data acquisition software.
 In the later nodes of the pipeline, data are automatically processed and computed. Such computed nodes bind together code and data.
 
 For example, the figure below depicts the pipeline for a simple two-photon imaging experiment using mice as subjects.
@@ -23,7 +23,8 @@ To the user, each node appears as a MATLAB or Python object that represents data
   :align: center 
   :alt: Data ecosystem
 
-Thus all the data becomes immediately available to all participates of the project.  This may include computational units that perform processing and analysis, including cloud computing solutions. 
+The data becomes immediately available to all participates of the project with appropriate access privileges.  
+This may include computational units that perform processing and analysis, including cloud computing solutions. 
 
 DataJoint is designed for quick prototyping and continuous exploration since data pipelines quickly evolve and adopt to new experiment prototypes.  It works best when the team already has good code sharing practices (e.g. with git) and even environment sharing (e.g. with  docker)
 
@@ -33,4 +34,5 @@ Data sharing and publishing is no longer a separate step at the end of the proje
 
 DataJoint uses an succinct data definition language, a powerful data query languages, and expressive visualizations of the pipeline. It also features a built-in distributed job management process to allow distributing analysis jobs between any number of computers.
 
-Pipelines can grow large and complex while ever evolving,  reflecting the complexity of neuroscience experiments.  A well-defined and principled approach to data oragnization and computation enables teams of scientists to work together efficiently.
+Pipelines can grow large and complex while ever evolving,  reflecting the complexity of neuroscience experiments.  
+A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently.

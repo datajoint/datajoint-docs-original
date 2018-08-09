@@ -38,7 +38,6 @@ source_parsers = {
 source_suffix = ['.rst', '.md']
 
 # The master toctree document.
-# master_doc = 'index'
 master_doc = 'index'
 
 # General information about the project.
@@ -81,6 +80,7 @@ todo_include_todos = False
 # # relative to this directory. They are copied after the builtin static files,
 # # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['../datajoint_theme/static']
+
 
 # # Custom sidebar templates, maps document names to template names.
 # html_sidebars = {

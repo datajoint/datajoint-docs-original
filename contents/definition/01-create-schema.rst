@@ -6,7 +6,7 @@ Relational Data Model
 ---------------------
 DataJoint organizes data using the *Relational Data Model*.  This means that all data are stored in collections of simple tables or, in mathematical lingo, *relations*. 
 
-See also :doc:`Notes-on-terminology`
+See also :doc:`../concepts/2-terminology`
  
 Classes represent tables
 ------------------------
@@ -84,7 +84,7 @@ Create a new schema using the ``dj.schema`` function:
 This statement creates the database ``alice_experiment`` on the server.  
 The second argument of ``dj.schema`` is the contexts in which future table declarations will look for other classes; this argument will nearly always need to be simply ``locals()``.
 
-The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`Create-tables`.
+The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-create-table`.
 
 It is a common practice to have a separate Python module for each schema.  Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
 

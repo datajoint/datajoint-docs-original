@@ -7,11 +7,11 @@ Create Tables
 Relational Data Model
 ---------------------
 
-As already mentioned in :doc:`Create-a-schema`, all data in DataJoint are represented in the form of tables residing in databases on the database server.  On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
+As already mentioned in :doc:`01-create-schema`, all data in DataJoint are represented in the form of tables residing in databases on the database server.  On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
 
 Data Tiers
 ^^^^^^^^^^
-The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.  See :doc:`Data-tiers` and :doc:`../computation/Part-tables`.
+The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.  See :doc:`05-tiers` and :doc:`../computation/04-master-part`.
 
 Defining a table
 ----------------
@@ -58,14 +58,14 @@ The important part is that the class inherits from the DataJoint class correspon
 
 The most important part of the table definition is the comment preceding the ``classdef``.  DataJoint will parse this comment to define the table.
 
-The class will become usable after you edit this comment as described in :doc:`Table-definition`.
+The class will become usable after you edit this comment as described in :doc:`03-table-definition`.
 
 |python| Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To define a DataJoint table in Python:
 1. Define a class inheriting from the appropriate DataJoint class: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
-2. Decorate the class with the schema object (See :doc:`Create-a-schema`)
+2. Decorate the class with the schema object (See :doc:`01-create-schema`)
 3. Define the class property ``definition`` to define the table heading.
 
 For example, the following code defines the table ``Person``:
@@ -82,7 +82,7 @@ For example, the following code defines the table ``Person``:
 	    '''
 
 
-The class will become usable after you edit the ``definition`` property as described in :doc:`Table-definition`.
+The class will become usable after you edit the ``definition`` property as described in :doc:`03-table-definition`.
 
 -------------------
 
