@@ -62,6 +62,13 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
+   :caption: Design principles
+   :glob:
+
+   design/*
+
+.. toctree::
+   :maxdepth: 2
    :includehidden:
    :caption: Data Manipulation
    :glob:
