@@ -36,7 +36,7 @@ Delete the entire contents of the table ``tuning.VonMises`` and all its dependen
 
 Deleting from part tables
 -------------------------
-:doc:`../computation/Part-tables` prohibit direct deletion. The only way to delete from a part table is to delete from its master.
+:doc:`../computation/04-master-part` prohibit direct deletion. The only way to delete from a part table is to delete from its master.
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png

@@ -11,7 +11,7 @@ As already mentioned in :doc:`01-create-schema`, all data in DataJoint are repre
 
 Data Tiers
 ^^^^^^^^^^
-The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.  See :doc:`05-tiers` and :doc:`../computation/Part-tables`.
+The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.  See :doc:`05-tiers` and :doc:`../computation/04-master-part`.
 
 Defining a table
 ----------------
