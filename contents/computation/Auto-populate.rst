@@ -4,16 +4,16 @@ Auto-populate
 Tables in the initial portions of the pipeline are populated from outside the pipeline.  
 In subsequent steps, computations are performed automatically by the DataJoint pipeline.
 
-Computed tables belong to one of the two auto-populated :doc:`../definition/Data-tiers`: ``dj.Imported`` and ``dj.Computed``.
+Computed tables belong to one of the two auto-populated :doc:`../definition/05-tiers`: ``dj.Imported`` and ``dj.Computed``.
 DataJoint does not enforce the distinction between imported and compputed tables: the difference is purely semantic, a convention for developers to follow.
 If populating a table requires access to external files such as raw storage that is not part of the database, the table is designated as *imported*. Otherwise, it is *computed*.
 
 Make-tuples
 -----------
-Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/Manual-tables`, for example. 
-Their data definition follows the same :doc:`../definition/Definition-syntax`.
+Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/11-manual`, for example. 
+Their data definition follows the same :doc:`../definition/04-syntax`.
 
-For auto-populated tables, data should never be entered using :doc:`../manipulation/Insert` directly.  Instead, these tables must define the callback method ``makeTuples(self, key)`` in MATLAB   ``_make_tuples(self, key)``.  The ``insert`` method then can only be called on ``self`` inside this callback method.
+For auto-populated tables, data should never be entered using :doc:`../manipulation/1-insert` directly.  Instead, these tables must define the callback method ``makeTuples(self, key)`` in MATLAB   ``_make_tuples(self, key)``.  The ``insert`` method then can only be called on ``self`` inside this callback method.
 
 Consider the following example:  
 
@@ -62,7 +62,7 @@ The class will be defined as follows.
             self.insert(key)
 
 The ``make_tuples`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.  
-The key represents the partially filled tuple, usually already containing :doc:`../definition/Primary-key` attributes. 
+The key represents the partially filled tuple, usually already containing :doc:`../definition/07-primary-key` attributes. 
 
 Inside the callback, three things always happen:
 

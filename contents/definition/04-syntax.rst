@@ -4,14 +4,14 @@ Definition syntax
 The table definition consist of lines.  Each line can be one of the following:
 
 * The optional first line starting with a ``#`` provides a description of the table's purpose. It may also be thought of as the table's long title.
-* A new attribute definition in any of the following forms (see :doc:`Data-types` for valid datatypes):
+* A new attribute definition in any of the following forms (see :doc:`06-types` for valid datatypes):
 
   - ``name : datatype``
   - ``name : datatype # comment``
   - ``name = default : datatype``
   - ``name = default : datatype  # comment``
 * The divider ``---`` (at least three dashes) separating primary key attributes above from non-primary attributes below.
-* A foreign key in the format ``-> ReferencedTable``. (See :doc:`Foreign-keys`.)
+* A foreign key in the format ``-> ReferencedTable``. (See :doc:`10-dependencies`.)
 
 For example, the table for Persons may have the following definition:
 
@@ -24,7 +24,7 @@ For example, the table for Persons may have the following definition:
 	start_date :  date   # date when joined the lab
 
 
-This will define the table with columns ``username``, ``full_name``, and ``start_date``, in which ``username`` is the :doc:`Primary-key`.
+This will define the table with columns ``username``, ``full_name``, and ``start_date``, in which ``username`` is the :doc:`07-primary-key`.
 
 Attribute names
 ---------------

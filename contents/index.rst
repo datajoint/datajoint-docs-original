@@ -11,7 +11,7 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Introduction
+   :caption: Introduction 
    :glob: 
 
    intro/*

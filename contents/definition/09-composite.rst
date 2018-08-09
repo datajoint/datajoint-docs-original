@@ -12,7 +12,7 @@ It can already be accomplished by storing structures of dicts inside blob fields
 
 DataJoint introduce the datatype ``composite`` to allow storing objects with their own collections of of attributes.
 
-For example, the following :doc:`Table-definition` has a composite attribute  ``stimulus``.
+For example, the following :doc:`03-table-definition` has a composite attribute  ``stimulus``.
 
 .. code-block:: text
 

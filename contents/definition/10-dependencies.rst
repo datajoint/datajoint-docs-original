@@ -20,12 +20,12 @@ The graph defines the direction of the workflow. The tables at the top of the fl
 
 Defining a foreign key
 ----------------------
-Foreign keys are defined as arrows ``->`` in the :doc:`Table-definition`, pointing to another table.  
+Foreign keys are defined as arrows ``->`` in the :doc:`03-table-definition`, pointing to another table.  
 
 .. note::
    It may be a bit confusing that in the table definitions the arrow points to the table upstream in the pipeline whereas the ERD depicts arrows pointing downstream. Perhaps we could allow the left-pointing arrow `<-` in future of revisions of DataJoint to reduce confusion.  In either case, the foreign key always points to upstream upstream tables. 
 
-A foreign key may be defined as part of the :doc:`Primary-key`.  
+A foreign key may be defined as part of the :doc:`07-primary-key`.  
 In the ERD, foreign keys from the primary key are shown as solid lines. 
 This means that the primary key of the referenced table becomes part of the primary key of the new table. 
 A foreign key outside the primary key is indicated by dashed line in the ERD.
