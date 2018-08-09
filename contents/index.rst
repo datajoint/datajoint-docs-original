@@ -10,7 +10,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
    :caption: Introduction
    :glob: 
@@ -19,7 +18,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: IT
    :glob:
 
@@ -27,7 +25,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2 
-   :hidden: 
    :caption: Concepts
    :glob:
 
@@ -35,7 +32,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
    :caption: Client setup
    :glob:
@@ -44,7 +40,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
    :caption: Data Definition
    :glob:
@@ -60,7 +55,13 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
+   :caption: Work with existing pipelines
+   :glob:
+   
+   existing/*
+
+.. toctree::
+   :maxdepth: 2
    :includehidden:
    :caption: Data Manipulation
    :glob:
@@ -69,7 +70,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
    :caption: Queries
    :glob:
@@ -78,7 +78,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :includehidden:
    :caption: Computation
    :glob:
