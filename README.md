@@ -9,10 +9,17 @@ largely based on the [Read The Doc theme](https://github.com/rtfd/sphinx_rtd_the
 The documentation can be distributed for free use under the [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/).  Any copy or derivation of the documentation must include attribution to "DataJoint contributors" and include the URL reference https://docs.datajoint.io
 
 # Building locally
-- Fork and clone the repository to your local machine.
-- Install requirements using `pip3 install -r requirements.txt`
-- Build the website by running `make site`. This will build and generate the static website in the `_build/html` directory.
-- Some structural changes might require you to first clean the output directory by running `make clean` before generating the doc with `make html`.
+1. Fork and clone the repository to your local machine.
+2. Install requirements using `pip3 install -r requirements.txt`
+3. Build the website by running `make site`. This will build and generate the static website in the `site` directory.
+4. Move inside the `site` folder and run the following command to launch a locally web server:
+    ```bash
+    $ python3 -m http.server
+    ```
+    This should launch a HTTP server locally serving files from the `site` directory.
+5. Finally open up a web browser and navigate to `http://localhost:8000` - you should see the built documentation page. The port (i.e. the number after the color `:`) may differ - refer to the output of the command from the step above for the actual port to use.
+6. If you made changes to the documentation source, rerun `make site` in a separate terminal window, and then refresh the page in the browser - you should see the changes reflected.
+7. To stop the server, hit `Ctrl+C` in the termianl window that's running the server.
 
 # Guidelines for Writing
 - For inserting a SQL code-block, be sure to use `.. code-block:: mysql` (and NOT `SQL`)
