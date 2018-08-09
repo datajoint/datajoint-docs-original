@@ -18,7 +18,7 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :caption: IT
+   :caption: Configuration and maintenance 
    :glob:
 
    IT/*
@@ -84,3 +84,17 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    computation/*
 
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
+   :caption: Feature Matrix
+   :glob:
+   
+   features/*
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contribute
+   :glob: 
+
+   contribute/*
