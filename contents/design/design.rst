@@ -1,6 +1,3 @@
-Design principles
-=================
-
 Entity normalization
 --------------------
 

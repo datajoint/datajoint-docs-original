@@ -18,17 +18,10 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :caption: Configuration and maintenance 
+   :caption: Administration
    :glob:
 
-   IT/*
-
-.. toctree::
-   :maxdepth: 2 
-   :caption: Concepts
-   :glob:
-
-   principles/*
+   admin/*
 
 .. toctree::
    :maxdepth: 2
@@ -37,6 +30,13 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :glob:
 
    setup/* 
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: Concepts
+   :glob:
+
+   contents/*
 
 .. toctree::
    :maxdepth: 2
