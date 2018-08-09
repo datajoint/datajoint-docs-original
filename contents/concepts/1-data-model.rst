@@ -1,5 +1,5 @@
-Relational Data Model
-=====================
+Data Model
+==========
 
 The relational data model relies on a few basic concepts. These
 concepts may be rather dry and abstract at this point so you might like

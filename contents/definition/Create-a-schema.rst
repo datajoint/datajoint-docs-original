@@ -6,7 +6,7 @@ Relational Data Model
 ---------------------
 DataJoint organizes data using the *Relational Data Model*.  This means that all data are stored in collections of simple tables or, in mathematical lingo, *relations*. 
 
-See also :doc:`../principles/2-terminology`
+See also :doc:`../concepts/2-terminology`
  
 Classes represent tables
 ------------------------
