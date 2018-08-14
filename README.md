@@ -11,7 +11,7 @@ The documentation can be distributed for free use under the [Creative Commons At
 # Building locally
 1. Fork and clone the repository to your local machine.
 2. Install requirements using `pip3 install -r requirements.txt`
-3. Build the website by running `make site`. This will build and generate the static website in the `site` directory.
+3. Build the website by running `make site`. This will build and generate the static website in the `site` directory. (Windows users should run `sphinx-build . _build` from the `contents` directory.)
 4. Move inside the `site` folder and run the following command to launch a locally web server:
     ```bash
     $ python3 -m http.server
