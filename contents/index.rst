@@ -104,4 +104,3 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :caption: Contribute
    :glob: 
 
-   contribute/*
