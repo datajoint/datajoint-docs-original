@@ -79,14 +79,15 @@ Create a new schema using the ``dj.schema`` function:
 .. code-block:: python
 
     import datajoint as dj
-    schema = dj.schema('alice_experiment', locals())
+    schema = dj.schema('alice_experiment')
 
 This statement creates the database schema ``alice_experiment`` on the server.
-The second argument of ``dj.schema`` is the context in which future table declarations will look for other classes; this argument will nearly always need to be simply ``locals()``.
 
 The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-create-table`.
 
 It is a common practice to have a separate Python module for each schema.  Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
+
+In previous releases of DataJoint, the second argument of ``dj.schema`` was the context in which future table declarations would look for other classes. This argument was nearly always simply ``locals()``, which is now the current default. The second argument can still be provided, for compatibility and to allow for overriding, but this is optional.
 
 Working with existing data
 --------------------------
