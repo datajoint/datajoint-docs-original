@@ -15,7 +15,7 @@ Users never need to see the database directly; they only interact with data in t
 
 Schemas
 -------
-On the database server, related tables are grouped into a named collection called a **database** or a **schema**.  This grouping organizes the data and allows control of user access.  DataJoint reflects this organization by associating each DataJoint class with its corresponding schema, by addressing tables as ``schema.TableClassName``.  Therefore, we must create a schema before we can create any tables.
+On the database server, related tables are grouped into a named collection called a **schema**.  This grouping organizes the data and allows control of user access.  DataJoint reflects this organization by associating each DataJoint class with its corresponding schema, by addressing tables as ``schema.TableClassName``.  Therefore, we must create a schema before we can create any tables.
 
 |matlab| MATLAB
 ---------------------------
@@ -25,13 +25,13 @@ Manual
 ^^^^^^^^^^^^
 **Step 1.**  Create the database schema
 
-Use the following command to create a new database on the server:
+Use the following command to create a new schema on the database server:
 
 .. code-block:: matlab
 
     query(dj.conn, 'CREATE SCHEMA `alice_experiment`')
 
-Note that you must have create privileges for the database name pattern (as described in :doc:`../setup/Database-hosting`).  It is a common practice to grant all privileges to users for databases that begin with the username, in addition to some shared databases.  Thus the user ``alice`` would be able to perform any work in any database that begins with ``alice_``.
+Note that you must have create privileges for the schema name pattern (as described in :doc:`../setup/Database-hosting`).  It is a common practice to grant all privileges to users for schemas that begin with the username, in addition to some shared schemas.  Thus the user ``alice`` would be able to perform any work in any schema that begins with ``alice_``.
 
 **Step 2.**  Create the MATLAB package
 
@@ -58,7 +58,7 @@ In the ``+experiment`` folder, create the file ``getSchema.m`` with the followin
     obj = OBJ;
     end
 
-This function returns a persistent object of type ``dj.Schema``, establishing the link between the ``experiment`` package in MATLAB and the database ``alice_experiment`` on the database server.
+This function returns a persistent object of type ``dj.Schema``, establishing the link between the ``experiment`` package in MATLAB and the schema ``alice_experiment`` on the database server.
 
 Automatic
 ^^^^^^^^^^^^^
@@ -69,7 +69,7 @@ Alternatively, you can execute
 
     >> dj.createSchema
 
-This automated script will walk you through the steps 1--3 above and will create the database, the package folder, and the ``getSchema`` function in that folder.
+This automated script will walk you through the steps 1--3 above and will create the schema, the package folder, and the ``getSchema`` function in that folder.
 
 |python| Python
 ----------------
@@ -89,7 +89,7 @@ It is a common practice to have a separate Python module for each schema.  There
 
 Working with existing data
 --------------------------
-What if the database schema already exists?  For example, what if we created the schema in Python but want to access the data from MATLAB or vice versa?  No problem.  Follow the same process for creating the schema and specify the existing database name.  We will show how to work with existing tables later.
+What if the database schema already exists?  For example, what if we created the schema in Python but want to access the data from MATLAB or vice versa?  No problem.  Follow the same process for creating the schema and specify the existing schema name.  We will show how to work with existing tables later.
 
 .. |matlab| image:: ../_static/img/matlab-tiny.png
 .. |python| image:: ../_static/img/python-tiny.png
