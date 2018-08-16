@@ -98,9 +98,3 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :glob:
    
    features/*
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contribute
-   :glob: 
-
