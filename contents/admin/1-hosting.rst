@@ -1,27 +1,58 @@
-Hosting choices
-===============
-Let’s say a person, a lab, or a multi-lab consortium decide to use DataJoint as their data pipeline platform.  What IT resources and support will be required?
+Database Server Hosting
+-----------------------
 
-Hosting the database Server
----------------------------
+Let’s say a person, a lab, or a multi-lab consortium decide to use
+DataJoint as their data pipeline platform.  What IT resources and
+support will be required?
 
-DataJoint uses a MySQL-compatible database server (e.g. MySQL, MariaDB, Percona Server, Amazon Aurora) to store the structured data used for all relational operations on records. Large blocks of data associated with these records such as multidimensional numeric arrays (signals, images, scans, movies, etc) can be stored within the database or stored in additionally configured bulk storage systems.
+DataJoint uses a MySQL-compatible database server such as MySQL,
+MariaDB, Percona Server or Amazon Aurora to store the structured data
+used for all relational operations. Large blocks of data
+associated with these records such as multidimensional numeric arrays
+(signals, images, scans, movies, etc) can be stored within the
+database or stored in additionally configured :ref:`bulk-storage-systems`.
 
-The first decision you need to make is where this server will be hosted and how it will be administered. The server may be hosted on your personal computer, on a dedicated machine in your lab, or in a cloud-based database service.
+The first decision you need to make is where this server will be
+hosted and how it will be administered. The server may be hosted on
+your personal computer, on a dedicated machine in your lab, or in a
+cloud-based database service.
 
 Cloud Hosting
 ^^^^^^^^^^^^^
 
-Increasingly, many teams make use of cloud-hosted database services,  which allow great flexibility and easy administration of the database server. A cloud hosting option will be provided through https://hub.datajoint.io. The hub simplifies the setup for labs that wish to host their data pipelines in the cloud and allows sharing pipelines between multiple groups and locations. Being an open-source solution, other cloud services such as Amazon RDS can also be used in this role, albeit with less DataJoint-centric customization.
+Increasingly, many teams make use of cloud-hosted database services,
+which allow great flexibility and easy administration of the database
+server. A cloud hosting option will be provided through
+https://hub.datajoint.io. The hub simplifies the setup for labs that
+wish to host their data pipelines in the cloud and allows sharing
+pipelines between multiple groups and locations. Being an open-source
+solution, other cloud services such as Amazon RDS can also be used in
+this role, albeit with less DataJoint-centric customization.
 
 Self-Hosting
 ^^^^^^^^^^^^
 
-In the most basic configuration, the relational database software and datajoint are installed onto a single computer which is used by an individual user. To support a small group of users, a larger computer can be used instead and then configured for remote access. As the number of users grows, individual workstations can be installed with the DataJoint software and used to connect to a larger centrally located database server machine. In even larger groups or multi-site collaborations, multiple database servers may be configured in a replicated fashion to support larger workloads and simultaneous multi-site access. We provide some basic guidelines for these configurations here and in the subsequent sections of the documentation.
+In the most basic configuration, the relational database software and
+datajoint are installed onto a single computer which is used by an
+individual user. To support a small group of users, a larger computer
+can be used instead and then configured for remote access by users. As
+the number of users grows, individual workstations can be installed
+with the DataJoint software and used to connect to a larger and more
+specialized centrally located database server machine.
+
+For even larger groups or multi-site collaborations, multiple database
+servers may be configured in a replicated fashion to support larger
+workloads and simultaneous multi-site access. We provide some basic
+guidelines for these configurations here and in the subsequent
+sections of the documentation.
 
 General Server / Hardware Support Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following table lists some likely scenarios for DataJoint database server deployments and some reasonable estimates of the required computer hardware and also, required IT/Systems support to ensure smooth operations in the absence of local database expertise.
+
+The following table lists some likely scenarios for DataJoint database
+server deployments and some reasonable estimates of the required
+computer hardware and also, required IT/Systems support to ensure
+smooth operations in the absence of local database expertise.
 
 
 .. list-table:: IT infrastructures
