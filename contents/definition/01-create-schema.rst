@@ -20,7 +20,7 @@ Schemas
 -------
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
-DataJoint reflects this organization by associating each DataJoint class with its corresponding schema, by addressing tables as ``schema.TableClassName``.
+DataJoint reflects this organization by associating each DataJoint class with its corresponding schema.
 Therefore, we must create a schema before we can create any tables.
 
 |matlab| MATLAB
