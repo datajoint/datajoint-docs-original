@@ -87,8 +87,6 @@ The returned object ``schema`` will then serve as a decorator for DataJoint clas
 
 It is a common practice to have a separate Python module for each schema.  Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
 
-In previous releases of DataJoint, the second argument of ``dj.schema`` was the context in which future table declarations would look for other classes. This argument was nearly always simply ``locals()``, which is now the current default. The second argument can still be provided, for compatibility and to allow for overriding, but this is optional.
-
 Working with existing data
 --------------------------
 What if the database schema already exists?  For example, what if we created the schema in Python but want to access the data from MATLAB or vice versa?  No problem.  Follow the same process for creating the schema and specify the existing database name.  We will show how to work with existing tables later.
