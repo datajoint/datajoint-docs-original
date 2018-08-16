@@ -4,22 +4,29 @@ Create a schema
 
 Relational Data Model
 ---------------------
-DataJoint organizes data using the *Relational Data Model*.  This means that all data are stored in collections of simple tables.
+DataJoint organizes data using the *Relational Data Model*.
+This means that all data are stored in collections of simple tables.
 
 See also :doc:`../concepts/2-terminology`
 
 Classes represent tables
 ------------------------
-To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.  Computer programmers refer to this concept as `object-relational mapping <https://en.wikipedia.org/wiki/Object-relational_mapping>`_.  For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``experiment.subject`` on the database server.
+To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
+Computer programmers refer to this concept as `object-relational mapping <https://en.wikipedia.org/wiki/Object-relational_mapping>`_.
+For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``experiment.subject`` on the database server.
 Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.
 
 Schemas
 -------
-On the database server, related tables are grouped into a named collection called a **schema**.  This grouping organizes the data and allows control of user access.  DataJoint reflects this organization by associating each DataJoint class with its corresponding schema, by addressing tables as ``schema.TableClassName``.  Therefore, we must create a schema before we can create any tables.
+On the database server, related tables are grouped into a named collection called a **schema**.
+This grouping organizes the data and allows control of user access.
+DataJoint reflects this organization by associating each DataJoint class with its corresponding schema, by addressing tables as ``schema.TableClassName``.
+Therefore, we must create a schema before we can create any tables.
 
 |matlab| MATLAB
 ---------------------------
-A schema can be created in MATLAB manually or automatically through the ``dj.createSchema`` script.  While ``dj.createSchema`` simplifies the process, the manual approach yields a better understanding of what actually takes place, so both approaches are listed below.
+A schema can be created in MATLAB manually or automatically through the ``dj.createSchema`` script.
+While ``dj.createSchema`` simplifies the process, the manual approach yields a better understanding of what actually takes place, so both approaches are listed below.
 
 Manual
 ^^^^^^^^^^^^
@@ -31,16 +38,21 @@ Use the following command to create a new schema on the database server:
 
     query(dj.conn, 'CREATE SCHEMA `alice_experiment`')
 
-Note that you must have create privileges for the schema name pattern (as described in :doc:`../setup/Database-hosting`).  It is a common practice to grant all privileges to users for schemas that begin with the username, in addition to some shared schemas.  Thus the user ``alice`` would be able to perform any work in any schema that begins with ``alice_``.
+Note that you must have create privileges for the schema name pattern (as described in :doc:`../setup/Database-hosting`).
+It is a common practice to grant all privileges to users for schemas that begin with the username, in addition to some shared schemas.
+Thus the user ``alice`` would be able to perform any work in any schema that begins with ``alice_``.
 
 **Step 2.**  Create the MATLAB package
 
-DataJoint for MATLAB organizes schemas as MATLAB **packages**. If you are not familiar with packages, please review:
+DataJoint for MATLAB organizes schemas as MATLAB **packages**.
+If you are not familiar with packages, please review:
 
 * `How to work with MATLAB packages <https://www.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html>`_
 * `How to manage MATLAB's search paths <https://www.mathworks.com/help/matlab/search-path.html>`_
 
-In your project directory, create the package folder, which must begin with a ``+`` sign.  For example, for the schema called ``experiment``, you would create the folder ``+experiment``.  Make sure that your project directory (the parent directory of your package folder) is added to the MATLAB search path.
+In your project directory, create the package folder, which must begin with a ``+`` sign.
+For example, for the schema called ``experiment``, you would create the folder ``+experiment``.
+Make sure that your project directory (the parent directory of your package folder) is added to the MATLAB search path.
 
 **Step 3.**  Associate the package with the database schema
 
@@ -85,11 +97,16 @@ This statement creates the database schema ``alice_experiment`` on the server.
 
 The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-create-table`.
 
-It is a common practice to have a separate Python module for each schema.  Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
+It is a common practice to have a separate Python module for each schema.
+Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
 
 Working with existing data
 --------------------------
-What if the database schema already exists?  For example, what if we created the schema in Python but want to access the data from MATLAB or vice versa?  No problem.  Follow the same process for creating the schema and specify the existing schema name.  We will show how to work with existing tables later.
+What if the database schema already exists?
+For example, what if we created the schema in Python but want to access the data from MATLAB or vice versa?
+No problem.
+Follow the same process for creating the schema and specify the existing schema name.
+We will show how to work with existing tables later.
 
 .. |matlab| image:: ../_static/img/matlab-tiny.png
 .. |python| image:: ../_static/img/python-tiny.png
