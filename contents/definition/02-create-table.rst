@@ -7,7 +7,7 @@ Create Tables
 Relational Data Model
 ---------------------
 
-As already mentioned in :doc:`01-create-schema`, all data in DataJoint are represented in the form of tables residing in databases on the database server.  On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
+As already mentioned in :doc:`01-create-schema`, all data in DataJoint are represented in the form of tables residing in database schemas on the database server.  On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
 
 Data Tiers
 ^^^^^^^^^^
@@ -40,7 +40,7 @@ For example, define the table ``experiment.Person``
 
 This will create the file ``+experiment/Person.m`` with the following contents:
 
-.. code-block:: matlab 
+.. code-block:: matlab
 
 	%{
 	# my newest table
@@ -54,7 +54,7 @@ This will create the file ``+experiment/Person.m`` with the following contents:
 
 ``dj.new`` adds a little bit of convenience while some users may create the classes from scratch manually.
 
-The important part is that the class inherits from the DataJoint class corresponding to the correct [data tier](Data tiers): ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``. 
+The important part is that the class inherits from the DataJoint class corresponding to the correct [data tier](Data tiers): ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 
 The most important part of the table definition is the comment preceding the ``classdef``.  DataJoint will parse this comment to define the table.
 
@@ -75,7 +75,7 @@ For example, the following code defines the table ``Person``:
 	import datajoint as dj
 	schema = dj.schema('alice_experiment', locals())
 
-	@schema 
+	@schema
 	class Person(dj.Manual):
 	    definition = '''
 	    # table definition goes here
@@ -88,15 +88,15 @@ The class will become usable after you edit the ``definition`` property as descr
 
 Valid class names
 =================
-Note that in both MATLAB and Python, the class names must follow the CamelCase compound word notation: 
-* start with a capital letter and 
-* contain only alphanumerical characters (no underscores).  
+Note that in both MATLAB and Python, the class names must follow the CamelCase compound word notation:
+* start with a capital letter and
+* contain only alphanumerical characters (no underscores).
 
-Examples: 
- 
+Examples:
+
 Valid class names
 ++++++++++++++++++
-``TwoPhotonScan``, ``Scan2P``, ``Ephys``, ``MembraneVoltage`` 
+``TwoPhotonScan``, ``Scan2P``, ``Ephys``, ``MembraneVoltage``
 
 Invalid class names
 ++++++++++++++++++++
