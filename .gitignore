@@ -1,3 +1,6 @@
+# JetBrains
+.idea/
+
 # Cache files
 .DS_Store
 ~*
