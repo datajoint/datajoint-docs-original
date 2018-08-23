@@ -34,7 +34,7 @@ Data pipelines become the central tool for the operation of a data-intensive lab
 
 Data sharing and publishing is no longer a separate step at the end of the project. Instead data sharing is an inherent feature of the process: to share data with other collaborators or to publish the data to the world, one only needs to set the access privileges. 
 
-DataJoint uses an succinct data definition language, a powerful data query languages, and expressive visualizations of the pipeline. It also features a built-in distributed job management process to allow distributing analysis jobs between any number of computers.
+DataJoint uses a succinct data definition language, a powerful data query languages, and expressive visualizations of the pipeline. It also features a built-in distributed job management process to allow distributing analysis jobs between any number of computers.
 
 Pipelines can grow large and complex while ever evolving,  reflecting the complexity of neuroscience experiments.  
 A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently.
