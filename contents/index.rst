@@ -1,3 +1,5 @@
+.. progress: 6 100% Dimitri
+
 Welcome to DataJoint Documentation
 ====================================
 
@@ -91,10 +93,8 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    computation/*
 
-.. toctree::
-   :maxdepth: 2
-   :includehidden:
-   :caption: Feature Matrix
-   :glob:
-   
-   features/*
+
+Progress report
+===============
+.. include:: ../report.txt
+   :literal:

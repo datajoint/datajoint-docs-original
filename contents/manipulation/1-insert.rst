@@ -1,3 +1,5 @@
+.. progress: 8.0 10% Dimitri 
+
 Insert
 ======
 
@@ -70,3 +72,6 @@ However, inserting too many tuples in a single query may run against buffer size
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
+
+Server-side inserts
+-------------------

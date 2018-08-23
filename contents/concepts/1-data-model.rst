@@ -1,3 +1,5 @@
+.. progress: 8.0 20% Jake
+
 The DataJoint Data Model
 ========================
 
@@ -9,7 +11,7 @@ The "relational model" is a way of thinking about data as sets and operations on
 
 Popular implementations of the relational data model rely on the Structured Query Language (SQL). SQL comprises distinct sublanguages for schema definition, data manipulation, and data queries. SQL thoroughly dominates in the space of relational databases and is often
 conflated with the relational data model in casual discourse. Various terminologies are used to describe related concepts
-from the relational data model (see `Notes on Terminology`_). Similar to spreadsheets, relations are often visualized as *tables* with attributes corresponding to *columns* and tuples corresponding to *rows*. In particular, SQL uses the terms *table*, *column*, and *row*. 
+from the relational data model. Similar to spreadsheets, relations are often visualized as *tables* with attributes corresponding to *columns* and tuples corresponding to *rows*. In particular, SQL uses the terms *table*, *column*, and *row*. 
 
 Core Principles of the relational data model
         **Data representation.** Data are represented and manipulated in the form of relations. A relation is a set (i.e. an unordered collection) of tuples of values for each of the respective named attributes of the relation. Base relations represent stored data while derived relations are formed from base relations through query expressions. A collection of base relations with their attributes, domain constraints, uniqueness constraints, and referential constraints is called a schema.

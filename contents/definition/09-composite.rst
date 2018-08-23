@@ -1,8 +1,10 @@
+.. progress: 8.0 75% Dimitri 
+
 Composite attributes
 ====================
 
 .. important::
-  This page serves as the feature specification.  The feature will be included in an upcoming release.
+  This page serves as feature specification.  The feature will be included in an upcoming release.
 
 In the relational model, data are structured:  Entities represented in one table share the same set of attributes. 
 This introduces clarity and enables predictable queries. 

@@ -1,5 +1,5 @@
+.. progress: 12.0 30% Austin
 
-=============
 Create Tables
 =============
 
@@ -92,14 +92,14 @@ Note that in both MATLAB and Python, the class names must follow the CamelCase c
 * start with a capital letter and
 * contain only alphanumerical characters (no underscores).
 
-Examples:
+Examples: 
 
-Valid class names
-++++++++++++++++++
+Valid class names:
+
 ``TwoPhotonScan``, ``Scan2P``, ``Ephys``, ``MembraneVoltage``
 
-Invalid class names
-++++++++++++++++++++
+Invalid class names:
+
 ``Two_photon_Scan``, ``twoPhotonScan``, ``2PhotonScan``, ``membranePotential``, ``membrane_potential``
 
 

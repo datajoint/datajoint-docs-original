@@ -1,3 +1,5 @@
+.. progress: 1.0 100% Dimitri
+
 Origins and progress
 ====================
 
