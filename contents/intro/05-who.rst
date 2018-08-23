@@ -21,6 +21,6 @@ Below is a partial list of known DataJoint users.  Please let us know if you wou
 #. Euler Lab (Thomas Euler), Werner Reichardt Centre for Integrative Neuroscience, Tübingen, Germany
 #. Katzner Lab (Steffen Katzner), Werner Reichardt Centre for Integrative Neuroscience, Tübingen, Germany
 #. Bethge Lab (Matthias Bethge), Werner Reichardt Centre for Integrative Neuroscience, Tübingen, Germany
-#. Moser Group, Kavli Institute for Systems Neuroscience and Centre for Neural Computation, Norwegian University of Science and Technology (NTNU), Trondheim, Norway
+#. Moser Group (May-Britt Moser and Edvard Moser), Kavli Institute for Systems Neuroscience and Centre for Neural Computation, Norwegian University of Science and Technology (NTNU), Trondheim, Norway
 #. Seung Lab (Sebastian Seung), Princeton University
 #. Harvey Lab (Christopher Harvey), Harvard Medical School
