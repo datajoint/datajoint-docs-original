@@ -1,3 +1,5 @@
+.. progress: 6.0 75% Austin
+
 Data Types
 ==========
 

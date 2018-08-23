@@ -1,3 +1,4 @@
+.. progress: 8.0 90% Chris
 
 DataJoint Python Windows Install Guide
 ======================================

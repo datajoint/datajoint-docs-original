@@ -1,3 +1,5 @@
+.. progress: 12.0 20% Dimitri
+
 Query Basics
 ============
 

@@ -1,3 +1,5 @@
+.. progress: 6 20% Dimitri
+
 Cautious update
 ===============
 

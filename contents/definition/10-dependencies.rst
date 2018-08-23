@@ -1,3 +1,5 @@
+.. progress: 20.0 25% Dimitri
+
 Foreign Keys
 ============
 
@@ -8,7 +10,7 @@ Even if you already know about foreign keys in SQL, please still read this secti
 What are foreign keys
 ---------------------
 The DataJoint pipeline can be visualized as a graph with nodes and edges.  
-The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/ERD`.  
+The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-erd`.  
 The nodes of the graph are tables and the edges connecting them are **foreign keys**.  
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops. 
 
