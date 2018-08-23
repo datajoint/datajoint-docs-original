@@ -1,3 +1,5 @@
+.. progress: 8.0 80% Edgar
+
 Install and Connect
 ===================
 

@@ -1,3 +1,5 @@
+.. progress: 6 30% Dimitri
+
 What is a data pipeline?
 ========================
 

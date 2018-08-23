@@ -1,3 +1,5 @@
+.. progress: 2.0 100% Dimitri
+
 Who uses DataJoint
 ==================
 
