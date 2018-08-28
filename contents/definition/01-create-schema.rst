@@ -7,6 +7,7 @@ Relational Data Model
 ---------------------
 DataJoint organizes data using the *Relational Data Model*.
 This means that all data are stored in collections of simple tables.
+The relationships between tables comprise the structure of a data pipeline.
 
 See also :doc:`../concepts/2-terminology`
 
@@ -21,12 +22,13 @@ Schemas
 -------
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
+Schemas also outline the structure of a data pipeline by specifying the directional relationships between tables.
 DataJoint reflects this organization by associating each DataJoint class with its corresponding schema.
-Therefore, we must create a schema before we can create any tables.
+Tables are defined within the context of a schema, so we must create a schema before we can create any tables.
 
 |matlab| MATLAB
 ---------------------------
-A schema can be created in MATLAB manually or automatically through the ``dj.createSchema`` script.
+A schema can be created in MATLAB either manually or automatically through the ``dj.createSchema`` script.
 While ``dj.createSchema`` simplifies the process, the manual approach yields a better understanding of what actually takes place, so both approaches are listed below.
 
 Manual
@@ -57,7 +59,9 @@ Make sure that your project directory (the parent directory of your package fold
 
 **Step 3.**  Associate the package with the database schema
 
-In this step, we tell DataJoint that all classes in the package folder ``+experiment`` will work with tables in the database schema ``alice_experiment``. Each package in MATLAB corresponds to exactly one schema. In some special cases, multiple packages may all relate to a single database schema, but in most cases there will be a one-to-one relationship between packages and schemas.
+In this step, we tell DataJoint that all classes in the package folder ``+experiment`` will work with tables in the database schema ``alice_experiment``.
+Each package in MATLAB corresponds to exactly one schema.
+In some special cases, multiple packages may all relate to a single database schema, but in most cases there will be a one-to-one relationship between packages and schemas.
 
 In the ``+experiment`` folder, create the file ``getSchema.m`` with the following contents:
 
