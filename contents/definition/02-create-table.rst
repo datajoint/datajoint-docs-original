@@ -70,7 +70,7 @@ The class will become usable after you edit this comment as described in :doc:`0
 
 To define a DataJoint table in Python:
 1. Define a class inheriting from the appropriate DataJoint class: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
-2. Decorate the class with the schema object (See :doc:`01-create-schema`)
+2. Decorate the class with the schema object (See :doc:`01-Creating-Schemas`)
 3. Define the class property ``definition`` to define the table heading.
 
 For example, the following code defines the table ``Person``:
