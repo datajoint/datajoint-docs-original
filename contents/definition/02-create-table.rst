@@ -7,7 +7,7 @@ Create Tables
 Relational Data Model
 ---------------------
 
-As already mentioned in :doc:`01-create-schema`, all data in DataJoint are represented in the form of tables residing in database schemas on the database server.
+As already mentioned in :doc:`01-Creating-Schemas`, all data in DataJoint are represented in the form of tables residing in database schemas on the database server.
 On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
 
 Data Tiers

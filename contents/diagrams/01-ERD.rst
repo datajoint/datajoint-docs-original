@@ -3,8 +3,8 @@
 ERD
 ===
 
-ERD stands for **entity relationship diagram**.  Objects of type ``dj.ERD`` allow visualizing portions of the data pipeline in graphical form.  
-Tables are depicted as nodes and :doc:`../definition/10-dependencies` as directed edges between them.  
+ERD stands for **entity relationship diagram**.  Objects of type ``dj.ERD`` allow visualizing portions of the data pipeline in graphical form.
+Tables are depicted as nodes and :doc:`../definition/10-dependencies` as directed edges between them.
 The `draw` method plots the graph.
 
 Diagram notation
@@ -13,14 +13,14 @@ Consider the following ERD
 
 .. image:: ../_static/img/mp-erd.png
 
-DataJoint uses the following conventions: 
+DataJoint uses the following conventions:
 
 * Tables are indicated as nodes in the graph.  The corresponding class name is indicated by each node.
 * :doc:`../definition/05-tiers`  are indicated as colors and symbols: Lookup=gray asterisk, Manual=green square, Imported=blue circle,  Computed=red star, Part=black dot.  The names of :doc:`../computation/04-master-part` are indicated in a smaller font.
 * :doc:`../definition/10-dependencies` are indicated as edges in the graph and always directed downward, forming a **directed acyclic graph**.
 * Foreign keys contained within the primary key are indicated as solid lines.  This means that the referenced table becomes part of the primary key of the dependent table.
-* Foreign keys that are outside the primary key are indicated by dashed lines. 
-* If the primary key of the dependent table has no other attributes besides the foreign key, the foreign key is a thick solid line, indicating a 1:{0,1} relationship. 
+* Foreign keys that are outside the primary key are indicated by dashed lines.
+* If the primary key of the dependent table has no other attributes besides the foreign key, the foreign key is a thick solid line, indicating a 1:{0,1} relationship.
 * Foreign keys made without renaming the foreign key attributes are in black whereas foreign keys that rename the attributes are indicated in red.  This includes renamed foreign keys within the primary key (solid line) or outside (dashed line).
 
 Diagramming an entire schema
@@ -29,9 +29,9 @@ Diagramming an entire schema
 |python| Python
 +++++++++++++++
 
-To plot the ERD for an entire schema in Python, an ERD object can be initialized with the schema object (which is normally used to decorate table objects) 
+To plot the ERD for an entire schema in Python, an ERD object can be initialized with the schema object (which is normally used to decorate table objects)
 
-.. code-block:: python 
+.. code-block:: python
 
     import datajoint as dj
     schema = dj.schema('my_database')
@@ -48,7 +48,7 @@ or, alternatively an object that has the schema object as an attribute, such as 
 |matlab| MATLAB
 +++++++++++++++
 
-In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function (See :doc:`../definition/01-create-schema`).
+In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function (See :doc:`../definition/01-Creating-Schemas`).
 
 .. code-block:: matlab
 
@@ -56,7 +56,7 @@ In MATLAB, the schema object for a package can be obtained using its ``getSchema
 
 MATLAB provides shortcuts to plot ERD of a table neighborhood or a schema using the ``erd`` command:
 
-.. code-block:: matlab 
+.. code-block:: matlab
 
     % plot the ERD of the stimulus schema
     erd stimulus
@@ -65,7 +65,7 @@ MATLAB provides shortcuts to plot ERD of a table neighborhood or a schema using 
     erd stimulus.Trial
 
     % plot the stimulus and experiment schemas and the neighborhood of preprocess.Sync
-    erd stimulus experiment preprocess.Sync  
+    erd stimulus experiment preprocess.Sync
 
 Initializing with a single table
 ++++++++++++++++++++++++++++++++
@@ -89,7 +89,7 @@ A single node makes a rather boring graph but ERDs can be added together or subt
 Adding ERDs together
 ++++++++++++++++++++
 
-However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs. The corresponding foreign keys will be automatically 
+However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs. The corresponding foreign keys will be automatically
 
 |matlab|
 
@@ -105,7 +105,7 @@ However two graphs can be added, resulting in new graph containing the union of 
     # python: plot the ERD with tables Genome and Species from module seq.
     (dj.ERD(seq.Genome()) + dj.ERD(seq.Species())).draw()
 
-Expanding ERDs upstream and downstream 
+Expanding ERDs upstream and downstream
 ++++++++++++++++++++++++++++++++++++++
 
 Adding a number to an ERD object adds nodes downstream in the pipeline while subtracting a number from ERD object adds nodes upstream in the pipeline.
@@ -114,7 +114,7 @@ Examples:
 
 |matlab| MATLAB
 
-.. code-block:: matlab 
+.. code-block:: matlab
 
     % Plot all the tables directly downstream from ``seq.Genome``:
     draw(dj.ERD(seq.Genome)+1)
