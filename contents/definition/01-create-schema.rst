@@ -15,14 +15,15 @@ Classes represent tables
 ------------------------
 To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
 Computer programmers refer to this concept as `object-relational mapping <https://en.wikipedia.org/wiki/Object-relational_mapping>`_.
-For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``experiment.subject`` on the database server.
+For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``subject`` on the database server.
 Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.
 
 Schemas
 -------
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
-Schemas also outline the structure of a data pipeline by specifying the directional relationships between tables.
+Depending on the complexity of the data, a database server may have many schemas each containing a subset of tables, or a single schema may contain every table, in the simplest cases.
+Schemas outline the structure of a data pipeline by specifying the directional relationships between tables.
 DataJoint reflects this organization by associating each DataJoint class with its corresponding schema.
 Tables are defined within the context of a schema, so we must create a schema before we can create any tables.
 
