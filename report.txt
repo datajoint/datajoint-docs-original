@@ -58,7 +58,7 @@ Edgar     6.40       3.10
 48  Dimitri       \queries                01-queries.rst  2.40       9.60
 50  Dimitri       \queries              03-operators.rst  9.00       9.00
 53  Dimitri       \queries                   06-proj.rst  3.00       9.00
-21  Dimitri    \definition               08-external.rst  8.00       8.00
+21  Dimitri    \definition         08-External-Store.rst  8.00       8.00
 54  Dimitri       \queries                   07-aggr.rst  0.40       7.60
 45  Dimitri  \manipulation                  1-insert.rst  0.80       7.20
 52  Dimitri       \queries                   05-join.rst  1.60       6.40
