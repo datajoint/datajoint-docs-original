@@ -20,6 +20,7 @@ Below is a partial list of known DataJoint users.  Please let us know if you wou
 #. `Berens Lab <https://philippberens.wordpress.com/>`_ (Philipp Berens), Werner Reichardt Centre for Integrative Neuroscience, Tübingen, Germany
 #. `Euler Lab <http://www.eye-tuebingen.de/eulerlab/>`_ (Thomas Euler), Werner Reichardt Centre for Integrative Neuroscience, Tübingen, Germany
 #. `Bethge Lab <http://bethgelab.org/>`_ (Matthias Bethge), Werner Reichardt Centre for Integrative Neuroscience, Tübingen, Germany
+#. `Shcheglovitov Lab <https://www.shcheglovitov.com/>`_ (Alex Shcheglovitov) University of Utah
 #. `Moser Group <https://www.ntnu.edu/kavli/research/moser>`_ (May-Britt Moser and Edvard Moser), Kavli Institute for Systems Neuroscience and Centre for Neural Computation, Norwegian University of Science and Technology (NTNU), Trondheim, Norway
 #. `Seung Lab <http://seunglab.org/>`_ (Sebastian Seung), Princeton University
 #. `Mouse Motor Lab <http://www.mousemotorlab.org>`_ (Mackenzie Mathis), Rowland Institute at Harvard University
