@@ -12,7 +12,7 @@ On the client side, in Python and MATLAB, each table has its own DataJoint class
 
 Data Tiers
 ^^^^^^^^^^
-The table class must inherit from one of the following superclasses: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part`` to indicate its data tier.
+The table class must inherit from one of the following superclasses to indicate its data tier: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part``.
 See :doc:`05-tiers` and :doc:`../computation/04-master-part`.
 
 Defining a table
@@ -56,9 +56,9 @@ This will create the file ``+experiment/Person.m`` with the following contents:
 	classdef Person < dj.Manual
 	end
 
-``dj.new`` adds a little bit of convenience while some users may create the classes from scratch manually.
+While ``dj.new`` adds a little bit of convenience, some users may create the classes from scratch manually.
 
-The important part is that the class inherits from the DataJoint class corresponding to the correct [data tier](Data tiers): ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
+Each newly created class must inherit from the DataJoint class corresponding to the correct :doc:`data tier <05-tiers>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 
 The most important part of the table definition is the comment preceding the ``classdef``.
 DataJoint will parse this comment to define the table.
@@ -69,8 +69,11 @@ The class will become usable after you edit this comment as described in :doc:`0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To define a DataJoint table in Python:
+
 1. Define a class inheriting from the appropriate DataJoint class: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
+
 2. Decorate the class with the schema object (See :doc:`01-Creating-Schemas`)
+
 3. Define the class property ``definition`` to define the table heading.
 
 For example, the following code defines the table ``Person``:
@@ -78,7 +81,7 @@ For example, the following code defines the table ``Person``:
 .. code-block:: python
 
 	import datajoint as dj
-	schema = dj.schema('alice_experiment', locals())
+	schema = dj.schema('alice_experiment')
 
 	@schema
 	class Person(dj.Manual):
@@ -94,12 +97,11 @@ The class will become usable after you edit the ``definition`` property as descr
 Valid class names
 =================
 Note that in both MATLAB and Python, the class names must follow the CamelCase compound word notation:
+
 * start with a capital letter and
 * contain only alphanumerical characters (no underscores).
 
-Examples:
-
-Valid class names:
+Examples of valid class names:
 
 ``TwoPhotonScan``, ``Scan2P``, ``Ephys``, ``MembraneVoltage``
 
