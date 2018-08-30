@@ -63,7 +63,7 @@ Each newly created class must inherit from the DataJoint class corresponding to 
 The most important part of the table definition is the comment preceding the ``classdef``.
 DataJoint will parse this comment to define the table.
 
-The class will become usable after you edit this comment as described in :doc:`03-table-definition`.
+The class will become usable after you edit this comment as described in :doc:`03-Table-Definition`.
 
 |python| Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ For example, the following code defines the table ``Person``:
 	    '''
 
 
-The class will become usable after you edit the ``definition`` property as described in :doc:`03-table-definition`.
+The class will become usable after you edit the ``definition`` property as described in :doc:`03-Table-Definition`.
 
 -------------------
 

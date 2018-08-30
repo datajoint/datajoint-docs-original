@@ -31,7 +31,7 @@ Edgar     6.40       3.10
 32   Austin      \existing                   4-alter.rst  0.00      24.00
 29   Austin      \existing                 1-virtual.rst  0.00      12.00
 31   Austin      \existing        3-interoperability.rst  0.00      12.00
-16   Austin    \definition       03-table-definition.rst  4.80      11.20
+16   Austin    \definition       03-Table-Definition.rst  4.80      11.20
 14   Austin    \definition       01-Creating-Schemas.rst  3.00       9.00
 20   Austin    \definition            07-primary-key.rst  3.00       9.00
 15   Austin    \definition        02-Creating-Tables.rst  3.60       8.40

@@ -1,4 +1,4 @@
-.. progress: 8.0 75% Dimitri 
+.. progress: 8.0 75% Dimitri
 
 Composite attributes
 ====================
@@ -6,30 +6,30 @@ Composite attributes
 .. important::
   This page serves as feature specification.  The feature will be included in an upcoming release.
 
-In the relational model, data are structured:  Entities represented in one table share the same set of attributes. 
-This introduces clarity and enables predictable queries. 
+In the relational model, data are structured:  Entities represented in one table share the same set of attributes.
+This introduces clarity and enables predictable queries.
 In datasets with many classes of entities with different sets of attributes, relational designs result in large numbers of tables.
 Sometimes, it is conventient to deviate from the relational data model and to allow different sets of attributes in each tuple.
-It can already be accomplished by storing structures of dicts inside blob fields.  However blob fields are opaque to queries: their contents cannot be used in searches. 
+It can already be accomplished by storing structures of dicts inside blob fields.  However blob fields are opaque to queries: their contents cannot be used in searches.
 
 DataJoint introduce the datatype ``composite`` to allow storing objects with their own collections of of attributes.
 
-For example, the following :doc:`03-table-definition` has a composite attribute  ``stimulus``.
+For example, the following :doc:`03-Table-Definition` has a composite attribute  ``stimulus``.
 
 .. code-block:: text
 
     # Recording
-    rec   :  int    # recording id 
+    rec   :  int    # recording id
     ----
     filepath  :  varchar(255)   #  filepath to the recording data
     stimulus : composite  #  parameters of the stimulus
-    
+
 
 Inserts
 -------
 To insert data into a composite attribute, use a ``struct`` in MATLAB or a ``dict`` in Python.
 
-For example, 
+For example,
 
 |matlab| MATLAB
 
@@ -53,11 +53,11 @@ For example, the following restriction selects all recordings for which the stim
 
     Recording() & 'stimlus.comtrast > 0.5'
 
-    
 
-.. warning:: 
-   The composite datatype relies on JSON support by the database server.  
-   Latest versions of MySQL and MariaDB provide JSON support but Amazon's own Aurora DB  does not. 
+
+.. warning::
+   The composite datatype relies on JSON support by the database server.
+   Latest versions of MySQL and MariaDB provide JSON support but Amazon's own Aurora DB  does not.
    We hope to use Aurora DB and hope that it will soon add JSON support.
 
 

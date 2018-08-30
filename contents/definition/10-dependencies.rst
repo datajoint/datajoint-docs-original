@@ -3,16 +3,16 @@
 Foreign Keys
 ============
 
-Foreign keys define relationships between different entities represented by the schema design.  
+Foreign keys define relationships between different entities represented by the schema design.
 
-Even if you already know about foreign keys in SQL, please still read this section carefully.  DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.  
+Even if you already know about foreign keys in SQL, please still read this section carefully.  DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
 
 What are foreign keys
 ---------------------
-The DataJoint pipeline can be visualized as a graph with nodes and edges.  
-The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-erd`.  
-The nodes of the graph are tables and the edges connecting them are **foreign keys**.  
-The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops. 
+The DataJoint pipeline can be visualized as a graph with nodes and edges.
+The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-erd`.
+The nodes of the graph are tables and the edges connecting them are **foreign keys**.
+The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 
 For example, the ERD below is the pipeline for multipatching experiments
 
@@ -22,21 +22,21 @@ The graph defines the direction of the workflow. The tables at the top of the fl
 
 Defining a foreign key
 ----------------------
-Foreign keys are defined as arrows ``->`` in the :doc:`03-table-definition`, pointing to another table.  
+Foreign keys are defined as arrows ``->`` in the :doc:`03-Table-Definition`, pointing to another table.  
 
 .. note::
-   It may be a bit confusing that in the table definitions the arrow points to the table upstream in the pipeline whereas the ERD depicts arrows pointing downstream. Perhaps we could allow the left-pointing arrow `<-` in future of revisions of DataJoint to reduce confusion.  In either case, the foreign key always points to upstream upstream tables. 
+   It may be a bit confusing that in the table definitions the arrow points to the table upstream in the pipeline whereas the ERD depicts arrows pointing downstream. Perhaps we could allow the left-pointing arrow `<-` in future of revisions of DataJoint to reduce confusion.  In either case, the foreign key always points to upstream upstream tables.
 
-A foreign key may be defined as part of the :doc:`07-primary-key`.  
-In the ERD, foreign keys from the primary key are shown as solid lines. 
-This means that the primary key of the referenced table becomes part of the primary key of the new table. 
+A foreign key may be defined as part of the :doc:`07-primary-key`.
+In the ERD, foreign keys from the primary key are shown as solid lines.
+This means that the primary key of the referenced table becomes part of the primary key of the new table.
 A foreign key outside the primary key is indicated by dashed line in the ERD.
 
 For example, the following definition for the table ``mp.Slice`` has three foreign keys, including one within the primary key.
 
 .. code-block:: text
 
-    ## brain slice 
+    ## brain slice
     -> mp.Subject
     slice_id        : smallint       # slice number within subject
     ---
@@ -44,21 +44,21 @@ For example, the following definition for the table ``mp.Slice`` has three forei
     -> mp.Plane
     slice_date        : date                 # date of the slicing (not patching)
     thickness         : smallint unsigned    # slice thickness in microns
-    experimenter      : varchar(20)          # person who performed this experiment 
+    experimenter      : varchar(20)          # person who performed this experiment
 
-You can examine the resulting table heading in MATLAB as 
+You can examine the resulting table heading in MATLAB as
 
 .. code-block:: matlab
 
     show(mp.BrainSlice)
 
-or in Python as 
+or in Python as
 
 .. code-block:: python
 
     mp.BrainSlice().heading
 
-The heading of ``mp.Slice`` may look something like 
+The heading of ``mp.Slice`` may look something like
 
 .. code-block:: text
 
@@ -69,7 +69,7 @@ The heading of ``mp.Slice`` may look something like
     plane               : varchar(12)        # plane of section
     slice_date          : date               # date of the slicing (not patching)
     thickness           : smallint unsigned  # slice thickness in microns
-    experimenter        : varchar(20)        # person who performed this experiment 
+    experimenter        : varchar(20)        # person who performed this experiment
 
 This displayed heading reflects the actual columns in the table.  The foreign keys have been replaced by the primary key attributes of the referenced tables, including their data type and comment.
 
@@ -82,9 +82,9 @@ The foreign key ``-> A`` in the definition of table ``B`` has the following effe
 2. A foreign key constraint is created in ``B`` with reference to ``A``.
 3. If one does not already exist, an index is created to speed up searches in ``B`` for matches to ``A``.  (The reverse search is already fast because it uses the primary key of ``A``.)
 
-A foreign key constraint means that a tuple in ``B`` cannot exist without a matching tuple in ``A``.  **Matching** means attributes in ``B`` that correspond to the primary key of ``A`` must have the same values.  
-An attempt to insert a tuple into ``B`` that does not have a matching counterpart in ``A`` will fail.  
-Conversely, deleting a tuple from ``A`` that has matching tuples in ``B`` will result in the deletion of these matching tuples and so forth, recursively, downstream in the pipeline. 
+A foreign key constraint means that a tuple in ``B`` cannot exist without a matching tuple in ``A``.  **Matching** means attributes in ``B`` that correspond to the primary key of ``A`` must have the same values.
+An attempt to insert a tuple into ``B`` that does not have a matching counterpart in ``A`` will fail.
+Conversely, deleting a tuple from ``A`` that has matching tuples in ``B`` will result in the deletion of these matching tuples and so forth, recursively, downstream in the pipeline.
 
 When ``B`` references ``A`` with a foreign key, we often say that ``B`` *depends* on ``A``.  We will therefore call ``B`` the dependent table and ``A`` the referenced table with respect to the foreign key from ``B`` to ``A``.
 
@@ -93,11 +93,11 @@ When ``B`` references ``A`` with a foreign key, we often say that ``B`` *depends
 
 Referential integrity
 ---------------------
-Foreign keys enforce the desired property of databases known as *referential integrity*.  Referential integrity enforces the constraint that no entity exists in the database without all the other entities on which it depends. An entity in relation ``B`` depends on an entity in relation ``A`` when they belong to them or are computed from them. 
- 
+Foreign keys enforce the desired property of databases known as *referential integrity*.  Referential integrity enforces the constraint that no entity exists in the database without all the other entities on which it depends. An entity in relation ``B`` depends on an entity in relation ``A`` when they belong to them or are computed from them.
+
 Renamed foreign keys
 --------------------
-In most cases, the foreign key includes the primary key attributes of the referenced table in the table definition without renaming them.  In such a case, an entity in the dependent table depends on exactly one entity in the referenced table.  DataJoint provides the following syntax rename the primary key attributes when they are included in the new table.  
+In most cases, the foreign key includes the primary key attributes of the referenced table in the table definition without renaming them.  In such a case, an entity in the dependent table depends on exactly one entity in the referenced table.  DataJoint provides the following syntax rename the primary key attributes when they are included in the new table.
 
 The foreign key
 
@@ -105,7 +105,7 @@ The foreign key
 
     (new_attr) ->  Table
 
-renames the primary key attribute of ``Table`` into ``new_attr`` before integrating it into the table definition.  
+renames the primary key attribute of ``Table`` into ``new_attr`` before integrating it into the table definition.
 This works if there is no ambiguity which of the primary key attributes must be renamed.  Such is the case if ``Table`` has only one attribute in the primary key or it only has one attribute that has not yet been included in the dependent table's definition.
 
 For example, the table ``Experiment``, may depend on table ``User`` but rename the foreign key attribute into ``operator`` as follows
@@ -116,7 +116,7 @@ For example, the table ``Experiment``, may depend on table ``User`` but rename t
 
 In some cases, it is not clear which attribute or attributes from the referenced table should be renamed.  Such is the case when multiple attributes are renamed or when the referenced table has multiple attributes that have not yet included.
 
-For example, a table for ``Synapse`` may reference the table ``Cell`` twice as ``presynaptic`` and ``postsynaptic``. 
+For example, a table for ``Synapse`` may reference the table ``Cell`` twice as ``presynaptic`` and ``postsynaptic``.
 The table definition may appear as
 
 .. code-block:: text
@@ -127,7 +127,7 @@ The table definition may appear as
     ---
     connection_strength : double  # (pA) peak synaptic current
 
-If the primary key of ``Cell`` is (``animal_id``, ``slice_id``, ``cell_id``), then the primary key of ``Synapse`` resulting from the above definition will be (``animal_id``, ``slice_id``, ``presynaptic``, ``postsynaptic``).  
+If the primary key of ``Cell`` is (``animal_id``, ``slice_id``, ``cell_id``), then the primary key of ``Synapse`` resulting from the above definition will be (``animal_id``, ``slice_id``, ``presynaptic``, ``postsynaptic``).
 The first foreign key was responsible for including the first three attributes and the second foreign key added the last.  Note that the second foreign key could just as well have been ``(postsynaptic) -> Cell`` with the same effect but it does not make the table definition any clearer.
 
 Note that the design of the ``Synapse`` table above imposes the constraint that the synapse can only be found between cells in the same animal and in the same slice.  If we wished to allow to represent synapses between cells from different slices, then we would have to rename ``slice_id`` as well:
@@ -160,7 +160,7 @@ For example, in the following table definition
     ---
     -> Person
 
-each rig belongs to a person but it does not prevent one person owning multiple rigs. 
+each rig belongs to a person but it does not prevent one person owning multiple rigs.
 
 With the ``nullable`` option, a rig may not belong to anyone when the foreign key attributes for ``Person`` are set to ``NULL``:
 
@@ -170,7 +170,7 @@ With the ``nullable`` option, a rig may not belong to anyone when the foreign ke
     ---
     -> [nullable] Person
 
-With the `unique` option, a person may only appear once in the entire table, which means that no one person can own more than one rig.  
+With the `unique` option, a person may only appear once in the entire table, which means that no one person can own more than one rig.
 
 .. code-block:: text
 
@@ -187,4 +187,3 @@ Finally with both `unique` and `nullable`, a rig may or may not be owned by anyo
     -> [unique, nullable] Person
 
 Foreign keys made from the primary key cannot be nullable but may be unique.
-
