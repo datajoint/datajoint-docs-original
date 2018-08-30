@@ -1,20 +1,22 @@
 .. progress: 8.0 75% Dimitri
 
-Composite attributes
+Composite Attributes
 ====================
 
 .. important::
-  This page serves as feature specification.  The feature will be included in an upcoming release.
+  This page serves as feature specification.
+  The feature will be included in an upcoming release.
 
-In the relational model, data are structured:  Entities represented in one table share the same set of attributes.
+In the relational model, data are structured: Entities represented in one table share the same set of attributes.
 This introduces clarity and enables predictable queries.
 In datasets with many classes of entities with different sets of attributes, relational designs result in large numbers of tables.
 Sometimes, it is conventient to deviate from the relational data model and to allow different sets of attributes in each tuple.
-It can already be accomplished by storing structures of dicts inside blob fields.  However blob fields are opaque to queries: their contents cannot be used in searches.
+It can already be accomplished by storing structures of dicts inside blob fields.
+However blob fields are opaque to queries: their contents cannot be used in searches.
 
 DataJoint introduce the datatype ``composite`` to allow storing objects with their own collections of of attributes.
 
-For example, the following :doc:`03-Table-Definition` has a composite attribute  ``stimulus``.
+For example, the following :doc:`03-Table-Definition` has a composite attribute ``stimulus``.
 
 .. code-block:: text
 
@@ -45,7 +47,8 @@ For example,
 
 Queries
 -------
-The main reason to have composite attributes is to allow using them in restrictions.  This is done by using the ``attribute.field`` notation.
+The main reason to have composite attributes is to allow using them in restrictions.
+This is done by using the ``attribute.field`` notation.
 
 For example, the following restriction selects all recordings for which the stimulus is defined and exceeds 0.5.
 
