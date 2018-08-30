@@ -13,7 +13,7 @@ On the client side, in Python and MATLAB, each table has its own DataJoint class
 Data tiers
 ^^^^^^^^^^
 The table class must inherit from one of the following superclasses to indicate its data tier: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part``.
-See :doc:`05-tiers` and :doc:`../computation/04-master-part`.
+See :doc:`05-Data-Tiers` and :doc:`../computation/04-master-part`.
 
 Defining a table
 ----------------
@@ -58,7 +58,7 @@ This will create the file ``+experiment/Person.m`` with the following contents:
 
 While ``dj.new`` adds a little bit of convenience, some users may create the classes from scratch manually.
 
-Each newly created class must inherit from the DataJoint class corresponding to the correct :doc:`data tier <05-tiers>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
+Each newly created class must inherit from the DataJoint class corresponding to the correct :doc:`data tier <05-Data-Tiers>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 
 The most important part of the table definition is the comment preceding the ``classdef``.
 DataJoint will parse this comment to define the table.

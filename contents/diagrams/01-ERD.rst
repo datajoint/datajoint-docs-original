@@ -16,7 +16,7 @@ Consider the following ERD
 DataJoint uses the following conventions:
 
 * Tables are indicated as nodes in the graph.  The corresponding class name is indicated by each node.
-* :doc:`../definition/05-tiers`  are indicated as colors and symbols: Lookup=gray asterisk, Manual=green square, Imported=blue circle,  Computed=red star, Part=black dot.  The names of :doc:`../computation/04-master-part` are indicated in a smaller font.
+* :doc:`../definition/05-Data-Tiers`  are indicated as colors and symbols: Lookup=gray asterisk, Manual=green square, Imported=blue circle,  Computed=red star, Part=black dot.  The names of :doc:`../computation/04-master-part` are indicated in a smaller font.
 * :doc:`../definition/10-dependencies` are indicated as edges in the graph and always directed downward, forming a **directed acyclic graph**.
 * Foreign keys contained within the primary key are indicated as solid lines.  This means that the referenced table becomes part of the primary key of the dependent table.
 * Foreign keys that are outside the primary key are indicated by dashed lines.

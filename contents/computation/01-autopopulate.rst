@@ -6,7 +6,7 @@ Auto-populate
 Tables in the initial portions of the pipeline are populated from outside the pipeline.
 In subsequent steps, computations are performed automatically by the DataJoint pipeline.
 
-Computed tables belong to one of the two auto-populated :doc:`../definition/05-tiers`: ``dj.Imported`` and ``dj.Computed``.
+Computed tables belong to one of the two auto-populated :doc:`../definition/05-Data-Tiers`: ``dj.Imported`` and ``dj.Computed``.
 DataJoint does not enforce the distinction between imported and compputed tables: the difference is purely semantic, a convention for developers to follow.
 If populating a table requires access to external files such as raw storage that is not part of the database, the table is designated as *imported*. Otherwise, it is *computed*.
 

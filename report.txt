@@ -76,7 +76,7 @@ Edgar     6.40       3.10
 22  Dimitri    \definition              09-composite.rst  6.00       2.00
 34  Dimitri         \intro                   02-what.rst  0.00       2.00
 55  Dimitri       \queries                  08-union.rst  0.00       2.00
-18  Dimitri    \definition                  05-tiers.rst  1.50       1.50
+18  Dimitri    \definition             05-Data-Tiers.rst  1.50       1.50
 0   Dimitri                                    index.rst  6.00       0.00
 37  Dimitri         \intro                    05-who.rst  2.00       0.00
 38  Dimitri         \intro                    06-pub.rst  2.00       0.00

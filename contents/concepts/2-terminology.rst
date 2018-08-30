@@ -55,4 +55,4 @@ We avoid this term.
 
 In data science, the term **metadata** commonly means "data about the data" rather than the data themselves.  For example, metadata could include data sizes, timestamps, data types, indexes, keywords.  In contrast,  neuroscientists often use the term to refer to conditions and annotations about experiments.  Such "metadata" are used to search and classify the data and are in fact an integral part of the actual **data**.
 
-In DataJoint, all data other than blobs can be used in searches and categorization.  These fields may originate from manual annotations, preprocessing, or analysis.  Since *metadata* are not distinguished from simply *data*, we avoid this term.  Instead, we differentiate data into :doc:`../definition/05-tiers`.
+In DataJoint, all data other than blobs can be used in searches and categorization.  These fields may originate from manual annotations, preprocessing, or analysis.  Since *metadata* are not distinguished from simply *data*, we avoid this term.  Instead, we differentiate data into :doc:`../definition/05-Data-Tiers`.
