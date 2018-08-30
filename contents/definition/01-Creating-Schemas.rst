@@ -3,7 +3,7 @@
 Creating Schemas
 ===============
 
-Relational Data Model
+Relational data model
 ---------------------
 DataJoint organizes data using the *Relational Data Model*.
 This means that all data are stored in collections of simple tables.
