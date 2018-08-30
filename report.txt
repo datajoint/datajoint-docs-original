@@ -67,7 +67,7 @@ Edgar     6.40       3.10
 47  Dimitri  \manipulation                  3-update.rst  1.20       4.80
 49  Dimitri       \queries                  02-fetch.rst  1.20       4.80
 33  Dimitri         \intro              01-pipelines.rst  1.80       4.20
-25  Dimitri    \definition                 12-lookup.rst  4.00       4.00
+25  Dimitri    \definition          12-Lookup-Tables.rst  4.00       4.00
 44  Dimitri         \intro                   12-faqs.rst  0.40       3.60
 35  Dimitri         \intro                  03-input.rst  0.00       3.00
 36  Dimitri         \intro                 04-output.rst  0.00       3.00
