@@ -10,7 +10,7 @@ An attribute of type ``longblob`` can contain an object up to 4 GB in size (afte
 A good rule of thumb is that objects over 10 MB in size should not be put in the relational database.
 In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) may be more expensive than in cloud-hosted simple storage systems (e.g.  AWS S3).
 
-DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.  
+DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.
 
 Defining an attribute of type ``external`` is done using the same :doc:`04-syntax` and, to the user, it works the same way as a ``longblob`` attribute.
 However, its data are stored in an external storage system.
@@ -79,9 +79,11 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 5. Each database schema has an auxiliary table named ``~external`` for representing externally stored objects.
 
-It is automatically created the first time external storage is used.  The primary key of ``~external`` is the external storage name and the hash.  Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
+   It is automatically created the first time external storage is used.
+   The primary key of ``~external`` is the external storage name and the hash.
+   Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
 
-Below are sample entries in ``~external``.
+   Below are sample entries in ``~external``.
 
     .. list-table:: ~external
        :widths: 12 12 12 12 12
@@ -107,15 +109,24 @@ Below are sample entries in ``~external``.
 
 7. The :doc:`../manipulation/1-insert` operation first saves all the external objects in the external storage, then inserts the corresponding tuples in ``~external`` or, on duplicate, increments the ``count``, and only then inserts the specified tuples.
 
-8. The :doc:`../manipulation/2-delete` operation first deletes the specified tuples, then decrements the ``count`` of the item in ``~external`` and only then commits the entire transaction. The object is not actually deleted at this time.
+8. The :doc:`../manipulation/2-delete` operation first deletes the specified tuples, then decrements the ``count`` of the item in ``~external`` and only then commits the entire transaction.
+   The object is not actually deleted at this time.
 
-9. The :doc:`../queries/02-fetch` operation uses the hash values to find the data.  In order to prevent excessive network overhead, a special external store named ``cache`` can be configured. If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store.
+9. The :doc:`../queries/02-fetch` operation uses the hash values to find the data.
+   In order to prevent excessive network overhead, a special external store named ``cache`` can be configured.
+   If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly, and will instead retrieve the cached object without downloading directly from the 'real' external store.
 
-10.  Cleanup is performed regularly when the database is in light use or off-line.  Shallow cleanup removes all objects from external storage with ``count=0`` in ``~external``.   Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
+10. Cleanup is performed regularly when the database is in light use or off-line.
+    Shallow cleanup removes all objects from external storage with ``count=0`` in ``~external``.
+    Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
 
-11. DataJoint never removes objects from the local cache folder.  The cache folder may just be periodically emptied entirely or based on file access date.  If dedicated cache folders are maintained for each schema, then a special procedure will be provided to remove all objects that are no longer listed in ``~/external``.
+11. DataJoint never removes objects from the local cache folder.
+    The cache folder may just be periodically emptied entirely or based on file access date.
+    If dedicated cache folders are maintained for each schema, then a special procedure will be provided to remove all objects that are no longer listed in ``~/external``.
 
-   Data removal from external storage is separated from the delete operations to ensure that data are not lost in race conditions between inserts and deletes of the same objects, especially in cases of transactional processing or in processes that are likely to get terminated.  The cleanup steps are performed in separate process when the risks of race conditions are minimal.  The process performing the cleanups must be isolated to prevent interruptions resulting in loss of data integrity.
+  Data removal from external storage is separated from the delete operations to ensure that data are not lost in race conditions between inserts and deletes of the same objects, especially in cases of transactional processing or in processes that are likely to get terminated.
+  The cleanup steps are performed in separate process when the risks of race conditions are minimal.
+  The process performing the cleanups must be isolated to prevent interruptions resulting in loss of data integrity.
 
 Configuration
 -------------
