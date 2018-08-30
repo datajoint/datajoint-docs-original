@@ -72,7 +72,7 @@ Edgar     6.40       3.10
 35  Dimitri         \intro                  03-input.rst  0.00       3.00
 36  Dimitri         \intro                 04-output.rst  0.00       3.00
 40  Dimitri         \intro             08-how-to-use.rst  0.15       2.85
-26  Dimitri    \definition                   13-drop.rst  0.90       2.10
+26  Dimitri    \definition                   13-Drop.rst  0.90       2.10
 22  Dimitri    \definition   09-Composite-Attributes.rst  6.00       2.00
 34  Dimitri         \intro                   02-what.rst  0.00       2.00
 55  Dimitri       \queries                  08-union.rst  0.00       2.00
