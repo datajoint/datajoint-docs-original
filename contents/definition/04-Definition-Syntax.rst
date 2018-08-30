@@ -8,7 +8,7 @@ Each line can be one of the following:
 
 * The optional first line starting with a ``#`` provides a description of the table's purpose.
   It may also be thought of as the table's long title.
-* A new attribute definition in any of the following forms (see :doc:`06-types` for valid datatypes):
+* A new attribute definition in any of the following forms (see :doc:`06-Data-Types` for valid datatypes):
 
   - ``name : datatype``
   - ``name : datatype # comment``
