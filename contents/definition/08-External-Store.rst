@@ -12,7 +12,7 @@ In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) ma
 
 DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.
 
-Defining an attribute of type ``external`` is done using the same :doc:`04-syntax` and, to the user, it works the same way as a ``longblob`` attribute.
+Defining an attribute of type ``external`` is done using the same :doc:`04-Defintion-Syntax` and, to the user, it works the same way as a ``longblob`` attribute.
 However, its data are stored in an external storage system.
 
 Various systems can play the role of external storage: a shared file system accessible to all team members with access to these objects or a cloud storage solutions such as the AWS S3.
