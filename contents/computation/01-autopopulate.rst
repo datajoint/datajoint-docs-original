@@ -64,7 +64,7 @@ The class will be defined as follows.
             self.insert(key)
 
 The ``make_tuples`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
-The key represents the partially filled tuple, usually already containing :doc:`../definition/07-primary-key` attributes.
+The key represents the partially filled tuple, usually already containing :doc:`../definition/07-Primary-Key` attributes.
 
 Inside the callback, three things always happen:
 
