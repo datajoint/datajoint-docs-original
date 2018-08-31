@@ -1,12 +1,13 @@
 .. progress: 12.0 25% Austin
 
-Create a schema
+Creating Schemas
 ===============
 
-Relational Data Model
+Relational data model
 ---------------------
 DataJoint organizes data using the *Relational Data Model*.
 This means that all data are stored in collections of simple tables.
+The relationships between tables comprise the structure of a data pipeline.
 
 See also :doc:`../concepts/2-terminology`
 
@@ -14,19 +15,21 @@ Classes represent tables
 ------------------------
 To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
 Computer programmers refer to this concept as `object-relational mapping <https://en.wikipedia.org/wiki/Object-relational_mapping>`_.
-For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``experiment.subject`` on the database server.
+For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``subject`` on the database server.
 Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.
 
 Schemas
 -------
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
+Depending on the complexity of the data, a database server may have many schemas each containing a subset of tables, or a single schema may contain every table, in the simplest cases.
+Schemas outline the structure of a data pipeline by specifying the directional relationships between tables.
 DataJoint reflects this organization by associating each DataJoint class with its corresponding schema.
-Therefore, we must create a schema before we can create any tables.
+Tables are defined within the context of a schema, so we must create a schema before we can create any tables.
 
 |matlab| MATLAB
 ---------------------------
-A schema can be created in MATLAB manually or automatically through the ``dj.createSchema`` script.
+A schema can be created in MATLAB either manually or automatically through the ``dj.createSchema`` script.
 While ``dj.createSchema`` simplifies the process, the manual approach yields a better understanding of what actually takes place, so both approaches are listed below.
 
 Manual
@@ -58,6 +61,8 @@ Make sure that your project directory (the parent directory of your package fold
 **Step 3.**  Associate the package with the database schema
 
 In this step, we tell DataJoint that all classes in the package folder ``+experiment`` will work with tables in the database schema ``alice_experiment``.
+Each package in MATLAB corresponds to exactly one schema.
+In some special cases, multiple packages may all relate to a single database schema, but in most cases there will be a one-to-one relationship between packages and schemas.
 
 In the ``+experiment`` folder, create the file ``getSchema.m`` with the following contents:
 
@@ -96,7 +101,7 @@ Create a new schema using the ``dj.schema`` function:
 
 This statement creates the database schema ``alice_experiment`` on the server.
 
-The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-create-table`.
+The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-Creating-Tables`.
 
 It is a common practice to have a separate Python module for each schema.
 Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
