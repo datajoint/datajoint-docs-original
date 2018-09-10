@@ -3,7 +3,7 @@
 Table Definition
 ================
 
-Defining a table means defining the columns of the table (their names and datatypes) and the constraints to be applied to those collumns.
+Defining a table means defining the columns of the table (their names and datatypes) and the constraints to be applied to those columns.
 
 Both MATLAB and Python use the same syntax define tables.
 In Python, the table definition is contained in the ``definition`` property of the class.
