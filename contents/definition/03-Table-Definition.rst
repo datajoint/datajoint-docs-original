@@ -3,19 +3,21 @@
 Table Definition
 ================
 
-Defining a table means to define the columns of the table (their names and datatypes) and constraints to be applied to them.
+Defining a table means defining the columns of the table (their names and datatypes) and the constraints to be applied to those collumns.
 
 Both MATLAB and Python use the same syntax define tables.
 In Python, the table definition is contained in the ``definition`` property of the class.
 In MATLAB, the table definition is contained in the first block comment in the class definition file.
 Note that although it looks like a mere comment, the table definition in MATLAB is parsed by DataJoint.
-This solution thought to be convenient since MATLAB does not provide convenient syntax for multiline strings.
+This solution is thought to be convenient since MATLAB does not provide convenient syntax for multiline strings.
 
 Tables have rows and columns.
 Each column has a name and a datatype.
-Rows don't have names or numbers and can only be identified by their contents.
+We refer to columns in DataJoint as *attributes*.
+Rows in Datajoint don't have names or numbers; they can only be identified by their contents.
+We often refer to rows as *entities* in DataJoint.
 
-For example, the following code in MATLAB and Python defines the same table, ``User`` that contains users of the database:
+For example, the following code in MATLAB and Python defines the same table, ``User``, that contains users of the database:
 
 |matlab| MATLAB
 
@@ -60,16 +62,17 @@ If it is not already defined, it will get automatically created as soon as it is
 In Python, the table is created at the time of the class definition.
 In fact, it is one of the jobs performed by the decorator ``@schema`` of the class.
 
-In MATLAB, the table is created up the first attempt to use the class for manipulating its data (e.g. inserting tuples or fetching tuples).
+In MATLAB, the table is created upon the first attempt to use the class for manipulating its data (e.g. inserting or fetching entities).
 
 
 Changing the definition of an existing table
 --------------------------------------------
-Once the table is created in the database, the definition string has no effect.
+Once the table is created in the database, the definition string has no further effect.
+In other words, changing the definition string in the class of an existing table will not actually update the table definition.
 To change the table definition, one must [drop the table](Drop) first.
-This means all the data will be lost and the new definition will applied to create the new empty table.
+This means that all the data will be lost, and the new definition will be applied to create the new empty table.
 
-Therefore, in the initial phases of designing a DataJoint pipeline, it is common to experiment with various variations of the design before populating it with substantial amounts of data.
+Therefore, in the initial phases of designing a DataJoint pipeline, it is common to experiment with variations of the design before populating it with substantial amounts of data.
 
 It is possible to modify a table without dropping it.
 This topic is covered separately.
@@ -77,8 +80,8 @@ This topic is covered separately.
 Reverse-engineering the table definition
 ----------------------------------------
 
-DataJoint objects provide the ``describe`` method to see the table definition to define the table that is actually in the database.
-This definition may differ from the one in the definition string if the definition string has been edited or if the definition has been changed by someone else.
+DataJoint objects provide the ``describe`` method, which displays the table definition used to define the table when it was created in the database.
+This definition may differ from the definition string of the class if the definition string has been edited after creation of the table.
 
 Examples
 ++++++++
@@ -94,7 +97,7 @@ Examples
 
 	s = lab.User().describe()
 
-Furthermore, DataJoint for MATLAB provides the ``syncDef`` method to update the ``classdef`` file for the relation with the actual table definition:
+Furthermore, DataJoint for MATLAB provides the ``syncDef`` method to update the ``classdef`` file definition string for the table with the definition in the actual table:
 
 
 |matlab| MATLAB
