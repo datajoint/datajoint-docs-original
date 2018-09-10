@@ -6,13 +6,13 @@ Lookup Tables
 
 Lookup tables contain basic facts that are not specific to an experiment and are fairly persistent.
 Their contents are typically small.
-In GUIs, the are often used for pull-down menus.
+In GUIs, lookup tables are often used for drop-down menus or radio buttons.
 In computed tables, they are often used to specify alternative methods for computations.
 Lookup tables are commonly populated from their ``contents`` property.
-In [[ERD]]s they are shown in gray.
-The decision which tables are Lookup and which tables are Manual can be somewhat arbitrary.
+In :doc:`ERDs <../diagrams/01-ERD>` they are shown in gray.
+The decision of which tables are lookup tables and which are manual can be somewhat arbitrary.
 
-The table below is declared as a lookup table with the contents property to fill its contents.
+The table below is declared as a lookup table with its contents property provided to generate entities.
 
 .. figure:: ../_static/img/python-tiny.png
    :alt:
