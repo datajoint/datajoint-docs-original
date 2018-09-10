@@ -3,16 +3,16 @@
 Drop
 ====
 
-The ``drop`` method completely removes the table from the database, including its definition.
+The ``drop`` method completely removes a table from the database, including its definition.
 It also removes all dependent tables, recursively.
-DataJoint will first display the tables being dropped and the number of tuples in each before prompting the user to proceed.
+DataJoint will first display the tables being dropped and the number of entities in each before prompting the user for confirmation to proceed.
 
-The ``drop`` method is often used during the initial design to allow altered table definitions to take effect.
+The ``drop`` method is often used during initial design to allow altered table definitions to take effect.
 
 |matlab| Matlab
 ---------------
 
-.. code-block:: matlab 
+.. code-block:: matlab
 
     % drop the Person table from the lab schema
     drop(lab.Person)
