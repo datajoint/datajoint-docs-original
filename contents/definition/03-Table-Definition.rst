@@ -14,6 +14,7 @@ This solution is thought to be convenient since MATLAB does not provide convenie
 Tables have rows and columns.
 Each column has a name and a datatype.
 We refer to columns in DataJoint as *attributes*.
+
 Rows in Datajoint don't have names or numbers; they can only be identified by their contents.
 We often refer to rows as *entities* in DataJoint.
 
