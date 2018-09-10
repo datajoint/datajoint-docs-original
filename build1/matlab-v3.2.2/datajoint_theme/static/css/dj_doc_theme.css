@@ -178,3 +178,12 @@ nav .hidden-section {
       overflow: visible; 
    }
 }
+
+table > caption > .caption-text {
+    font-size: 1.2rem;
+    font-style: normal;
+    color: inherit;
+}
+table > caption> .caption-text + a.headerlink {
+    display: none;
+}

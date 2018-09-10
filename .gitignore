@@ -10,6 +10,8 @@
 _build/
 _static/thumbs/
 site/
+build1/
+full_site/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
