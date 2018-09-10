@@ -69,7 +69,7 @@ Changing the definition of an existing table
 --------------------------------------------
 Once the table is created in the database, the definition string has no further effect.
 In other words, changing the definition string in the class of an existing table will not actually update the table definition.
-To change the table definition, one must [drop the table](Drop) first.
+To change the table definition, one must :doc:`drop the table <13-Drop>` first.
 This means that all the data will be lost, and the new definition will be applied to create the new empty table.
 
 Therefore, in the initial phases of designing a DataJoint pipeline, it is common to experiment with variations of the design before populating it with substantial amounts of data.
