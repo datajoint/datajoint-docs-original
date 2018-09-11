@@ -1,8 +1,7 @@
 import os
-import sys
+import json
 import glob
 import shutil
-
 import subprocess
 
 
@@ -23,13 +22,11 @@ if not os.path.exists('build1'):
         ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build1").wait()
     
 
-srcComm = "build1/datajoint-docs/contents"
-srcMat = "build1/datajoint-matlab/docs/"
-srcPy = "build1/datajoint-python/docs/"
-# srcMat = "../datajoint-matlab/docs/"
-# srcPy = "../datajoint-python/docs/"
+# srcComm = "build1/datajoint-docs/contents"
+# srcMat = "build1/datajoint-matlab/docs/"
+# srcPy = "build1/datajoint-python/docs/"
 
-def create_build_folders(dsrc_common, dsrc_lang, lang): #TODO delete the dsrc_lang it's not getting used anymore
+def create_build_folders(lang): #TODO delete the dsrc_lang it's not getting used anymore
     # tags = subprocess.Popen(["git", "tag"], cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
     # tags1 = {}
     # tags1[lang] = tags
@@ -40,7 +37,7 @@ def create_build_folders(dsrc_common, dsrc_lang, lang): #TODO delete the dsrc_la
                         "v0.9.1"],
              "matlab": [
                         # "v3.2.0",
-                        "v3.2.1",
+                        # "v3.2.1",
                         "v3.2.2"]
              }
     for tag in tags2[lang]:
@@ -55,10 +52,19 @@ def create_build_folders(dsrc_common, dsrc_lang, lang): #TODO delete the dsrc_la
         if os.path.exists(dst_build_folder):
             shutil.rmtree(dst_build_folder)
 
-        # copy over the source doc contents into the build folder 
-        # shutil.copytree(dsrc_lang, dst_main)
+        # copy over the lang source doc contents into the build folder 
         shutil.copytree(dsrc_lang2, dst_main)
-        shutil.copytree(dsrc_common, dst_temp)
+
+        # grab which version of the common folder the lang doc needs to be merged with
+        cv = open(dsrc_lang2 + "/_version_common.json")
+        v = cv.read() # expected in this format { "comm_version" : "v0.0.0"}
+        version_info = json.loads(v)
+        cv.close
+        subprocess.Popen(["git", "checkout", version_info['comm_version']],
+                         cwd="build1/datajoint-docs", stdout=subprocess.PIPE).wait()
+        dsrc_comm2 = "build1/datajoint-docs/contents"
+        # copy over the cmmon source doc contents into the build folder 
+        shutil.copytree(dsrc_comm2, dst_temp)
 
         # copying and merging all of the folders from lang-specific repo to build folder
         for root, dirs, filename in os.walk(dst_temp):
@@ -90,8 +96,8 @@ def create_build_folders(dsrc_common, dsrc_lang, lang): #TODO delete the dsrc_la
         # build individual lang-ver folder
         subprocess.Popen(["make", "site"], cwd=dst_build_folder).wait()
 
-create_build_folders(srcComm, srcMat, "matlab")
-create_build_folders(srcComm, srcPy, "python")
+create_build_folders("matlab")
+create_build_folders("python")
 
 # generate site folder with all contents using hte above build folders
 
