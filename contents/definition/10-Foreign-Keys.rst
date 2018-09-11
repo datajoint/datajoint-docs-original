@@ -3,14 +3,18 @@
 Foreign Keys
 ============
 
-Foreign keys define relationships between different tables represented by the schema design.
-
 Even if you already know about foreign keys in SQL, please read this section carefully.
 DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
 
-What are foreign keys
----------------------
-The DataJoint pipeline can be visualized as a graph with nodes and edges.
+Understanding foreign keys
+--------------------------
+Schemas contains collections of tables of related data.
+Accordingly, entities in one table often derive some of their meaning or context from entities in other tables.
+**Foreign keys** define these relationships between tables within a schema (or between tables in different schemas for more complex designs).
+Foreign keys play a functional role in DataJoint and do not simply label the structure of a pipeline.
+Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
+
+A DataJoint pipeline, including the relationships established by foreign keys, can be visualized as a graph with nodes and edges.
 The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-erd`.
 The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
