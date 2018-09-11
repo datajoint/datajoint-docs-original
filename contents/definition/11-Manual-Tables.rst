@@ -1,12 +1,12 @@
-.. progress: 8.0 40% Austin 
+.. progress: 8.0 40% Austin
 
 Manual Tables
 =============
 
-Manual tables are populated during experiments through a variety of interfaces.  
-Not all manual information is entered by typing.  
-Automated software can enter it directly into the database.  
-What makes a manual table manual is that it does not perform any computations within the pipeline.
+Manual tables are populated during experiments through a variety of interfaces.
+Not all manual information is entered by typing.
+Automated software can enter it directly into the database.
+What makes a manual table manual is that it does not perform any computations within the DataJoint pipeline.
 
 The following code defines three manual tables ``Animal``, ``Session``, and ``Scan``:
 
@@ -18,7 +18,7 @@ The following code defines three manual tables ``Animal``, ``Session``, and ``Sc
     @schema
     class Animal(dj.Manual):
         definition = """
-        # information about animal 
+        # information about animal
         animal_id : int  # animal id assigned by the lab
         ---
         -> Species
@@ -32,23 +32,23 @@ The following code defines three manual tables ``Animal``, ``Session``, and ``Sc
         # Experiment Session
         -> Animal
         session  : smallint  # session number for the animal
-        --- 
+        ---
         session_date : date  # YYYY-MM-DD
         -> User
         -> Anesthesia
         -> Rig
         """
 
-    @schema 
+    @schema
     class Scan(dj.Manual):
         definition = """
         # Two-photon imaging scan
-        -> Session 
+        -> Session
         scan : smallint  # scan number within the session
         ---
         -> Lens
         laser_wavelength : decimal(5,1)  # um
-        laser_power      : decimal(4,1)  # mW    
+        laser_power      : decimal(4,1)  # mW
         """
 
 
@@ -59,7 +59,7 @@ File ``+experiment/Animal.m``
 .. code-block:: matlab
 
     %{
-      # information about animal 
+      # information about animal
       animal_id : int  # animal id assigned by the lab
       ---
       -> experiment.Species
@@ -77,7 +77,7 @@ File ``+experiment/Session.m``
       # Experiment Session
       -> experiment.Animal
       session  : smallint  # session number for the animal
-      --- 
+      ---
       session_date : date  # YYYY-MM-DD
       -> experiment.User
       -> experiment.Anesthesia
@@ -92,12 +92,12 @@ File ``+experiment/Scan.m``
 
     %{
       # Two-photon imaging scan
-      -> experiment.Session 
+      -> experiment.Session
       scan : smallint  # scan number within the session
       ---
       -> experiment.Lens
       laser_wavelength : decimal(5,1)  # um
-      laser_power      : decimal(4,1)  # mW    
+      laser_power      : decimal(4,1)  # mW
     %}
     classdef Scan < dj.Manual
     end

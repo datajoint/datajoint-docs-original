@@ -3,36 +3,36 @@
 Auto-populate
 =============
 
-Tables in the initial portions of the pipeline are populated from outside the pipeline.  
+Tables in the initial portions of the pipeline are populated from outside the pipeline.
 In subsequent steps, computations are performed automatically by the DataJoint pipeline.
 
-Computed tables belong to one of the two auto-populated :doc:`../definition/05-tiers`: ``dj.Imported`` and ``dj.Computed``.
+Computed tables belong to one of the two auto-populated :doc:`../definition/05-Data-Tiers`: ``dj.Imported`` and ``dj.Computed``.
 DataJoint does not enforce the distinction between imported and compputed tables: the difference is purely semantic, a convention for developers to follow.
 If populating a table requires access to external files such as raw storage that is not part of the database, the table is designated as *imported*. Otherwise, it is *computed*.
 
 Make-tuples
 -----------
-Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/11-manual`, for example. 
-Their data definition follows the same :doc:`../definition/04-syntax`.
+Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/11-Manual-Tables`, for example.
+Their data definition follows the same :doc:`../definition/04-Definition-Syntax`.
 
 For auto-populated tables, data should never be entered using :doc:`../manipulation/1-insert` directly.  Instead, these tables must define the callback method ``makeTuples(self, key)`` in MATLAB   ``_make_tuples(self, key)``.  The ``insert`` method then can only be called on ``self`` inside this callback method.
 
-Consider the following example:  
+Consider the following example:
 
-Imagine that there is a table ``test.Image`` that contains 2D grayscale images in its ``image`` attribute.  
-Let us define the computed table, ``test.FilteredImage`` that filters the image in some way and saves the result in its ``filtered_image`` attribute. 
+Imagine that there is a table ``test.Image`` that contains 2D grayscale images in its ``image`` attribute.
+Let us define the computed table, ``test.FilteredImage`` that filters the image in some way and saves the result in its ``filtered_image`` attribute.
 
-The class will be defined as follows. 
+The class will be defined as follows.
 
 |matlab| MATLAB
 
 .. code-block:: MATLAB
 
     %{
-    # Filtered image 
+    # Filtered image
     -> test.Image
     ---
-    filtered_image : longblob 
+    filtered_image : longblob
     %}
 
     classdef FilteredImage < dj.Computed
@@ -43,19 +43,19 @@ The class will be defined as follows.
                 self.insert(key)
             end
         end
-    end 
+    end
 
 |python| Python
 
 .. code-block:: python
 
-    @schema 
+    @schema
     class FilteredImage(dj.Computed):
         definition = """
-        # Filtered image 
+        # Filtered image
         -> Image
         ---
-        filtered_image : longblob 
+        filtered_image : longblob
         """
 
         def _make_tuples(self, key):
@@ -63,12 +63,12 @@ The class will be defined as follows.
             key['filtered_image'] = myfilter(img)
             self.insert(key)
 
-The ``make_tuples`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.  
-The key represents the partially filled tuple, usually already containing :doc:`../definition/07-primary-key` attributes. 
+The ``make_tuples`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
+The key represents the partially filled tuple, usually already containing :doc:`../definition/07-Primary-Key` attributes.
 
 Inside the callback, three things always happen:
 
-1. :doc:`../queries/02-fetch` data from tables upstream in the pipeline using the ``key`` for :doc:`../queries/04-restriction`.  
+1. :doc:`../queries/02-fetch` data from tables upstream in the pipeline using the ``key`` for :doc:`../queries/04-restriction`.
 2. The missing attributes are computed and added to the fields allredy in ``key``.
 3. The entire tuple is inserted into ``self``.
 
@@ -86,8 +86,8 @@ The ``FilteredImage`` table can be populated as
 
     FilteredImage().populate()
 
-The progress of long-running calls to ```populate()``` in datajoint-python 
-can be visualized by adding the ```display_progress=True``` argument 
+The progress of long-running calls to ```populate()``` in datajoint-python
+can be visualized by adding the ```display_progress=True``` argument
 to the populate call.
 
 |matlab| MATLAB
@@ -98,7 +98,7 @@ to the populate call.
 
 Note that it is not necessary which data needs to be computed.  DataJoint will call ``make_tuples``, one-by-one, for every key in ``Image`` for which ``FilteredImage`` has not yet been computed.
 
-Chains of auto-populated tables form computational pipelines in DataJoint.  
+Chains of auto-populated tables form computational pipelines in DataJoint.
 
 
 .. |python| image:: ../_static/img/python-tiny.png
