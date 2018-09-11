@@ -14,10 +14,10 @@ import subprocess
 if not os.path.exists('build1'):
     os.makedirs('build1')
     subprocess.Popen(
-        ["git", "clone", "git@github.com:mahos/testDocMain.git", "datajoint-docs"], cwd="build1")
+        ["git", "clone", "git@github.com:mahos/testDocMain.git", "datajoint-docs"], cwd="build1").wait()
     
     subprocess.Popen(
-        ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build1")
+        ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build1").wait()
     
     subprocess.Popen(
         ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build1").wait()
@@ -90,8 +90,8 @@ def create_build_folders(dsrc_common, dsrc_lang, lang): #TODO delete the dsrc_la
         # build individual lang-ver folder
         subprocess.Popen(["make", "site"], cwd=dst_build_folder).wait()
 
-# create_build_folders(srcComm, srcMat, "matlab")
-# create_build_folders(srcComm, srcPy, "python")
+create_build_folders(srcComm, srcMat, "matlab")
+create_build_folders(srcComm, srcPy, "python")
 
 # generate site folder with all contents using hte above build folders
 
