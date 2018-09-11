@@ -53,7 +53,7 @@ Internal conventions for naming tables
 
 On the server side, DataJoint uses the following naming scheme to generate the table name corresponding to a given class:
 
-First, the name of the class is converted from ``CamelCase`` to ``snake_case``.
+First, the name of the class is converted from ``CamelCase`` to ``snake_case`` (`separation by underscores <https://en.wikipedia.org/wiki/Snake_case>`_).
 Then the name is prefixed according to the data tier.
 
 For example:
