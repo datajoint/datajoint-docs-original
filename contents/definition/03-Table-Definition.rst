@@ -4,19 +4,17 @@ Table Definition
 ================
 
 Defining a table means defining the columns of the table (their names and datatypes) and the constraints to be applied to those columns.
+Tables have rows and columns representing related *entities* with shared *attributes*.
+Each row represents a single entity and all of its data relevant to the table.
+Rows in Datajoint don't have names or numbers; they can only be identified by their contents.
+The columns of a table each contain a single attribute of that table's entities.
+Attributes have a name and a datatype that are specified when the table is defined.
 
 Both MATLAB and Python use the same syntax define tables.
 In Python, the table definition is contained in the ``definition`` property of the class.
 In MATLAB, the table definition is contained in the first block comment in the class definition file.
 Note that although it looks like a mere comment, the table definition in MATLAB is parsed by DataJoint.
 This solution is thought to be convenient since MATLAB does not provide convenient syntax for multiline strings.
-
-Tables have rows and columns.
-Each column has a name and a datatype.
-We refer to columns in DataJoint as *attributes*.
-
-Rows in Datajoint don't have names or numbers; they can only be identified by their contents.
-We often refer to rows as *entities* in DataJoint.
 
 For example, the following code in MATLAB and Python defines the same table, ``User``, that contains users of the database:
 
