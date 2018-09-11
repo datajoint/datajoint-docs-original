@@ -5,7 +5,7 @@ Creating Schemas
 
 Relational data model
 ~~~~~~~~~~~~~~~~~~~~~
-DataJoint organizes data using the *Relational Data Model*.
+DataJoint organizes data using the **Relational Data Model**.
 This means that all data are stored in collections of simple tables.
 The relationships between tables comprise the structure of a data pipeline.
 

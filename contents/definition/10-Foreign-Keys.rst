@@ -12,7 +12,7 @@ What are foreign keys
 ---------------------
 The DataJoint pipeline can be visualized as a graph with nodes and edges.
 The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-erd`.
-The nodes of the graph are tables and the edges connecting them are **foreign keys**.
+The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 
 For example, the ERD below is the pipeline for multipatching experiments
@@ -95,15 +95,15 @@ A foreign key constraint means that an entity in ``B`` cannot exist without a ma
 An attempt to insert an entity into ``B`` that does not have a matching counterpart in ``A`` will fail.
 Conversely, deleting an entity from ``A`` that has matching entities in ``B`` will result in the deletion of those matching entities and so forth, recursively, downstream in the pipeline.
 
-When ``B`` references ``A`` with a foreign key, we often say that ``B`` *depends* on ``A``.
-We will therefore call ``B`` the *dependent table* and ``A`` the *referenced table* with respect to the foreign key from ``B`` to ``A``.
+When ``B`` references ``A`` with a foreign key, we often say that ``B`` **depends** on ``A``.
+We will therefore call ``B`` the **dependent table** and ``A`` the **referenced table** with respect to the foreign key from ``B`` to ``A``.
 
 .. note::
     Note to those already familiar with the theory of relational databases: The usage of the words "depends" and "dependency" here should not be confused with the unrelated concept of *functional dependencies* that is used to define normal forms.
 
 Referential integrity
 ---------------------
-Foreign keys enforce the desired property of databases known as *referential integrity*.
+Foreign keys enforce the desired property of databases known as **referential integrity**.
 Referential integrity enforces the constraint that no entity exists in the database without all the other entities on which it depends.
 An entity in relation ``B`` depends on an entity in relation ``A`` when they belong to them or are computed from them.
 

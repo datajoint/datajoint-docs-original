@@ -4,7 +4,7 @@ Table Definition
 ================
 
 Defining a table means defining the columns of the table (their names and datatypes) and the constraints to be applied to those columns.
-Tables have rows and columns representing related *entities* with shared *attributes*.
+Tables have rows and columns representing related **entities** with shared **attributes**.
 Each row represents a single entity and all of its data relevant to the table.
 Rows in Datajoint don't have names or numbers; they can only be identified by their contents.
 The columns of a table each contain a single attribute of that table's entities.

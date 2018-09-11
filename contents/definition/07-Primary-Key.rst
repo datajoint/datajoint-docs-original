@@ -10,7 +10,7 @@ Entities in tables are neither named nor numbered.
 Questions of the kind "What is the 10th element of this table?" are foreign to the relational mindset.
 Instead, entities are distinguished and identified by their values.
 Furthermore, the entire entity is not required.
-In each table, a subset of its attributes are designated to be the *primary key*.
+In each table, a subset of its attributes are designated to be the **primary key**.
 Attributes in the primary key alone are sufficient to differentiate any entity from any other within the table.
 
 Each table must have exactly one `primary key <http://en.wikipedia.org/wiki/Primary_key>`__: a subset of its attributes that uniquely identify each entity in the table.
@@ -23,7 +23,7 @@ The mouse ID number ``animal_id`` of type ``smallint`` can serve as the primary 
 An experiment performed on a mouse may be identified in the table ``Experiments`` by two attributes: ``animal_id`` and ``experiment_number``.
 
 DataJoint takes the concept of primary keys somewhat more seriously than other models and query languages.
-Even *table expressions*, i.e. those tables produced through operations on other tables have a well-defined primary key.
+Even **table expressions**, i.e. those tables produced through operations on other tables have a well-defined primary key.
 All operators on tables are designed in such a way that the results always have a well-defined primary key.
 
 In all representations of tables in DataJoint, the primary key attributes always come first and are highlighted somehow (e.g. in a **bold** font or marked with an asterisk \*)
@@ -46,7 +46,7 @@ For example, the following is the definition of a table containing database user
 Entity integrity
 ~~~~~~~~~~~~~~~~
 
-The primary key defines and enforces the desired property of databases known as *entity integrity*.
+The primary key defines and enforces the desired property of databases known as **entity integrity**.
 In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
 Entity integrity states that the database must prevent any confusion between entities such as duplication or misidentification.
 
@@ -86,7 +86,7 @@ Surrogate primary keys
 ~~~~~~~~~~~~~~~~~~~~~~
 
 There are cases when a special attribute may be added to play the role of the primary key that is never used outside the database.
-These primary keys are called *surrogate primary keys*.
+These primary keys are called **surrogate primary keys**.
 Below are some cases when surrogate keys are appropriately used.
 
 Using hashes as primary keys
