@@ -1,12 +1,14 @@
 .. progress: 6.0 75% Austin
 
-Data Types
+Datatypes
 ==========
 
 DataJoint supports the following datatypes.
 To conserve database resources, use the smallest and most restrictive datatype sufficient for your data.
+This also ensures that only valid data are entered into the pipeline.
 
-Most common data types
+
+Most common datatypes
 ----------------------
 
 -  ``tinyint``: an 8-bit integer number, ranging from -128 to 127.
@@ -43,7 +45,7 @@ Most common data types
 -  ``longblob``: arbitrary numeric array (e.g. matrix, image, structure), up to 4 `GiB <http://en.wikipedia.org/wiki/Gibibyte>`__ in size.
    Numeric arrays are compatible between MATLAB and Python (NumPy).
 
-Less common (but supported) data types
+Less common (but supported) datatypes
 --------------------------------------
 
 -  ``decimal(N,F) unsigned``: same as ``decimal``, but limited to nonnegative values.
@@ -53,7 +55,7 @@ Less common (but supported) data types
 -  ``blob``: arbitrary numeric array, up to 64 `KiB <http://en.wikipedia.org/wiki/Kibibyte>`__
 -  ``tinyblob``: arbitrary numeric array, up to 256 bytes (actually smaller due to header info).
 
-Data types not (yet) supported
+Datatypes not (yet) supported
 ------------------------------
 
 -  ``binary``

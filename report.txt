@@ -37,7 +37,7 @@ Edgar     6.40       3.10
 15   Austin    \definition        02-Creating-Tables.rst  3.60       8.40
 17   Austin    \definition      04-Definition-Syntax.rst  3.00       7.00
 24   Austin    \definition          11-Manual-Tables.rst  3.20       4.80
-19   Austin    \definition             06-Data-Types.rst  4.50       1.50
+19   Austin    \definition              06-Datatypes.rst  4.50       1.50
 5     Chris         \admin                  5-backup.rst  4.00       4.00
 1     Chris         \admin                 1-hosting.rst  6.00       2.00
 2     Chris         \admin           2-configuration.rst  6.00       2.00
