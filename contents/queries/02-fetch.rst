@@ -148,7 +148,7 @@ To retrieve the data as a list of ``dict``:
 
 .. code:: python
 
-    data = rel.fetch.as_dict()
+    data = rel.fetch(as_dict=True)
 
 Furthermore, the ``fetch`` object can be used as a generator for loops:
 
