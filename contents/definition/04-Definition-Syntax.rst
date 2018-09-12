@@ -14,7 +14,7 @@ Each line can be one of the following:
   - ``name : datatype # comment``
   - ``name = default : datatype``
   - ``name = default : datatype  # comment``
-* The divider ``---`` (at least three dashes) separating primary key attributes above from non-primary attributes below.
+* The divider ``---`` (at least three hyphens) separating primary key attributes above from non-primary attributes below.
 * A foreign key in the format ``-> ReferencedTable``.
   (See :doc:`10-Foreign-Keys`.)
 
