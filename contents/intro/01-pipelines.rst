@@ -1,4 +1,4 @@
-.. progress: 6 30% Dimitri
+.. progress: 6 35% Dimitri
 
 Data pipelines
 ==============
@@ -8,7 +8,27 @@ What is a data pipeline?
 Scientists perform complex sequences of data acquisition, processing, and analysis shared between many collaborators. 
 A *data pipeline* comprises processes and systems for data organization, computation, and workflow.
 
+.. figure:: ../_static/img/pipeline-database.png
+    :align: center
+    :alt: data pipelines vs databases vs data repositories
+
+    Major data management features of data repositories, databases, and data pipelines.
+
+
 As science labs transition into more data-centric work, the structure of the lab 
+
+.. figure:: ../_static/img/data-science-before.png
+    :align: center
+    :alt: data science in a science lab
+
+    Workflow and dataflow in a common findings-centered approach to data science in a science lab
+
+
+.. figure:: ../_static/img/data-science-after.png
+    :align: center
+    :alt: data science in a science lab
+
+    Workflow and dataflow in a data pipeline-centred approach. 
 
 What is DataJoint?
 ------------------
