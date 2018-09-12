@@ -11,7 +11,7 @@ DataJoint prescribes a more principled way for defining and using data dependenc
 What are foreign keys
 ---------------------
 The DataJoint pipeline can be visualized as a graph with nodes and edges.
-The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-erd`.
+The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-ERD`.
 The nodes of the graph are tables and the edges connecting them are **foreign keys**.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 

@@ -1,26 +1,26 @@
-done         135.95
-remaining    399.95 
+done         136.25
+remaining    399.65 
 
 
                 done  remaining
 section                        
-\definition    50.50      83.50
-\existing       0.00      72.00
-\queries       19.00      71.00
-\computation    4.80      65.20
-\diagrams       2.40      21.60
-\intro          7.75      20.15
-\design         0.00      18.00
-\manipulation   2.60      17.40
-\concepts       2.80      17.20
-\admin         26.50      11.50
-\setup         13.60       2.40
+/definition    50.50      83.50
+/existing       0.00      72.00
+/queries       19.00      71.00
+/computation    4.80      65.20
+/diagrams       2.40      21.60
+/intro          8.05      19.85
+/design         0.00      18.00
+/manipulation   2.60      17.40
+/concepts       2.80      17.20
+/admin         26.50      11.50
+/setup         13.60       2.40
                 6.00       0.00 
 
 
           done  remaining
 author                   
-Dimitri  67.95     268.45
+Dimitri  68.25     268.15
 Austin   25.10      98.90
 Jake      2.80      17.20
 Chris    33.70      12.30
@@ -28,62 +28,62 @@ Edgar     6.40       3.10
 
 
      author        section                          file  done  remaining
-32   Austin      \existing                   4-alter.rst  0.00      24.00
-29   Austin      \existing                 1-virtual.rst  0.00      12.00
-31   Austin      \existing        3-interoperability.rst  0.00      12.00
-16   Austin    \definition       03-Table-Definition.rst  4.80      11.20
-14   Austin    \definition       01-Creating-Schemas.rst  3.00       9.00
-20   Austin    \definition            07-Primary-Key.rst  3.00       9.00
-15   Austin    \definition        02-Creating-Tables.rst  3.60       8.40
-17   Austin    \definition      04-Definition-Syntax.rst  3.00       7.00
-24   Austin    \definition          11-Manual-Tables.rst  3.20       4.80
-19   Austin    \definition             06-Data-Types.rst  4.50       1.50
-5     Chris         \admin                  5-backup.rst  4.00       4.00
-1     Chris         \admin                 1-hosting.rst  6.00       2.00
-2     Chris         \admin           2-configuration.rst  6.00       2.00
-4     Chris         \admin                    4-bulk.rst  6.00       2.00
-3     Chris         \admin                3-accounts.rst  4.50       1.50
-58    Chris         \setup        02-windows-install.rst  7.20       0.80
-30  Dimitri      \existing               2-migration.rst  0.00      24.00
-28  Dimitri      \diagrams                    01-ERD.rst  2.40      21.60
-27  Dimitri        \design                    design.rst  0.00      18.00
-7   Dimitri   \computation                   02-make.rst  0.00      16.00
-23  Dimitri    \definition           10-Foreign-Keys.rst  5.00      15.00
-51  Dimitri       \queries            04-restriction.rst  1.40      12.60
-8   Dimitri   \computation              03-keysource.rst  0.00      12.00
-6   Dimitri   \computation           01-autopopulate.rst  1.20      10.80
-9   Dimitri   \computation            04-master-part.rst  1.20      10.80
-56  Dimitri       \queries              09-universal.rst  0.00      10.00
-11  Dimitri   \computation  06-distributed-computing.rst  2.40       9.60
-48  Dimitri       \queries                01-queries.rst  2.40       9.60
-50  Dimitri       \queries              03-operators.rst  9.00       9.00
-53  Dimitri       \queries                   06-proj.rst  3.00       9.00
-21  Dimitri    \definition         08-External-Store.rst  8.00       8.00
-54  Dimitri       \queries                   07-aggr.rst  0.40       7.60
-45  Dimitri  \manipulation                  1-insert.rst  0.80       7.20
-52  Dimitri       \queries                   05-join.rst  1.60       6.40
-10  Dimitri   \computation           05-transactions.rst  0.00       6.00
-46  Dimitri  \manipulation                  2-delete.rst  0.60       5.40
-47  Dimitri  \manipulation                  3-update.rst  1.20       4.80
-49  Dimitri       \queries                  02-fetch.rst  1.20       4.80
-33  Dimitri         \intro              01-pipelines.rst  1.80       4.20
-25  Dimitri    \definition          12-Lookup-Tables.rst  4.00       4.00
-44  Dimitri         \intro                   12-faqs.rst  0.40       3.60
-35  Dimitri         \intro                  03-input.rst  0.00       3.00
-36  Dimitri         \intro                 04-output.rst  0.00       3.00
-40  Dimitri         \intro             08-how-to-use.rst  0.15       2.85
-26  Dimitri    \definition                   13-Drop.rst  0.90       2.10
-22  Dimitri    \definition   09-Composite-Attributes.rst  6.00       2.00
-34  Dimitri         \intro                   02-what.rst  0.00       2.00
-55  Dimitri       \queries                  08-union.rst  0.00       2.00
-18  Dimitri    \definition             05-Data-Tiers.rst  1.50       1.50
+58   Austin      /existing                   4-alter.rst  0.00      24.00
+55   Austin      /existing                 1-virtual.rst  0.00      12.00
+57   Austin      /existing        3-interoperability.rst  0.00      12.00
+42   Austin    /definition       03-Table-Definition.rst  4.80      11.20
+40   Austin    /definition       01-Creating-Schemas.rst  3.00       9.00
+46   Austin    /definition            07-Primary-Key.rst  3.00       9.00
+41   Austin    /definition        02-Creating-Tables.rst  3.60       8.40
+43   Austin    /definition      04-Definition-Syntax.rst  3.00       7.00
+50   Austin    /definition          11-Manual-Tables.rst  3.20       4.80
+45   Austin    /definition             06-Data-Types.rst  4.50       1.50
+24    Chris         /admin                  5-backup.rst  4.00       4.00
+20    Chris         /admin                 1-hosting.rst  6.00       2.00
+21    Chris         /admin           2-configuration.rst  6.00       2.00
+23    Chris         /admin                    4-bulk.rst  6.00       2.00
+22    Chris         /admin                3-accounts.rst  4.50       1.50
+19    Chris         /setup        02-windows-install.rst  7.20       0.80
+56  Dimitri      /existing               2-migration.rst  0.00      24.00
+17  Dimitri      /diagrams                    01-ERD.rst  2.40      21.60
+1   Dimitri        /design                    design.rst  0.00      18.00
+35  Dimitri   /computation                   02-make.rst  0.00      16.00
+49  Dimitri    /definition           10-Foreign-Keys.rst  5.00      15.00
+28  Dimitri       /queries            04-restriction.rst  1.40      12.60
+36  Dimitri   /computation              03-keysource.rst  0.00      12.00
+34  Dimitri   /computation           01-autopopulate.rst  1.20      10.80
+37  Dimitri   /computation            04-master-part.rst  1.20      10.80
+33  Dimitri       /queries              09-universal.rst  0.00      10.00
+25  Dimitri       /queries                01-queries.rst  2.40       9.60
+39  Dimitri   /computation  06-distributed-computing.rst  2.40       9.60
+27  Dimitri       /queries              03-operators.rst  9.00       9.00
+30  Dimitri       /queries                   06-proj.rst  3.00       9.00
+47  Dimitri    /definition         08-External-Store.rst  8.00       8.00
+31  Dimitri       /queries                   07-aggr.rst  0.40       7.60
+2   Dimitri  /manipulation                  1-insert.rst  0.80       7.20
+29  Dimitri       /queries                   05-join.rst  1.60       6.40
+38  Dimitri   /computation           05-transactions.rst  0.00       6.00
+3   Dimitri  /manipulation                  2-delete.rst  0.60       5.40
+4   Dimitri  /manipulation                  3-update.rst  1.20       4.80
+26  Dimitri       /queries                  02-fetch.rst  1.20       4.80
+51  Dimitri    /definition          12-Lookup-Tables.rst  4.00       4.00
+5   Dimitri         /intro              01-pipelines.rst  2.10       3.90
+16  Dimitri         /intro                   12-faqs.rst  0.40       3.60
+7   Dimitri         /intro                  03-input.rst  0.00       3.00
+8   Dimitri         /intro                 04-output.rst  0.00       3.00
+12  Dimitri         /intro             08-how-to-use.rst  0.15       2.85
+52  Dimitri    /definition                   13-Drop.rst  0.90       2.10
+6   Dimitri         /intro                   02-what.rst  0.00       2.00
+32  Dimitri       /queries                  08-union.rst  0.00       2.00
+48  Dimitri    /definition   09-Composite-Attributes.rst  6.00       2.00
+44  Dimitri    /definition             05-Data-Tiers.rst  1.50       1.50
 0   Dimitri                                    index.rst  6.00       0.00
-37  Dimitri         \intro                    05-who.rst  2.00       0.00
-38  Dimitri         \intro                    06-pub.rst  2.00       0.00
-39  Dimitri         \intro                07-origins.rst  1.00       0.00
-41  Dimitri         \intro                09-license.rst  0.20       0.00
-42  Dimitri         \intro                 10-issues.rst  0.20       0.00
-57    Edgar         \setup    01-install-and-connect.rst  6.40       1.60
-43    Edgar         \intro             11-contribute.rst  0.00       1.50
-13     Jake      \concepts             2-terminology.rst  1.20      10.80
-12     Jake      \concepts              1-data-model.rst  1.60       6.40
+9   Dimitri         /intro                    05-who.rst  2.00       0.00
+10  Dimitri         /intro                    06-pub.rst  2.00       0.00
+11  Dimitri         /intro                07-origins.rst  1.00       0.00
+13  Dimitri         /intro                09-license.rst  0.20       0.00
+14  Dimitri         /intro                 10-issues.rst  0.20       0.00
+18    Edgar         /setup    01-install-and-connect.rst  6.40       1.60
+15    Edgar         /intro             11-contribute.rst  0.00       1.50
+54     Jake      /concepts             2-terminology.rst  1.20      10.80
+53     Jake      /concepts              1-data-model.rst  1.60       6.40

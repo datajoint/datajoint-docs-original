@@ -12,7 +12,7 @@ In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) ma
 
 DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.
 
-Defining an attribute of type ``external`` is done using the same :doc:`definition syntax <04-Defintion-Syntax>` and works the same way as a ``longblob`` attribute from the user's perspective.
+Defining an attribute of type ``external`` is done using the same :doc:`definition syntax <04-Definition-Syntax>` and works the same way as a ``longblob`` attribute from the user's perspective.
 However, its data are stored in an external storage system rather than in the relational database.
 
 Various systems can play the role of external storage, including a shared file system accessible to all team members with access to these objects or a cloud storage solutions such as the AWS S3.
@@ -144,7 +144,6 @@ The following steps must be performed to enable external storage:
 
    ``account`` and ``token`` specify the credentials for accessing the external location.
 
-|
 2. Optionally, for each schema specify the cache folder for local fetch cache.
 
    In Python, this is done using the ``set_cache_folder`` method of the schema object.
