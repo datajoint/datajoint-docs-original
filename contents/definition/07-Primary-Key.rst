@@ -9,7 +9,7 @@ Primary keys in DataJoint
 Entities in tables are neither named nor numbered.
 Questions of the kind "What is the 10th element of this table?" are foreign to the relational mindset.
 Instead, entities are distinguished and identified by their values.
-Furthermore, the entire entity is not required.
+Furthermore, the entire entity is not required for identification.
 In each table, a subset of its attributes are designated to be the **primary key**.
 Attributes in the primary key alone are sufficient to differentiate any entity from any other within the table.
 
@@ -23,15 +23,15 @@ The mouse ID number ``animal_id`` of type ``smallint`` can serve as the primary 
 An experiment performed on a mouse may be identified in the table ``Experiments`` by two attributes: ``animal_id`` and ``experiment_number``.
 
 DataJoint takes the concept of primary keys somewhat more seriously than other models and query languages.
-Even **table expressions**, i.e. those tables produced through operations on other tables have a well-defined primary key.
+Even **table expressions**, i.e. those tables produced through operations on other tables, have a well-defined primary key.
 All operators on tables are designed in such a way that the results always have a well-defined primary key.
 
-In all representations of tables in DataJoint, the primary key attributes always come first and are highlighted somehow (e.g. in a **bold** font or marked with an asterisk \*)
+In all representations of tables in DataJoint, the primary key attributes are always listed before other attributes and highlighted for emphasis (e.g. in a **bold** font or marked with an asterisk \*)
 
 Defining a primary key
 ~~~~~~~~~~~~~~~~~~~~~~
 
-In table declarations, the primary key attributes always come first and are separated from the rest with a line containing at least three dashes.
+In table declarations, the primary key attributes always come first and are separated from the other attributes with a line containing at least three hyphens.
 For example, the following is the definition of a table containing database users where ``username`` is the primary key.
 
 ::
@@ -49,7 +49,7 @@ Entity integrity
 The primary key defines and enforces the desired property of databases known as **entity integrity**.
 Entity integrity is the guarantee made by the data management process that entities from the real world are reliably and uniquely represented in the database system.
 In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
-Entity integrity states that the database must prevent any confusion between entities such as duplication or misidentification.
+Entity integrity states that the data management process must prevent any confusion between entities such as duplication or misidentification.
 
 To enforce entity integrity, DataJoint implements several rules:
 * Every table must have a primary key.
