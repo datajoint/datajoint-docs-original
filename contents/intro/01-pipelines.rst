@@ -30,6 +30,12 @@ As science labs transition into more data-centric work, the structure of the lab
 
     Workflow and dataflow in a data pipeline-centred approach. 
 
+.. figure:: ../_static/img/data-engineering.png
+    :align: center
+    :alt: data science vs engineering 
+
+    Distinct responsibilities of data science and data engineering
+
 What is DataJoint?
 ------------------
 DataJoint is a free open-source framework for creating scientific data pipelines directly from MATLAB or Python (or any mixture of the two).
