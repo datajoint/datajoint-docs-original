@@ -26,84 +26,21 @@ DataJoint uses the following conventions:
 Diagramming an entire schema
 ----------------------------
 
-|python| Python
-+++++++++++++++
-
-To plot the ERD for an entire schema in Python, an ERD object can be initialized with the schema object (which is normally used to decorate table objects)
-
-.. code-block:: python
-
-    import datajoint as dj
-    schema = dj.schema('my_database')
-    dj.ERD(schema).draw()
-
-or, alternatively an object that has the schema object as an attribute, such as the module defining a schema:
-
-.. code-block:: python
-
-    import datajoint as dj
-    import seq    # import the sequence module defining the seq database
-    dj.ERD(seq).draw()   # draw the ERD
-
-|matlab| MATLAB
-+++++++++++++++
-
-In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function (See :doc:`../definition/01-Creating-Schemas`).
-
-.. code-block:: matlab
-
-    draw(dj.ERD(seq.getSchema))   % draw the ERD
-
-MATLAB provides shortcuts to plot ERD of a table neighborhood or a schema using the ``erd`` command:
-
-.. code-block:: matlab
-
-    % plot the ERD of the stimulus schema
-    erd stimulus
-
-    % plot the neighborhood of the stimulus.Trial table
-    erd stimulus.Trial
-
-    % plot the stimulus and experiment schemas and the neighborhood of preprocess.Sync
-    erd stimulus experiment preprocess.Sync
+.. include:: 01-ERD_lang1.rst
 
 Initializing with a single table
 ++++++++++++++++++++++++++++++++
 
 A `dj.ERD` object can be initialized with a single table.
 
-|matlab|
-
-.. code-block:: matlab
-
-    draw(dj.ERD(seq.Genome))
-
-|python|
-
-.. code-block:: python
-
-    dj.ERD(seq.Genome()).draw()
-
-A single node makes a rather boring graph but ERDs can be added together or subtracted from each other using graph algebra.
+.. include:: 01-ERD_lang2.rst
 
 Adding ERDs together
 ++++++++++++++++++++
 
 However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs. The corresponding foreign keys will be automatically
 
-|matlab|
-
-.. code-block:: matlab
-
-    % matlab: plot the ERD with tables Genome and Species from package +seq.
-    draw(dj.ERD(seq.Genome) + dj.ERD(seq.Species))
-
-|python|
-
-.. code-block:: python
-
-    # python: plot the ERD with tables Genome and Species from module seq.
-    (dj.ERD(seq.Genome()) + dj.ERD(seq.Species())).draw()
+.. include:: 01-ERD_lang3.rst
 
 Expanding ERDs upstream and downstream
 ++++++++++++++++++++++++++++++++++++++
@@ -112,39 +49,7 @@ Adding a number to an ERD object adds nodes downstream in the pipeline while sub
 
 Examples:
 
-|matlab| MATLAB
-
-.. code-block:: matlab
-
-    % Plot all the tables directly downstream from ``seq.Genome``:
-    draw(dj.ERD(seq.Genome)+1)
-
-.. code-block:: matlab
-
-    % Plot all the tables directly upstream from ``seq.Genome``:
-    draw(dj.ERD(seq.Genome)-1)
-
-.. code-block:: matlab
-
-    % Plot the local neighborhood of ``seq.Genome``
-    draw(dj.ERD(seq.Genome)+1-1+1-1)
-
-|python| Python
-
-.. code-block:: python
-
-    # Plot all the tables directly downstream from ``seq.Genome``:
-    (dj.ERD(seq.Genome)+1).draw()
-
-.. code-block:: python
-
-    # Plot all the tables directly upstream from ``seq.Genome``:
-    (dj.ERD(seq.Genome)-1).draw()
-
-.. code-block:: python
-
-    # Plot the local neighborhood of ``seq.Genome``
-    (dj.ERD(seq.Genome)+1-1+1-1).draw()
+.. include:: 01-ERD_lang4.rst
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
