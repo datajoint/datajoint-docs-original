@@ -3,14 +3,16 @@
 Foreign Keys
 ============
 
-Even if you already know about foreign keys in SQL, please read this section carefully.
-DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
+.. note::
+   Even if you already know about foreign keys in SQL, please read this section carefully.
+   DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
 
 Understanding foreign keys
 --------------------------
-Schemas contains collections of tables of related data.
+A schema contains collections of tables of related data.
 Accordingly, entities in one table often derive some of their meaning or context from entities in other tables.
-**Foreign keys** define these relationships between tables within a schema (or between tables in different schemas for more complex designs).
+A **foreign key** defines a **dependency** of entities in one table on entities in another within a schema.
+In more complex designs, foreign keys can even exist between entities in tables from different schemas.
 Foreign keys play a functional role in DataJoint and do not simply label the structure of a pipeline.
 Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
 
