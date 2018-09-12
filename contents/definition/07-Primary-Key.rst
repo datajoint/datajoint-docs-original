@@ -47,6 +47,7 @@ Entity integrity
 ~~~~~~~~~~~~~~~~
 
 The primary key defines and enforces the desired property of databases known as **entity integrity**.
+Entity integrity is the guarantee made by the data management process that entities from the real world are reliably and uniquely represented in the database system.
 In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
 Entity integrity states that the database must prevent any confusion between entities such as duplication or misidentification.
 
