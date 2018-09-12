@@ -4,9 +4,9 @@ Table Definition
 ================
 
 DataJoint models data as sets of **entities** with shared **attributes**, often visualized as tables with rows and columns.
-Each row represents a single entity and and the values of all of its attributes.
+Each row represents a single entity and the values of all of its attributes.
 Each column represents a single attribute with a name and a datatype, applicable to entity in the table.
-Unlike rows in a spreadsheet, entities in Datajoint don't have names or numbers: they can only be identified by the values of their attributes.
+Unlike rows in a spreadsheet, entities in DataJoint don't have names or numbers: they can only be identified by the values of their attributes.
 Defining a table means defining the names and datatypes of the attributes as well as the constraints to be applied to those attributes.
 
 

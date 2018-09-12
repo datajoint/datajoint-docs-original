@@ -27,7 +27,7 @@ Most common datatypes
 -  ``datetime``: Date and time to the second as ``'YYYY-MM-DD HH:MM:SS'``
 -  ``timestamp``: Date and time to the second as ``'YYYY-MM-DD HH:MM:SS'``.
    The default value may be set to ``CURRENT_TIMESTAMP``.
-   Unlike ``datetime``, a ``timestamp`` value will be adjusted to the local timezone.
+   Unlike ``datetime``, a ``timestamp`` value will be adjusted to the local time zone.
 
 -  ``char(N)``: a character string up to *N* characters (but always takes the entire *N* bytes to store).
 -  ``varchar(N)``: a text string of arbitrary length up to *N* characters that takes *M+1* or *M+2* bytes of storage, where *M* is the actual length of each stored string.

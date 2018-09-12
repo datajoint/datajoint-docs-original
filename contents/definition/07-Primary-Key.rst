@@ -74,9 +74,9 @@ Choosing primary key attributes
 A primary key comprising real-world attributes is a good choice when such real-world attributes are already properly and permanently assigned.
 Whatever characteristics are used to uniquely identify the actual entities can be used to identify their representations in the database.
 
-If there are no attributes that could readily serve as a primary key, an artificial attribute may be created solely for the purpose of distinguishing entitites.
+If there are no attributes that could readily serve as a primary key, an artificial attribute may be created solely for the purpose of distinguishing entities.
 In such cases, the primary key created for management in the database must also be used to uniquely identify the entities themselves.
-If the primary key resides only in the database while entitites remain indistinguishable in the real world, then the process cannot ensure entity integrity.
+If the primary key resides only in the database while entities remain indistinguishable in the real world, then the process cannot ensure entity integrity.
 When a primary key is created as part of data management rather than based on real-world attributes, an institutional process must ensure the uniqueness and permanence of such an identifier.
 
 For example, the U.S. government assigns every worker an identifying attribute, the social security number.
