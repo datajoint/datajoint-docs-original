@@ -36,6 +36,9 @@
     {% endblock %}
     {% block breadcrumbs_aside %}
       <li class="wy-breadcrumbs-aside">
+      {% if "this_version.html" %}
+        {% include "this_version.html" %}
+      {% endif %}
       <a href="http://datajoint.io" target="_blank">
         <!-- <img id="breadcrumbsThumbnail" src="/_static/images/datajointIOfull.svg"> -->
         <img id="breadcrumbsThumbnail" src="/_static/themeImages/datajointIOfull.svg">

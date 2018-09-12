@@ -137,6 +137,10 @@
             {% endif %}
           {% endif %}
 
+          {% if "version-menu.html" %}
+            {% include "version-menu.html" %}
+          {% endif %}
+
           {% include "searchbox.html" %}
 
           {% endblock %}

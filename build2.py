@@ -26,7 +26,7 @@ if not os.path.exists('build1'):
 # srcMat = "build1/datajoint-matlab/docs/"
 # srcPy = "build1/datajoint-python/docs/"
 
-def create_build_folders(lang): #TODO delete the dsrc_lang it's not getting used anymore
+def create_build_folders(lang): 
     # raw_tags = subprocess.Popen(["git", "tag"], cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
     # tags1 = {}
     # tags1[lang] = raw_tags
@@ -98,38 +98,50 @@ def create_build_folders(lang): #TODO delete the dsrc_lang it's not getting used
         shutil.copy2("Makefile", dst_build_folder + "/Makefile")
         shutil.copy2("contents/conf.py", dst_build_folder + "/contents/" + "conf.py")
 
-        # build individual lang-ver folder
-        subprocess.Popen(["make", "site"], cwd=dst_build_folder).wait()
+        # JIC add current_version <p> tag into the datajoint_theme folder 
+        f = open(dst_build_folder + '/datajoint_theme/this_version.html', 'w+')
+        f.write('<p>' + lang + "-" + tag + '</p>') 
+        f.close()
 
-# create_build_folders("matlab")
-# create_build_folders("python")
+        # build individual lang-ver folder
+        # subprocess.Popen(["make", "site"], cwd=dst_build_folder).wait()
+
+create_build_folders("matlab")
+create_build_folders("python")
 
 # generate site folder with all contents using hte above build folders
 
 def make_full_site():
+
     if os.path.exists('full_site'):
         shutil.rmtree('full_site')
         os.makedirs('full_site')
     else:
         os.makedirs('full_site')
     
-    # copies all of the lang-ver static sites into separate folder
-    toMake = glob.glob('build1/**/site') #assuming the datajoint-docs folded pulled from the git repo doesn't have the site directory
-    #returns something like ['build1/matlab-v3.2.1/site', 'build1/matlab-v3.2.2/site', 'build1/python-v0.9.1/site']
-    print(toMake)
-    # if not os.path.exists('version-menu.html'):
-    #         subprocess.Popen(['touch', 'version-menu.html']).wait()
-    # else:
-    #     open('version-menu.html', 'w').close()
-    f = open('full_site/version-menu.html', 'w+')
+    # build individual lang-ver folder
+    to_make = [folder for folder in glob.glob('build1/**') if not os.path.basename(folder).startswith('datajoint')]
+    print(to_make)
 
-    for src_path in toMake:
-        ver_path = src_path.split('/')[1] # 'matlab-v3.2.2'
-        split_ver_path = ver_path.split('-') # ['matlab', 'v3.2.2']
-        shutil.copytree(src_path, 'full_site/' + split_ver_path[0] + "/" + split_ver_path[1])
-        f.write('<li class="version-menu"><a href="' + split_ver_path[0] + "/" + split_ver_path[1] + '">' + ver_path + '</a></li>\n')
-        
+    # create full version-menu listing using the built folders from above
+    f = open('datajoint_theme/version-menu.html', 'w+')
+    
+    for folder in to_make:
+        version = folder.split('/')[1] # 'matlab-v3.2.2'
+        f.write('<li class="version-menu"><a href="../../' + version.split("-")[0] + "/" + version.split("-")[1] + '">' + version + '</a></li>\n')
+            
     f.close()
+       
+    # copy over the full version-menu listing to datajoint_theme FIRST, 
+    # then build individual folders, and copy to full_site folder 
+    for folder in to_make:
+        shutil.copy2('datajoint_theme/version-menu.html', folder + "/datajoint_theme/version-menu.html") 
+        subprocess.Popen(["make", "site"], cwd=folder).wait()
+        version = folder.split('/')[1] # 'matlab-v3.2.2'
+        shutil.copytree(folder + "/site", 'full_site/' + version.split("-")[0] + "/" + version.split("-")[1])
+
+        
+ 
 
 make_full_site()
     

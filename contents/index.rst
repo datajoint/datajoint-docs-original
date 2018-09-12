@@ -55,6 +55,7 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    diagrams/*
 
+
 .. toctree::
    :maxdepth: 2
    :caption: Work with existing pipelines
