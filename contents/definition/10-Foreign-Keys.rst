@@ -108,7 +108,8 @@ We will therefore call ``B`` the **dependent table** and ``A`` the **referenced 
 Referential integrity
 ---------------------
 Foreign keys enforce the desired property of databases known as **referential integrity**.
-Referential integrity enforces the constraint that no entity exists in the database without all the other entities on which it depends.
+Referential integrity is the guarantee made by the data management process that related data across the database remain present, correctly associated, and mutually consistent.
+Guranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 An entity in relation ``B`` depends on an entity in relation ``A`` when they belong to them or are computed from them.
 
 Renamed foreign keys
