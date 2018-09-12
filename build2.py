@@ -128,7 +128,7 @@ def make_full_site():
     
     for folder in to_make:
         version = folder.split('/')[1] # 'matlab-v3.2.2'
-        f.write('<li class="version-menu"><a href="../../' + version.split("-")[0] + "/" + version.split("-")[1] + '">' + version + '</a></li>\n')
+        f.write('<li class="version-menu"><a href="/' + version.split("-")[0] + "/" + version.split("-")[1] + '">' + version + '</a></li>\n')
             
     f.close()
        
