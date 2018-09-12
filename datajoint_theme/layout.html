@@ -138,7 +138,10 @@
           {% endif %}
 
           {% if "version-menu.html" %}
-            {% include "version-menu.html" %}
+              <ul class="dropdown-versions">
+                <li class="menu-text">switch versions</li>
+                {% include "version-menu.html" %}
+              </ul>
           {% endif %}
 
           {% include "searchbox.html" %}

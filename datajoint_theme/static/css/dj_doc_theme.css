@@ -187,3 +187,23 @@ table > caption > .caption-text {
 table > caption> .caption-text + a.headerlink {
     display: none;
 }
+
+/* setting up dropdown menu for versions */
+li.menu-text {
+    color: #54a8b7;
+}
+li.version-menu {
+    visibility: hidden;
+    display: none;
+}
+
+ul.dropdown-versions:hover > li.version-menu,
+li:hover + li.version-menu {
+    visibility: visible;
+    display: block;
+}
+
+li.version-menu:hover > a {
+    /* border-bottom: solid 1px #54a8b7; */
+    text-decoration: underline;
+}
