@@ -27,21 +27,26 @@ if not os.path.exists('build1'):
 # srcPy = "build1/datajoint-python/docs/"
 
 def create_build_folders(lang): #TODO delete the dsrc_lang it's not getting used anymore
-    # tags = subprocess.Popen(["git", "tag"], cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
+    # raw_tags = subprocess.Popen(["git", "tag"], cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
     # tags1 = {}
-    # tags1[lang] = tags
+    # tags1[lang] = raw_tags
     # print(tags1)
 
-    tags2 = {"python": [
-                        # "v0.9.0",
-                        "v0.9.1"],
-             "matlab": [
-                        # "v3.2.0",
-                        # "v3.2.1",
-                        "v3.2.2"]
-             }
-    for tag in tags2[lang]:
-    # for tag in tags:
+    lv = open("build_versions.json")
+    buildver = lv.read()
+    tags = json.loads(buildver)
+    lv.close()
+
+    # tags2 = {"python": [
+    #                     # "v0.9.0",
+    #                     "v0.9.1"],
+    #          "matlab": [
+    #                     # "v3.2.0",
+    #                     # "v3.2.1",
+    #                     "v3.2.2"]
+    #          }
+    # for tag in tags2[lang]:
+    for tag in tags[lang]:
         subprocess.Popen(["git", "checkout", tag],
                          cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).wait()
         dsrc_lang2 = "build1/datajoint-" + lang + "/docs"
@@ -96,8 +101,8 @@ def create_build_folders(lang): #TODO delete the dsrc_lang it's not getting used
         # build individual lang-ver folder
         subprocess.Popen(["make", "site"], cwd=dst_build_folder).wait()
 
-create_build_folders("matlab")
-create_build_folders("python")
+# create_build_folders("matlab")
+# create_build_folders("python")
 
 # generate site folder with all contents using hte above build folders
 
@@ -119,9 +124,10 @@ def make_full_site():
     f = open('full_site/version-menu.html', 'w+')
 
     for src_path in toMake:
-        ver_path = src_path.split('/', 1)[1]
-        shutil.copytree(src_path, 'full_site/' + ver_path)
-        f.write('<li class="version-menu"><a href="' + ver_path + '">' + ver_path.split('/', 1)[0] + '</a></li>\n')
+        ver_path = src_path.split('/')[1] # 'matlab-v3.2.2'
+        split_ver_path = ver_path.split('-') # ['matlab', 'v3.2.2']
+        shutil.copytree(src_path, 'full_site/' + split_ver_path[0] + "/" + split_ver_path[1])
+        f.write('<li class="version-menu"><a href="' + split_ver_path[0] + "/" + split_ver_path[1] + '">' + ver_path + '</a></li>\n')
         
     f.close()
 
