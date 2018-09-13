@@ -3,16 +3,22 @@
 Foreign Keys
 ============
 
-Foreign keys define relationships between different tables represented by the schema design.
+.. note::
+   Even if you already know about foreign keys in SQL, please read this section carefully.
+   DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
 
-Even if you already know about foreign keys in SQL, please read this section carefully.
-DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
+Understanding foreign keys
+--------------------------
+A schema contains collections of tables of related data.
+Accordingly, entities in one table often derive some of their meaning or context from entities in other tables.
+A **foreign key** defines a **dependency** of entities in one table on entities in another within a schema.
+In more complex designs, foreign keys can even exist between entities in tables from different schemas.
+Foreign keys play a functional role in DataJoint and do not simply label the structure of a pipeline.
+Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
 
-What are foreign keys
----------------------
-The DataJoint pipeline can be visualized as a graph with nodes and edges.
+A DataJoint pipeline, including the relationships established by foreign keys, can be visualized as a graph with nodes and edges.
 The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-ERD`.
-The nodes of the graph are tables and the edges connecting them are **foreign keys**.
+The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 
 For example, the ERD below is the pipeline for multipatching experiments
@@ -95,16 +101,17 @@ A foreign key constraint means that an entity in ``B`` cannot exist without a ma
 An attempt to insert an entity into ``B`` that does not have a matching counterpart in ``A`` will fail.
 Conversely, deleting an entity from ``A`` that has matching entities in ``B`` will result in the deletion of those matching entities and so forth, recursively, downstream in the pipeline.
 
-When ``B`` references ``A`` with a foreign key, we often say that ``B`` *depends* on ``A``.
-We will therefore call ``B`` the *dependent table* and ``A`` the *referenced table* with respect to the foreign key from ``B`` to ``A``.
+When ``B`` references ``A`` with a foreign key, we often say that ``B`` **depends** on ``A``.
+We will therefore call ``B`` the **dependent table** and ``A`` the **referenced table** with respect to the foreign key from ``B`` to ``A``.
 
 .. note::
     Note to those already familiar with the theory of relational databases: The usage of the words "depends" and "dependency" here should not be confused with the unrelated concept of *functional dependencies* that is used to define normal forms.
 
 Referential integrity
 ---------------------
-Foreign keys enforce the desired property of databases known as *referential integrity*.
-Referential integrity enforces the constraint that no entity exists in the database without all the other entities on which it depends.
+Foreign keys enforce the desired property of databases known as **referential integrity**.
+Referential integrity is the guarantee made by the data management process that related data across the database remain present, correctly associated, and mutually consistent.
+Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 An entity in relation ``B`` depends on an entity in relation ``A`` when they belong to them or are computed from them.
 
 Renamed foreign keys

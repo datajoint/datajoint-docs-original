@@ -5,7 +5,7 @@ Creating Schemas
 
 Relational data model
 ~~~~~~~~~~~~~~~~~~~~~
-DataJoint organizes data using the *Relational Data Model*.
+DataJoint organizes data using the **Relational Data Model**.
 This means that all data are stored in collections of simple tables.
 The relationships between tables comprise the structure of a data pipeline.
 
@@ -105,6 +105,17 @@ The returned object ``schema`` will then serve as a decorator for DataJoint clas
 
 It is a common practice to have a separate Python module for each schema.
 Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
+
+The ``dj.schema`` constructor can take a number of optional parameters after the schema name.
+
+- ``context`` - Dictionary for looking up foreign key references.
+  Defaults to ``None`` to use local context.
+- ``connection`` - Specifies the DataJoint connection object.
+  Defaults to ``dj.conn()``.
+- ``create_schema`` - When ``False``, the schema object will not create a schema on the database and will raise an error if one does not already exist.
+  Defaults to ``True``.
+- ``create_tables`` - When ``False``, the schema object will not create tables on the database and will raise errors when accessing missing tables.
+  Defaults to ``True``.
 
 Working with existing data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

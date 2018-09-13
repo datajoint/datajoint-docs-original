@@ -9,8 +9,8 @@ Primary keys in DataJoint
 Entities in tables are neither named nor numbered.
 Questions of the kind "What is the 10th element of this table?" are foreign to the relational mindset.
 Instead, entities are distinguished and identified by their values.
-Furthermore, the entire entity is not required.
-In each table, a subset of its attributes are designated to be the *primary key*.
+Furthermore, the entire entity is not required for identification.
+In each table, a subset of its attributes are designated to be the **primary key**.
 Attributes in the primary key alone are sufficient to differentiate any entity from any other within the table.
 
 Each table must have exactly one `primary key <http://en.wikipedia.org/wiki/Primary_key>`__: a subset of its attributes that uniquely identify each entity in the table.
@@ -23,15 +23,15 @@ The mouse ID number ``animal_id`` of type ``smallint`` can serve as the primary 
 An experiment performed on a mouse may be identified in the table ``Experiments`` by two attributes: ``animal_id`` and ``experiment_number``.
 
 DataJoint takes the concept of primary keys somewhat more seriously than other models and query languages.
-Even *table expressions*, i.e. those tables produced through operations on other tables have a well-defined primary key.
+Even **table expressions**, i.e. those tables produced through operations on other tables, have a well-defined primary key.
 All operators on tables are designed in such a way that the results always have a well-defined primary key.
 
-In all representations of tables in DataJoint, the primary key attributes always come first and are highlighted somehow (e.g. in a **bold** font or marked with an asterisk \*)
+In all representations of tables in DataJoint, the primary key attributes are always listed before other attributes and highlighted for emphasis (e.g. in a **bold** font or marked with an asterisk \*)
 
 Defining a primary key
 ~~~~~~~~~~~~~~~~~~~~~~
 
-In table declarations, the primary key attributes always come first and are separated from the rest with a line containing at least three dashes.
+In table declarations, the primary key attributes always come first and are separated from the other attributes with a line containing at least three hyphens.
 For example, the following is the definition of a table containing database users where ``username`` is the primary key.
 
 ::
@@ -46,9 +46,10 @@ For example, the following is the definition of a table containing database user
 Entity integrity
 ~~~~~~~~~~~~~~~~
 
-The primary key defines and enforces the desired property of databases known as *entity integrity*.
+The primary key defines and enforces the desired property of databases known as **entity integrity**.
+Entity integrity is the guarantee made by the data management process that entities from the real world are reliably and uniquely represented in the database system.
 In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
-Entity integrity states that the database must prevent any confusion between entities such as duplication or misidentification.
+Entity integrity states that the data management process must prevent any confusion between entities such as duplication or misidentification.
 
 To enforce entity integrity, DataJoint implements several rules:
 * Every table must have a primary key.
@@ -67,13 +68,17 @@ Finally, DataJoint does not support blob types in primary keys.
 The primary key may be composite, i.e. comprising several attributes.
 In DataJoint, hierarchical designs often produce tables whose primary keys comprise many attributes.
 
-Natural primary keys
-~~~~~~~~~~~~~~~~~~~~
+Choosing primary key attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A primary key comprising real-world attributes is a `natural primary key <http://en.wikipedia.org/wiki/Natural_key>`__.
-Natural primary keys are a good choice when such real-world attributes are already properly assigned and their permanence is ensured.
-If no convenient natural key exists, an artificial attribute may be created whose purpose is to uniquely identify entities in the real world.
-An institutional process must ensure the uniqueness and permanence of such an identifier.
+A primary key comprising real-world attributes is a good choice when such real-world attributes are already properly and permanently assigned.
+Whatever characteristics are used to uniquely identify the actual entities can be used to identify their representations in the database.
+
+If there are no attributes that could readily serve as a primary key, an artificial attribute may be created solely for the purpose of distinguishing entities.
+In such cases, the primary key created for management in the database must also be used to uniquely identify the entities themselves.
+If the primary key resides only in the database while entities remain indistinguishable in the real world, then the process cannot ensure entity integrity.
+When a primary key is created as part of data management rather than based on real-world attributes, an institutional process must ensure the uniqueness and permanence of such an identifier.
+
 For example, the U.S. government assigns every worker an identifying attribute, the social security number.
 However, the government must go to great lengths to ensure that this primary key is assigned exactly once, by checking against other less convenient candidate keys (i.e. the combination of name, parents' names, date of birth, place of birth, etc.).
 Just like the SSN, well managed primary keys tend to get institutionalized and find multiple uses.
@@ -81,13 +86,6 @@ Just like the SSN, well managed primary keys tend to get institutionalized and f
 Your lab must maintain a system for uniquely identifying important entities.
 For example, experiment subjects and experiment protocols must have unique IDs.
 Use these as the primary keys in the corresponding tables in your DataJoint databases.
-
-Surrogate primary keys
-~~~~~~~~~~~~~~~~~~~~~~
-
-There are cases when a special attribute may be added to play the role of the primary key that is never used outside the database.
-These primary keys are called *surrogate primary keys*.
-Below are some cases when surrogate keys are appropriately used.
 
 Using hashes as primary keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,7 +96,7 @@ In such a case, all the attributes would need to be included in the primary key 
 However, long primary keys make it difficult to reference individual tuples.
 To be most useful, primary keys need to be relatively short.
 
-This problem is effectively solved through the use of a hash of all the identifying attributes as the surrogate primary key.
+This problem is effectively solved through the use of a hash of all the identifying attributes as the primary key.
 For example, MD5 or SHA-1 hash algorithms can be used for this purpose.
 To keep their representations human-readable, they may be encoded in base-64 ASCII.
 For example, the 128-bit MD5 hash can be represented by 21 base-64 ASCII characters, but for many applications, taking the first 8 to 12 characters is sufficient to avoid collisions.
