@@ -1,26 +1,26 @@
-done         135.95
-remaining    399.95 
+done         136.25
+remaining    399.65 
 
 
                 done  remaining
 section                        
-\definition    50.50      83.50
-\existing       0.00      72.00
-\queries       19.00      71.00
-\computation    4.80      65.20
-\diagrams       2.40      21.60
-\intro          7.75      20.15
-\design         0.00      18.00
-\manipulation   2.60      17.40
-\concepts       2.80      17.20
-\admin         26.50      11.50
-\setup         13.60       2.40
+/definition    50.50      83.50
+/existing       0.00      72.00
+/queries       19.00      71.00
+/computation    4.80      65.20
+/diagrams       2.40      21.60
+/intro          8.05      19.85
+/design         0.00      18.00
+/manipulation   2.60      17.40
+/concepts       2.80      17.20
+/admin         26.50      11.50
+/setup         13.60       2.40
                 6.00       0.00 
 
 
           done  remaining
 author                   
-Dimitri  67.95     268.45
+Dimitri  68.25     268.15
 Austin   25.10      98.90
 Jake      2.80      17.20
 Chris    33.70      12.30
@@ -78,12 +78,12 @@ Edgar     6.40       3.10
 55  Dimitri       \queries                  08-union.rst  0.00       2.00
 18  Dimitri    \definition             05-Data-Tiers.rst  1.50       1.50
 0   Dimitri                                    index.rst  6.00       0.00
-37  Dimitri         \intro                    05-who.rst  2.00       0.00
-38  Dimitri         \intro                    06-pub.rst  2.00       0.00
-39  Dimitri         \intro                07-origins.rst  1.00       0.00
-41  Dimitri         \intro                09-license.rst  0.20       0.00
-42  Dimitri         \intro                 10-issues.rst  0.20       0.00
-57    Edgar         \setup    01-install-and-connect.rst  6.40       1.60
-43    Edgar         \intro             11-contribute.rst  0.00       1.50
-13     Jake      \concepts             2-terminology.rst  1.20      10.80
-12     Jake      \concepts              1-data-model.rst  1.60       6.40
+9   Dimitri         /intro                    05-who.rst  2.00       0.00
+10  Dimitri         /intro                    06-pub.rst  2.00       0.00
+11  Dimitri         /intro                07-origins.rst  1.00       0.00
+13  Dimitri         /intro                09-license.rst  0.20       0.00
+14  Dimitri         /intro                 10-issues.rst  0.20       0.00
+18    Edgar         /setup    01-install-and-connect.rst  6.40       1.60
+15    Edgar         /intro             11-contribute.rst  0.00       1.50
+54     Jake      /concepts             2-terminology.rst  1.20      10.80
+53     Jake      /concepts              1-data-model.rst  1.60       6.40

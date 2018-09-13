@@ -1,23 +1,59 @@
-.. progress: 6 30% Dimitri
+.. progress: 6 35% Dimitri
+
+Data pipelines
+==============
 
 What is a data pipeline?
-========================
+------------------------
+Scientists perform complex sequences of data acquisition, processing, and analysis shared between many collaborators. 
+A *data pipeline* comprises processes and systems for data organization, computation, and workflow.
 
-DataJoint is a free open-source framework for creating scientific data pipelines using MATLAB or Python (or any mixture of the two) with a relational database and non-relational store as the backend. 
+.. figure:: ../_static/img/pipeline-database.png
+    :align: center
+    :alt: data pipelines vs databases vs data repositories
 
-A data pipeline is a sequence of steps (more generally a directed acyclic graph) with integrated storage at each step.  These steps may be thought of as nodes in a graph.
+    Major data management features of data repositories, databases, and data pipelines.
 
-In the initial nodes of the pipeline, data are typed in by the experimenters or are entered by data acquisition software.
-In the later nodes of the pipeline, data are automatically processed and computed. Such computed nodes bind together code and data.
 
-For example, the figure below depicts the pipeline for a simple two-photon imaging experiment using mice as subjects.
+As science labs transition into more data-centric work, the structure of the lab 
 
-.. image:: ../_static/img/pipeline.png
+.. figure:: ../_static/img/data-science-before.png
+    :align: center
+    :alt: data science in a science lab
+
+    Workflow and dataflow in a common findings-centered approach to data science in a science lab
+
+
+.. figure:: ../_static/img/data-science-after.png
+    :align: center
+    :alt: data science in a science lab
+
+    Workflow and dataflow in a data pipeline-centred approach. 
+
+.. figure:: ../_static/img/data-engineering.png
+    :align: center
+    :alt: data science vs engineering 
+
+    Distinct responsibilities of data science and data engineering
+
+What is DataJoint?
+------------------
+DataJoint is a free open-source framework for creating scientific data pipelines directly from MATLAB or Python (or any mixture of the two).
+
+In DataJoint, a data pipeline is a sequence of steps (more generally, a directed acyclic graph) with integrated data storage at each step. 
+Experimenters and acquisition instruments feed data into nodes at the head of the pipeline. 
+Downstream nodes perform automated computations for data processing and analysis.
+
+.. figure:: ../_static/img/pipeline.png
     :width: 250px
     :align: center
     :alt: A data pipeline
 
+    For example, this is the pipeline for a simple two-photon imaging experiment using mice as subjects.
+
 The experimenter first enters information about the mouse information, then the imaging session information, then information for each scan.  Then the automated portion of the pipeline takes over to perform image alignment to compensate for motion alignment, image segmentation to identify cells in the images and to extract calcium traces. Finally, the receptive field (RF) computation is performed by relating the calcium signals to the visual stimulus information.
+
+
 
 To the user, each node appears as a MATLAB or Python object that represents data and computations but underneath each object is connected to its own table in a relational database, which can be hosted locally or in the cloud. 
 

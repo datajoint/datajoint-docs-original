@@ -1,7 +1,7 @@
 .. progress: 12.0 25% Austin
 
 Creating Schemas
-===============
+================
 
 Relational data model
 ~~~~~~~~~~~~~~~~~~~~~
