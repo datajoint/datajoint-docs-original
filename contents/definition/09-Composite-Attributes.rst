@@ -10,7 +10,7 @@ Composite Attributes
 In the relational model, data are structured such that entities represented in one table all share the same set of attributes.
 This introduces clarity and enables predictable queries.
 In datasets with many categories of entities with different sets of attributes, relational designs result in large numbers of tables.
-Sometimes it is conventient to deviate from the relational data model and to allow different sets of attributes in each entity.
+Sometimes it is convenient to deviate from the relational data model and to allow different sets of attributes in each entity.
 This can already be accomplished by storing structures of dicts inside blob fields.
 However, blob fields are opaque to queries: their contents cannot be used in searches.
 

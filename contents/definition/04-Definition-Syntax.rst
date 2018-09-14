@@ -8,13 +8,13 @@ Each line can be one of the following:
 
 * The optional first line starting with a ``#`` provides a description of the table's purpose.
   It may also be thought of as the table's long title.
-* A new attribute definition in any of the following forms (see :doc:`06-Data-Types` for valid datatypes):
+* A new attribute definition in any of the following forms (see :doc:`06-Datatypes` for valid datatypes):
 
   - ``name : datatype``
   - ``name : datatype # comment``
   - ``name = default : datatype``
   - ``name = default : datatype  # comment``
-* The divider ``---`` (at least three dashes) separating primary key attributes above from non-primary attributes below.
+* The divider ``---`` (at least three hyphens) separating primary key attributes above from non-primary attributes below.
 * A foreign key in the format ``-> ReferencedTable``.
   (See :doc:`10-Foreign-Keys`.)
 

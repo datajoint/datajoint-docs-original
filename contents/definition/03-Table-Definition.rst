@@ -3,20 +3,18 @@
 Table Definition
 ================
 
-Defining a table means defining the columns of the table (their names and datatypes) and the constraints to be applied to those columns.
+DataJoint models data as sets of **entities** with shared **attributes**, often visualized as tables with rows and columns.
+Each row represents a single entity and the values of all of its attributes.
+Each column represents a single attribute with a name and a datatype, applicable to entity in the table.
+Unlike rows in a spreadsheet, entities in DataJoint don't have names or numbers: they can only be identified by the values of their attributes.
+Defining a table means defining the names and datatypes of the attributes as well as the constraints to be applied to those attributes.
+
 
 Both MATLAB and Python use the same syntax define tables.
 In Python, the table definition is contained in the ``definition`` property of the class.
 In MATLAB, the table definition is contained in the first block comment in the class definition file.
 Note that although it looks like a mere comment, the table definition in MATLAB is parsed by DataJoint.
 This solution is thought to be convenient since MATLAB does not provide convenient syntax for multiline strings.
-
-Tables have rows and columns.
-Each column has a name and a datatype.
-We refer to columns in DataJoint as *attributes*.
-
-Rows in Datajoint don't have names or numbers; they can only be identified by their contents.
-We often refer to rows as *entities* in DataJoint.
 
 For example, the following code in MATLAB and Python defines the same table, ``User``, that contains users of the database:
 
@@ -55,8 +53,8 @@ For example, the following code in MATLAB and Python defines the same table, ``U
 Both define the class `User` that creates the table in the database and provides all its data manipulation functionality.
 
 
-When are the tables created?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Table creation on the database server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Users do not need to do anything special to have the table created in the database.
 If it is not already defined, it will get automatically created as soon as it is necessary.
 

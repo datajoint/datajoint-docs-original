@@ -64,7 +64,7 @@ The data may be hosted locally or in the cloud.
   :align: center 
   :alt: Data ecosystem
 
-The data becomes immediately available to all participants of the project who have appropriate access privileges.  
+The data become immediately available to all participants of the project who have appropriate access privileges.  
 Some of the "participants" may be computational agents that perform processing and analysis, including cloud computing solutions. 
 
 DataJoint is designed for quick prototyping and continuous exploration as data pipelines continuously evolve.

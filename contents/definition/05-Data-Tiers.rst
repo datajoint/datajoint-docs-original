@@ -36,7 +36,7 @@ Computed data are safe to delete, as the data can always be recomputed from with
 Imported data are safer than manual data but less safe than computed data because of dependency on external data sources.
 With these considerations, database administrators may opt not to back up computed data, for example, or to back up imported data less frequently than manual data.
 
-The internal prefixes listed above are used for for table names on the server side as described below.
+The internal prefixes listed above are used for table names on the server side as described below.
 These are never visible to the user, but database admins can use these prefixes to set different backup and access policies.
 
 Furthermore, the classes for **imported** and **computed** tables have additional capabilities for automated processing as described in :doc:`../computation/01-autopopulate`.
@@ -53,7 +53,7 @@ Internal conventions for naming tables
 
 On the server side, DataJoint uses the following naming scheme to generate the table name corresponding to a given class:
 
-First, the name of the class is converted from ``CamelCase`` to ``snake_case``.
+First, the name of the class is converted from ``CamelCase`` to ``snake_case`` (`separation by underscores <https://en.wikipedia.org/wiki/Snake_case>`_).
 Then the name is prefixed according to the data tier.
 
 For example:
