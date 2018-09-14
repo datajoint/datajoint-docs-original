@@ -8,7 +8,7 @@ Relational data model
 ---------------------
 
 As already mentioned in :doc:`01-Creating-Schemas`, all data in DataJoint are represented in the form of tables residing in database schemas on the database server.
-On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
+On the client side, each table has its own DataJoint class, which defines the table and manipulates its data.
 
 Data tiers
 ^^^^^^^^^^
@@ -91,6 +91,14 @@ For example, the following code defines the table ``Person``:
 
 
 The class will become usable after you edit the ``definition`` property as described in :doc:`03-Table-Definition`.
+
+DataJoint for Python is implemented through the use of classes.
+Working with classes usually implies that one might create different class instances with various internal states.
+However, DataJoint classes only serve as interfaces to data that actually reside within tables on the database server.
+Whether calling a DataJoint method on a class or on an instance, the result will depend only on the corresponding table.
+All of the basic functionality of DataJoint is built to operate on the classes themselves, even when called on an instance.
+DataJoint does not prevent a user from working with instances, but the workflow is complete without the need for instantiation.
+It is up to the user whether to implement additional functionality as class methods or methods called on instances.
 
 -------------------
 
