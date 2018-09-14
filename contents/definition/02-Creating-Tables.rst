@@ -109,7 +109,6 @@ For example, calling ``Person.insert(...)`` (on the class) and ``Person().insert
 DataJoint does not prevent a user from working with instances, but the workflow is complete without the need for instantiation.
 It is up to the user whether to implement additional functionality as class methods or methods called on instances.
 
--------------------
 
 Valid class names
 ------------------
