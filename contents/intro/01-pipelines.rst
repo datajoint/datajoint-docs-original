@@ -83,7 +83,7 @@ Data architecture
 The data architecture for a particular project is the configuration of information technologies for managing the data and computations. 
 DataJoint clearly separates the data model facing the user from the data architecture implementing data management and computing.
 
-.. image:: ../_static/img/high-level-pipeline.png
+.. figure:: ../_static/img/high-level-pipeline.png
   :align: center 
   :alt: Data ecosystem
 
