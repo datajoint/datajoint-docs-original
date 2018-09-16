@@ -1,4 +1,4 @@
-.. progress: 6 85% Dimitri
+.. progress: 6 100% Dimitri
 
 Data pipelines
 ==============
@@ -57,28 +57,56 @@ In this example, the experimenter first enters information about the mouse infor
 Then the automated portion of the pipeline takes over to perform image alignment to compensate for motion alignment, image segmentation to identify cells in the images and to extract calcium traces. 
 Finally, the receptive field (RF) computation is performed by relating the calcium signals to the visual stimulus information.
 
+Data model
+----------
+DataJoint provides a simplified and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS. DataJoint: A Simpler Relational Data Model. arXiv preprint arXiv:1807.11104. 2018 Jul 29 <https://arxiv.org/abs/1807.11104>`_. 
+
+The data model defines how human data scientists think of data.   
+It formalizes mental constructs and operations on data. 
+DataJoint's model is a refinement of the relational data model, in which all data are stored in simple tables and query operations can combine the contents of multiple tables.
+
 When programming, users interact with these nodes in the form  MATLAB or Python objects that represent data and computations. 
-Each object is associated with a separate table in a database. 
-The data may be hosted locally or in the cloud.
-
-.. image:: ../_static/img/high-level-pipeline.png
-  :align: center 
-  :alt: Data ecosystem
-
-The data become immediately available to all participants who have appropriate access privileges.  
-Some of the "participants" may be computational agents that perform processing and analysis. 
+Each object is associated with an individual table in the database. 
 
 DataJoint is designed for quick prototyping and continuous exploration.
 New experiment designs and analysis methods can be added or removed at any time. 
 Pipelines can grow large and complex while ever evolving, reflecting the complexity of neuroscience experiments.  
 
-DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `docker <https://www.docker.com/>`_).
-
-With DataJoint, data sharing and publishing is no longer a separate step at the end of the project. Instead data sharing is an inherent feature of the process: to share data with other collaborators or to publish the data to the world, one only needs to set the access privileges. 
-
 DataJoint uses a succinct data definition language, a powerful data query languages, and expressive visualizations of the pipeline. It also features a built-in distributed job management process to allow distributing analysis jobs between any number of computers.
+
+DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `docker <https://www.docker.com/>`_).
 
 A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently.
 
-DataJoint Features
-==================
+Data architecture
+-----------------
+The data architecture for a particular project is the configuration of information technologies for managing the data and computations. 
+DataJoint clearly separates the data model facing the user from the data architecture implementing data management and computing.
+
+.. image:: ../_static/img/high-level-pipeline.png
+  :align: center 
+  :alt: Data ecosystem
+
+  An example of the data architecture for a multi-lab collaboration
+   
+Typically, the data architecture includes a relational database server (e.g. MySQL) and a bulk data storage system (e.g. `AWS S3 <https://aws.amazon.com/s3/>`_ or a filesystem).
+
+The data become immediately available to all participants who have appropriate access privileges.  
+Some of the "participants" may be computational agents that perform processing and analysis. 
+
+With DataJoint, data sharing and publishing is no longer a separate step at the end of the project. 
+Instead data sharing is an inherent feature of the process: to share data with other collaborators or to publish the data to the world, one only needs to set the access privileges. 
+
+
+Summary of DataJoint features
+-----------------------------
+
+1. A free, open-source framework for scientific data pipelines and workflow management
+#. Data hosting in cloud or in-house
+#. MySQL, filesystems, S3, and Globus for data management
+#. Define, visualize, and query data pipelines from MATLAB or Python
+#. Enter and view data through GUIs
+#. Concurrent access by multiple users and computational agents
+#. Data integrity: identification, dependencies, groupings
+#. Automated distributed computation 
+
