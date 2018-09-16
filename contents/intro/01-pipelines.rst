@@ -39,6 +39,7 @@ What is DataJoint?
 ------------------
 DataJoint is a free open-source framework for creating scientific data pipelines directly from MATLAB or Python (or any mixture of the two).
 The data are stored in a language-independent way and other programming languages will be added in the future to work with the existing data.
+DataJoint pipelines become the central tool in the operations of a data-intensive lab or consortium as it organizes participants with different roles and skills around a common framework. 
 
 In DataJoint, a data pipeline is a sequence of steps (more generally, a directed acyclic graph) with integrated data storage at each step. 
 The pipeline may have some nodes requiring manual data entry or import from external sources. 
@@ -64,19 +65,20 @@ The data may be hosted locally or in the cloud.
   :align: center 
   :alt: Data ecosystem
 
-The data become immediately available to all participants of the project who have appropriate access privileges.  
-Some of the "participants" may be computational agents that perform processing and analysis, including cloud computing solutions. 
+The data become immediately available to all participants who have appropriate access privileges.  
+Some of the "participants" may be computational agents that perform processing and analysis. 
 
-DataJoint is designed for quick prototyping and continuous exploration as data pipelines continuously evolve.
-New experiment designs and analysis methods can be added or removed.
-Pipelines can grow large and complex while ever evolving,  reflecting the complexity of neuroscience experiments.  
+DataJoint is designed for quick prototyping and continuous exploration.
+New experiment designs and analysis methods can be added or removed at any time. 
+Pipelines can grow large and complex while ever evolving, reflecting the complexity of neuroscience experiments.  
 
-DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `docker <https://www.docker.com/>`_)
-
-Data pipelines become the central tool in the operations of a data-intensive lab or consortium as it organizes participants with different roles and skills around a common framework. 
+DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `docker <https://www.docker.com/>`_).
 
 With DataJoint, data sharing and publishing is no longer a separate step at the end of the project. Instead data sharing is an inherent feature of the process: to share data with other collaborators or to publish the data to the world, one only needs to set the access privileges. 
 
 DataJoint uses a succinct data definition language, a powerful data query languages, and expressive visualizations of the pipeline. It also features a built-in distributed job management process to allow distributing analysis jobs between any number of computers.
 
 A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently.
+
+DataJoint Features
+==================
