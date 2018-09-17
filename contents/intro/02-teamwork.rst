@@ -15,7 +15,7 @@ Science labs organize their projects as a sequence of activities of experiment d
 
     Workflow and dataflow in a common findings-centered approach to data science in a science lab
 
-Many labs do not have a uniform strategy for data management that spans the entire lifecycle of the project.
+Many labs do lack a uniform data management strategy that would span longitudinally across the entire project lifecycle as well as laterally across different projects.
 
 Prior to publishing their findings, the research team may need to publish the data to  support their findings.  
 Without a data management system, this requires custom repackaging of the data to conform to the `FAIR principles <https://www.nature.com/articles/sdata201618>`_ for scientific data management. 
@@ -70,4 +70,9 @@ Data scientists
 Data engineers
 
     work with the data scientists to support the data pipeline.  
-    They user their understanding of the DataJoint data model to configure and administer the required IT resources.
+    They rely on their understanding of the DataJoint data model to configure and administer the required IT resources such as database servers, data storage servers, networks, cloud instances, `Globus <https://globus.org>`_ endpoints, etc.
+    Data engineers can provide general solutions such as web hosting, data publishing, interfaces, exports and imports.
+
+DataJoint is designed to delineate a clean boundary between *data science* and *data engineering*.  
+This allows data scientists to use the same uniform data model for data pipelines backed by a variety of information technologies. 
+This delineation also enables economies of scale as a single data engineering team can support a wide spectrum of science projects. 

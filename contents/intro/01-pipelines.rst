@@ -60,7 +60,7 @@ Finally, the receptive field (RF) computation is performed by relating the calci
 
 Data model
 ----------
-DataJoint provides a simplified and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS. DataJoint: A Simpler Relational Data Model. arXiv preprint arXiv:1807.11104. 2018 Jul 29 <https://arxiv.org/abs/1807.11104>`_.
+DataJoint provides a simplified and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS (2018). *DataJoint: A Simpler Relational Data Model.* <htps://arxiv.org/abs/1807.11104>`_.
 
 The data model defines how human data scientists conceptualize the data.
 It formalizes the mental constructs and operations on the data.
