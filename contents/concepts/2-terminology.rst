@@ -41,7 +41,7 @@ Very commonly classes for tables in one database are organized as a distinct Pyt
 *Base relations*
 ----------------
 
-**Base relations** are tables in the database and we often refer to them as simply *tables*.   Base relations are distinguished from *derived relations*, which result from Relational :doc:`../queries/03-operators`.
+**Base relations** are tables in the database and we often refer to them as simply *tables*.   Base relations are distinguished from *derived relations*, which result from Relational :doc:`../queries/03-Operators`.
 
 *Relvars* and *relation values*
 -------------------------------

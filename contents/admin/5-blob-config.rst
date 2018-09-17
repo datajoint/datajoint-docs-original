@@ -27,7 +27,7 @@ For example, the following table stores motion-aligned two-photon movies.
     aligned_movie :  external  # motion-aligned movie
 
 
-All :doc:`insert <../manipulation/1-Insert>` and :doc:`fetch <../queries/02-fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
+All :doc:`insert <../manipulation/1-Insert>` and :doc:`fetch <../queries/02-Fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
 Multiple external storage configurations may be used simultaneously.
@@ -113,7 +113,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 8. The :doc:`delete <../manipulation/2-delete>` operation first deletes the specified entities, then decrements the ``count`` of the item in ``~external``.
    Only then is the entire transaction committed, but the object is not actually deleted at this time.
 
-9. The :doc:`fetch <../queries/02-fetch>` operation uses the hash values to find the data.
+9. The :doc:`fetch <../queries/02-Fetch>` operation uses the hash values to find the data.
    In order to prevent excessive network overhead, a special external store named ``cache`` can be configured.
    If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly.
    Instead ``fetch`` will retrieve the cached object without downloading directly from the 'real' external store.
