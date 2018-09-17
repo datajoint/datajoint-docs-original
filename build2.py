@@ -4,6 +4,8 @@ import glob
 import shutil
 import subprocess
 
+import tagpicker
+
 
 # matlab_dir = "../datajoint-matlab/"
 # python_dir = "../datajoint-python/"
@@ -27,15 +29,16 @@ if not os.path.exists('build1'):
 # srcPy = "build1/datajoint-python/docs/"
 
 def create_build_folders(lang): 
-    # raw_tags = subprocess.Popen(["git", "tag"], cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
-    # tags1 = {}
-    # tags1[lang] = raw_tags
-    # print(tags1)
+    raw_tags = subprocess.Popen(["git", "tag"], cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
+    git_tags = {}
+    git_tags[lang] = raw_tags
 
-    lv = open("build_versions.json")
+    lv = open("build_versions2.json")
     buildver = lv.read()
-    tags = json.loads(buildver)
+    min_tags = json.loads(buildver)
     lv.close()
+
+    tags = tagpicker.pick_tag(min_tags, git_tags, lang)
 
     # tags2 = {"python": [
     #                     # "v0.9.0",
@@ -46,7 +49,8 @@ def create_build_folders(lang):
     #                     "v3.2.2"]
     #          }
     # for tag in tags2[lang]:
-    for tag in tags[lang]:
+    # for tag in tags[lang]:
+    for tag in tags:
         subprocess.Popen(["git", "checkout", tag],
                          cwd="build1/datajoint-" + lang, stdout=subprocess.PIPE).wait()
         dsrc_lang2 = "build1/datajoint-" + lang + "/docs"
@@ -103,11 +107,9 @@ def create_build_folders(lang):
         f.write('<p>' + lang + "-" + tag + '</p>') 
         f.close()
 
-        # build individual lang-ver folder
-        # subprocess.Popen(["make", "site"], cwd=dst_build_folder).wait()
 
-create_build_folders("matlab")
-create_build_folders("python")
+# create_build_folders("matlab")
+# create_build_folders("python")
 
 # generate site folder with all contents using hte above build folders
 
@@ -121,26 +123,57 @@ def make_full_site():
     
     # build individual lang-ver folder
     to_make = [folder for folder in glob.glob('build1/**') if not os.path.basename(folder).startswith('datajoint')]
-    print(to_make)
+    # print(to_make)
+
+    lv = open("build_versions2.json")
+    buildver = lv.read()
+    min_tags = json.loads(buildver)
+    lv.close()
+    # min_tags look like this {'python': ['v0.9'], 'matlab': ['v3.2']}
 
     # create full version-menu listing using the built folders from above
     f = open('datajoint_theme/version-menu.html', 'w+')
+    for lang in min_tags:
+        # print("lang is ")
+        # print(lang)
+        # print("versions are ")
+        # print(min_tags[lang])
+
+        for ver in min_tags[lang]:
+        
+            f.write('<li class="version-menu"><a href="/' + lang + "/" + ver + '">' + lang + "-" + ver + '</a></li>\n')
+
     
-    for folder in to_make:
-        version = folder.split('/')[1] # 'matlab-v3.2.2'
-        f.write('<li class="version-menu"><a href="/' + version.split("-")[0] + "/" + version.split("-")[1] + '">' + version + '</a></li>\n')
+    # for folder in to_make:
+    #     version = folder.split('/')[1] # 'matlab-v3.2.2'
+    #     f.write('<li class="version-menu"><a href="/' + version.split("-")[0] + "/" + version.split("-")[1] + '">' + version + '</a></li>\n')
             
     f.close()
        
     # copy over the full version-menu listing to datajoint_theme FIRST, 
     # then build individual folders, and copy to full_site folder 
+
     for folder in to_make:
         shutil.copy2('datajoint_theme/version-menu.html', folder + "/datajoint_theme/version-menu.html") 
-        subprocess.Popen(["make", "site"], cwd=folder).wait()
-        version = folder.split('/')[1] # 'matlab-v3.2.2'
-        shutil.copytree(folder + "/site", 'full_site/' + version.split("-")[0] + "/" + version.split("-")[1])
+        # subprocess.Popen(["make", "site"], cwd=folder).wait()
+        lang_version = folder.split('/')[1] # 'matlab-v3.2.2'
+        version = lang_version.split("-")[1].split(".")[:-1] #['v3', '2']
+        abbr_ver = ".".join(version)  #v3.2
+        shutil.copytree(folder + "/site", 'full_site/' + lang_version.split("-")[0] + "/" + abbr_ver)
 
-        
+    for lang in ["matlab", "python"]:
+        ver_list=[]
+        for to_sort in glob.glob('full_site/' + lang + '/**'):
+            ver_list.append(float((os.path.basename(to_sort).split("v")[1])))
+        newest_ver = "v" + str(max(ver_list))
+        src_path = 'full_site/' + lang + "/" + newest_ver
+        print(src_path)
+        for root, dirnames, filenames in os.walk(src_path):
+            for fname in filenames:
+                fpath = os.path.join(root, fname)
+
+                shutil.copy2(fpath, 'full_site/' + lang)
+
  
 
 make_full_site()
