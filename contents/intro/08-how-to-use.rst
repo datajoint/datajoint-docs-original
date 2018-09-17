@@ -1,6 +1,6 @@
 .. progress: 3.0 5% Dimitri
 
-How to use this manual
+How to Use This Manual
 ======================
 
 Separation of roles
