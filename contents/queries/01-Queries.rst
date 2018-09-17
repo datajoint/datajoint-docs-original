@@ -19,7 +19,7 @@ on the database. For example, we can instantiate the
 .. code:: python
 
     # matlab or python
-    tab = experiment.Session()
+    tab = experiment.Session
 
 More generally, ``tab`` may be a **table expression** constructed as an
 expression using :doc:`query operators <03-operators>`.
@@ -36,14 +36,14 @@ scans):
 .. code:: python
 
     # python or matlab
-    tab = experiment.Session() * experiment.Scan() & 'animal_id = 102'
+    tab = experiment.Session * experiment.Scan & 'animal_id = 102'
 
 In python, querying via attribute dictionaries is also permitted:
 
 ::
 
     # python
-    tab = experiment.Session() * experiment.Scan() & {'animal_id': 102}
+    tab = experiment.Session * experiment.Scan & {'animal_id': 102}
 
 You can preview the contents of the table in Python, Jupyter
 Notebook, or MATLAB by simply display the object:

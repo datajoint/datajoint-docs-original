@@ -68,7 +68,7 @@ or in Python as
 
 .. code-block:: python
 
-    mp.BrainSlice().heading
+    mp.BrainSlice.heading
 
 The heading of ``mp.Slice`` may look something like
 

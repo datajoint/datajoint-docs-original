@@ -106,7 +106,7 @@ Working with classes usually implies that one might create different class insta
 However, DataJoint classes only serve as interfaces to data that actually reside within tables on the database server.
 Whether calling a DataJoint method on a class or on an instance, the result will only depend on or apply to the corresponding table.
 All of the basic functionality of DataJoint is built to operate on the classes themselves, even when called on an instance.
-For example, calling ``Person.insert(...)`` (on the class) and ``Person().insert(...)`` (on an instance) both have the identical effect of inserting data into the table on the database server.
+For example, calling ``Person.insert(...)`` (on the class) and ``Person.insert(...)`` (on an instance) both have the identical effect of inserting data into the table on the database server.
 DataJoint does not prevent a user from working with instances, but the workflow is complete without the need for instantiation.
 It is up to the user whether to implement additional functionality as class methods or methods called on instances.
 

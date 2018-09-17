@@ -39,7 +39,7 @@ The tuple may have the form of a Python dictionary with key names matching the a
 
 .. code-block:: python
 
-    lab.Person().insert1(
+    lab.Person.insert1(
            dict(username='alice',
                 first_name='Alice',
                 last_name='Cooper'))
@@ -48,7 +48,7 @@ The tuple also may take the form of a sequence of values in the same order as th
 
 .. code-block:: python
 
-    lab.Person().insert1(['alice', 'Alice', 'Cooper'])
+    lab.Person.insert1(['alice', 'Alice', 'Cooper'])
 
 Additionally, the tuple may be inserted as a `numpy.record <https://docs.scipy.org/doc/numpy/reference/generated/numpy.record.html#numpy.record>`_.
 
@@ -56,7 +56,7 @@ The ``insert`` method accepts a sequence or a generator of multiple tuples and i
 
 .. code-block:: python
 
-    lab.Person().insert([
+    lab.Person.insert([
            ['alice',   'Alice',   'Cooper'],
            ['bob',     'Bob',     'Dylan'],
            ['carol',   'Carol',   'Douglas']])

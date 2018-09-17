@@ -38,10 +38,10 @@ The part is subclassed from ``dj.Part`` and does not need the ``@schema`` decora
             """
 
         def _make_tuples(self, key):
-            image = (Image() & key).fetch1['image']
+            image = (Image & key).fetch1['image']
             self.insert1(key)
             count = itertools.count()
-            Segmentation.ROI().insert(
+            Segmentation.ROI.insert(
                     dict(key, roi=next(count), roi_pixel=roi_pixels, roi_weights=roi_weights)
                     for roi_pixels, roi_weights in mylib.segment(image))
 
@@ -113,7 +113,7 @@ To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, 
 
 .. code-block:: python
 
-    Segmentation().populate()
+    Segmentation.populate()
 
 
 Note that the tuples in the master and the matching tuples in the part are inserted within a single ``make-tuples`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.  This ensures that partial results never appear in the database.

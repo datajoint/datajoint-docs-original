@@ -59,7 +59,7 @@ The class will be defined as follows.
         """
 
         def _make_tuples(self, key):
-            img = (test.Image() & key).fetch1['image']
+            img = (test.Image & key).fetch1['image']
             key['filtered_image'] = myfilter(img)
             self.insert(key)
 
@@ -84,7 +84,7 @@ The ``FilteredImage`` table can be populated as
 
 .. code-block:: python
 
-    FilteredImage().populate()
+    FilteredImage.populate()
 
 The progress of long-running calls to ```populate()``` in datajoint-python
 can be visualized by adding the ```display_progress=True``` argument
