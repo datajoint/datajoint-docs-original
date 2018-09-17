@@ -63,9 +63,9 @@ Edgar     6.40       3.10
 43  Dimitri  manipulation                          1-Insert.rst  0.80       7.20
 50  Dimitri       queries                           05-Join.rst  1.60       6.40
 11  Dimitri   computation                   05-transactions.rst  0.00       6.00
-44  Dimitri  manipulation                          2-delete.rst  0.60       5.40
+44  Dimitri  manipulation                          2-Delete.rst  0.60       5.40
 34  Dimitri         intro               04-Input-and-Output.rst  0.00       5.00
-45  Dimitri  manipulation                          3-update.rst  1.20       4.80
+45  Dimitri  manipulation                 3-Cautious-Update.rst  1.20       4.80
 47  Dimitri       queries                          02-Fetch.rst  1.20       4.80
 24  Dimitri    definition                  12-Lookup-Tables.rst  4.00       4.00
 42  Dimitri         intro                           12-FAQs.rst  0.40       3.60

@@ -1,9 +1,9 @@
 .. progress: 6 20% Dimitri
 
-Cautious update
+Cautious Update
 ===============
 
-In database programming, the **update** operation refers to modifying the values of individual attributes in a tuple within a table without replacing the entire tuple.  
+In database programming, the **update** operation refers to modifying the values of individual attributes in a tuple within a table without replacing the entire tuple.
 
 Updates are not part of DataJoint's data manipulation model because updates allow going around data dependencies constraint.  In DataJoint data are manipulated by inserting or deleting tuples in tables.
 

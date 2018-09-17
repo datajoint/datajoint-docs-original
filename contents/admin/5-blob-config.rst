@@ -110,7 +110,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 7. The :doc:`insert <../manipulation/1-Insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
    Only then are the specified entities inserted.
 
-8. The :doc:`delete <../manipulation/2-delete>` operation first deletes the specified entities, then decrements the ``count`` of the item in ``~external``.
+8. The :doc:`delete <../manipulation/2-Delete>` operation first deletes the specified entities, then decrements the ``count`` of the item in ``~external``.
    Only then is the entire transaction committed, but the object is not actually deleted at this time.
 
 9. The :doc:`fetch <../queries/02-Fetch>` operation uses the hash values to find the data.
