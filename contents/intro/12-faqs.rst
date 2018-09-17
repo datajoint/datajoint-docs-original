@@ -6,6 +6,7 @@ FAQs
 GUIs?
 -----
 
+
 DataJoint vs ORMs
 -----------------
 What is the difference between DataJoint and established ORMs in Python such as SQLAlchemy and Django ORM, for example?
