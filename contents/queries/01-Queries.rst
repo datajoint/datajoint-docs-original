@@ -22,7 +22,7 @@ on the database. For example, we can instantiate the
     tab = experiment.Session
 
 More generally, ``tab`` may be a **table expression** constructed as an
-expression using :doc:`query operators <03-operators>`.
+expression using :doc:`query operators <03-Operators>`.
 
 For example, the following table contains information about all
 experiments and scans for mouse 102 (excluding experiments with no
@@ -54,4 +54,4 @@ To "fetch" means to transfer the data represented by the table object on the dat
 into the workspace of the host language.
 
 All queries have the form ``tab.fetch()`` where ``tab`` is a table object and ``fetch`` is one of several variants of fetch methods, which
-are described in :doc:`02-fetch`.
+are described in :doc:`02-Fetch`.

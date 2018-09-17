@@ -1,6 +1,6 @@
 .. progress: 6 100% Dimitri
 
-Data pipelines
+Data Pipelines
 ==============
 
 What is a data pipeline?

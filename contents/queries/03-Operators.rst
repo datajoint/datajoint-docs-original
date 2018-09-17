@@ -12,12 +12,12 @@ DataJoint implements a complete algebra of operators on relations:
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning 
 ===================================  =======================================   =================================================================================
-:doc:`restriction <04-restriction>`  ``A & cond``                              The subset of relation ``A`` the meets condition ``cond`` 
-:doc:`exclusion <04-restriction>`    ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond`` 
-:doc:`join <05-join>`                ``A * B``     							  Combines all matching information from ``A`` and ``B``  
-:doc:`projection <06-proj>`          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes 
-:doc:`aggregation <07-aggr>`         ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B`` 
-:doc:`union <08-union>`              ``A + B``     							  All unique tuples from both ``A`` and ``B`` 
+:doc:`restriction <04-Restriction>`  ``A & cond``                              The subset of relation ``A`` the meets condition ``cond`` 
+:doc:`exclusion <04-Restriction>`    ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond`` 
+:doc:`join <05-Join>`                ``A * B``     							  Combines all matching information from ``A`` and ``B``  
+:doc:`projection <06-Proj>`          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes 
+:doc:`aggregation <07-Aggr>`         ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B`` 
+:doc:`union <08-Union>`              ``A + B``     							  All unique tuples from both ``A`` and ``B`` 
 ===================================  =======================================   =================================================================================
 
 
