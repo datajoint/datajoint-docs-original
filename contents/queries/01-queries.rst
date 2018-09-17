@@ -4,55 +4,54 @@ Query Basics
 ============
 
 DataJoint allows manipulating and previewing data in the form of
-**relation objects** without retrieving any of the data into the workspace
+**table expressions** without retrieving any of the data into the workspace
 of the host language.
 
-In the simplest case, ``rel`` is a **base relation** representing a table
+In the simplest case, ``tab`` is a **simple table** representing a table of data
 in the database. For example, we can instantiate the
-``experiment.Session`` base relation as
+``experiment.Session`` table as
 
 .. code:: matlab
 
     % matlab
-    rel = experiment.Session;       % in Matlab, constructors do not require parentheses ()
+    tab = experiment.Session;       % in Matlab, constructors do not require parentheses ()
 
 .. code:: python
 
     # matlab or python
-    rel = experiment.Session()
+    tab = experiment.Session()
 
-More generally, ``rel`` may be a **derived relation** constructed as an
-expression using `relational operators <Operators>`__.
+More generally, ``tab`` may be a **table expression** constructed as an
+expression using :doc:`query operators <03-operators>`.
 
-For example, the following relation contains information about all
+For example, the following table contains information about all
 experiments and scans for mouse 102 (excluding experiments with no
 scans):
 
 .. code:: matlab
 
     % matlab
-    rel = experiment.Session * experiment.Scan & 'animal_id = 102';
+    tab = experiment.Session * experiment.Scan & 'animal_id = 102';
 
 .. code:: python
 
     # python or matlab
-    rel = experiment.Session() * experiment.Scan() & 'animal_id = 102'
+    tab = experiment.Session() * experiment.Scan() & 'animal_id = 102'
 
 In python, querying via attribute dictionaries is also permitted:
 
 ::
 
     # python
-    rel = experiment.Session() * experiment.Scan() & {'animal_id': 102}
+    tab = experiment.Session() * experiment.Scan() & {'animal_id': 102}
 
-You can preview the contents of the relation in Python, Jupyter
+You can preview the contents of the table in Python, Jupyter
 Notebook, or MATLAB by simply display the object:
 
 << FIGURE >>
 
-To "fetch" means to transfer the data represented by the relation object
+To "fetch" means to transfer the data represented by the table on the database server
 into the workspace of the host language.
 
-All queries have the form ``rel.fetch()`` where ``rel`` is a relation
-object and ``fetch`` is one of several variants of fetch methods, which
-are described in [[Fetching]].
+All queries have the form ``tab.fetch()`` where ``tab`` is a table and ``fetch`` is one of several variants of fetch methods, which
+are described in :doc:`02-fetch`.
