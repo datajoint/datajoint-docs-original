@@ -4,10 +4,10 @@ Query Basics
 ============
 
 DataJoint allows manipulating and previewing data in the form of
-*relation objects* without retrieving any of the data into the workspace
+**relation objects** without retrieving any of the data into the workspace
 of the host language.
 
-In the simplest case, ``rel`` is a *base relation* representing a table
+In the simplest case, ``rel`` is a **base relation** representing a table
 in the database. For example, we can instantiate the
 ``experiment.Session`` base relation as
 
@@ -19,9 +19,9 @@ in the database. For example, we can instantiate the
 .. code:: python
 
     # matlab or python
-    rel = experiment.Session() 
+    rel = experiment.Session()
 
-More generally, ``rel`` may be a *derived relation* constructed as an
+More generally, ``rel`` may be a **derived relation** constructed as an
 expression using `relational operators <Operators>`__.
 
 For example, the following relation contains information about all
@@ -42,7 +42,7 @@ In python, querying via attribute dictionaries is also permitted:
 
 ::
 
-    # python 
+    # python
     rel = experiment.Session() * experiment.Scan() & {'animal_id': 102}
 
 You can preview the contents of the relation in Python, Jupyter
