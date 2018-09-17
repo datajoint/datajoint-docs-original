@@ -1,7 +1,7 @@
 .. progress: 2.0 100% Dimitri
 
-DataJoint Community
-===================
+Community
+=========
 
 DataJoint was originally developed by working systems neuroscientists at Andreas Tolias' Lab at Baylor College of Medicine 
 to meet the needs of their own research. 
