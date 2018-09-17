@@ -15,7 +15,7 @@ Make-tuples
 Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/11-Manual-Tables`, for example.
 Their data definition follows the same :doc:`../definition/04-Definition-Syntax`.
 
-For auto-populated tables, data should never be entered using :doc:`../manipulation/1-insert` directly.  Instead, these tables must define the callback method ``makeTuples(self, key)`` in MATLAB   ``_make_tuples(self, key)``.  The ``insert`` method then can only be called on ``self`` inside this callback method.
+For auto-populated tables, data should never be entered using :doc:`insert <../manipulation/1-Insert>` directly.  Instead, these tables must define the callback method ``makeTuples(self, key)`` in MATLAB   ``_make_tuples(self, key)``.  The ``insert`` method then can only be called on ``self`` inside this callback method.
 
 Consider the following example:
 
@@ -59,7 +59,7 @@ The class will be defined as follows.
         """
 
         def _make_tuples(self, key):
-            img = (test.Image() & key).fetch1['image']
+            img = (test.Image & key).fetch1['image']
             key['filtered_image'] = myfilter(img)
             self.insert(key)
 
@@ -84,7 +84,7 @@ The ``FilteredImage`` table can be populated as
 
 .. code-block:: python
 
-    FilteredImage().populate()
+    FilteredImage.populate()
 
 The progress of long-running calls to ```populate()``` in datajoint-python
 can be visualized by adding the ```display_progress=True``` argument

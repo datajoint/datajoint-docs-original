@@ -1,9 +1,9 @@
 done         135.35
-remaining    395.55 
+remaining    395.55
 
 
                done  remaining
-section                       
+section
 definition    44.50      81.50
 existing       0.00      72.00
 queries       19.00      71.00
@@ -15,16 +15,16 @@ manipulation   2.60      17.40
 concepts       2.80      17.20
 admin         26.50      11.50
 setup         13.60       2.40
-               6.00       0.00 
+               6.00       0.00
 
 
           done  remaining
-author                   
+author
 Dimitri  67.35     264.05
 Austin   25.10      98.90
 Jake      2.80      17.20
 Chris    33.70      12.30
-Edgar     6.40       3.10 
+Edgar     6.40       3.10
 
 
      author       section                          file  done  remaining
