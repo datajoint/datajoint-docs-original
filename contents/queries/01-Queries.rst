@@ -4,11 +4,11 @@ Query Basics
 ============
 
 DataJoint allows manipulating and previewing data in the form of
-**table expressions** without retrieving any of the data into the workspace
+**table objects** without retrieving any of the data into the workspace
 of the host language.
 
-In the simplest case, ``tab`` is a **simple table** representing a table of data
-in the database. For example, we can instantiate the
+In the simplest case, ``tab`` is a **simple table** representing data
+on the database. For example, we can instantiate the
 ``experiment.Session`` table as
 
 .. code:: matlab
@@ -50,8 +50,8 @@ Notebook, or MATLAB by simply display the object:
 
 << FIGURE >>
 
-To "fetch" means to transfer the data represented by the table on the database server
+To "fetch" means to transfer the data represented by the table object on the database server
 into the workspace of the host language.
 
-All queries have the form ``tab.fetch()`` where ``tab`` is a table and ``fetch`` is one of several variants of fetch methods, which
+All queries have the form ``tab.fetch()`` where ``tab`` is a table object and ``fetch`` is one of several variants of fetch methods, which
 are described in :doc:`02-fetch`.
