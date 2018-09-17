@@ -68,7 +68,7 @@ The key represents the partially filled tuple, usually already containing :doc:`
 
 Inside the callback, three things always happen:
 
-1. :doc:`../queries/02-fetch` data from tables upstream in the pipeline using the ``key`` for :doc:`../queries/04-restriction`.
+1. :doc:`../queries/02-Fetch` data from tables upstream in the pipeline using the ``key`` for :doc:`../queries/04-Restriction`.
 2. The missing attributes are computed and added to the fields allredy in ``key``.
 3. The entire tuple is inserted into ``self``.
 

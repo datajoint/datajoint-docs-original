@@ -1,4 +1,4 @@
 .. progress: 12.0 0% Austin
 
-Virtual modules
+Virtual Modules
 ===============

@@ -1,4 +1,4 @@
 .. progress: 1.5 0% Edgar
 
-Contributing to documentation
+Contributing to Documentation
 =============================
