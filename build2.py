@@ -167,14 +167,42 @@ def make_full_site():
             ver_list.append(float((os.path.basename(to_sort).split("v")[1])))
         newest_ver = "v" + str(max(ver_list))
         src_path = 'full_site/' + lang + "/" + newest_ver
-        print(src_path)
-        for root, dirnames, filenames in os.walk(src_path):
-            for fname in filenames:
-                fpath = os.path.join(root, fname)
+        print("--------------------------------------")
+        copy_contents(src_path, os.path.join('full_site', lang))
+        # for root, dirnames, filenames in os.walk(src_path):
+        #     for fname in filenames:
+        #         fpath = os.path.join(root, fname)
+        #         rel_path = os.path.relpath(fpath, src_path)
+        #         #sliced_root = root.split("/")[3:]
+                
+        #         #new_root = "/".join(sliced_root)
+        #         # print(new_root)
+        #         dpath = os.path.join('full_site', lang, rel_path)
+        #         print(fpath + " >>>>>> " + dpath)
+        #         # shutil.copy2(fpath, 'full_site/' + lang)
+        #         dir_name, _ = os.path.split(dpath)
+        #         if not os.path.exists(dir_name):
+        #             os.makedirs(dir_name)
+        #         shutil.copy2(fpath, dpath)
 
-                shutil.copy2(fpath, 'full_site/' + lang)
 
- 
+
+def copy_contents(src_dir, dest_dir):
+    """
+    Copy the *contents* of `src_dir` into the `dest_dir` recursively. 
+    Any empty directory will *not* be copied.
+    """
+    for root, dirnames, filenames in os.walk(src_dir):
+        for fname in filenames:
+            fpath = os.path.join(root, fname)
+            rel_path = os.path.relpath(fpath, src_dir)
+
+            dpath = os.path.join(dest_dir, rel_path)
+            print(fpath + " >>>>>> " + dpath)
+            dir_name, _ = os.path.split(dpath)
+            if not os.path.exists(dir_name):
+                os.makedirs(dir_name)
+            shutil.copy2(fpath, dpath)
 
 make_full_site()
     
