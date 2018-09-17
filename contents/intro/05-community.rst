@@ -1,7 +1,7 @@
 .. progress: 2.0 100% Dimitri
 
-Who uses DataJoint
-==================
+Community
+=========
 
 DataJoint was originally developed by working systems neuroscientists at Andreas Tolias' Lab at Baylor College of Medicine 
 to meet the needs of their own research. 
@@ -26,3 +26,4 @@ Below is a partial list of known DataJoint users.  Please let us know if you wou
 #. `Mouse Motor Lab <http://www.mousemotorlab.org>`_ (Mackenzie Mathis), Rowland Institute at Harvard University
 #. Harvey Lab (Christopher Harvey), Harvard Medical School
 #. Smirnakis Lab (Stelios Smirnakis), Harvard Medical School
+#. McGinley Lab (Matthew McGinley), Baylor College of Medicine
