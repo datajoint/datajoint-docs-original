@@ -83,5 +83,5 @@ Edgar     6.40       3.10
 40  Dimitri         intro           10-Questions-and-Issues.rst  0.20       0.00
 55    Edgar         setup            01-install-and-connect.rst  6.40       1.60
 41    Edgar         intro  11-Contributing-to-Documentation.rst  0.00       1.50
-14     Jake      concepts                     2-terminology.rst  1.20      10.80
-13     Jake      concepts                      1-data-model.rst  1.60       6.40
+14     Jake      concepts            2-Notes-on-Terminology.rst  1.20      10.80
+13     Jake      concepts        1-The-DataJoint-Data-Model.rst  1.60       6.40
