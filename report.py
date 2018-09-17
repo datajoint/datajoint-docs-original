@@ -17,7 +17,7 @@ def filegen(path):
                     match = pattern.match(f.readline())
                     if match is None:
                         raise ValueError('File {file} has invalid progress report'.format(file=fullfile))
-                    yield dict(match.groupdict(), section=root[len(path):], file=file)
+                    yield dict(match.groupdict(), section=root[len(path)+1:], file=file)
 
 data = pd.DataFrame(filegen('./contents'))
 data['hours'] = data['hours'].astype(float)
