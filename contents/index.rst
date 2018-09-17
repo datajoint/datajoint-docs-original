@@ -18,13 +18,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    intro/*
 
-.. toctree::
-   :maxdepth: 2
-   :includehidden:
-   :caption: Client setup
-   :glob:
-
-   setup/* 
 
 .. toctree::
    :maxdepth: 2
@@ -32,6 +25,14 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :glob:
 
    admin/*
+
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
+   :caption: Client setup
+   :glob:
+
+   setup/* 
 
 .. toctree::
    :maxdepth: 2 
