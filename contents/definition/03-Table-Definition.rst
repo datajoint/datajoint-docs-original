@@ -94,7 +94,7 @@ Examples
 
 .. code-block:: python
 
-	s = lab.User().describe()
+	s = lab.User.describe()
 
 Furthermore, DataJoint for MATLAB provides the ``syncDef`` method to update the ``classdef`` file definition string for the table with the definition in the actual table:
 

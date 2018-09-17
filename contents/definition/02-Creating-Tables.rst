@@ -3,12 +3,13 @@
 Creating Tables
 ===============
 
+Classes represent tables
+------------------------
 
-Relational data model
----------------------
-
-As already mentioned in :doc:`01-Creating-Schemas`, all data in DataJoint are represented in the form of tables residing in database schemas on the database server.
-On the client side, in Python and MATLAB, each table has its own DataJoint class, which defines the table and manipulates its data.
+To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
+Computer programmers refer to this concept as `object-relational mapping <https://en.wikipedia.org/wiki/Object-relational_mapping>`_.
+For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``subject`` on the database server.
+Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.
 
 Data tiers
 ^^^^^^^^^^
@@ -90,9 +91,25 @@ For example, the following code defines the table ``Person``:
 	    '''
 
 
-The class will become usable after you edit the ``definition`` property as described in :doc:`03-Table-Definition`.
+The ``@schema`` decorator uses the class name and the data tier to check whether an appropriate table exists on the database.
+If a table does not already exist, the decorator creates one on the database using the definition property.
+The decorator attaches the information about the table to the class, and then returns the class.
 
--------------------
+The class will become usable after you define the ``definition`` property as described in :doc:`03-Table-Definition`.
+
+
+DataJoint classes
+~~~~~~~~~~~~~~~~~
+
+DataJoint for Python is implemented through the use of classes.
+Working with classes usually implies that one might create different class instances with various internal states.
+However, DataJoint classes only serve as interfaces to data that actually reside within tables on the database server.
+Whether calling a DataJoint method on a class or on an instance, the result will only depend on or apply to the corresponding table.
+All of the basic functionality of DataJoint is built to operate on the classes themselves, even when called on an instance.
+For example, calling ``Person.insert(...)`` (on the class) and ``Person.insert(...)`` (on an instance) both have the identical effect of inserting data into the table on the database server.
+DataJoint does not prevent a user from working with instances, but the workflow is complete without the need for instantiation.
+It is up to the user whether to implement additional functionality as class methods or methods called on instances.
+
 
 Valid class names
 ------------------

@@ -82,7 +82,7 @@ A `dj.ERD` object can be initialized with a single table.
 
 .. code-block:: python
 
-    dj.ERD(seq.Genome()).draw()
+    dj.ERD(seq.Genome).draw()
 
 A single node makes a rather boring graph but ERDs can be added together or subtracted from each other using graph algebra.
 
@@ -103,7 +103,7 @@ However two graphs can be added, resulting in new graph containing the union of 
 .. code-block:: python
 
     # python: plot the ERD with tables Genome and Species from module seq.
-    (dj.ERD(seq.Genome()) + dj.ERD(seq.Species())).draw()
+    (dj.ERD(seq.Genome) + dj.ERD(seq.Species)).draw()
 
 Expanding ERDs upstream and downstream
 ++++++++++++++++++++++++++++++++++++++

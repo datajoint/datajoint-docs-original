@@ -133,7 +133,7 @@ Then you can do the following.
 
 .. code:: python
 
-    key['scan_idx'] = (Scan() & key).proj(next='max(scan_idx)+1').fetch1['next']
+    key['scan_idx'] = (Scan & key).proj(next='max(scan_idx)+1').fetch1['next']
 
 .. code:: matlab
 

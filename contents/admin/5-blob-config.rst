@@ -27,7 +27,7 @@ For example, the following table stores motion-aligned two-photon movies.
     aligned_movie :  external  # motion-aligned movie
 
 
-All :doc:`insert <../manipulation/1-insert>` and :doc:`fetch <../queries/02-fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
+All :doc:`insert <../manipulation/1-Insert>` and :doc:`fetch <../queries/02-fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
 Multiple external storage configurations may be used simultaneously.
@@ -107,7 +107,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 6. Attributes of type ``external`` are declared as renamed :doc:`foreign keys <10-Foreign-Keys>` referencing the ``~external`` table (but are not shown as such to the user).
 
-7. The :doc:`insert <../manipulation/1-insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
+7. The :doc:`insert <../manipulation/1-Insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
    Only then are the specified entities inserted.
 
 8. The :doc:`delete <../manipulation/2-delete>` operation first deletes the specified entities, then decrements the ``count`` of the item in ``~external``.

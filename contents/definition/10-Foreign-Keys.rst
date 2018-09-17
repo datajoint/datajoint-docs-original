@@ -68,7 +68,7 @@ or in Python as
 
 .. code-block:: python
 
-    mp.BrainSlice().heading
+    mp.BrainSlice.heading
 
 The heading of ``mp.Slice`` may look something like
 
@@ -117,43 +117,39 @@ An entity in relation ``B`` depends on an entity in relation ``A`` when they bel
 Renamed foreign keys
 --------------------
 In most cases, a foreign key includes the primary key attributes of the referenced table as they appear in its table definition.
-In such a case, an entity in the dependent table depends on exactly one entity in the referenced table.
-DataJoint provides the following syntax to rename the primary key attributes when they are included in the new table.
+Sometimes it can be helpful to choose a new name for a foreign key attribute that better fits the context of the dependent table.
+DataJoint provides the following :doc:`projection <../queries/06-proj>` syntax to rename the primary key attributes when they are included in the new table.
 
 The foreign key
 
 .. code-block:: text
 
-    (new_attr) ->  Table
+    ->  Table.project(new_attr='old_attr')
 
-renames the primary key attribute of ``Table`` into ``new_attr`` before integrating it into the table definition.
-This works if there is no ambiguity which of the primary key attributes must be renamed.
-Such is the case if ``Table`` has only one attribute in the primary key or it only has one attribute that has not yet been included in the dependent table's definition.
-
-For example, the table ``Experiment``, may depend on table ``User`` but rename the foreign key attribute into ``operator`` as follows
+renames the primary key attribute ``old_attr`` of ``Table`` as ``new_attr`` before integrating it into the table definition.
+Any additional primary key attributes will retain their original names.
+For example, the table ``Experiment`` may depend on table ``User`` but rename the foreign key attribute into ``operator`` as follows:
 
 .. code-block:: text
 
-    (operator) -> User
+    -> User.proj(operator='user')
 
-In some cases, it is not clear which attribute or attributes from the referenced table should be renamed.
-Such is the case when multiple attributes are renamed or when the referenced table has multiple attributes that have not yet included.
-
+In the above example, an entity in the dependent table depends on exactly one entity in the referenced table.
+Sometimes entities may depend on multiple entities from the same table.
+Such a design requires a way to distinguish between dependent attributes having the same name in the reference table.
 For example, a table for ``Synapse`` may reference the table ``Cell`` twice as ``presynaptic`` and ``postsynaptic``.
 The table definition may appear as
 
 .. code-block:: text
 
     ## synapse between two cells
-    (presynaptic) -> Cell(cell_id)
-    (postsynaptic) -> Cell(cell_id)
+    Cell.proj(presynaptic='cell_id')
+    Cell.proj(postsynaptic='cell_id')
     ---
     connection_strength : double  # (pA) peak synaptic current
 
 If the primary key of ``Cell`` is (``animal_id``, ``slice_id``, ``cell_id``), then the primary key of ``Synapse`` resulting from the above definition will be (``animal_id``, ``slice_id``, ``presynaptic``, ``postsynaptic``).
-The first foreign key was responsible for including the first three attributes and the second foreign key added the last.
-The second foreign key could just as well have been ``(postsynaptic) -> Cell`` with the same effect, because ``cell_id`` would be the only attribute not already part of the primary key under its original name.
-However, explicitly including ``cell_id`` again makes the table definition clearer.
+Projection always returns all of the primary key attributes of a table, so ``animal_id`` and ``slice_id`` are included, with their original names.
 
 Note that the design of the ``Synapse`` table above imposes the constraint that the synapse can only be found between cells in the same animal and in the same slice.
 If we wished to allow representation of synapses between cells from different slices, then we would have to rename ``slice_id`` as well:
@@ -161,8 +157,8 @@ If we wished to allow representation of synapses between cells from different sl
 .. code-block:: text
 
     ## synapse between two cells
-    (presynaptic_slice, presynaptic_cell) -> Cell(slice_id, cell_id)
-    (postsynaptic_slice, postsynaptic_cell) -> Cell(slice_id, cell_id)
+    -> Cell(presynaptic_slice='slice_id', presynaptic_cell='cell_id')
+    -> Cell(postsynaptic_slice='slice_id', postsynaptic_cell='cell_id')
     ---
     connection_strength : double  # (pA) peak synaptic current
 

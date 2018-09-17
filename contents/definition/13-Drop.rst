@@ -23,7 +23,7 @@ The ``drop`` method is often used during initial design to allow altered table d
 .. code-block:: python
 
     # drop the Person table from its schema
-    Person().drop()
+    Person.drop()
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
