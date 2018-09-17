@@ -1,9 +1,9 @@
 done         141.35
-remaining    398.55 
+remaining    398.55
 
 
                done  remaining
-section                       
+section
 definition    50.50      83.50
 existing       0.00      72.00
 queries       19.00      71.00
@@ -15,16 +15,16 @@ manipulation   2.60      17.40
 concepts       2.80      17.20
 admin         26.50      11.50
 setup         13.60       2.40
-               6.00       0.00 
+               6.00       0.00
 
 
           done  remaining
-author                   
+author
 Dimitri  73.35     267.05
 Austin   25.10      98.90
 Jake      2.80      17.20
 Chris    33.70      12.30
-Edgar     6.40       3.10 
+Edgar     6.40       3.10
 
 
      author       section                          file  done  remaining
@@ -54,7 +54,7 @@ Edgar     6.40       3.10
 34  Dimitri   computation           01-autopopulate.rst  1.20      10.80
 37  Dimitri   computation            04-master-part.rst  1.20      10.80
 33  Dimitri       queries              09-universal.rst  0.00      10.00
-25  Dimitri       queries                01-queries.rst  2.40       9.60
+25  Dimitri       queries                01-Queries.rst  2.40       9.60
 39  Dimitri   computation  06-distributed-computing.rst  2.40       9.60
 27  Dimitri       queries              03-operators.rst  9.00       9.00
 30  Dimitri       queries                   06-proj.rst  3.00       9.00
