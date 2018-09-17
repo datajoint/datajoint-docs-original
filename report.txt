@@ -60,7 +60,7 @@ Edgar     6.40       3.10
 30  Dimitri       queries                   06-proj.rst  3.00       9.00
 47  Dimitri    definition         08-External-Store.rst  8.00       8.00
 31  Dimitri       queries                   07-aggr.rst  0.40       7.60
-2   Dimitri  manipulation                  1-insert.rst  0.80       7.20
+2   Dimitri  manipulation                  1-Insert.rst  0.80       7.20
 29  Dimitri       queries                   05-join.rst  1.60       6.40
 38  Dimitri   computation           05-transactions.rst  0.00       6.00
 3   Dimitri  manipulation                  2-delete.rst  0.60       5.40
