@@ -7,7 +7,7 @@ Primary keys in DataJoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Entities in tables are neither named nor numbered.
-DataJoint refuses to answer question of the type "What is the 10th element of this table?"
+DataJoint does not answer questions of the type "What is the 10th element of this table?"
 Instead, entities are distinguished by the values of their attributes. 
 Furthermore, the entire entity is not required for identification.
 In each table, a subset of its attributes are designated to be the **primary key**.
