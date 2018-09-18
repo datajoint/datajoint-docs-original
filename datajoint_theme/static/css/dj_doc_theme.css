@@ -189,21 +189,42 @@ table > caption> .caption-text + a.headerlink {
 }
 
 /* setting up dropdown menu for versions */
-li.menu-text {
+p.thisVersion {
     color: #54a8b7;
-}
-li.version-menu {
-    visibility: hidden;
-    display: none;
+    margin-bottom: 0;
 }
 
-ul.dropdown-versions:hover > li.version-menu,
-li:hover + li.version-menu {
-    visibility: visible;
+li.menu-text {
+    color: #54a8b7;
+    
+}
+/* li.version-menu {
+    visibility: hidden;
+    display: none;
+} */
+div#dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #54a8b7;
+    margin-left: 90px;
+
+}
+div#dropdown-menu.show {
     display: block;
 }
 
-li.version-menu:hover > a {
-    /* border-bottom: solid 1px #54a8b7; */
-    text-decoration: underline;
+
+
+ul.dropdown-versions {
+    font-size: 0.9rem;
+}
+
+li.version-menu {
+    border-bottom: 1px solid #b2dfe7;
+    padding: 2px 25px;
+}
+
+li.version-menu:hover {
+    background-color: #c4e8ee;
 }

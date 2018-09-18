@@ -104,7 +104,7 @@ def create_build_folders(lang):
 
         # JIC add current_version <p> tag into the datajoint_theme folder 
         f = open(dst_build_folder + '/datajoint_theme/this_version.html', 'w+')
-        f.write('<p>' + lang + "-" + ".".join(tag.split(".")[:-1]) + '</p>') 
+        f.write('<p class="thisVersion">' + lang + "-" + ".".join(tag.split(".")[:-1]) + '</p>') 
         f.close()
 
 
@@ -156,6 +156,7 @@ def make_full_site():
     for folder in to_make:
         shutil.copy2('datajoint_theme/version-menu.html', folder + "/datajoint_theme/version-menu.html") 
         subprocess.Popen(["make", "site"], cwd=folder).wait()
+
         lang_version = folder.split('/')[1] # 'matlab-v3.2.2'
         version = lang_version.split("-")[1].split(".")[:-1] #['v3', '2']
         abbr_ver = ".".join(version)  #v3.2
@@ -167,11 +168,10 @@ def make_full_site():
             ver_list.append(float((os.path.basename(to_sort).split("v")[1])))
         newest_ver = "v" + str(max(ver_list))
         src_path = 'full_site/' + lang + "/" + newest_ver
-        # print("--------------------------------------")
         copy_contents(src_path, os.path.join('full_site', lang))
 
     copy_contents('dj_root_theme', 'full_site')
-
+    copy_contents('full_site/python/_static', 'full_site/_static')
 
 
 def copy_contents(src_dir, dest_dir):
@@ -190,5 +190,5 @@ def copy_contents(src_dir, dest_dir):
                 os.makedirs(dir_name)
             shutil.copy2(fpath, dpath)
 
+
 make_full_site()
-    
