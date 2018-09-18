@@ -46,6 +46,8 @@ Data pipelines support project data across their entire lifecycle, including the
 
 Through all these activities, all these data are made accessible to all authorized participants and distributed computations can be done in parallel without compromising data integrity.
 
+.. _team-roles: 
+
 Team roles
 ----------
 The adoption of a uniform data management framework allows separation of roles and division of labor among team members, leading to greater efficiency and better scaling. 

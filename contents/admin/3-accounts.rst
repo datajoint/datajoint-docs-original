@@ -1,4 +1,4 @@
-.. progress: 6.0 75% Chris
+.. progress: 6.0 75% Dimitri
 
 User Management 
 ===============
