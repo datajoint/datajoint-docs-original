@@ -104,12 +104,12 @@ def create_build_folders(lang):
 
         # JIC add current_version <p> tag into the datajoint_theme folder 
         f = open(dst_build_folder + '/datajoint_theme/this_version.html', 'w+')
-        f.write('<p>' + lang + "-" + tag + '</p>') 
+        f.write('<p>' + lang + "-" + ".".join(tag.split(".")[:-1]) + '</p>') 
         f.close()
 
 
-# create_build_folders("matlab")
-# create_build_folders("python")
+create_build_folders("matlab")
+create_build_folders("python")
 
 # generate site folder with all contents using hte above build folders
 
@@ -155,7 +155,7 @@ def make_full_site():
 
     for folder in to_make:
         shutil.copy2('datajoint_theme/version-menu.html', folder + "/datajoint_theme/version-menu.html") 
-        # subprocess.Popen(["make", "site"], cwd=folder).wait()
+        subprocess.Popen(["make", "site"], cwd=folder).wait()
         lang_version = folder.split('/')[1] # 'matlab-v3.2.2'
         version = lang_version.split("-")[1].split(".")[:-1] #['v3', '2']
         abbr_ver = ".".join(version)  #v3.2
@@ -167,23 +167,10 @@ def make_full_site():
             ver_list.append(float((os.path.basename(to_sort).split("v")[1])))
         newest_ver = "v" + str(max(ver_list))
         src_path = 'full_site/' + lang + "/" + newest_ver
-        print("--------------------------------------")
+        # print("--------------------------------------")
         copy_contents(src_path, os.path.join('full_site', lang))
-        # for root, dirnames, filenames in os.walk(src_path):
-        #     for fname in filenames:
-        #         fpath = os.path.join(root, fname)
-        #         rel_path = os.path.relpath(fpath, src_path)
-        #         #sliced_root = root.split("/")[3:]
-                
-        #         #new_root = "/".join(sliced_root)
-        #         # print(new_root)
-        #         dpath = os.path.join('full_site', lang, rel_path)
-        #         print(fpath + " >>>>>> " + dpath)
-        #         # shutil.copy2(fpath, 'full_site/' + lang)
-        #         dir_name, _ = os.path.split(dpath)
-        #         if not os.path.exists(dir_name):
-        #             os.makedirs(dir_name)
-        #         shutil.copy2(fpath, dpath)
+
+    copy_contents('dj_root_theme', 'full_site')
 
 
 
@@ -196,9 +183,8 @@ def copy_contents(src_dir, dest_dir):
         for fname in filenames:
             fpath = os.path.join(root, fname)
             rel_path = os.path.relpath(fpath, src_dir)
-
             dpath = os.path.join(dest_dir, rel_path)
-            print(fpath + " >>>>>> " + dpath)
+            # print(fpath + " >>>>>> " + dpath)
             dir_name, _ = os.path.split(dpath)
             if not os.path.exists(dir_name):
                 os.makedirs(dir_name)
