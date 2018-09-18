@@ -1,4 +1,4 @@
-.. progress: 8.0 75% Chris
+.. progress: 8.0 75% Dimitri
 
 Database Server Hosting
 -----------------------
