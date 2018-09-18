@@ -25,5 +25,6 @@ Below is a partial list of known DataJoint users.  Please let us know if you wou
 #. `Seung Lab <http://seunglab.org/>`_ (Sebastian Seung), Princeton University
 #. `Mouse Motor Lab <http://www.mousemotorlab.org>`_ (Mackenzie Mathis), Rowland Institute at Harvard University
 #. Harvey Lab (Christopher Harvey), Harvard Medical School
+#. Angelaki Lab (Dora Angelaki), New York University
 #. Smirnakis Lab (Stelios Smirnakis), Harvard Medical School
 #. McGinley Lab (Matthew McGinley), Baylor College of Medicine
