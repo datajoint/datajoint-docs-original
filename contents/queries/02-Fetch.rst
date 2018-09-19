@@ -20,8 +20,7 @@ two identical queries may change between two sequential invocations.
 Therefore, if you wish to fetch matching pairs of attributes, do so in
 one ``fetch`` call.
 
---------------
-
+.. matlab 1 start
 MATLAB
 ------
 
@@ -84,7 +83,7 @@ another output argument to receive the key values:
 .. code:: matlab
 
     % retrieve names, images, and corresponding primary key values
-    [names, imgs, keys] = fetchn1(rel, 'name', 'image')   
+    [names, imgs, keys] = fetchn1(rel, 'name', 'image')
 
 The resulting value of ``keys`` will be a column array of type
 ``struct``. This mechanism is only implemented for ``fetchn``.
@@ -109,7 +108,7 @@ To sort the result, add the additional ``ORDER BY`` argument in
 
 .. code:: matlab
 
-    % retrieve field `notes` from experiment sessions 
+    % retrieve field `notes` from experiment sessions
     % performed by Alice, sorted by session date
     notes = fetchn(experiment.Session & 'operator="alice"', 'note', ...
          'ORDER BY session_date'
@@ -128,9 +127,9 @@ sessions, one could do the following:
 
 The limit clause is passed directly to SQL and follows the same
 `rules <https://dev.mysql.com/doc/refman/5.7/en/select.html>`__
+.. matlab 1 end
 
---------------
-
+.. python 1 start
 Python
 ------
 
@@ -183,7 +182,7 @@ Usage with Pandas
 ~~~~~~~~~~~~~~~~~
 
 The ```pandas`` <http://pandas.pydata.org/>`__ library is a popular
-library for data analysis in python which can easily be used with
+library for data analysis in Python which can easily be used with
 DataJoint query results. Since the records returned by ``fetch()`` are
 contained within a ``numpy.recarray``, they can be easily converted to
 ``pandas.DataFrame`` objects by passing them into the
@@ -193,4 +192,4 @@ contained within a ``numpy.recarray``, they can be easily converted to
 
     import pandas as pd
     frame = pd.DataFrame(rel.fetch())
-
+.. python 1 end

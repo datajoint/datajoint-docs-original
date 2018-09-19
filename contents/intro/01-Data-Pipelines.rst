@@ -59,7 +59,7 @@ Finally, the receptive field (RF) computation is performed by relating the calci
 
 How DataJoint works
 -------------------
-DataJoint enables data scientists to build and operate scientific data pipelines. 
+DataJoint enables data scientists to build and operate scientific data pipelines.
 
 .. figure:: ../_static/img/how-it-works.png
     :align: center
@@ -70,7 +70,7 @@ DataJoint enables data scientists to build and operate scientific data pipelines
 DataJoint provides a simple and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS (2018). *DataJoint: A Simpler Relational Data Model.* <htps://arxiv.org/abs/1807.11104>`_.
 The data model defines how data scientists conceptualize the data.
 It formalizes the mental constructs and operations on the data.
-DataJoint's model is a refinement of the relational data model: all nodes in the pipeline are simple tables storing data and query operations can combine the contents of multiple tables.
+DataJoint's model is a refinement of the relational data model: all nodes in the pipeline are simple tables storing data, and query operations can combine the contents of multiple tables.
 
 When programming, users interact with these nodes in the form MATLAB or Python objects that represent data and computations.
 Each object is associated with an individual table in the database.
@@ -86,7 +86,8 @@ DataJoint works well in combination with good code sharing (e.g. with `git <http
 
 A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently.
 
-The data architecture for a particular project is the configuration of information technologies for managing the data and computations and it may vary dramatically between projects, depending on their needs.
+The data architecture for a particular project is the configuration of information technologies for managing data and computations.
+Data architecture may vary dramatically between projects, depending on project requirements.
 DataJoint clearly separates the data model facing the user from the data architecture implementing data management and computing.
 
 Typically, the data architecture includes a relational database server (e.g. MySQL) and a bulk data storage system (e.g. `AWS S3 <https://aws.amazon.com/s3/>`_ or a filesystem).

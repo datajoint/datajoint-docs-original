@@ -13,6 +13,7 @@ As an example, imagine segmenting an image to identify regions of interest. The 
 
 In this case, the two tables might be called ``Segmentation`` and ``Segmentation.ROI``.
 
+.. python 1 start
 |python| Python
 ---------------
 
@@ -44,7 +45,9 @@ The part is subclassed from ``dj.Part`` and does not need the ``@schema`` decora
             Segmentation.ROI.insert(
                     dict(key, roi=next(count), roi_pixel=roi_pixels, roi_weights=roi_weights)
                     for roi_pixels, roi_weights in mylib.segment(image))
+.. python 1 end
 
+.. matlab 1 start
 |matlab| MATLAB
 ---------------
 In MATLAB, the master and  part tables are declared in a separate ``classdef`` file.
@@ -98,32 +101,42 @@ The part table must declare the property ``master`` containing an object of the 
            end
        end
    end
+.. matlab 1 end
 
 Populating
 ----------
 To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, it is sufficient to call the ``populate`` method of the master:
 
+.. matlab 2 start
 |matlab|
 
 .. code-block:: matlab
 
     populate(Segmentation)
+.. matlab 2 end
 
+.. python 2 start
 |python|
 
 .. code-block:: python
 
     Segmentation.populate()
+.. python 2 end
 
+Note that the tuples in the master and the matching tuples in the part are inserted within a single ``make-tuples`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.
+This ensures that partial results never appear in the database.
 
-Note that the tuples in the master and the matching tuples in the part are inserted within a single ``make-tuples`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.  This ensures that partial results never appear in the database.
-
-For example, imagine that a segmentation is performed and an error occurs half way through inserting the results.  If this situation was allowed to persist, then it might appear that 20 ROIs were detected were 45 would really be found.
+For example, imagine that a segmentation is performed and an error occurs half way through inserting the results.
+If this situation was allowed to persist, then it might appear that 20 ROIs were detected were 45 would really be found.
 
 Deleting
 --------
 
-To delete from a master-part pair, one should never delete from the part tables directly. The only valid method to delete from a part table is to delete the master.  This has been an unenforced rule but upcoming versions of DataJoint will prohibit direct deletes from the master table.  DataJoint's :doc:`../manipulation/2-Delete` operation is also enclosed in a transaction.  Therefore, deleting
+To delete from a master-part pair, one should never delete from the part tables directly.
+The only valid method to delete from a part table is to delete the master.
+This has been an unenforced rule but upcoming versions of DataJoint will prohibit direct deletes from the master table.
+DataJoint's :doc:`../manipulation/2-Delete` operation is also enclosed in a transaction.
+Therefore, deleting
 
 Together, the rules master-part relationships ensure a key aspect of data integrity: results of computations involving multiple components and steps appear in their entirety or not at all.
 
