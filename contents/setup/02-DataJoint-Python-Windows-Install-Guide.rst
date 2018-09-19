@@ -168,5 +168,5 @@ MySQL for Windows
 
 For hosting pipelines locally, the MySQL server package is required.
 
-MySQL for windows can be installed via the installers available from the `MySQL website<https://dev.mysql.com/downloads/windows/>`_.
+MySQL for windows can be installed via the installers available from the `MySQL website <https://dev.mysql.com/downloads/windows/>`_.
 Please note that although DataJoint should be fully compatible with a Windows MySQL server installation, this mode of operation is not tested by the DataJoint team.
