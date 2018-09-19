@@ -9,7 +9,7 @@ DataJoint will first display the tables being dropped and the number of entities
 
 The ``drop`` method is often used during initial design to allow altered table definitions to take effect.
 
-|matlab| Matlab
+|matlab| MATLAB
 ---------------
 
 .. code-block:: matlab

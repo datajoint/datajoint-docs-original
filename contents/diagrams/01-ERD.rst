@@ -102,7 +102,7 @@ However two graphs can be added, resulting in new graph containing the union of 
 
 .. code-block:: python
 
-    # python: plot the ERD with tables Genome and Species from module seq.
+    # Python: plot the ERD with tables Genome and Species from module seq.
     (dj.ERD(seq.Genome) + dj.ERD(seq.Species)).draw()
 
 Expanding ERDs upstream and downstream

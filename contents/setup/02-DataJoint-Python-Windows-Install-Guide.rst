@@ -28,7 +28,7 @@ Python for Windows is available from:
 
 https://www.python.org/downloads/windows
 
-The latest 64 bit 3.x version, currently 3.6.3, `is available from the python site <https://www.python.org/ftp/python/3.6.3/python-3.6.3-amd64.exe>`_.
+The latest 64 bit 3.x version, currently 3.6.3, `is available from the Python site <https://www.python.org/ftp/python/3.6.3/python-3.6.3-amd64.exe>`_.
 
 From here run the installer to install Python.
 

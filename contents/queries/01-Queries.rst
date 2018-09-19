@@ -14,11 +14,11 @@ on the database. For example, we can instantiate the
 .. code:: matlab
 
     % matlab
-    tab = experiment.Session;       % in Matlab, constructors do not require parentheses ()
+    tab = experiment.Session;       % in MATLAB, constructors do not require parentheses ()
 
 .. code:: python
 
-    # matlab or python
+    # MATLAB or Python
     tab = experiment.Session
 
 More generally, ``tab`` may be a **table expression** constructed as an
@@ -35,14 +35,14 @@ scans):
 
 .. code:: python
 
-    # python or matlab
+    # Python or MATLAB
     tab = experiment.Session * experiment.Scan & 'animal_id = 102'
 
-In python, querying via attribute dictionaries is also permitted:
+In Python, querying via attribute dictionaries is also permitted:
 
 ::
 
-    # python
+    # Python
     tab = experiment.Session * experiment.Scan & {'animal_id': 102}
 
 You can preview the contents of the table in Python, Jupyter
