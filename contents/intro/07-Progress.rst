@@ -1,7 +1,7 @@
 .. progress: 1.0 100% Dimitri
 
-Origins and Progress
-====================
+Progress
+========
 
 Dimitri Yatsenko began development of DataJoint in Andreas S.\ Tolias' lab in the Neuroscience Department at Baylor College of Medicine in the fall of 2009.
 Initially implemented as a thin MySQL API in MATLAB, it defined the major principles of the DataJoint model.
