@@ -20,6 +20,7 @@ Defining a table
 ----------------
 
 .. matlab 1 start
+
 |matlab| MATLAB
 ^^^^^^^^^^^^^^^
 
@@ -67,6 +68,7 @@ The class will become usable after you edit this comment as described in :doc:`0
 .. matlab 1 end
 
 .. python 1 start
+
 |python| Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

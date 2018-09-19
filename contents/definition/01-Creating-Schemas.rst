@@ -13,6 +13,7 @@ DataJoint reflects this organization by associating each DataJoint class with it
 Tables are defined within the context of a schema, so we must create a schema before we can create any tables.
 
 .. matlab 1 start
+
 |matlab| MATLAB
 ---------------------------
 A schema can be created in MATLAB either manually or automatically through the ``dj.createSchema`` script.
@@ -77,6 +78,7 @@ This automated script will walk you through the steps 1--3 above and will create
 .. matlab 1 end
 
 .. python 1 start
+
 |python| Python
 ----------------
 
@@ -104,6 +106,7 @@ The ``dj.schema`` constructor can take a number of optional parameters after the
   Defaults to ``True``.
 - ``create_tables`` - When ``False``, the schema object will not create tables on the database and will raise errors when accessing missing tables.
   Defaults to ``True``.
+  
 .. python 1 end
 
 Working with existing data

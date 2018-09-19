@@ -27,6 +27,7 @@ Diagramming an entire schema
 ----------------------------
 
 .. python 1 start
+
 |python| Python
 +++++++++++++++
 
@@ -49,6 +50,7 @@ or, alternatively an object that has the schema object as an attribute, such as 
 .. python 1 end
 
 .. matlab 1 start
+
 |matlab| MATLAB
 +++++++++++++++
 
@@ -78,6 +80,7 @@ Initializing with a single table
 A `dj.ERD` object can be initialized with a single table.
 
 .. matlab 2 start
+
 |matlab|
 
 .. code-block:: matlab
@@ -86,6 +89,7 @@ A `dj.ERD` object can be initialized with a single table.
 .. matlab 2 end
 
 .. python 2 start
+
 |python|
 
 .. code-block:: python
@@ -101,6 +105,7 @@ Adding ERDs together
 However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs. The corresponding foreign keys will be automatically
 
 .. matlab 3 start
+
 |matlab|
 
 .. code-block:: matlab
@@ -110,6 +115,7 @@ However two graphs can be added, resulting in new graph containing the union of 
 .. matlab 3 end
 
 .. python 3 start
+
 |python|
 
 .. code-block:: python
@@ -126,6 +132,7 @@ Adding a number to an ERD object adds nodes downstream in the pipeline while sub
 Examples:
 
 .. matlab 4 start
+
 |matlab| MATLAB
 
 .. code-block:: matlab
@@ -145,6 +152,7 @@ Examples:
 .. matlab 4 end
 
 .. python 4 start
+
 |python| Python
 
 .. code-block:: python

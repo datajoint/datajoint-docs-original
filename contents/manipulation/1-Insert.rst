@@ -6,6 +6,7 @@ Insert
 The ``insert`` method of DataJoint table objects inserts entities into the table.
 
 .. matlab 1 start
+
 |matlab| MATLAB
 ---------------
 
@@ -34,6 +35,7 @@ In this case, the values must match the order of the attributes in the table.
 .. matlab 1 end
 
 .. python 1 start
+
 |python| Python
 ---------------
 

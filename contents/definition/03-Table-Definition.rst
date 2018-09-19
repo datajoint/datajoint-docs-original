@@ -13,6 +13,7 @@ Both MATLAB and Python use the same syntax define tables.
 For example, the following code in defines the table ``User``, that contains users of the database:
 
 .. matlab 1 start
+
 |matlab| MATLAB
 
 In MATLAB, the table definition is contained in the first block comment in the class definition file.
@@ -34,6 +35,7 @@ This solution is thought to be convenient since MATLAB does not provide convenie
 .. matlab 1 end
 
 .. python 1 start
+
 |python| Python
 
 In Python, the table definition is contained in the ``definition`` property of the class.
@@ -61,11 +63,13 @@ Users do not need to do anything special to have the table created in the databa
 If it is not already defined, it will get automatically created as soon as it is necessary.
 
 .. python 2 start
+
 In Python, the table is created at the time of the class definition.
 In fact, it is one of the jobs performed by the decorator ``@schema`` of the class.
 .. python 2 end
 
 .. matlab 2 start
+
 In MATLAB, the table is created upon the first attempt to use the class for manipulating its data (e.g. inserting or fetching entities).
 .. matlab 2 end
 
@@ -91,7 +95,9 @@ This definition may differ from the definition string of the class if the defini
 Examples
 --------
 
+
 .. matlab 3 start
+
 |matlab| MATLAB
 
 .. code-block:: matlab
@@ -101,6 +107,7 @@ Examples
 .. matlab 3 end
 
 .. python 3 start
+
 |python| Python
 
 .. code-block:: python
@@ -110,6 +117,7 @@ Examples
 .. python 3 end
 
 .. matlab 4 start
+
 Furthermore, DataJoint for MATLAB provides the ``syncDef`` method to update the ``classdef`` file definition string for the table with the definition in the actual table:
 
 |matlab| MATLAB

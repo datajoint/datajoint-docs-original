@@ -8,6 +8,7 @@ Delete is often used in conjunction with the :doc:`../queries/04-Restriction` op
 Delete is performed as an atomic transaction so that partial deletes never occur.
 
 .. matlab 1 start
+
 |matlab| MATLAB examples
 ------------------------
 Delete the entire contents of the table ``tuning.VonMises`` and all its dependents:
@@ -25,6 +26,7 @@ Delete the entire contents of the table ``tuning.VonMises`` and all its dependen
 .. matlab 1 end
 
 .. python 1 start
+
 |python| Python examples
 ------------------------
 

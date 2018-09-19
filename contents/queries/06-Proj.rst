@@ -32,11 +32,13 @@ In addition to selecting attributes, ``proj`` can rename them. Any
 attribute can be renamed, including primary key attributes.
 
 .. python 1 start
+
 In Python, this is done using keyword arguments:
 ``rel.proj(new_attr='old_attr')``
 .. python 1 end
 
 .. matlab 1 start
+
 In MATLAB, renaming is done using a string:
 ``rel('old_attr->new_attr')``.
 .. matlab 1 end
@@ -48,6 +50,7 @@ primary key attributes are in bold.
 Then
 
 .. python 2 start
+
 .. code:: python
 
     # python
@@ -55,6 +58,7 @@ Then
 .. python 2 end
 
 .. matlab 2 start
+
 .. code:: matlab
 
     % matlab
@@ -68,6 +72,7 @@ example, let ``rel`` have attributes **``slice``**, and **``cell``**.
 Then ``rel * rel`` will simply yield ``rel``. However,
 
 .. python 3 start
+
 .. code:: python
 
     # python
@@ -75,6 +80,7 @@ Then ``rel * rel`` will simply yield ``rel``. However,
 .. python 3 end
 
 .. matlab 3 start
+
 .. code:: matlab
 
     % matlab
@@ -95,6 +101,7 @@ For example, let ``rel`` have attributes **``mouse``**, **``scan``**,
 ``depth > 500``:
 
 .. python 4 start
+
 .. code:: python
 
     # python
@@ -102,6 +109,7 @@ For example, let ``rel`` have attributes **``mouse``**, **``scan``**,
 .. python 4 end
 
 .. matlab 4 start
+
 .. code:: matlab
 
     % matlab

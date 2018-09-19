@@ -14,6 +14,7 @@ As an example, imagine segmenting an image to identify regions of interest. The 
 In this case, the two tables might be called ``Segmentation`` and ``Segmentation.ROI``.
 
 .. python 1 start
+
 |python| Python
 ---------------
 
@@ -48,6 +49,7 @@ The part is subclassed from ``dj.Part`` and does not need the ``@schema`` decora
 .. python 1 end
 
 .. matlab 1 start
+
 |matlab| MATLAB
 ---------------
 In MATLAB, the master and  part tables are declared in a separate ``classdef`` file.
@@ -108,6 +110,7 @@ Populating
 To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, it is sufficient to call the ``populate`` method of the master:
 
 .. matlab 2 start
+
 |matlab|
 
 .. code-block:: matlab
@@ -116,6 +119,7 @@ To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, 
 .. matlab 2 end
 
 .. python 2 start
+
 |python|
 
 .. code-block:: python
