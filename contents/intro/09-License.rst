@@ -1,5 +1,7 @@
 .. progress: 0.2 100% Dimitri
 
+.. _license: 
+
 License
 =======
 
