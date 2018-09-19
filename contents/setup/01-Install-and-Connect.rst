@@ -3,6 +3,7 @@
 Install and Connect
 ===================
 
+.. matlab 1 start
 MATLAB
 ------
 
@@ -32,7 +33,9 @@ To change the database password, use the following command
     >> dj.setPassword('my#cool!new*psswrd')
 
 And update your credentials in your startup script for the next session.
+.. matlab 1 end
 
+.. python 1 start
 Python
 ------
 
@@ -88,3 +91,4 @@ After that, update the password in the configuration and save it as described ab
     dj.config.save_local()   # or dj.config.save_global()
 
 If ``dj.config['database.password']`` is set to ``NULL``, DataJoint will prompt to enter the password when connecting to the server.
+.. python 1 end

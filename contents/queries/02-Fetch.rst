@@ -20,8 +20,7 @@ two identical queries may change between two sequential invocations.
 Therefore, if you wish to fetch matching pairs of attributes, do so in
 one ``fetch`` call.
 
---------------
-
+.. matlab 1 start
 MATLAB
 ------
 
@@ -128,9 +127,9 @@ sessions, one could do the following:
 
 The limit clause is passed directly to SQL and follows the same
 `rules <https://dev.mysql.com/doc/refman/5.7/en/select.html>`__
+.. matlab 1 end
 
---------------
-
+.. python 1 start
 Python
 ------
 
@@ -193,3 +192,4 @@ contained within a ``numpy.recarray``, they can be easily converted to
 
     import pandas as pd
     frame = pd.DataFrame(rel.fetch())
+.. python 1 end

@@ -5,6 +5,7 @@ Insert
 
 The ``insert`` method of DataJoint table objects inserts entities into the table.
 
+.. matlab 1 start
 |matlab| MATLAB
 ---------------
 
@@ -30,7 +31,9 @@ For quick entry of multiple entities, we can take advantage of MATLAB's cell arr
     })
 
 In this case, the values must match the order of the attributes in the table.
+.. matlab 1 end
 
+.. python 1 start
 |python| Python
 ---------------
 
@@ -60,7 +63,7 @@ The ``insert`` method accepts a sequence or a generator of multiple entities and
            ['alice',   'Alice',   'Cooper'],
            ['bob',     'Bob',     'Dylan'],
            ['carol',   'Carol',   'Douglas']])
-
+.. python 1 end
 
 Batched inserts
 ---------------

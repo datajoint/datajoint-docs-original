@@ -8,7 +8,7 @@ Primary keys in DataJoint
 
 Entities in tables are neither named nor numbered.
 DataJoint does not answer questions of the type "What is the 10th element of this table?"
-Instead, entities are distinguished by the values of their attributes. 
+Instead, entities are distinguished by the values of their attributes.
 Furthermore, the entire entity is not required for identification.
 In each table, a subset of its attributes are designated to be the **primary key**.
 Attributes in the primary key alone are sufficient to differentiate any entity from any other within the table.
@@ -131,10 +131,16 @@ For example, let’s say that you want to auto-increment ``scan_idx`` in a table
 You must already have the values for ``animal_id`` and ``session`` in the dictionary ``key``.
 Then you can do the following.
 
+.. python 1 start
 .. code:: python
 
     key['scan_idx'] = (Scan & key).proj(next='max(scan_idx)+1').fetch1['next']
 
+.. python 1 end
+
+.. matlab 1 start
 .. code:: matlab
 
     key.scah_idx = fetch1(Scan & key, 'next=max(scan_idx)+1')
+
+.. matlab 1 end

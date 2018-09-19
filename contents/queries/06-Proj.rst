@@ -31,11 +31,15 @@ Renaming
 In addition to selecting attributes, ``proj`` can rename them. Any
 attribute can be renamed, including primary key attributes.
 
+.. python 1 start
 In Python, this is done using keyword arguments:
 ``rel.proj(new_attr='old_attr')``
+.. python 1 end
 
+.. matlab 1 start
 In MATLAB, renaming is done using a string:
 ``rel('old_attr->new_attr')``.
+.. matlab 1 end
 
 For example, let relation ``rel`` have attributes **``mouse``**,
 **``session``**, ``session_date``, ``stimulus``, and ``behavior``. The
@@ -43,15 +47,19 @@ primary key attributes are in bold.
 
 Then
 
+.. python 2 start
 .. code:: python
 
     # python
     rel.proj(animal='mouse', 'stimulus')
+.. python 2 end
 
+.. matlab 2 start
 .. code:: matlab
 
-    % matlab 
+    % matlab
     rel.proj('mouse->animal', 'stimulus')
+.. matlab 2 end
 
 will have attributes **``animal``**, **``session``**, and ``stimulus``.
 
@@ -59,15 +67,19 @@ Renaming is often used to control the outcome of a [[join]]. For
 example, let ``rel`` have attributes **``slice``**, and **``cell``**.
 Then ``rel * rel`` will simply yield ``rel``. However,
 
+.. python 3 start
 .. code:: python
 
     # python
     rel * rel.proj(other='cell')
+.. python 3 end
 
+.. matlab 3 start
 .. code:: matlab
 
     % matlab
     rel * rel.proj('cell->other')
+.. matlab 3 end
 
 yields all ordered pairs of all cells in each slice.
 
@@ -82,15 +94,19 @@ For example, let ``rel`` have attributes **``mouse``**, **``scan``**,
 ``depth`` computed as ``scan_z - surface_z`` and then restrict to
 ``depth > 500``:
 
+.. python 4 start
 .. code:: python
 
     # python
     rel.proj(depth='scan_z-surface_z') & 'depth > 500'
+.. python 4 end
 
+.. matlab 4 start
 .. code:: matlab
 
-    % matlab 
+    % matlab
     rel.proj('scan_z-surface_z -> depth') & 'depth > 500'
+.. matlab 4 end
 
 Calculations are passed to SQL and are not parsed by DataJoint. For
 available function, you may refer to MySQL documentation

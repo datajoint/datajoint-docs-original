@@ -58,17 +58,23 @@ For example, the following definition for the table ``mp.Slice`` has three forei
     thickness         : smallint unsigned    # slice thickness in microns
     experimenter      : varchar(20)          # person who performed this experiment
 
-You can examine the resulting table heading in MATLAB as
+.. matlab 1 start
+You can examine the resulting table heading in MATLAB with
 
 .. code-block:: matlab
 
     show(mp.BrainSlice)
 
-or in Python as
+.. matlab 1 end
+
+.. python 1 start
+You can examine the resulting table heading in Python with
 
 .. code-block:: python
 
     mp.BrainSlice.heading
+
+.. python 1 end
 
 The heading of ``mp.Slice`` may look something like
 

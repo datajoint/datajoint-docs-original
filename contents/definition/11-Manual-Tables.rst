@@ -10,6 +10,7 @@ What makes a manual table manual is that it does not perform any computations wi
 
 The following code defines three manual tables ``Animal``, ``Session``, and ``Scan``:
 
+.. python 1 start
 |python| Python
 ---------------
 
@@ -50,8 +51,9 @@ The following code defines three manual tables ``Animal``, ``Session``, and ``Sc
         laser_wavelength : decimal(5,1)  # um
         laser_power      : decimal(4,1)  # mW
         """
+.. python 1 end
 
-
+.. matlab 1 start
 |matlab| MATLAB
 
 File ``+experiment/Animal.m``
@@ -101,6 +103,7 @@ File ``+experiment/Scan.m``
     %}
     classdef Scan < dj.Manual
     end
+.. matlab 1 end
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png

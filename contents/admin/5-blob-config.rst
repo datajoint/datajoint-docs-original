@@ -48,6 +48,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 1. The external storage locations are specified in the DataJoint connection configuration, with one specification for each store.
 
+.. python 1 start
 .. code-block:: python
 
    # default external storage
@@ -68,6 +69,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
    dj.config['cache'] = dict(
                  protocol='file',
                  location='/net/djcache')
+.. python 1 end
 
 
 2. Each schema corresponds to a dedicated folder at the storage location with the same name as the database schema.

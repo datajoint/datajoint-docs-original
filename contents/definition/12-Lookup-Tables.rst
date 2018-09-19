@@ -14,6 +14,7 @@ The decision of which tables are lookup tables and which are manual can be somew
 
 The table below is declared as a lookup table with its contents property provided to generate entities.
 
+.. python 1 start
 .. figure:: ../_static/img/python-tiny.png
    :alt:
 
@@ -33,7 +34,9 @@ The table below is declared as a lookup table with its contents property provide
             ['hubel', 'David', 'Hubel'],
             ['wiesel', 'Torsten', 'Wiesel']
     ]
+.. python 1 end
 
+.. matlab 1 start
 .. figure:: ../_static/img/matlab-tiny.png
    :alt:
 
@@ -57,3 +60,4 @@ File ``+lab/User.m``
             }
         end
     end
+.. matlab 1 end

@@ -19,10 +19,9 @@ See :doc:`05-Data-Tiers` and :doc:`../computation/04-master-part`.
 Defining a table
 ----------------
 
-
+.. matlab 1 start
 |matlab| MATLAB
 ^^^^^^^^^^^^^^^
-
 
 DataJoint for MATLAB provides the interactive script ``dj.new`` for creating a new table.
 It will prompt to enter the new table's class name in the form ``package.ClassName``.
@@ -65,7 +64,9 @@ The most important part of the table definition is the comment preceding the ``c
 DataJoint will parse this comment to define the table.
 
 The class will become usable after you edit this comment as described in :doc:`03-Table-Definition`.
+.. matlab 1 end
 
+.. python 1 start
 |python| Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -97,9 +98,8 @@ The decorator attaches the information about the table to the class, and then re
 
 The class will become usable after you define the ``definition`` property as described in :doc:`03-Table-Definition`.
 
-
-DataJoint classes
-~~~~~~~~~~~~~~~~~
+DataJoint classes in Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DataJoint for Python is implemented through the use of classes.
 Working with classes usually implies that one might create different class instances with various internal states.
@@ -109,7 +109,7 @@ All of the basic functionality of DataJoint is built to operate on the classes t
 For example, calling ``Person.insert(...)`` (on the class) and ``Person.insert(...)`` (on an instance) both have the identical effect of inserting data into the table on the database server.
 DataJoint does not prevent a user from working with instances, but the workflow is complete without the need for instantiation.
 It is up to the user whether to implement additional functionality as class methods or methods called on instances.
-
+.. python 1 end
 
 Valid class names
 ------------------
