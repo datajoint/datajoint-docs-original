@@ -25,6 +25,7 @@ Let us define the computed table, ``test.FilteredImage`` that filters the image 
 The class will be defined as follows.
 
 .. matlab 1 start
+
 |matlab| MATLAB
 
 .. code-block:: MATLAB
@@ -48,6 +49,7 @@ The class will be defined as follows.
 .. matlab 1 end
 
 .. python 1 start
+
 |python| Python
 
 .. code-block:: python
@@ -85,6 +87,7 @@ The inherited ``populate`` method of ``dj.Imported`` and ``dj.Computed`` automat
 The ``FilteredImage`` table can be populated as
 
 .. python 2 start
+
 |python| Python
 
 .. code-block:: python
@@ -95,6 +98,7 @@ The progress of long-running calls to ```populate()``` in datajoint-python can b
 .. python 2 start
 
 .. matlab 2 start
+
 |matlab| MATLAB
 
 .. code-block:: matlab

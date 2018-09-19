@@ -59,6 +59,7 @@ For example, the following definition for the table ``mp.Slice`` has three forei
     experimenter      : varchar(20)          # person who performed this experiment
 
 .. matlab 1 start
+
 You can examine the resulting table heading in MATLAB with
 
 .. code-block:: matlab
@@ -68,6 +69,7 @@ You can examine the resulting table heading in MATLAB with
 .. matlab 1 end
 
 .. python 1 start
+
 You can examine the resulting table heading in Python with
 
 .. code-block:: python

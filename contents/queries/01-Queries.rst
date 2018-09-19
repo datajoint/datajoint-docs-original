@@ -12,6 +12,7 @@ on the database. For example, we can instantiate the
 ``experiment.Session`` table as
 
 .. matlab 1 start
+
 .. code:: matlab
 
     % matlab
@@ -19,6 +20,7 @@ on the database. For example, we can instantiate the
 .. matlab 1 end
 
 .. python 1 start
+
 .. code:: python
 
     # MATLAB or Python
@@ -33,6 +35,7 @@ experiments and scans for mouse 102 (excluding experiments with no
 scans):
 
 .. matlab 2 start
+
 .. code:: matlab
 
     % matlab
@@ -40,6 +43,7 @@ scans):
 .. matlab 2 end
 
 .. python 2 start
+
 .. code:: python
 
     # Python or MATLAB
@@ -51,6 +55,7 @@ In Python, querying via attribute dictionaries is also permitted:
 
     # Python
     tab = experiment.Session * experiment.Scan & {'animal_id': 102}
+
 .. python 2 end
 
 You can preview the contents of the table in Python, Jupyter

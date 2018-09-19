@@ -4,6 +4,7 @@ Install and Connect
 ===================
 
 .. matlab 1 start
+
 MATLAB
 ------
 
@@ -11,11 +12,13 @@ MATLAB
 2. Open ``DataJoint.mltbx`` and follow installation instructions.
 3. After installation, from MATLAB, verify that you have the latest version of DataJoint (3.0.0 or above):
    ::
+
      >> dj.version
      DataJoint version 3.0.0
 4. At the MATLAB command prompt, assign the environment variables with the database credentials.
    For example, if you are connection to the server ``alicelab.datajoint.io`` with username ``alice`` and password ``haha not my real password``, execute the following commands:
    ::
+
      setenv DJ_USER alice
      setenv DJ_HOST alicelab.datajoint.io
      setenv DJ_PASS 'haha not my real password'
@@ -36,6 +39,7 @@ And update your credentials in your startup script for the next session.
 .. matlab 1 end
 
 .. python 1 start
+
 Python
 ------
 
