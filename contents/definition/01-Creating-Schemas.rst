@@ -12,6 +12,7 @@ Schemas outline the structure of a data pipeline by specifying the directional r
 DataJoint reflects this organization by associating each DataJoint class with its corresponding schema.
 Tables are defined within the context of a schema, so we must create a schema before we can create any tables.
 
+.. matlab 1 start
 |matlab| MATLAB
 ---------------------------
 A schema can be created in MATLAB either manually or automatically through the ``dj.createSchema`` script.
@@ -73,7 +74,9 @@ Alternatively, you can execute
     >> dj.createSchema
 
 This automated script will walk you through the steps 1--3 above and will create the schema, the package folder, and the ``getSchema`` function in that folder.
+.. matlab 1 end
 
+.. python 1 start
 |python| Python
 ----------------
 
@@ -101,6 +104,7 @@ The ``dj.schema`` constructor can take a number of optional parameters after the
   Defaults to ``True``.
 - ``create_tables`` - When ``False``, the schema object will not create tables on the database and will raise errors when accessing missing tables.
   Defaults to ``True``.
+.. python 1 end
 
 Working with existing data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
