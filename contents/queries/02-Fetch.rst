@@ -50,9 +50,9 @@ With a single-quoted asterisk (``'*'``) as the input argument, the ``fetch`` com
 
 .. code:: matlab
 
-    data = tab.fetch('\*'); % for table tab
+    data = tab.fetch('*'); % for table tab
 
-    data = fetch(tab1 & tab2, '\*'); % for a table expression on tables tab1 and tab2
+    data = fetch(tab1 & tab2, '*'); % for a table expression on tables tab1 and tab2
 
 In some cases, the amount of data returned by fetch can be quite large.
 When ``tab`` is a table, it can be useful to call the ``tab.sizeOnDisk()`` function to determine if running a bare fetch would be wise.
@@ -62,7 +62,7 @@ It is not possible to call ``sizeOnDisk()`` on a table expression.
 As separate variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-The ``fetch1`` and ``fetchn`` methods are used to retrieve each attribute as an individual variable.
+The ``fetch1`` and ``fetchn`` methods are used to retrieve each attribute into a separate variable.
 
 ``tab.fetch1`` is used when ``tab`` is known to contain exactly one entity.
 If ``tab.fetch1`` is called when ``tab`` contains more than one entity or zero entities, an error will occur.
@@ -73,13 +73,17 @@ In this case, strings and blobs are returned in the form of cell arrays, even if
 
 .. code:: matlab
 
-    [name, img] = tab.fetch1('name', 'image');    % when table tab has exactly one entity
+    % when table tab has exactly one entity
+    [name, img] = tab.fetch1('name', 'image');
 
-    [names, imgs] = tab.fetch('name', 'image');    % when table tab has any number of entities
+    % when table tab has any number of entities
+    [names, imgs] = tab.fetchn('name', 'image');
 
-    [name, img] = fetch1(tab1 & tab2, 'name', 'image');    % when table expression has exactly one entity
+    % when table expression has exactly one entity
+    [name, img] = fetch1(tab1 & tab2, 'name', 'image');
 
-    [names, imgs] = fetch(tab1 & tab2, 'name', 'image');    % when table expression has any number of entities
+    % when table expression has any number of entities:
+    [names, imgs] = fetchn(tab1 & tab2, 'name', 'image');
 
 
 Obtaining the primary key along with individual values
@@ -91,7 +95,7 @@ This can be done by adding a special input argument indicating the request and a
 .. code:: matlab
 
     % retrieve names, images, and corresponding primary key values
-    [names, imgs, keys] = fetch(tab, 'name', 'image', 'KEY');
+    [names, imgs, keys] = fetchn(tab, 'name', 'image', 'KEY');
 
 The resulting value of ``keys`` will be a column array of type ``struct``.
 This mechanism is only implemented for ``fetchn``.
@@ -104,7 +108,7 @@ For example, renaming an attribute can be accomplished using the syntax below.
 
 .. code:: matlab
 
-    [names, BMIs] = tab.fetch('name', 'weight/height/height -> bmi'); % for table tab
+    [names, BMIs] = tab.fetchn('name', 'weight/height/height -> bmi'); % for table tab
 
 See :doc:`06-Proj` for an in-depth description of projection.
 
@@ -117,7 +121,8 @@ To sort the result, add the additional ``ORDER BY`` argument in ``fetch`` and ``
 
     % retrieve field `notes` from experiment sessions
     % performed by Alice, sorted by session date
-    notes = fetchn(experiment.Session & 'operator="alice"', 'note', ... 'ORDER BY session_date');
+    notes = fetchn(experiment.Session & 'operator="alice"', 'note', ...
+         'ORDER BY session_date');
 
 The ORDER BY argument is passed directly to SQL and follows the same syntax as the `ORDER BY clause <https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html>`_
 
@@ -126,7 +131,7 @@ For example, to return the top most recent sessions, one could do the following:
 
 .. code:: matlab
 
-    s = fetch(experiment.Session, '\*', 'ORDER BY session_date DESC LIMIT 5')
+    s = fetch(experiment.Session, '*', 'ORDER BY session_date DESC LIMIT 5')
 
 The limit clause is passed directly to SQL and follows the same `rules <https://dev.mysql.com/doc/refman/5.7/en/select.html>`_
 .. matlab 1 end
