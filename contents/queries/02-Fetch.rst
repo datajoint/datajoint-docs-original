@@ -43,9 +43,10 @@ Please note that it is only currently possible to query the size of entire table
 As separate variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-Two fetch methods are used to retrieve individual attributes ``fetch1`` and ``fetchn``. ``tab.fetch1`` is used when ``tab`` is known to contain exactly one entity.
+Two fetch methods are used to retrieve individual attributes ``fetch1`` and ``fetch``.
+``tab.fetch1`` is used when ``tab`` is known to contain exactly one entity.
 Then the retrieved strings and blobs are retrieved unwrapped.
-``tab.fetchn`` is used for an arbitrary number of entities in ``tab``.
+``tab.fetch`` is used for an arbitrary number of entities in ``tab``.
 In this case, strings and blobs are returned in the form of cell arrays.
 
 .. code:: matlab
@@ -54,22 +55,22 @@ In this case, strings and blobs are returned in the form of cell arrays.
 
     [names, imgs] = tab.fetch('name', 'image')    % when tab has any number of entities
 
-Note that in MATLAB the object can be passed as an argument into its method so that ``tab.fetchn(...)`` is equivalent to ``fetchn(tab, ...)``.
+Note that in MATLAB the object can be passed as an argument into its method so that ``tab.fetch(...)`` is equivalent to ``fetch(tab, ...)``.
 When ``tab`` is a table expression, only the latter syntax works.
 
 Obtaining the primary key along with individual values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is often convenient to know the primary key values corresponding to attribute values retrieved by ``fetchn``.
+It is often convenient to know the primary key values corresponding to attribute values retrieved by ``fetch``.
 This can be done by adding another output argument to receive the key values:
 
 .. code:: matlab
 
     % retrieve names, images, and corresponding primary key values
-    [names, imgs, keys] = fetchn1(tab, 'name', 'image')
+    [names, imgs, keys] = fetch(tab, 'name', 'image')
 
 The resulting value of ``keys`` will be a column array of type ``struct``.
-This mechanism is only implemented for ``fetchn``.
+This mechanism is only implemented for ``fetch``.
 
 Rename and calculate
 ~~~~~~~~~~~~~~~~~~~~
@@ -78,20 +79,20 @@ In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as t
 
 .. code:: matlab
 
-    [names, BMIs] = tab.fetchn('name', 'weight/height/height -> bmi')
+    [names, BMIs] = tab.fetch('name', 'weight/height/height -> bmi')
 
 See :doc:`06-Proj` for an in-depth description of projection.
 
 Sorting and limiting the results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To sort the result, add the additional ``ORDER BY`` argument in ``fetch`` and ``fetchn`` methods as the last argument.
+To sort the result, add the additional ``ORDER BY`` argument in ``fetch`` and ``fetch`` methods as the last argument.
 
 .. code:: matlab
 
     % retrieve field `notes` from experiment sessions
     % performed by Alice, sorted by session date
-    notes = fetchn(experiment.Session & 'operator="alice"', 'note', ...
+    notes = fetch(experiment.Session & 'operator="alice"', 'note', ...
          'ORDER BY session_date'
 
 The ORDER BY argument is passed directly to SQL and follows the same syntax as the `ORDER BY clause <https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html>`_
