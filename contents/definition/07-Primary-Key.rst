@@ -13,7 +13,7 @@ Furthermore, the entire entity is not required for identification.
 In each table, a subset of its attributes are designated to be the **primary key**.
 Attributes in the primary key alone are sufficient to differentiate any entity from any other within the table.
 
-Each table must have exactly one `primary key <http://en.wikipedia.org/wiki/Primary_key>`__: a subset of its attributes that uniquely identify each entity in the table.
+Each table must have exactly one `primary key <http://en.wikipedia.org/wiki/Primary_key>`_: a subset of its attributes that uniquely identify each entity in the table.
 The database uses the primary key to prevent duplicate entries, to relate data across tables, and to accelerate data queries.
 The choice of the primary key will determine how you identify entities.
 Therefore, make the primary key **short**, **expressive**, and **persistent**.
