@@ -3,7 +3,7 @@
 Input and Output
 ================
 
-Where does the data live?
+Where do the data live?
 -------------------------
 
 Inevitably, the first question that new users of DataJoint ask is: Where is my data?
