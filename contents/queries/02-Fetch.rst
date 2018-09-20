@@ -5,8 +5,8 @@ Fetch
 
 Data queries in DataJoint comprise two distinct steps:
 
-1. Construct the table ``tab`` to express the required data -- described in :doc:`02-Fetch` and :doc:`03-Operators`.
-2. Fetch the data into the workspace of the host language -- described in this section.
+1. Construct the table or :doc:`table expression <03-Operators>` ``tab`` to represent the required data.
+2. Fetch the data from ``tab`` into the workspace of the host language -- described in this section.
 
 Fetch works somewhat differently between MATLAB and Python.
 
@@ -19,90 +19,114 @@ Therefore, if you wish to fetch matching pairs of attributes, do so in one ``fet
 MATLAB
 ------
 
+DataJoint for MATLAB provides three distinct ``fetch`` methods, each covering a separate use case.
+The three methods differ by the type and number of their returned variables.
+The method ``fetch`` returns a single column `structure array <https://www.mathworks.com/help/matlab/ref/struct.html>`_ or ``struct``.
+The methods ``fetch1`` and ``fetchn`` return a separate variable for the values of each attribute.
+The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :doc:`datatypes <../definition/06-Datatypes>` of the attributes.
+Attributes containing ``varchar`` or ``blob`` data will be returned as `cell arrays <https://www.mathworks.com/help/matlab/cell-arrays.html>`_ by ``fetchn``.
+
+All ``fetch`` methods can be called directly on a table ``tab``, such as ``tab.fetch()``.
+Tables can also be passed as the first argument of a ``fetch`` method, as in ``fetch(tab)``.
+However, when fetching from a table expression, the expression must be passed as the first argument of the ``fetch`` call, as in ``fetch(tab1 & tab2)`` for tables ``tab1`` and ``tab2``.
+The dot syntax for fetching from tables does not apply to table expressions.
+
 Fetch the primary key
 ~~~~~~~~~~~~~~~~~~~~~
 
-Without any arguments, the fetch method retrieves the primary key values of the table in the form of a column array of ```struct`` <https://www.mathworks.com/help/matlab/ref/struct.html>`_.
+Without any arguments, the ``fetch`` method retrieves the primary key values of the table in the form of a single column ``struct``.
+The attribute names become the fieldnames of the ``struct``.
 
 .. code:: matlab
 
-    keys = tab.fetch;
+    keys = tab.fetch; % for table tab
+
+    keys = fetch(tab1 & tab2); % for a table expression on tables tab1 and tab2
 
 Fetch entire table
 ~~~~~~~~~~~~~~~~~~
 
-The following command retrieves all data from the table in the form of a column array of type ```struct`` <https://www.mathworks.com/help/matlab/ref/struct.html>`_.
+With a single-quoted asterisk (``'*'``) as the input argument, the ``fetch`` command retrieves all data from ``tab`` as a ``struct``.
 
 .. code:: matlab
 
-    data = tab.fetch('*');
+    data = tab.fetch('\*'); % for table tab
 
-In some cases, the amount of data returned by fetch can be quite large; in these cases it can be useful to use the ``rel.sizeOnDisk()`` function to determine if running a bare fetch would be wise.
+    data = fetch(tab1 & tab2, '\*'); % for a table expression on tables tab1 and tab2
+
+In some cases, the amount of data returned by fetch can be quite large.
+When ``tab`` is a table, it can be useful to call the ``tab.sizeOnDisk()`` function to determine if running a bare fetch would be wise.
 Please note that it is only currently possible to query the size of entire tables stored directly in the database at this time.
+It is not possible to call ``sizeOnDisk()`` on a table expression.
 
 As separate variables
 ~~~~~~~~~~~~~~~~~~~~~
 
-Two fetch methods are used to retrieve individual attributes ``fetch1`` and ``fetch``.
+The ``fetch1`` and ``fetchn`` methods are used to retrieve each attribute as an individual variable.
+
 ``tab.fetch1`` is used when ``tab`` is known to contain exactly one entity.
-Then the retrieved strings and blobs are retrieved unwrapped.
-``tab.fetch`` is used for an arbitrary number of entities in ``tab``.
-In this case, strings and blobs are returned in the form of cell arrays.
+If ``tab.fetch1`` is called when ``tab`` contains more than one entity or zero entities, an error will occur.
+As mentioned above, strings and blobs returned by ``fetch1`` are retrieved unwrapped.
+
+``tab.fetchn`` is used for an arbitrary number of entities in ``tab``.
+In this case, strings and blobs are returned in the form of cell arrays, even if ``tab.fetchn`` happens to return only a single entity.
 
 .. code:: matlab
 
-    [name, img] = tab.fetch1('name', 'image')    % when tab has exactly one entity
+    [name, img] = tab.fetch1('name', 'image');    % when table tab has exactly one entity
 
-    [names, imgs] = tab.fetch('name', 'image')    % when tab has any number of entities
+    [names, imgs] = tab.fetch('name', 'image');    % when table tab has any number of entities
 
-Note that in MATLAB the object can be passed as an argument into its method so that ``tab.fetch(...)`` is equivalent to ``fetch(tab, ...)``.
-When ``tab`` is a table expression, only the latter syntax works.
+    [name, img] = fetch1(tab1 & tab2, 'name', 'image');    % when table expression has exactly one entity
+
+    [names, imgs] = fetch(tab1 & tab2, 'name', 'image');    % when table expression has any number of entities
+
 
 Obtaining the primary key along with individual values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is often convenient to know the primary key values corresponding to attribute values retrieved by ``fetch``.
-This can be done by adding another output argument to receive the key values:
+It is often convenient to know the primary key values corresponding to attribute values retrieved by ``fetchn``.
+This can be done by adding a special input argument indicating the request and another output argument to receive the key values:
 
 .. code:: matlab
 
     % retrieve names, images, and corresponding primary key values
-    [names, imgs, keys] = fetch(tab, 'name', 'image')
+    [names, imgs, keys] = fetch(tab, 'name', 'image', 'KEY');
 
 The resulting value of ``keys`` will be a column array of type ``struct``.
-This mechanism is only implemented for ``fetch``.
+This mechanism is only implemented for ``fetchn``.
 
 Rename and calculate
 ~~~~~~~~~~~~~~~~~~~~
 
 In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :doc:`proj <06-Proj>` operator.
+For example, renaming an attribute can be accomplished using the syntax below.
 
 .. code:: matlab
 
-    [names, BMIs] = tab.fetch('name', 'weight/height/height -> bmi')
+    [names, BMIs] = tab.fetch('name', 'weight/height/height -> bmi'); % for table tab
 
 See :doc:`06-Proj` for an in-depth description of projection.
 
 Sorting and limiting the results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To sort the result, add the additional ``ORDER BY`` argument in ``fetch`` and ``fetch`` methods as the last argument.
+To sort the result, add the additional ``ORDER BY`` argument in ``fetch`` and ``fetchn`` methods as the last argument.
 
 .. code:: matlab
 
     % retrieve field `notes` from experiment sessions
     % performed by Alice, sorted by session date
-    notes = fetch(experiment.Session & 'operator="alice"', 'note', ...
-         'ORDER BY session_date'
+    notes = fetchn(experiment.Session & 'operator="alice"', 'note', ... 'ORDER BY session_date');
 
 The ORDER BY argument is passed directly to SQL and follows the same syntax as the `ORDER BY clause <https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html>`_
 
-Similarly, the LIMIT and OFFSET clauses can be used to limit the result to a subset of tuples.
+Similarly, the LIMIT and OFFSET clauses can be used to limit the result to a subset of entities.
 For example, to return the top most recent sessions, one could do the following:
 
 .. code:: matlab
 
-    s = fetch(experiment.Session, '*', 'ORDER BY session_date DESC LIMIT 5')
+    s = fetch(experiment.Session, '\*', 'ORDER BY session_date DESC LIMIT 5')
 
 The limit clause is passed directly to SQL and follows the same `rules <https://dev.mysql.com/doc/refman/5.7/en/select.html>`_
 .. matlab 1 end
@@ -115,7 +139,7 @@ Python
 Entire table
 ~~~~~~~~~~~~
 
-The following statement retrieves the entire table as a ```numpy.recarray`` <https://docs.scipy.org/doc/numpy/reference/generated/numpy.recarray.html>`_
+The following statement retrieves the entire table as a NumPy `recarray <https://docs.scipy.org/doc/numpy/reference/generated/numpy.recarray.html>`_.
 
 .. code:: python
 
@@ -142,7 +166,7 @@ As separate variables
 
 ::
 
-    name, img = tab.fetch1('name', 'image')  # vale when tab has exactly one tuple
+    name, img = tab.fetch1('name', 'image')  # vale when tab has exactly one entity
     name, img = tab.fetch('name', 'image')  # [name, ...] [image, ...] otherwise
 
 Primary key values
@@ -150,19 +174,19 @@ Primary key values
 
 ::
 
-    keydict = tab.fetch1(dj.key)  # single key dict when tab has exactly one tuple
-    keylist = tab.fetch(dj.key)  # list of key dictionaries [{}, ...] otherwise
+    keydict = tab.fetch1("KEY")  # single key dict when tab has exactly one entity
+    keylist = tab.fetch("KEY")  # list of key dictionaries [{}, ...] otherwise
 
 Usage with Pandas
 ~~~~~~~~~~~~~~~~~
 
-The ```pandas`` <http://pandas.pydata.org/>`_ library is a popular library for data analysis in Python which can easily be used with DataJoint query results.
+The ``pandas`` `library <http://pandas.pydata.org/>`_ is a popular library for data analysis in Python which can easily be used with DataJoint query results.
 Since the records returned by ``fetch()`` are contained within a ``numpy.recarray``, they can be easily converted to ``pandas.DataFrame`` objects by passing them into the ``pandas.DataFrame`` constructor.
 For example:
 
 ::
 
     import pandas as pd
-    frame = pd.DataFrame(rel.fetch())
+    frame = pd.DataFrame(tab.fetch())
 
 .. python 1 end
