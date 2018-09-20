@@ -1,11 +1,11 @@
 .. progress: 8.0 50% Chris
 
-Backups and Recovery 
+Backups and Recovery
 ====================
 
 Backing up your DataJoint installation is critical to ensuring that
 your work is safe and can be continued in the event of system
-failures, and several mechanisms are available to use. 
+failures, and several mechanisms are available to use.
 
 Much like your live installation, your backup will consist of two portions:
 
@@ -50,7 +50,7 @@ as the mysql administrator:
 
    FLUSH TABLES WITH READ LOCK;
    UNLOCK TABLES;
-   
+
 The backup should be peformed between the issuing of these two
 commands, ensuring the database data is consistent on disk when it is
 backed up.
@@ -60,7 +60,7 @@ MySQLDump
 
 If disk based backups are not feasable for your installation, or your
 database requires constant activity and so stopping it for backups is
-not feasable, the simplest option for many cases is `MySQLDump <https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/using-mysqldump.html>`__.
+not feasable, the simplest option for many cases is `MySQLDump <https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/using-mysqldump.html>`_.
 a command line tool which prints the contents of your database
 contents in SQL form.
 
