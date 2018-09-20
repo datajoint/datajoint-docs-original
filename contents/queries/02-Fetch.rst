@@ -26,10 +26,10 @@ The methods ``fetch1`` and ``fetchn`` return a separate variable for the values 
 The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :doc:`datatypes <../definition/06-Datatypes>` of the attributes.
 Attributes containing ``varchar`` or ``blob`` data will be returned as `cell arrays <https://www.mathworks.com/help/matlab/cell-arrays.html>`_ by ``fetchn``.
 
-All ``fetch`` methods can be called directly on a table ``tab``, such as ``tab.fetch()``.
-Tables can also be passed as the first argument of a ``fetch`` method, as in ``fetch(tab)``.
-However, when fetching from a table expression, the expression must be passed as the first argument of the ``fetch`` call, as in ``fetch(tab1 & tab2)`` for tables ``tab1`` and ``tab2``.
-The dot syntax for fetching from tables does not apply to table expressions.
+All ``fetch`` methods can be called directly on a base table or table expression ``tab``, such as ``tab.fetch()``.
+Base tables and table expressions can also be passed as the first argument of a ``fetch`` method, as in ``fetch(tab)``.
+However the dot syntax does not apply when fetching from a table expression directly, without first assigning that table expression to a variable.
+In such cases, the expression must be passed as the first argument of the ``fetch`` call, as in ``fetch(tab1 & tab2)`` for tables ``tab1`` and ``tab2``.
 
 Fetch the primary key
 ~~~~~~~~~~~~~~~~~~~~~
@@ -39,7 +39,7 @@ The attribute names become the fieldnames of the ``struct``.
 
 .. code:: matlab
 
-    keys = tab.fetch; % for table tab
+    keys = tab.fetch; % for table or expression tab
 
     keys = fetch(tab1 & tab2); % for a table expression on tables tab1 and tab2
 
@@ -50,14 +50,14 @@ With a single-quoted asterisk (``'*'``) as the input argument, the ``fetch`` com
 
 .. code:: matlab
 
-    data = tab.fetch('*'); % for table tab
+    data = tab.fetch('*'); % for table or expression tab
 
     data = fetch(tab1 & tab2, '*'); % for a table expression on tables tab1 and tab2
 
 In some cases, the amount of data returned by fetch can be quite large.
 When ``tab`` is a table, it can be useful to call the ``tab.sizeOnDisk()`` function to determine if running a bare fetch would be wise.
 Please note that it is only currently possible to query the size of entire tables stored directly in the database at this time.
-It is not possible to call ``sizeOnDisk()`` on a table expression.
+It is only possible to call ``sizeOnDisk()`` on a base table.
 
 As separate variables
 ~~~~~~~~~~~~~~~~~~~~~
@@ -73,13 +73,13 @@ In this case, strings and blobs are returned in the form of cell arrays, even if
 
 .. code:: matlab
 
-    % when table tab has exactly one entity
+    % when tab has exactly one entity:
     [name, img] = tab.fetch1('name', 'image');
 
-    % when table tab has any number of entities
+    % when tab has any number of entities:
     [names, imgs] = tab.fetchn('name', 'image');
 
-    % when table expression has exactly one entity
+    % when table expression has exactly one entity:
     [name, img] = fetch1(tab1 & tab2, 'name', 'image');
 
     % when table expression has any number of entities:
@@ -94,7 +94,7 @@ This can be done by adding a special input argument indicating the request and a
 
 .. code:: matlab
 
-    % retrieve names, images, and corresponding primary key values
+    % retrieve names, images, and corresponding primary key values:
     [names, imgs, keys] = fetchn(tab, 'name', 'image', 'KEY');
 
 The resulting value of ``keys`` will be a column array of type ``struct``.
@@ -108,7 +108,8 @@ For example, renaming an attribute can be accomplished using the syntax below.
 
 .. code:: matlab
 
-    [names, BMIs] = tab.fetchn('name', 'weight/height/height -> bmi'); % for table tab
+    % for table tab:
+    [names, BMIs] = tab.fetchn('name', 'weight/height/height -> bmi');
 
 See :doc:`06-Proj` for an in-depth description of projection.
 
@@ -171,7 +172,7 @@ As separate variables
 
 ::
 
-    name, img = tab.fetch1('name', 'image')  # vale when tab has exactly one entity
+    name, img = tab.fetch1('name', 'image')  # when tab has exactly one entity
     name, img = tab.fetch('name', 'image')  # [name, ...] [image, ...] otherwise
 
 Primary key values
