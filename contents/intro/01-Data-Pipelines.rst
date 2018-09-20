@@ -63,9 +63,9 @@ DataJoint enables data scientists to build and operate scientific data pipelines
 
 .. figure:: ../_static/img/how-it-works.png
     :align: center
-    :alt: A data pipeline
+    :alt: DataJoint operation
 
-    Conceptual overview of DataJoint use and operation
+    Conceptual overview of DataJoint operation
 
 DataJoint provides a simple and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS (2018). *DataJoint: A Simpler Relational Data Model.* <htps://arxiv.org/abs/1807.11104>`_.
 The data model defines how data scientists conceptualize the data.
@@ -97,6 +97,27 @@ Some of the "participants" may be computational agents that perform processing a
 
 With DataJoint, data sharing and publishing is no longer a separate step at the end of the project.
 Instead data sharing is an inherent feature of the process: to share data with other collaborators or to publish the data to the world, one only needs to set the access privileges.
+
+Real-life example
+-----------------
+The `Mesoscale Activity Project <https://www.simonsfoundation.org/funded-project/%20multi-regional-neuronal-dynamics-of-memory-guided-flexible-behavior/>`_ (MAP) is a collaborative project between four neuroscience labs. 
+MAP uses DataJoint for data acquisition, processing, analysis, interfaces, and external sharing.
+
+.. figure:: ../_static/img/map-dataflow.png
+    :align: center
+    :alt: A data pipeline
+
+    The DataJoint pipeline for the MAP project.
+
+The pipeline is hosted in the cloud through `Amazon Web Services <https://aws.amazon.com/>`_ (AWS). 
+MAP data scientists at the Janelia Research Campus and Baylor College of Medicine defined the data pipeline. 
+Experimental scientists enter manual data directly into the pipeline using the `Helium web interface <https://github.com/mattbdean/Helium>`_.
+The raw data are preprocessed using the DataJoint client libraries in MATLAB and Python;
+the preprocessed data are ingested into the pipeline while the bulky and raw data are shared using  `Globus <https://globus.org>` transfer through the `PETREL <https://www.alcf.anl.gov/petrel>` storage servers provided by the Argonne National Lab.
+Data are made immediately available for exploration and analysis to collaborating labs; and the analysis results are also immediately shared.
+Analysis data may be visualized through web interfaces.  
+Intermediate results may be exported into the `NWB <https://nwb.org>`_ format for sharing with external  groups. 
+
 
 
 Summary of DataJoint features
