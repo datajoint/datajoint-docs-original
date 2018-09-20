@@ -100,3 +100,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# figure file management
+studio/*png
