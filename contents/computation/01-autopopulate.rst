@@ -94,7 +94,7 @@ The ``FilteredImage`` table can be populated as
 
     FilteredImage.populate()
 
-The progress of long-running calls to ```populate()``` in datajoint-python can be visualized by adding the ```display_progress=True``` argument to the populate call.
+The progress of long-running calls to ``populate()`` in datajoint-python can be visualized by adding the ``display_progress=True`` argument to the populate call.
 .. python 2 start
 
 .. matlab 2 start

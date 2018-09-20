@@ -54,7 +54,7 @@ In Python, the table definition is contained in the ``definition`` property of t
 	    """
 .. python 1 end
 
-This defines the class ```User`` that creates the table in the database and provides all its data manipulation functionality.
+This defines the class ``User`` that creates the table in the database and provides all its data manipulation functionality.
 
 Table creation on the database server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

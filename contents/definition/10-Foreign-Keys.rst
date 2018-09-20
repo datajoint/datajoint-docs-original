@@ -192,7 +192,7 @@ For example, in the following table definition
     -> Person
 
 each rig belongs to a person, but the table definition does not prevent one person owning multiple rigs.
-With the ```unique`` option, a person may only appear once in the entire table, which means that no one person can own more than one rig.
+With the ``unique`` option, a person may only appear once in the entire table, which means that no one person can own more than one rig.
 
 .. code-block:: text
 
