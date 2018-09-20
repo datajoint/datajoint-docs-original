@@ -42,7 +42,7 @@ Most common datatypes
    This datatype is well suited to represent numbers whose magnitude is well defined and does not warrant the use of floating-point representation or requires precise decimal representations (e.g. dollars and cents).
    Because of its well-defined precision, ``decimal`` values can be used in equality comparison and be included in primary keys.
 
--  ``longblob``: arbitrary numeric array (e.g. matrix, image, structure), up to 4 `GiB <http://en.wikipedia.org/wiki/Gibibyte>`__ in size.
+-  ``longblob``: arbitrary numeric array (e.g. matrix, image, structure), up to 4 `GiB <http://en.wikipedia.org/wiki/Gibibyte>`_ in size.
    Numeric arrays are compatible between MATLAB and Python (NumPy).
 
 Less common (but supported) datatypes
@@ -51,8 +51,8 @@ Less common (but supported) datatypes
 -  ``decimal(N,F) unsigned``: same as ``decimal``, but limited to nonnegative values.
 -  ``mediumint`` a 24-bit integer number, ranging from -8,388,608 to 8,388,607.
 -  ``mediumint unsigned``: a 24-bit positive integer, ranging from 0 to 16,777,216.
--  ``mediumblob``: arbitrary numeric array, up to 16 `MiB <http://en.wikipedia.org/wiki/Mibibyte>`__
--  ``blob``: arbitrary numeric array, up to 64 `KiB <http://en.wikipedia.org/wiki/Kibibyte>`__
+-  ``mediumblob``: arbitrary numeric array, up to 16 `MiB <http://en.wikipedia.org/wiki/Mibibyte>`_
+-  ``blob``: arbitrary numeric array, up to 64 `KiB <http://en.wikipedia.org/wiki/Kibibyte>`_
 -  ``tinyblob``: arbitrary numeric array, up to 256 bytes (actually smaller due to header info).
 
 Datatypes not (yet) supported

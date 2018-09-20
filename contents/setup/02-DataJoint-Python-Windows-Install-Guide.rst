@@ -104,7 +104,7 @@ Once installed, Graphviz can be verified from a fresh command window as follows:
 
 .. image:: ../_static/img/windows/verify-graphviz-install.png
 
-If you receive the error message that the ```dot`` program is not a recognized command, please uninstall Graphviz and ensure that the
+If you receive the error message that the ``dot`` program is not a recognized command, please uninstall Graphviz and ensure that the
 option to add Python to the PATH variable was properly configured.
 
 .. important:: in some cases, running the ``dot -c`` command in a command prompt is required to properly initialize the Graphviz installation.
