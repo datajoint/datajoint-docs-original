@@ -1,4 +1,4 @@
-.. progress: 8.0 20% Jake
+.. progress: 12.0 50% Jake
 
 The DataJoint Data Model
 ========================
