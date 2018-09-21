@@ -37,6 +37,15 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 .. toctree::
    :maxdepth: 2
    :includehidden:
+   :caption: Concepts
+   :glob:
+
+   concepts/*
+
+
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
    :caption: Data Definition
    :glob:
 
@@ -48,13 +57,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :glob:
    
    existing/*
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Design principles
-   :glob:
-
-   design/*
 
 .. toctree::
    :maxdepth: 2
