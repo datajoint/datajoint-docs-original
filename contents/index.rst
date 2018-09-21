@@ -35,13 +35,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    setup/* 
 
 .. toctree::
-   :maxdepth: 2 
-   :caption: Concepts
-   :glob:
-
-   concepts/*
-
-.. toctree::
    :maxdepth: 2
    :includehidden:
    :caption: Data Definition
@@ -49,13 +42,6 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    definition/*
   
-.. toctree::
-   :maxdepth: 2
-   :caption: Schema diagrams
-   :glob:
-
-   diagrams/*
-
 .. toctree::
    :maxdepth: 2
    :caption: Work with existing pipelines
