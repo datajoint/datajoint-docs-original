@@ -15,7 +15,7 @@ Foreign keys play a functional role in DataJoint and do not simply label the str
 Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
 
 A DataJoint pipeline, including the relationships established by foreign keys, can be visualized as a graph with nodes and edges.
-The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-ERD`.
+The diagram of such a graph is called the **entity relationship diagram** or :ref:`ERD`.
 The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 

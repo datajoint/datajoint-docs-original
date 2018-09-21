@@ -1,4 +1,4 @@
-.. progress: 12.0 10% Dimitri
+.. progress: 12.0 20% Dimitri
 
 Auto-populate
 =============
@@ -12,7 +12,7 @@ If populating a table requires access to external files such as raw storage that
 
 Make-tuples
 -----------
-Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/11-Manual-Tables`, for example.
+Auto-populated tables are defined and queried exactly as other tables such as :doc:`../definition/12-Example`, for example.
 Their data definition follows the same :doc:`../definition/04-Definition-Syntax`.
 
 For auto-populated tables, data should never be entered using :doc:`insert <../manipulation/1-Insert>` directly.  Instead, these tables must define the callback method ``makeTuples(self, key)`` in MATLAB   ``_make_tuples(self, key)``.  The ``insert`` method then can only be called on ``self`` inside this callback method.
