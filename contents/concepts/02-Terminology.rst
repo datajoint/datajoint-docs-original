@@ -1,28 +1,81 @@
 .. progress: 12.0 10% Jake
 
-Notes on Terminology
-====================
+.. _terminology: 
 
-Relational terminology 
-----------------------
-DataJoint is build on the foundation of the Relational Data Model.
+Terminology
+===========
 
-The Relational Data Model was inspired by the concepts of *relations* in Set Theory.  Later, a formal relational data model was formulated, introducing additional terminology.  Later on, practical programming languages did not precisely follow the relational data model and used other terms to approximate relational concepts.  
+DataJoint introduces a principled data model, which is described in detail in `DataJoint: a simpler relational data model <https://arxiv.org/abs/1807.11104>`_. 
+This data model is a conceptual refinement of the Relational Data Model and also draws on the Entity-Relationship Model (ERM). 
 
-For example, what is known as a *relation* in the formal relational model is called a *table* in SQL.  DataJoint closely adheres to the relational data model and the formal relational terminology is appropriate.  Hence, at different points we may refer to the same things using different terms.  Sometimes we may say "a row in the table" and on other occasions "a tuple in the relation" -- meaning the same thing. Please forgive us.  Various historical reasons have contributed to this mixture of terminologies and we will probably continue using them interchangeably. 
+The Relational Data Model was inspired by the concepts of *relations* in Set Theory.  
+Later, a formal relational data model was formulated, introducing additional terminology.  
+Practical programming languages such as SQL did not precisely follow the relational data model and introduced other terms to approximate relational concepts.  
+New data models (e.g. ERM) refined the relational data model and introduced their own terminology to describe analogous concepts.
+As a result, similar concept may be described using different sets of terminologies, depending on context and the speaker's background.
 
-To help, here is a translation table:
+For example, what is known as a *relation* in the formal relational model is called a *table* in SQL; the analogous concept in ERM and DataJoint is referred to as an *entity set*.  
 
-=======================  ===========================================
-Database Programming     Formal Relational Model   
-=======================  ===========================================
-*database*               *schema*  
-*table*                  *relation*, *base relation*, *relvar* 
-*query statement*        *derived relation*, *relational expression*
-*column* or *field*      *attribute* 
-*row*                    *tuple* 
-=======================  ===========================================
+In the manual, we follow the terminology introduced and explain in `DataJoint: a simpler relational data model <https://arxiv.org/abs/1807.11104>`_  except we replace  *entity set* with the more colloquial *table*.
 
+The table below summarizes the terms used for similar concepts across the related data models.
+
+.. list-table:: Data model terminology
+  :widths: 20 20 20 20 20
+  :header-rows: 1
+
+  * - Relational
+    - ERM
+    - SQL 
+    - DataJoint (formal) 
+    - This manual 
+  * - relation
+    - entity set
+    - table
+    - entity set 
+    - table
+  * - tuple
+    - entity
+    - row
+    - entity 
+    - entity
+  * - domain
+    - value set
+    - datatype
+    - datatype
+    - datatype
+  * - attribute
+    - attribute
+    - column
+    - attribute
+    - attribute
+  * - attribute value
+    - attribute value
+    - field value
+    - attribute value
+    - attribute value
+  * - primary key
+    - primary key
+    - primary key
+    - primary key
+    - primary key
+  * - foreign key
+    - foreign key
+    - foreign key
+    - foreign key
+    - foreign key
+  * - schema
+    - schema
+    - schema or database
+    - schema 
+    - schema
+  * - relational expression 
+    - data query
+    - ``SELECT`` statement
+    - query expression
+    - query expression
+
+   
 DataJoint: *databases*, *schemas*, *packages*, and *modules*
 -------------------------------------------------------------
 

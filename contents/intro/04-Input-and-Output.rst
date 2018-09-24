@@ -1,4 +1,6 @@
-.. progress: 5.0 0% Dimitri
+.. progress: 5.0 30% Dimitri
+
+..
 
 Input and Output
 ================
@@ -6,24 +8,24 @@ Input and Output
 Where do the data live?
 -------------------------
 
-Inevitably, the first question that new users of DataJoint ask is: Where is my data?
+The first question new users ask is "Where are my data?"
 
 Typically users asking this question are coming from the perspective of thinking about **data repositories**, collections of files and folders, and a (usually separate) collection of metadata - information about how the files were collected and what they contain. 
 Lets address metadata first, since the answer there is easy: Everything goes in the database! 
 Any information about the experiment that would normally be stored in a lab notebook, in an Excel spreadsheet, or in a Word document is entered into tables in the database. 
-These tables can accomodate numbers, strings, dates, JSON files, or numerical arrays. 
+These tables can accomodate numbers, strings, dates, or numerical arrays. 
 The entry of metadata can be manual, or it can be an automated part of data acquisition (in this case the acquisition software itself is modified to enter information directly into the database).
 
 Depending on their size and contents, raw data files can be stored in a number of ways. 
-In the simplest and most common scenario, raw data  continues to be stored in either a local filesystem or in the cloud as collections of files and folders. 
-The path to these files is entered in the database (again, either manually or by automated processes). 
+In the simplest and most common scenario, raw data  continue to be stored in either a local filesystem or in the cloud as collections of files and folders. 
+The paths to these files are entered in the database (again, either manually or by automated processes). 
 This is the point at which the notion of a **data pipeline** begins. 
 Below these "manual tables" that contain metadata and file paths are a series of tables that load raw data from these files, process it in some way, and insert derived or summarized data directly into the database. 
 For example, in an imaging application, the very large raw .TIFF stacks would reside on the filesystem, but the extracted fluorescent trace timeseries for each cell in the image would be stored as a numerical array directly in the database. 
 Or the raw video used for animal tracking might be stored in a standard video format on the filesystem, but the computed X/Y positions of the animal would be stored in the database. 
 Storing these intermediate computations in the database makes them easily available for downstream analyses and queries.
 
-So I have to manually enter all my data into the database?
+Do I have to manually enter all my data into the database?
 ----------------------------------------------------------
 
 No! While some of the data will be manually entered (the same way that it would be manually recorded in a lab notebook), the advantage of DataJoint is that standard downstream processing steps can be run automatically on all new data with a single command. 
@@ -58,8 +60,6 @@ This brings us to the final important question:
 How do I get my data out?
 -------------------------
 
-This is the fun part. See :Operations: for details of the DataJoint query language.
-
-
+This is the fun part. See :ref:`queries` for details of the DataJoint query language.
 
 

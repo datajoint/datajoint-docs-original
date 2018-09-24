@@ -1,5 +1,5 @@
-done         148.1
-remaining    391.6 
+done         149.6
+remaining    390.1 
 
 
               done  remaining
@@ -11,14 +11,14 @@ computation    6.0       64.0
 concepts       7.2       34.8
 admin         34.5       19.5
 manipulation   2.6       17.4
-intro         19.3        8.4
+intro         20.8        6.9
 setup         13.6        2.4
                6.0        0.0 
 
 
          done  remaining
 author                  
-Dimitri  97.2      262.5
+Dimitri  98.7      261.0
 Austin   26.1      105.9
 Jake      7.2       16.8
 Chris    11.2        4.8
@@ -59,10 +59,10 @@ Edgar     6.4        1.6
 27  Dimitri       queries                                    06-Join.rst   1.6        6.4
 36  Dimitri   computation                            05-transactions.rst   0.0        6.0
 2   Dimitri  manipulation                                   2-Delete.rst   0.6        5.4
-6   Dimitri         intro                        04-Input-and-Output.rst   0.0        5.0
 3   Dimitri  manipulation                          3-Cautious-Update.rst   1.2        4.8
 23  Dimitri       queries                                   02-Fetch.rst   1.2        4.8
 48  Dimitri    definition                           13-Lookup-Tables.rst   4.0        4.0
+6   Dimitri         intro                        04-Input-and-Output.rst   1.5        3.5
 13  Dimitri         intro                                    12-FAQs.rst   1.2        2.8
 49  Dimitri    definition                                    14-Drop.rst   0.9        2.1
 16  Dimitri         admin                                  1-hosting.rst   6.0        2.0
