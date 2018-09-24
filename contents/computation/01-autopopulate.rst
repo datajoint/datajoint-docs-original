@@ -1,5 +1,7 @@
 .. progress: 12.0 20% Dimitri
 
+.. _auto:
+
 Auto-populate
 =============
 

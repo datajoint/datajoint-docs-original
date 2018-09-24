@@ -1,5 +1,7 @@
 .. progress: 12.0 10% Dimitri
 
+.. _part:
+
 Part Tables
 ===========
 

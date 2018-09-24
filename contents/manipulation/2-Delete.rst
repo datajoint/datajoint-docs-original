@@ -48,7 +48,7 @@ Delete the entire contents of the table ``tuning.VonMises`` and all its dependen
 
 Deleting from part tables
 -------------------------
-Entities in a :doc:`part table <../computation/04-master-part>` are usually removed as a consequence of calling ``delete`` on the master table.
+Entities in a :ref:`part table <part>` are usually removed as a consequence of calling ``delete`` on the master table.
 To enforce this workflow, calling ``delete`` directly on a part table produces an error.
 In some cases, it may be necessary to override this behavior.
 To remove entities from a part table without calling ``delete`` master, use the argument ``force=True``.
