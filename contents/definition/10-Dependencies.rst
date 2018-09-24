@@ -15,7 +15,7 @@ Foreign keys play a functional role in DataJoint and do not simply label the str
 Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
 
 A DataJoint pipeline, including the relationships established by foreign keys, can be visualized as a graph with nodes and edges.
-The diagram of such a graph is called the **entity relationship diagram** or :doc:`../diagrams/01-ERD`.
+The diagram of such a graph is called the **entity relationship diagram** or :ref:`ERD`.
 The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 
@@ -28,16 +28,12 @@ The tables at the top of the flow need to be populated first, followed by those 
 The top of the pipeline tends to be dominated by lookup tables (gray stars) and manual tables (green squares).
 The middle has many imported tables (blue triangles), and the bottom has computed tables (red stars).
 
-Defining a foreign key
-----------------------
+Defining a dependency 
+---------------------
 Foreign keys are defined with arrows ``->`` in the :doc:`table definition <03-Table-Definition>`, pointing to another table.
 
-.. note::
-   It may be a bit confusing that in the table definitions the arrow points to the table upstream in the pipeline whereas the ERD depicts arrows pointing downstream.
-   Perhaps we could allow the left-pointing arrow ``<-`` in future of revisions of DataJoint to reduce confusion.
-   In either case, the foreign key always points to upstream tables in table definitions.
+A foreign key may be defined as part of the :ref:`primary-key`.
 
-A foreign key may be defined as part of the :doc:`primary key <07-Primary-Key>`.
 In the ERD, foreign keys from the primary key are shown as solid lines.
 This means that the primary key of the referenced table becomes part of the primary key of the new table.
 A foreign key outside the primary key is indicated by dashed line in the ERD.

@@ -1,5 +1,7 @@
 .. progress: 3.0 50% Dimitri
 
+.. _tiers:
+
 Data Tiers
 ==========
 

@@ -1,5 +1,7 @@
 .. progress: 12.0 20% Dimitri
 
+.. _queries: 
+
 Query Basics
 ============
 
@@ -17,6 +19,7 @@ on the database. For example, we can instantiate the
 
     % matlab
     tab = experiment.Session;       % in MATLAB, constructors do not require parentheses ()
+
 .. matlab 1 end
 
 .. python 1 start
@@ -25,10 +28,11 @@ on the database. For example, we can instantiate the
 
     # MATLAB or Python
     tab = experiment.Session
+
 .. python 1 end
 
 More generally, ``tab`` may be a **table expression** constructed as an
-expression using :doc:`query operators <04-Operators>`.
+expression using :ref:`operators`.
 
 For example, the following table contains information about all
 experiments and scans for mouse 102 (excluding experiments with no
@@ -40,6 +44,7 @@ scans):
 
     % matlab
     tab = experiment.Session * experiment.Scan & 'animal_id = 102';
+
 .. matlab 2 end
 
 .. python 2 start
@@ -67,4 +72,4 @@ To "fetch" means to transfer the data represented by the table object on the dat
 into the workspace of the host language.
 
 All queries have the form ``tab.fetch()`` where ``tab`` is a table object and ``fetch`` is one of several variants of fetch methods, which
-are described in :doc:`02-Fetch`.
+are described in :ref:`fetch`.

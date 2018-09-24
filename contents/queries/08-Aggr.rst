@@ -1,5 +1,7 @@
 .. progress: 8.0 5% Dimitri
 
+.. _aggr:
+
 Aggr
 ====
 

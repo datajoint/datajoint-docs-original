@@ -107,7 +107,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
          - 168849430
          - 2017-06-07 22:47:58
 
-6. Attributes of type ``external`` are declared as renamed :doc:`foreign keys <../definition/10-Foreign-Keys>` referencing the ``~external`` table (but are not shown as such to the user).
+6. Attributes of type ``external`` are declared as renamed :doc:`foreign keys <../definition/10-Dependencies>` referencing the ``~external`` table (but are not shown as such to the user).
 
 7. The :doc:`insert <../manipulation/1-Insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
    Only then are the specified entities inserted.

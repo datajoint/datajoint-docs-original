@@ -16,7 +16,7 @@ Each line can be one of the following:
   - ``name = default : datatype  # comment``
 * The divider ``---`` (at least three hyphens) separating primary key attributes above from non-primary attributes below.
 * A foreign key in the format ``-> ReferencedTable``.
-  (See :doc:`10-Foreign-Keys`.)
+  (See :ref:`Dependencies`.)
 
 For example, the table for Persons may have the following definition:
 

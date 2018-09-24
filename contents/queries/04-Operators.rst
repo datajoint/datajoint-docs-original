@@ -1,23 +1,26 @@
 .. progress: 18.0 50% Dimitri
 
+.. _operators:
+
 Operators
 =============
 
 [Data queries](Query basics) have the form of expressions using operators to derive the desired relation.  The expressions themselves do not contain any data.  They represent the desired data symbolically.
 
-Once a query is formed, the [`fetch`](Fetching) methods are used to bring the data into the MATLAB or Python workspace.  Since the expressions are only symbolic representations, repeated ``fetch`` calls may yield different results as the state of the database is modified.
+Once a query is formed, the [`fetch`](Fetching) methods are used to bring the data into the MATLAB or Python workspace.  
+Since the expressions are only symbolic representations, repeated ``fetch`` calls may yield different results as the state of the database is modified.
 
 DataJoint implements a complete algebra of operators on relations:
-
+O
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
 ===================================  =======================================   =================================================================================
-:doc:`restriction <05-Restriction>`  ``A & cond``                              The subset of relation ``A`` the meets condition ``cond``
-:doc:`exclusion <05-Restriction>`    ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond``
-:doc:`join <06-Proj>`                ``A * B``     							  Combines all matching information from ``A`` and ``B``
-:doc:`projection <07-Proj>`          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes
-:doc:`aggregation <08-Aggr>`         ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B``
-:doc:`union <09-Union>`              ``A + B``     							  All unique tuples from both ``A`` and ``B``
+:ref:`restriction`                   ``A & cond``                              The subset of relation ``A`` the meets condition ``cond``
+:ref:`restriction`                   ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond``
+:ref:`join`                          ``A * B``     							  Combines all matching information from ``A`` and ``B``
+:ref:`proj`                          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes
+:ref:`aggr`                          ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B``
+:ref:`union`                         ``A + B``     							  All unique tuples from both ``A`` and ``B``
 ===================================  =======================================   =================================================================================
 
 
@@ -26,7 +29,6 @@ Principles of relational algebra
 DataJoint's relational algebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.
 
 The clarity of DataJoint's query expressions stems from the concept of [entity integrity](Entity integrity).  Entity integrity states that every relation must have a well-defined *primary key*.  In other systems, this concept applies to *base relations*, which store the data in the database.  DataJoint extends entity integrity to *derived relations* too.
-
 
 1. **Purely relational**: Data are represented and manipulated in the form of *relations*.
 1. **Algebraic closure**: All relational operators operate on relations and yield relations.  Thus relational expressions may be used as operands in other expressions or may be assigned to variables to be used in other expressions.
@@ -72,4 +74,5 @@ All binary operators with other relations as its two operands require that their
 1. All common attributes in both operands (attributes with the same name) must be part of the primary key or of a foreign key.
 2. All common attributes in the two relations must be of a compatible datatype for equality comparisons.
 
-These restrictions are introduced both for performance reasons and for conceptual reasons.  For  performance, they encourage queries that rely on indexes.  For conceptual reasons, they encourage database design in which entities in different relations are lated to each other by the use of primary keys and foreign keys.
+These restrictions are introduced both for performance reasons and for conceptual reasons.  
+For  performance, they encourage queries that rely on indexes.  For conceptual reasons, they encourage database design in which entities in different relations are lated to each other by the use of primary keys and foreign keys.

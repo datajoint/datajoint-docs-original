@@ -9,7 +9,7 @@ Their contents are typically small.
 In GUIs, lookup tables are often used for drop-down menus or radio buttons.
 In computed tables, they are often used to specify alternative methods for computations.
 Lookup tables are commonly populated from their ``contents`` property.
-In :doc:`ERDs <../diagrams/01-ERD>` they are shown in gray.
+In :ref:`erd` they are shown in gray.
 The decision of which tables are lookup tables and which are manual can be somewhat arbitrary.
 
 The table below is declared as a lookup table with its contents property provided to generate entities.

@@ -1,11 +1,13 @@
 .. progress: 6.0  20% Dimitri
 
+.. _fetch:
+
 Fetch
 =====
 
 Data queries in DataJoint comprise two distinct steps:
 
-1. Construct the table or :doc:`table expression <04-Operators>` ``tab`` to represent the required data.
+1. Construct the table or :ref:`operators` ``tab`` to represent the required data.
 2. Fetch the data from ``tab`` into the workspace of the host language -- described in this section.
 
 Fetch works somewhat differently between MATLAB and Python.
@@ -23,7 +25,7 @@ DataJoint for MATLAB provides three distinct ``fetch`` methods, each covering a 
 The three methods differ by the type and number of their returned variables.
 The method ``fetch`` returns a single column `structure array <https://www.mathworks.com/help/matlab/ref/struct.html>`_ or ``struct``.
 The methods ``fetch1`` and ``fetchn`` return a separate variable for the values of each attribute.
-The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :doc:`datatypes <../definition/06-Datatypes>` of the attributes.
+The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :ref:`datatypes` of the attributes.
 Attributes containing ``varchar`` or ``blob`` data will be returned as `cell arrays <https://www.mathworks.com/help/matlab/cell-arrays.html>`_ by ``fetchn``.
 
 All ``fetch`` methods can be called directly on a base table or table expression ``tab``, such as ``tab.fetch()``.
@@ -103,7 +105,7 @@ This mechanism is only implemented for ``fetchn``.
 Rename and calculate
 ~~~~~~~~~~~~~~~~~~~~
 
-In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :doc:`proj <07-Proj>` operator.
+In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :ref:`proj` operator.
 For example, renaming an attribute can be accomplished using the syntax below.
 
 .. code:: matlab
@@ -111,7 +113,7 @@ For example, renaming an attribute can be accomplished using the syntax below.
     % for table tab:
     [names, BMIs] = tab.fetchn('name', 'weight/height/height -> bmi');
 
-See :doc:`07-Proj` for an in-depth description of projection.
+See :ref:`proj` for an in-depth description of projection.
 
 Sorting and limiting the results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
