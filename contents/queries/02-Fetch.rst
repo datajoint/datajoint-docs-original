@@ -5,7 +5,7 @@ Fetch
 
 Data queries in DataJoint comprise two distinct steps:
 
-1. Construct the table or :doc:`table expression <03-Operators>` ``tab`` to represent the required data.
+1. Construct the table or :doc:`table expression <04-Operators>` ``tab`` to represent the required data.
 2. Fetch the data from ``tab`` into the workspace of the host language -- described in this section.
 
 Fetch works somewhat differently between MATLAB and Python.
