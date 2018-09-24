@@ -103,7 +103,7 @@ This mechanism is only implemented for ``fetchn``.
 Rename and calculate
 ~~~~~~~~~~~~~~~~~~~~
 
-In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :doc:`proj <06-Proj>` operator.
+In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :doc:`proj <07-Proj>` operator.
 For example, renaming an attribute can be accomplished using the syntax below.
 
 .. code:: matlab
@@ -111,7 +111,7 @@ For example, renaming an attribute can be accomplished using the syntax below.
     % for table tab:
     [names, BMIs] = tab.fetchn('name', 'weight/height/height -> bmi');
 
-See :doc:`06-Proj` for an in-depth description of projection.
+See :doc:`07-Proj` for an in-depth description of projection.
 
 Sorting and limiting the results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
