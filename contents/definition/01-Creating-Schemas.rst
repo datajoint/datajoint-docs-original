@@ -1,5 +1,7 @@
 .. progress: 8.0 50% Austin
 
+.. _schema:
+
 Creating Schemas
 ================
 
@@ -7,7 +9,7 @@ Schemas
 ~~~~~~~
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
-A database server may contain maultiple schemas each containing a subset of the tables.
+A database server may contain multiple schemas each containing a subset of the tables.
 A single pipeline may comprise multiple schemas.
 Tables are defined within a schema, so we must create a schema before we can create any tables.
 
@@ -28,7 +30,7 @@ Use the following command to create a new schema on the database server:
 
     query(dj.conn, 'CREATE SCHEMA `alice_experiment`')
 
-Note that you must have create privileges for the schema name pattern (as described in :doc:`../admin/1-hosting`).
+Note that you must have create privileges for the schema name pattern (as described in :ref:`hosting`).
 It is a common practice to grant all privileges to users for schemas that begin with the username, in addition to some shared schemas.
 Thus the user ``alice`` would be able to perform any work in any schema that begins with ``alice_``.
 
@@ -90,7 +92,7 @@ Create a new schema using the ``dj.schema`` function:
 
 This statement creates the database schema ``alice_experiment`` on the server.
 
-The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-Creating-Tables`.
+The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :ref:`table`.
 
 It is a common practice to have a separate Python module for each schema.
 Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
@@ -105,7 +107,7 @@ The ``dj.schema`` constructor can take a number of optional parameters after the
   Defaults to ``True``.
 - ``create_tables`` - When ``False``, the schema object will not create tables on the database and will raise errors when accessing missing tables.
   Defaults to ``True``.
-  
+
 .. python 1 end
 
 Working with existing data

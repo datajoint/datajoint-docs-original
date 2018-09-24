@@ -1,5 +1,7 @@
 .. progress: 8.0 80% Edgar
 
+.. _install:
+
 Install and Connect
 ===================
 

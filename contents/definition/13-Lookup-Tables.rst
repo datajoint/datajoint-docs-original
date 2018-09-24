@@ -1,5 +1,6 @@
 .. progress: 8.0 50% Dimitri
 
+.. _lookup:
 
 Lookup Tables
 =============

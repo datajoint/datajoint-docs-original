@@ -1,6 +1,6 @@
 .. progress: 20.0 25% Dimitri
 
-.. _dependencies: 
+.. _dependencies:
 
 Dependencies
 ============
@@ -28,9 +28,9 @@ The tables at the top of the flow need to be populated first, followed by those 
 The top of the pipeline tends to be dominated by lookup tables (gray stars) and manual tables (green squares).
 The middle has many imported tables (blue triangles), and the bottom has computed tables (red stars).
 
-Defining a dependency 
+Defining a dependency
 ---------------------
-Foreign keys are defined with arrows ``->`` in the :doc:`table definition <03-Table-Definition>`, pointing to another table.
+Foreign keys are defined with arrows ``->`` in the :ref:`table definition <definitions>`, pointing to another table.
 
 A foreign key may be defined as part of the :ref:`primary-key`.
 
@@ -120,7 +120,7 @@ Renamed foreign keys
 --------------------
 In most cases, a foreign key includes the primary key attributes of the referenced table as they appear in its table definition.
 Sometimes it can be helpful to choose a new name for a foreign key attribute that better fits the context of the dependent table.
-DataJoint provides the following :doc:`projection <../queries/07-Proj>` syntax to rename the primary key attributes when they are included in the new table.
+DataJoint provides the following :ref:`projection <proj>` syntax to rename the primary key attributes when they are included in the new table.
 
 The foreign key
 

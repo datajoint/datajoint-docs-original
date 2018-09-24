@@ -5,7 +5,8 @@
 ERD
 ===
 
-ERD stands for **entity relationship diagram**.  Objects of type ``dj.ERD`` allow visualizing portions of the data pipeline in graphical form.
+ERD stands for **entity relationship diagram**.
+Objects of type ``dj.ERD`` allow visualizing portions of the data pipeline in graphical form.
 Tables are depicted as nodes and :ref:`dependencies` as directed edges between them.
 The `draw` method plots the graph.
 
@@ -17,13 +18,17 @@ Consider the following ERD
 
 DataJoint uses the following conventions:
 
-* Tables are indicated as nodes in the graph.  The corresponding class name is indicated by each node.
-* :doc:`../definition/05-Data-Tiers`  are indicated as colors and symbols: Lookup=gray asterisk, Manual=green square, Imported=blue circle,  Computed=red star, Part=black dot.  The names of :doc:`../computation/04-master-part` are indicated in a smaller font.
+* Tables are indicated as nodes in the graph.
+  The corresponding class name is indicated by each node.
+* :ref:`Data tiers <tiers>` are indicated as colors and symbols: Lookup=gray asterisk, Manual=green square, Imported=blue circle, Computed=red star, Part=black dot.
+  The names of :ref:`part tables <part>` are indicated in a smaller font.
 * :ref:`dependencies` are indicated as edges in the graph and always directed downward, forming a **directed acyclic graph**.
-* Foreign keys contained within the primary key are indicated as solid lines.  This means that the referenced table becomes part of the primary key of the dependent table.
+* Foreign keys contained within the primary key are indicated as solid lines.
+  This means that the referenced table becomes part of the primary key of the dependent table.
 * Foreign keys that are outside the primary key are indicated by dashed lines.
 * If the primary key of the dependent table has no other attributes besides the foreign key, the foreign key is a thick solid line, indicating a 1:{0,1} relationship.
-* Foreign keys made without renaming the foreign key attributes are in black whereas foreign keys that rename the attributes are indicated in red.  This includes renamed foreign keys within the primary key (solid line) or outside (dashed line).
+* Foreign keys made without renaming the foreign key attributes are in black whereas foreign keys that rename the attributes are indicated in red.
+  This includes renamed foreign keys within the primary key (solid line) or outside (dashed line).
 
 Diagramming an entire schema
 ----------------------------
@@ -56,7 +61,7 @@ or, alternatively an object that has the schema object as an attribute, such as 
 |matlab| MATLAB
 +++++++++++++++
 
-In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function (See :doc:`../definition/01-Creating-Schemas`).
+In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function (See :ref:`schema`).
 
 .. code-block:: matlab
 
@@ -104,7 +109,8 @@ A single node makes a rather boring graph but ERDs can be added together or subt
 Adding ERDs together
 ++++++++++++++++++++
 
-However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs. The corresponding foreign keys will be automatically
+However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs.
+The corresponding foreign keys will be automatically
 
 .. matlab 3 start
 

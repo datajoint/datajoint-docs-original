@@ -41,13 +41,13 @@ With these considerations, database administrators may opt not to back up comput
 The internal prefixes listed above are used for table names on the server side as described below.
 These are never visible to the user, but database admins can use these prefixes to set different backup and access policies.
 
-Furthermore, the classes for **imported** and **computed** tables have additional capabilities for automated processing as described in :doc:`../computation/01-autopopulate`.
+Furthermore, the classes for **imported** and **computed** tables have additional capabilities for automated processing as described in :ref:`auto`.
 
 Specifying a table's tier
 -------------------------
 
 The data tier of a table is specified by the superclass of its class.
-For example, the User class in :doc:`03-Table-Definition` uses the ``dj.Manual`` superclass.
+For example, the User class in :ref:`definitions` uses the ``dj.Manual`` superclass.
 Therefore, the corresponding User table on the database would be of the Manual tier.
 
 Internal conventions for naming tables
@@ -69,7 +69,7 @@ Again, DataJoint users do not need to know these conventions, but database admin
 Part tables
 -----------
 
-:doc:`Part tables <../computation/04-master-part>` do not have their own tier.
+:ref:`Part tables <part>` do not have their own tier.
 Instead, they share the same tier as their master table.
 The prefix for part tables also differs from the other tiers.
 They are prefixed by the name of their master table, separated by two underscores.

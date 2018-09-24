@@ -1,5 +1,7 @@
 .. progress: 8.0 10% Dimitri
 
+.. _insert:
+
 Insert
 ======
 
@@ -87,5 +89,5 @@ Server-side inserts
 -------------------
 
 Data inserted into a table often come from other tables already present on the database server.
-In such cases, data can be :doc:`fetched <../queries/02-Fetch>` from the first table and then inserted into another table, but this results in transfers back and forth between the database and the local system.
-Instead, data can be inserted from one table into another without transfers between the database and the local system using :doc:`queries <../queries/01-Queries>`.
+In such cases, data can be :ref:`fetched <fetch>` from the first table and then inserted into another table, but this results in transfers back and forth between the database and the local system.
+Instead, data can be inserted from one table into another without transfers between the database and the local system using :ref:`queries <queries>`.

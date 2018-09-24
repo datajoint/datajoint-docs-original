@@ -1,5 +1,7 @@
 .. progress: 1.0 100% Dimitri
 
+.. _progress:
+
 Progress
 ========
 

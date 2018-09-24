@@ -1,9 +1,9 @@
 .. progress: 8.0 75% Dimitri
 
+.. _bulk-storage-systems:
+
 Bulk Storage Systems
 ====================
-
-.. _bulk-storage-systems:
 
 Why External Bulk Storage?
 --------------------------
@@ -66,7 +66,7 @@ flexibility, data sharing), and data access. Some common scenarios are
 given in the following table:
 
 
-.. list-table:: 
+.. list-table::
  :header-rows: 1
 
  * - Scenario
