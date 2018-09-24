@@ -1,5 +1,7 @@
 .. progress: 14.0 10% Dimitri
 
+.. _restriction:
+
 Restriction
 ===========
 

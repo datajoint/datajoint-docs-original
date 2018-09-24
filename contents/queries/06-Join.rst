@@ -1,5 +1,7 @@
 .. progress: 8.0 20% Dimitri
 
+.. _join:
+
 Join
 ====
 

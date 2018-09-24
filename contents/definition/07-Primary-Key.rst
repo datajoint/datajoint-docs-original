@@ -1,5 +1,7 @@
 .. progress: 12 25% Austin
 
+.. _primary-key:
+
 Primary Key
 ===========
 

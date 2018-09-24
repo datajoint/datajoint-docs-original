@@ -1,5 +1,7 @@
 .. progress: 6.0 75% Austin
 
+.. _datatypes:
+
 Datatypes
 ==========
 

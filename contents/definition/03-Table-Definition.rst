@@ -1,5 +1,7 @@
 .. progress: 16 30% Austin
 
+.. _definitions:
+
 Table Definition
 ================
 
