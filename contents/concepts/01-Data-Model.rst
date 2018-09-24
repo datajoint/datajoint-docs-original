@@ -11,7 +11,9 @@ A data model defines the mental toolbox of the data scientist and has less to do
 
 For example, the most widely used and commonly familiar data model is a model based on files and folders, or more technically, a "hierarchical file system". 
 In this model, data of any kind can be lumped together into a file, files are collected together into folders, and folders can be nested within other folders to create a folder hierarchy. 
+
 Another familiar data model is the two-dimensional representation of data in a "spreadsheet", where items are listed in rows, and attributes of each item are stored in columns. 
+
 The "object model" for data is used in object-oriented programming, where data is stored in properties of a class along with the methods that operate on it. 
 
 
@@ -44,7 +46,8 @@ Core Principles of the relational data model are:
   Tuples within relations are addressed by values of their attributes. 
   To identify and relate data elements, uniqueness constraints are imposed on subsets of attributes, then referred to as keys. One key in a relation is designated as the primary key used for referencing its elements.
 
-**Referential constraints.** Associations among data are established by means of referential constraints with the help of foreign keys. 
+**Referential constraints.** 
+  Associations among data are established by means of referential constraints with the help of foreign keys. 
   A referential constraint on relation A referencing relation B allows only those tuples in A whose foreign key attributes match the key attributes of a tuple in B. 
         
 **Declarative queries.** 
