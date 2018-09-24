@@ -87,7 +87,7 @@ The part table must declare the property ``master`` containing an object of the 
    %}
 
    classdef SegmentationROI < dj.Part
-       properties
+       properties(SetAccess=protected)
            master = test.Segmentation
        end
        methods
