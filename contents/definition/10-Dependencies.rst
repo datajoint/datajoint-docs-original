@@ -1,13 +1,11 @@
 .. progress: 20.0 25% Dimitri
 
-Foreign Keys
+.. _dependencies: 
+
+Dependencies
 ============
 
-.. note::
-   Even if you already know about foreign keys in SQL, please read this section carefully.
-   DataJoint prescribes a more principled way for defining and using data dependencies than in other models and languages such as SQL.
-
-Understanding foreign keys
+Understanding dependencies
 --------------------------
 A schema contains collections of tables of related data.
 Accordingly, entities in one table often derive some of their meaning or context from entities in other tables.

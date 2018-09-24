@@ -22,7 +22,8 @@ Database systems
     1) Defining, communicating, and enforcing structure in the stored data.
     2) Maintaining data integrity: correct identification of data and consistent cross-references, dependencies, and groupings among the data.
     3) Supporting queries that retrieve various cross-sections and transformation of the deposited data.
-    Most scientists have some familiarity with these concepts, for example the notion of maintaining data integrity between data and the metadata that describes it, or applying a filter to an Excel spreadsheet to retrieve specific subsets of information. 
+
+    Most scientists have some familiarity with these concepts, for example the notion of maintaining consistency between data and the metadata that describes it, or applying a filter to an Excel spreadsheet to retrieve specific subsets of information. 
     However, usually the more advanced concepts involved in building and using relational databases fall under the specific expertise of data scientists.
 
 Data pipelines
@@ -31,6 +32,7 @@ Data pipelines
     1) Integrating computations to perform analyses and manage intermediate results in a principled way.
     2) Supporting distributed computations without conflict.
     3) Defining, communicating, and enforcing **workflow**, making clear the sequence of steps that must be performed for data entry, acquisition, and processing.
+
     Again, the informal notion of an analysis "workflow" will be familiar to most scientists, along with the logistical difficulties associated with managing a workflow that is shared by multiple scientists within or across labs.
     
   Therefore, a full-featured data pipeline framework may also be described as a `scientific workflow system <https://en.wikipedia.org/wiki/Scientific_workflow_system>`_.
