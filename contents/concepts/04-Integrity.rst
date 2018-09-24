@@ -1,8 +1,5 @@
 .. progress: 18 0% Dimitri 
 
-Entity normalization
---------------------
-
 Entity integrity
 ----------------
 
