@@ -102,9 +102,13 @@ def create_build_folders(lang):
         shutil.copy2("Makefile", dst_build_folder + "/Makefile")
         shutil.copy2("contents/conf.py", dst_build_folder + "/contents/" + "conf.py")
 
-        # JIC add current_version <p> tag into the datajoint_theme folder 
+        # add current_version <p> tag into the datajoint_theme folder 
         f = open(dst_build_folder + '/datajoint_theme/this_version.html', 'w+')
         f.write('<p class="thisVersion">' + lang + "-" + ".".join(tag.split(".")[:-1]) + '</p>') 
+        f.close()
+        # add current_version as release into the conf.py file (for pdf generation)
+        f = open(dst_build_folder + "/contents/" + "conf.py", 'a+')
+        f.write('release = "' + lang + "-" + ".".join(tag.split(".")[:-1])+ '"')
         f.close()
 
 
@@ -158,14 +162,14 @@ def make_full_site():
         subprocess.Popen(["make", "site"], cwd=folder).wait()
         subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=folder + '/_build/latex').wait()
         subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=folder + '/_build/latex').wait()
-        # subprocess.Popen(["xelatex", "DataJointDocs.tex"], cwd=folder + '/_build/latex').wait()
-        # subprocess.Popen(["xelatex", "DataJointDocs.tex"],cwd=folder + '/_build/latex').wait()
 
         lang_version = folder.split('/')[1] # 'matlab-v3.2.2'
         version = lang_version.split("-")[1].split(".")[:-1] #['v3', '2']
         abbr_ver = ".".join(version)  #v3.2
+        abbr_lang_ver = ".".join(lang_version.split(".")[:-1])
         shutil.copytree(folder + "/site", 'full_site/' + lang_version.split("-")[0] + "/" + abbr_ver)
-        shutil.copy2(folder + '/_build/latex/DataJointDocs.pdf', 'full_site/' + lang_version.split("-")[0] + "/" + abbr_ver)
+        os.rename(folder + '/_build/latex/DataJointDocs.pdf', folder + '/_build/latex/DataJointDocs_' + abbr_lang_ver + '.pdf')
+        shutil.copy2(folder + '/_build/latex/DataJointDocs_' + abbr_lang_ver + '.pdf', 'full_site/' + lang_version.split("-")[0] + "/" + abbr_ver)
 
     for lang in ["matlab", "python"]:
         ver_list=[]
