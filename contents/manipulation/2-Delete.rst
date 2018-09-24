@@ -42,10 +42,16 @@ Delete the entire contents of the table ``tuning.VonMises`` and all its dependen
     (tuning.VonMises - 'mouse=1010').delete()
 .. python 1 end
 
+.. python 2 start
+
 Deleting from part tables
 -------------------------
-:doc:`Part tables <../computation/04-master-part>` prohibit direct deletion.
-The only way to delete from a part table is to delete from its master.
+Entities in a :doc:`part table <../computation/04-master-part>` are usually removed as a consequence of calling ``delete`` on the master table.
+To enforce this workflow, calling ``delete`` directly on a part table produces an error.
+In some cases, it may be necessary to override this behavior.
+To remove entities from a part table without calling ``delete`` master, use the argument ``force=True``.
+
+.. python 2 end
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
