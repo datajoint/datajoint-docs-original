@@ -24,6 +24,7 @@ site:
 	rm -rf site 
 	make clean
 	make html
+	make latex
 	cp -r $(BUILDDIR)/html site
 	@echo "Build finished. The HTML pages are in site/html."
 

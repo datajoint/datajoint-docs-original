@@ -156,11 +156,16 @@ def make_full_site():
     for folder in to_make:
         shutil.copy2('datajoint_theme/version-menu.html', folder + "/datajoint_theme/version-menu.html") 
         subprocess.Popen(["make", "site"], cwd=folder).wait()
+        subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=folder + '/_build/latex').wait()
+        subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=folder + '/_build/latex').wait()
+        # subprocess.Popen(["xelatex", "DataJointDocs.tex"], cwd=folder + '/_build/latex').wait()
+        # subprocess.Popen(["xelatex", "DataJointDocs.tex"],cwd=folder + '/_build/latex').wait()
 
         lang_version = folder.split('/')[1] # 'matlab-v3.2.2'
         version = lang_version.split("-")[1].split(".")[:-1] #['v3', '2']
         abbr_ver = ".".join(version)  #v3.2
         shutil.copytree(folder + "/site", 'full_site/' + lang_version.split("-")[0] + "/" + abbr_ver)
+        shutil.copy2(folder + '/_build/latex/DataJointDocs.pdf', 'full_site/' + lang_version.split("-")[0] + "/" + abbr_ver)
 
     for lang in ["matlab", "python"]:
         ver_list=[]

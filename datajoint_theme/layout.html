@@ -137,7 +137,13 @@
             {% endif %}
           {% endif %}
           {% if "this_version.html" %} 
+            <span>
             {% include "this_version.html" %} 
+            
+              <a href="{{ pathto('DataJointDocs.pdf', 1) }}" download>&nbsp;
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+            
+            </span>
           {% endif %}
           {% if "version-menu.html" %}
               <ul class="dropdown-versions">
