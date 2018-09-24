@@ -92,7 +92,7 @@ Create a new schema using the ``dj.schema`` function:
 
 This statement creates the database schema ``alice_experiment`` on the server.
 
-The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`table`.
+The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :ref:`table`.
 
 It is a common practice to have a separate Python module for each schema.
 Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.
