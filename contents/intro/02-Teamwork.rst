@@ -70,11 +70,15 @@ Data scientists
     Data scientists are in charge of defining and managing the data pipeline using DataJoint's data model, but they may not know the details of the underlying architecture.
     They interact with the pipeline using client programming interfaces directly from languages such as MATLAB and Python.
 
+    The bulk of this manual is written for working data scientists, except for System Administration.
+
 Data engineers
 
     work with the data scientists to support the data pipeline.
     They rely on their understanding of the DataJoint data model to configure and administer the required IT resources such as database servers, data storage servers, networks, cloud instances, `Globus <https://globus.org>`_ endpoints, etc.
     Data engineers can provide general solutions such as web hosting, data publishing, interfaces, exports and imports.
+
+    The System Administration section of this tutorial contains materials helpful in accomplishing these tasks. 
 
 DataJoint is designed to delineate a clean boundary between **data science** and **data engineering**.
 This allows data scientists to use the same uniform data model for data pipelines backed by a variety of information technologies.

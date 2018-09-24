@@ -1,4 +1,4 @@
-.. progress: 12.0 25% Austin
+.. progress: 8.0 50% Austin
 
 Creating Schemas
 ================
@@ -7,16 +7,15 @@ Schemas
 ~~~~~~~
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
-Depending on the complexity of the data, a database server may have many schemas each containing a subset of tables, or a single schema may contain every table, in the simplest cases.
-Schemas outline the structure of a data pipeline by specifying the directional relationships between tables.
-DataJoint reflects this organization by associating each DataJoint class with its corresponding schema.
-Tables are defined within the context of a schema, so we must create a schema before we can create any tables.
+A database server may contain maultiple schemas each containing a subset of the tables.
+A single pipeline may comprise multiple schemas.
+Tables are defined within a schema, so we must create a schema before we can create any tables.
 
 .. matlab 1 start
 
 |matlab| MATLAB
 ---------------------------
-A schema can be created in MATLAB either manually or automatically through the ``dj.createSchema`` script.
+A schema can be created in MATLAB either automatically using the ``dj.createSchema`` script or manually.
 While ``dj.createSchema`` simplifies the process, the manual approach yields a better understanding of what actually takes place, so both approaches are listed below.
 
 Manual

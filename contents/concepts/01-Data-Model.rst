@@ -1,11 +1,15 @@
-.. progress: 8.0 20% Jake
+.. progress: 12.0 50% Jake
 
-The DataJoint Data Model
-========================
+Data Model
+==========
 
 What is a data model? 
 ---------------------
-Most generally put, a data model is a conceptual framework for thinking about data organization. For example, the most widely used and commonly familiar data model is a model based on files and folders, or more technically, a "hierarchical file system". In this model, data of any kind can be lumped together into a file, files are collected together into folders, and folders can be nested within other folders to create a folder hierarchy. Another familiar data model is the two-dimensional representation of data in a "spreadsheet", where items are listed in rows, and attributes of each item are stored in columns. The "object model" for data is used in object-oriented programming, where data is stored in properties of a class along with the methods that operate on it. 
+
+By a *data model*, we refer to a conceptual framework for thinking about data and operations on data. 
+A data model defines the mental toolbox of the data scientist and has less to do with the *architecture* of the data systems.
+
+For example, the most widely used and commonly familiar data model is a model based on files and folders, or more technically, a "hierarchical file system". In this model, data of any kind can be lumped together into a file, files are collected together into folders, and folders can be nested within other folders to create a folder hierarchy. Another familiar data model is the two-dimensional representation of data in a "spreadsheet", where items are listed in rows, and attributes of each item are stored in columns. The "object model" for data is used in object-oriented programming, where data is stored in properties of a class along with the methods that operate on it. 
 
 The "relational model" is a way of thinking about data as sets and operations on sets. Formalized almost a half-century ago[1]_, The relational data model provides the most rigorous approach to structured data storage and the most precise approach to querying data. The model is defined by the principles of data representation, domain constraints, uniqueness constraints, referential constraints, and declarative queries as summarised in Table 1. From a practical point of view, the relational model has many advantages over the both hierarchical file systems and spreadsheets in terms of maintaining data integrity, building analysis workflows, and providing flexible access to interesting subsets of the data.
 
