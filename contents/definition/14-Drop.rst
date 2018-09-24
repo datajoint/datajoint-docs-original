@@ -1,6 +1,5 @@
 .. progress: 3.0 30% Dimitri
 
-
 .. _drop:
 
 Drop

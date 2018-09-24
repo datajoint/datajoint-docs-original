@@ -1,5 +1,7 @@
 .. progress: 10.0 30% Austin
 
+.. _definition-syntax:
+
 Definition Syntax
 =================
 

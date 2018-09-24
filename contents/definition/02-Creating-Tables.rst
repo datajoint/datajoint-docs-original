@@ -1,5 +1,7 @@
 .. progress: 12.0 30% Austin
 
+.. _table:
+
 Creating Tables
 ===============
 

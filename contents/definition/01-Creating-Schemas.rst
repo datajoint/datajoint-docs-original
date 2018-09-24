@@ -1,5 +1,7 @@
 .. progress: 8.0 50% Austin
 
+.. _schema:
+
 Creating Schemas
 ================
 
@@ -105,7 +107,7 @@ The ``dj.schema`` constructor can take a number of optional parameters after the
   Defaults to ``True``.
 - ``create_tables`` - When ``False``, the schema object will not create tables on the database and will raise errors when accessing missing tables.
   Defaults to ``True``.
-  
+
 .. python 1 end
 
 Working with existing data
