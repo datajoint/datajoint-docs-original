@@ -12,8 +12,8 @@ DataJoint implements a complete algebra of operators on relations:
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
 ===================================  =======================================   =================================================================================
-:doc:`restriction <04-Restriction>`  ``A & cond``                              The subset of relation ``A`` the meets condition ``cond``
-:doc:`exclusion <04-Restriction>`    ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond``
+:doc:`restriction <05-Restriction>`  ``A & cond``                              The subset of relation ``A`` the meets condition ``cond``
+:doc:`exclusion <05-Restriction>`    ``A - cond``  							  The subset of relation ``A`` the does not meet condition ``cond``
 :doc:`join <06-Proj>`                ``A * B``     							  Combines all matching information from ``A`` and ``B``
 :doc:`projection <07-Proj>`          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes
 :doc:`aggregation <08-Aggr>`         ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B``
