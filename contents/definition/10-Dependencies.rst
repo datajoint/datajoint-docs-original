@@ -120,7 +120,7 @@ Renamed foreign keys
 --------------------
 In most cases, a foreign key includes the primary key attributes of the referenced table as they appear in its table definition.
 Sometimes it can be helpful to choose a new name for a foreign key attribute that better fits the context of the dependent table.
-DataJoint provides the following :doc:`projection <../queries/07-Proj>` syntax to rename the primary key attributes when they are included in the new table.
+DataJoint provides the following :ref:`projection <proj>` syntax to rename the primary key attributes when they are included in the new table.
 
 The foreign key
 
