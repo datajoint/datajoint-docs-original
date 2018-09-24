@@ -12,7 +12,7 @@ In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) ma
 
 DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.
 
-Defining an attribute of type ``external`` is done using the same :doc:`definition syntax <../definition/04-Definition-Syntax>` and works the same way as a ``longblob`` attribute from the user's perspective.
+Defining an attribute of type ``external`` is done using the same :ref:`definition syntax <definitions>` and works the same way as a ``longblob`` attribute from the user's perspective.
 However, its data are stored in an external storage system rather than in the relational database.
 
 Various systems can play the role of external storage, including a shared file system accessible to all team members with access to these objects or a cloud storage solutions such as the AWS S3.
@@ -27,7 +27,7 @@ For example, the following table stores motion-aligned two-photon movies.
     aligned_movie :  external  # motion-aligned movie
 
 
-All :doc:`insert <../manipulation/1-Insert>` and :doc:`fetch <../queries/02-Fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
+All :ref:`insert <insert>` and :ref:`fetch <fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
 Multiple external storage configurations may be used simultaneously.
@@ -107,15 +107,15 @@ DataJoint organizes external storage to preserve the same data integrity princip
          - 168849430
          - 2017-06-07 22:47:58
 
-6. Attributes of type ``external`` are declared as renamed :doc:`foreign keys <../definition/10-Dependencies>` referencing the ``~external`` table (but are not shown as such to the user).
+6. Attributes of type ``external`` are declared as renamed :ref:`foreign keys <dependencies>` referencing the ``~external`` table (but are not shown as such to the user).
 
-7. The :doc:`insert <../manipulation/1-Insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
+7. The :ref:`insert <insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
    Only then are the specified entities inserted.
 
-8. The :doc:`delete <../manipulation/2-Delete>` operation first deletes the specified entities, then decrements the ``count`` of the item in ``~external``.
+8. The :ref:`delete <delete>` operation first deletes the specified entities, then decrements the ``count`` of the item in ``~external``.
    Only then is the entire transaction committed, but the object is not actually deleted at this time.
 
-9. The :doc:`fetch <../queries/02-Fetch>` operation uses the hash values to find the data.
+9. The :ref:`fetch <fetch>` operation uses the hash values to find the data.
    In order to prevent excessive network overhead, a special external store named ``cache`` can be configured.
    If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly.
    Instead ``fetch`` will retrieve the cached object without downloading directly from the 'real' external store.

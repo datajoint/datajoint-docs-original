@@ -1,5 +1,7 @@
 .. progress: 8.0 10% Dimitri
 
+.. _insert:
+
 Insert
 ======
 

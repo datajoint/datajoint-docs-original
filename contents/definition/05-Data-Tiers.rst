@@ -47,7 +47,7 @@ Specifying a table's tier
 -------------------------
 
 The data tier of a table is specified by the superclass of its class.
-For example, the User class in :doc:`03-Table-Definition` uses the ``dj.Manual`` superclass.
+For example, the User class in :ref:`definitions` uses the ``dj.Manual`` superclass.
 Therefore, the corresponding User table on the database would be of the Manual tier.
 
 Internal conventions for naming tables

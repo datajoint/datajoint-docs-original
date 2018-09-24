@@ -1,5 +1,7 @@
 .. progress: 6.0 10% Dimitri
 
+.. _delete:
+
 Delete
 ======
 

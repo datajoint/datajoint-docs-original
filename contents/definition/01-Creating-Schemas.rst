@@ -9,7 +9,7 @@ Schemas
 ~~~~~~~
 On the database server, related tables are grouped into a named collection called a **schema**.
 This grouping organizes the data and allows control of user access.
-A database server may contain maultiple schemas each containing a subset of the tables.
+A database server may contain multiple schemas each containing a subset of the tables.
 A single pipeline may comprise multiple schemas.
 Tables are defined within a schema, so we must create a schema before we can create any tables.
 
@@ -92,7 +92,7 @@ Create a new schema using the ``dj.schema`` function:
 
 This statement creates the database schema ``alice_experiment`` on the server.
 
-The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`02-Creating-Tables`.
+The returned object ``schema`` will then serve as a decorator for DataJoint classes, as described in :doc:`table`.
 
 It is a common practice to have a separate Python module for each schema.
 Therefore, each such module has only one ``dj.schema`` object defined and is usually named ``schema``.

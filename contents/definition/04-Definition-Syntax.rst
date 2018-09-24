@@ -10,7 +10,7 @@ Each line can be one of the following:
 
 * The optional first line starting with a ``#`` provides a description of the table's purpose.
   It may also be thought of as the table's long title.
-* A new attribute definition in any of the following forms (see :doc:`06-Datatypes` for valid datatypes):
+* A new attribute definition in any of the following forms (see :ref:`datatypes` for valid datatypes):
 
   - ``name : datatype``
   - ``name : datatype # comment``
@@ -31,7 +31,7 @@ For example, the table for Persons may have the following definition:
 	start_date :  date   # date when joined the lab
 
 
-This will define the table with attributes ``username``, ``full_name``, and ``start_date``, in which ``username`` is the :doc:`primary key <07-Primary-Key>`.
+This will define the table with attributes ``username``, ``full_name``, and ``start_date``, in which ``username`` is the :ref:`primary key <primary-key>`.
 
 Attribute names
 ---------------

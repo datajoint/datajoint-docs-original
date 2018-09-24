@@ -1,6 +1,6 @@
 .. progress: 20.0 25% Dimitri
 
-.. _dependencies: 
+.. _dependencies:
 
 Dependencies
 ============
@@ -28,9 +28,9 @@ The tables at the top of the flow need to be populated first, followed by those 
 The top of the pipeline tends to be dominated by lookup tables (gray stars) and manual tables (green squares).
 The middle has many imported tables (blue triangles), and the bottom has computed tables (red stars).
 
-Defining a dependency 
+Defining a dependency
 ---------------------
-Foreign keys are defined with arrows ``->`` in the :doc:`table definition <03-Table-Definition>`, pointing to another table.
+Foreign keys are defined with arrows ``->`` in the :ref:`table definition <definitions>`, pointing to another table.
 
 A foreign key may be defined as part of the :ref:`primary-key`.
 

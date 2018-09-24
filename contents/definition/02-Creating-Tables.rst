@@ -16,7 +16,7 @@ Users never need to see the database directly; they only interact with data in t
 Data tiers
 ^^^^^^^^^^
 The table class must inherit from one of the following superclasses to indicate its data tier: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part``.
-See :doc:`05-Data-Tiers` and :doc:`../computation/04-master-part`.
+See :ref:`tiers` and :doc:`../computation/04-master-part`.
 
 Defining a table
 ----------------
@@ -61,12 +61,12 @@ This will create the file ``+experiment/Person.m`` with the following contents:
 
 While ``dj.new`` adds a little bit of convenience, some users may create the classes from scratch manually.
 
-Each newly created class must inherit from the DataJoint class corresponding to the correct :doc:`data tier <05-Data-Tiers>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
+Each newly created class must inherit from the DataJoint class corresponding to the correct :ref:`data tier <tier>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 
 The most important part of the table definition is the comment preceding the ``classdef``.
 DataJoint will parse this comment to define the table.
 
-The class will become usable after you edit this comment as described in :doc:`03-Table-Definition`.
+The class will become usable after you edit this comment as described in :ref:`definitions`.
 .. matlab 1 end
 
 .. python 1 start
@@ -78,7 +78,7 @@ To define a DataJoint table in Python:
 
 1. Define a class inheriting from the appropriate DataJoint class: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 
-2. Decorate the class with the schema object (See :doc:`01-Creating-Schemas`)
+2. Decorate the class with the schema object (See :ref:`schema`)
 
 3. Define the class property ``definition`` to define the table heading.
 
@@ -100,7 +100,7 @@ The ``@schema`` decorator uses the class name and the data tier to check whether
 If a table does not already exist, the decorator creates one on the database using the definition property.
 The decorator attaches the information about the table to the class, and then returns the class.
 
-The class will become usable after you define the ``definition`` property as described in :doc:`03-Table-Definition`.
+The class will become usable after you define the ``definition`` property as described in :ref:`definitions`.
 
 DataJoint classes in Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
