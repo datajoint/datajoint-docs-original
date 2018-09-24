@@ -1,0 +1,51 @@
+.. progress: 12.0 0% Austin
+
+Iteration
+=========
+
+The DataJoint model primarily handles data as sets, in the form of tables.
+However, it can sometimes be useful to access or to perform actions such as visualization upon individual entities sequentially.
+In DataJoint this is accomplished through iteration.
+
+.. matlab 1 start
+
+In the simple MATLAB example below, iteration is used to display the names and values of the primary key attributes of each entity in the simple table or table expression ``tab``.
+
+.. code:: matlab
+
+    for key = tab.fetch()'
+        disp(key)
+    end
+
+Note that the results returned by ``fetch`` must be transposed.
+MATLAB iterates across columns, so the single column ``struct`` returned by ``fetch`` must be transposed into a single row.
+
+.. matlab 1 end
+
+.. python 1 start
+
+In the simple Python example below, iteration is used to display the names and values of the attributes of each entity in the simple table or table expression ``tab``.
+
+.. code:: python
+
+    for entity in tab:
+      print(entity)
+
+This example illustrates the function of the iterator: DataJoint iterates through the whole table expression, returning the entire entity during each step.
+In this case, each entity will be returned as a ``dict`` containing all attributes.
+
+At the start of the above loop, DataJoint internally fetches only the primary keys of the entities in ``tab``.
+Since only the primary keys are needed to distinguish between entities, DataJoint can then iterate over the list of primary keys to execute the loop.
+At each step of the loop, DataJoint uses a single primary key to fetch an entire entity for use in the iteration, such that ``print(entity)`` will print all attributes of each entity.
+By first fetching only the primary keys and then fetching each entity individually, DataJoint saves memory at the cost of network overhead.
+This can be particularly useful for tables containing large amounts of data in non-primary attributes.
+
+The memory savings of the above syntax may not be worth the additional network overhead in all cases, such as for tables with little data stored as non-primary attributes.
+In the example below, DataJoint fetches all of the attributes of each entity in a single call and then iterates over the list of entities stored in memory.
+
+.. code:: python
+
+    for entity in tab.fetch(as_dict=True):
+      print(entity)
+
+.. python 1 end
