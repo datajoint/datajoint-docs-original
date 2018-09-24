@@ -5,6 +5,7 @@ import re
 import pandas as pd
 
 pd.options.display.width = 120
+pd.options.display.precision = 1
 
 pattern = re.compile(r'\.\.\s+progress:\s+(?P<hours>\d*\.?\d*)\s*(?P<percent>\d+\.?\d*)%\s*(?P<author>\w+)\s*(?P<comment>.*)?$')
 

@@ -1,86 +1,86 @@
-done         149.65
-remaining    390.55 
+done         149.7
+remaining    390.6 
 
 
-               done  remaining
-section                       
-definition    39.90      90.10
-queries       19.00      83.00
-existing       0.00      72.00
-computation    6.00      64.00
-concepts       7.20      34.80
-admin         34.50      19.50
-manipulation   2.65      17.85
-intro         20.80       6.90
-setup         13.60       2.40
-               6.00       0.00 
+              done  remaining
+section                      
+definition    39.9       90.1
+queries       19.0       83.0
+existing       0.0       72.0
+computation    6.0       64.0
+concepts       7.2       34.8
+admin         34.5       19.5
+manipulation   2.7       17.9
+intro         20.8        6.9
+setup         13.6        2.4
+               6.0        0.0 
 
 
-          done  remaining
-author                   
-Dimitri  98.75     261.45
-Austin   26.10     105.90
-Jake      7.20      16.80
-Chris    11.20       4.80
-Edgar     6.40       1.60 
+         done  remaining
+author                  
+Dimitri  98.8      261.4
+Austin   26.1      105.9
+Jake      7.2       16.8
+Chris    11.2        4.8
+Edgar     6.4        1.6 
 
 
-     author       section                                           file  done  remaining
-57   Austin      existing             4-Altering-Populated-Pipelines.rst  0.00      24.00
-25   Austin       queries                               03-Iteration.rst  0.00      12.00
-54   Austin      existing                          1-Virtual-Modules.rst  0.00      12.00
-56   Austin      existing                         3-Interoperability.rst  0.00      12.00
-41   Austin    definition                        03-Table-Definition.rst  4.80      11.20
-45   Austin    definition                             07-Primary-Key.rst  3.00       9.00
-40   Austin    definition                         02-Creating-Tables.rst  3.60       8.40
-42   Austin    definition                       04-Definition-Syntax.rst  3.00       7.00
-48   Austin    definition                                 12-Example.rst  3.20       4.80
-39   Austin    definition                        01-Creating-Schemas.rst  4.00       4.00
-44   Austin    definition                               06-Datatypes.rst  4.50       1.50
-22    Chris         admin                                   6-backup.rst  4.00       4.00
-16    Chris         setup  02-DataJoint-Python-Windows-Install-Guide.rst  7.20       0.80
-55  Dimitri      existing                                2-Migration.rst  0.00      24.00
-47  Dimitri    definition                                     11-ERD.rst  2.40      21.60
-53  Dimitri      concepts                               04-Integrity.rst  0.00      18.00
-34  Dimitri   computation                                    02-make.rst  0.00      16.00
-46  Dimitri    definition                            10-Dependencies.rst  5.00      15.00
-27  Dimitri       queries                             05-Restriction.rst  1.40      12.60
-35  Dimitri   computation                               03-keysource.rst  0.00      12.00
-36  Dimitri   computation                             04-master-part.rst  1.20      10.80
-32  Dimitri       queries                          10-Universal-Sets.rst  0.00      10.00
-23  Dimitri       queries                                 01-Queries.rst  2.40       9.60
-33  Dimitri   computation                            01-autopopulate.rst  2.40       9.60
-38  Dimitri   computation                   06-distributed-computing.rst  2.40       9.60
-26  Dimitri       queries                               04-Operators.rst  9.00       9.00
-29  Dimitri       queries                                    07-Proj.rst  3.00       9.00
-21  Dimitri         admin                              5-blob-config.rst  8.00       8.00
-30  Dimitri       queries                                    08-Aggr.rst  0.40       7.60
-2   Dimitri  manipulation                                   1-Insert.rst  0.80       7.20
-28  Dimitri       queries                                    06-Join.rst  1.60       6.40
-37  Dimitri   computation                            05-transactions.rst  0.00       6.00
-3   Dimitri  manipulation                                   2-Delete.rst  0.60       5.40
-4   Dimitri  manipulation                          3-Cautious-Update.rst  1.20       4.80
-24  Dimitri       queries                                   02-Fetch.rst  1.20       4.80
-49  Dimitri    definition                           13-Lookup-Tables.rst  4.00       4.00
-7   Dimitri         intro                        04-Input-and-Output.rst  1.50       3.50
-14  Dimitri         intro                                    12-FAQs.rst  1.20       2.80
-50  Dimitri    definition                                    14-Drop.rst  0.90       2.10
-17  Dimitri         admin                                  1-hosting.rst  6.00       2.00
-18  Dimitri         admin                            2-configuration.rst  6.00       2.00
-20  Dimitri         admin                                     4-bulk.rst  6.00       2.00
-31  Dimitri       queries                                   09-Union.rst  0.00       2.00
-19  Dimitri         admin                                 3-accounts.rst  4.50       1.50
-43  Dimitri    definition                              05-Data-Tiers.rst  1.50       1.50
-6   Dimitri         intro                                02-Teamwork.rst  5.40       0.60
-1   Dimitri  manipulation                             0-Manipulation.rst  0.05       0.45
-0   Dimitri                                                    index.rst  6.00       0.00
-5   Dimitri         intro                          01-Data-Pipelines.rst  6.00       0.00
-8   Dimitri         intro                               05-Community.rst  2.00       0.00
-9   Dimitri         intro                            06-Publications.rst  2.00       0.00
-10  Dimitri         intro                                07-Progress.rst  1.00       0.00
-11  Dimitri         intro                                 09-License.rst  0.20       0.00
-12  Dimitri         intro                                  10-Issues.rst  0.50       0.00
-13  Dimitri         intro                              11-Contribute.rst  1.00       0.00
-15    Edgar         setup                     01-Install-and-Connect.rst  6.40       1.60
-52     Jake      concepts                             02-Terminology.rst  1.20      10.80
-51     Jake      concepts                              01-Data-Model.rst  6.00       6.00
+     author       section                                           file     done  remaining
+57   Austin      existing             4-Altering-Populated-Pipelines.rst  0.0e+00       24.0
+25   Austin       queries                               03-Iteration.rst  0.0e+00       12.0
+54   Austin      existing                          1-Virtual-Modules.rst  0.0e+00       12.0
+56   Austin      existing                         3-Interoperability.rst  0.0e+00       12.0
+41   Austin    definition                        03-Table-Definition.rst  4.8e+00       11.2
+45   Austin    definition                             07-Primary-Key.rst  3.0e+00        9.0
+40   Austin    definition                         02-Creating-Tables.rst  3.6e+00        8.4
+42   Austin    definition                       04-Definition-Syntax.rst  3.0e+00        7.0
+48   Austin    definition                                 12-Example.rst  3.2e+00        4.8
+39   Austin    definition                        01-Creating-Schemas.rst  4.0e+00        4.0
+44   Austin    definition                               06-Datatypes.rst  4.5e+00        1.5
+22    Chris         admin                                   6-backup.rst  4.0e+00        4.0
+16    Chris         setup  02-DataJoint-Python-Windows-Install-Guide.rst  7.2e+00        0.8
+55  Dimitri      existing                                2-Migration.rst  0.0e+00       24.0
+47  Dimitri    definition                                     11-ERD.rst  2.4e+00       21.6
+53  Dimitri      concepts                               04-Integrity.rst  0.0e+00       18.0
+34  Dimitri   computation                                    02-make.rst  0.0e+00       16.0
+46  Dimitri    definition                            10-Dependencies.rst  5.0e+00       15.0
+27  Dimitri       queries                             05-Restriction.rst  1.4e+00       12.6
+35  Dimitri   computation                               03-keysource.rst  0.0e+00       12.0
+36  Dimitri   computation                             04-master-part.rst  1.2e+00       10.8
+32  Dimitri       queries                          10-Universal-Sets.rst  0.0e+00       10.0
+23  Dimitri       queries                                 01-Queries.rst  2.4e+00        9.6
+33  Dimitri   computation                            01-autopopulate.rst  2.4e+00        9.6
+38  Dimitri   computation                   06-distributed-computing.rst  2.4e+00        9.6
+26  Dimitri       queries                               04-Operators.rst  9.0e+00        9.0
+29  Dimitri       queries                                    07-Proj.rst  3.0e+00        9.0
+21  Dimitri         admin                              5-blob-config.rst  8.0e+00        8.0
+30  Dimitri       queries                                    08-Aggr.rst  4.0e-01        7.6
+2   Dimitri  manipulation                                   1-Insert.rst  8.0e-01        7.2
+28  Dimitri       queries                                    06-Join.rst  1.6e+00        6.4
+37  Dimitri   computation                            05-transactions.rst  0.0e+00        6.0
+3   Dimitri  manipulation                                   2-Delete.rst  6.0e-01        5.4
+4   Dimitri  manipulation                          3-Cautious-Update.rst  1.2e+00        4.8
+24  Dimitri       queries                                   02-Fetch.rst  1.2e+00        4.8
+49  Dimitri    definition                           13-Lookup-Tables.rst  4.0e+00        4.0
+7   Dimitri         intro                        04-Input-and-Output.rst  1.5e+00        3.5
+14  Dimitri         intro                                    12-FAQs.rst  1.2e+00        2.8
+50  Dimitri    definition                                    14-Drop.rst  9.0e-01        2.1
+17  Dimitri         admin                                  1-hosting.rst  6.0e+00        2.0
+18  Dimitri         admin                            2-configuration.rst  6.0e+00        2.0
+20  Dimitri         admin                                     4-bulk.rst  6.0e+00        2.0
+31  Dimitri       queries                                   09-Union.rst  0.0e+00        2.0
+19  Dimitri         admin                                 3-accounts.rst  4.5e+00        1.5
+43  Dimitri    definition                              05-Data-Tiers.rst  1.5e+00        1.5
+6   Dimitri         intro                                02-Teamwork.rst  5.4e+00        0.6
+1   Dimitri  manipulation                             0-Manipulation.rst  5.0e-02        0.5
+0   Dimitri                                                    index.rst  6.0e+00        0.0
+5   Dimitri         intro                          01-Data-Pipelines.rst  6.0e+00        0.0
+8   Dimitri         intro                               05-Community.rst  2.0e+00        0.0
+9   Dimitri         intro                            06-Publications.rst  2.0e+00        0.0
+10  Dimitri         intro                                07-Progress.rst  1.0e+00        0.0
+11  Dimitri         intro                                 09-License.rst  2.0e-01        0.0
+12  Dimitri         intro                                  10-Issues.rst  5.0e-01        0.0
+13  Dimitri         intro                              11-Contribute.rst  1.0e+00        0.0
+15    Edgar         setup                     01-Install-and-Connect.rst  6.4e+00        1.6
+52     Jake      concepts                             02-Terminology.rst  1.2e+00       10.8
+51     Jake      concepts                              01-Data-Model.rst  6.0e+00        6.0
