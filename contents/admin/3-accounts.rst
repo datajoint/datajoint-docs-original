@@ -1,12 +1,14 @@
 .. progress: 6.0 75% Dimitri
 
-User Management 
+.. _accounts:
+
+User Management
 ===============
 
 Create user accounts on the MySQL server. For example, if your
 username is alice, the SQL code for this step is:
 
-.. code-block:: mysql 
+.. code-block:: mysql
 
  CREATE USER 'alice'@'%' IDENTIFIED BY 'alices-secret-password';
 

@@ -1,5 +1,7 @@
 .. progress: 16.0 50% Dimitri
 
+.. _external:
+
 External Store
 ==============
 

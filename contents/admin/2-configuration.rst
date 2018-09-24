@@ -1,5 +1,7 @@
 .. progress: 8.0 75% Dimitri
 
+.. _configuration:
+
 Relational Database Server
 ==========================
 

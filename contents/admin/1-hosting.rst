@@ -1,5 +1,7 @@
 .. progress: 8.0 75% Dimitri
 
+.. _hosting:
+
 Database Server Hosting
 -----------------------
 
@@ -60,8 +62,8 @@ smooth operations in the absence of local database expertise.
 .. list-table:: IT infrastructures
    :header-rows: 1
 
-   * - Usage Scenario 
-     - DataJoint Database Computer 
+   * - Usage Scenario
+     - DataJoint Database Computer
      - Required IT Support
    * - Single User
      - Personal Laptop or Workstation

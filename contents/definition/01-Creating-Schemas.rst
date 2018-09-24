@@ -30,7 +30,7 @@ Use the following command to create a new schema on the database server:
 
     query(dj.conn, 'CREATE SCHEMA `alice_experiment`')
 
-Note that you must have create privileges for the schema name pattern (as described in :doc:`../admin/1-hosting`).
+Note that you must have create privileges for the schema name pattern (as described in :ref:`hosting`).
 It is a common practice to grant all privileges to users for schemas that begin with the username, in addition to some shared schemas.
 Thus the user ``alice`` would be able to perform any work in any schema that begins with ``alice_``.
 

@@ -1,5 +1,7 @@
 .. progress: 8.0 50% Chris
 
+.. _backup:
+
 Backups and Recovery
 ====================
 
