@@ -1,5 +1,7 @@
 .. progress: 4 30% Dimitri
 
+.. _faq:
+
 FAQs
 ====
 

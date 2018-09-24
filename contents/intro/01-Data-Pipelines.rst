@@ -1,5 +1,7 @@
 .. progress: 6 100% Dimitri
 
+.. _pipelines:
+
 Data Pipelines
 ==============
 
@@ -11,10 +13,10 @@ A variety of tools can be used for supporting shared data pipelines:
 
 Data repositories
   Research teams set up a shared **data repository**.
-  This minimal data management tool allows depositing and retrieving data and managing user access. 
-  For example, this may include a collection of files with standard naming conventions organized into folders and sub-folders. 
-  Or a data repository might reside on the cloud, for example in a collection of S3 buckets. 
-  This image of data management -- where files are warehoused and retrieved from a hierarchically-organized system of folders -- is an approach that is likely familiar to most scientists. 
+  This minimal data management tool allows depositing and retrieving data and managing user access.
+  For example, this may include a collection of files with standard naming conventions organized into folders and sub-folders.
+  Or a data repository might reside on the cloud, for example in a collection of S3 buckets.
+  This image of data management -- where files are warehoused and retrieved from a hierarchically-organized system of folders -- is an approach that is likely familiar to most scientists.
 
 Database systems
   **Databases** are a form of data repository providing additional capabilities:
@@ -23,7 +25,7 @@ Database systems
     2) Maintaining data integrity: correct identification of data and consistent cross-references, dependencies, and groupings among the data.
     3) Supporting queries that retrieve various cross-sections and transformation of the deposited data.
 
-    Most scientists have some familiarity with these concepts, for example the notion of maintaining consistency between data and the metadata that describes it, or applying a filter to an Excel spreadsheet to retrieve specific subsets of information. 
+    Most scientists have some familiarity with these concepts, for example the notion of maintaining consistency between data and the metadata that describes it, or applying a filter to an Excel spreadsheet to retrieve specific subsets of information.
     However, usually the more advanced concepts involved in building and using relational databases fall under the specific expertise of data scientists.
 
 Data pipelines
@@ -34,7 +36,7 @@ Data pipelines
     3) Defining, communicating, and enforcing **workflow**, making clear the sequence of steps that must be performed for data entry, acquisition, and processing.
 
     Again, the informal notion of an analysis "workflow" will be familiar to most scientists, along with the logistical difficulties associated with managing a workflow that is shared by multiple scientists within or across labs.
-    
+
   Therefore, a full-featured data pipeline framework may also be described as a `scientific workflow system <https://en.wikipedia.org/wiki/Scientific_workflow_system>`_.
 
 .. figure:: ../_static/img/pipeline-database.png
@@ -74,20 +76,20 @@ DataJoint enables data scientists to build and operate scientific data pipelines
     Conceptual overview of DataJoint operation
 
 DataJoint provides a simple and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS (2018). *DataJoint: A Simpler Relational Data Model.* <htps://arxiv.org/abs/1807.11104>`_.
-Put most generally, a "data model" defines how to think about data and the operations that can be performed on them. 
-DataJoint's model is a refinement of the relational data model: all nodes in the pipeline are simple tables storing data, tables are related by their shared attributes, and query operations can combine the contents of multiple tables. 
-DataJoint enforces specific constraints on the relationships between tables that help maintain data integrity and enable flexible access. 
-DataJoint uses a succinct data definition language, a powerful data query language, and expressive visualizations of the pipeline. 
-A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently. 
-The data become immediately available to all participants with appropriate access privileges. 
+Put most generally, a "data model" defines how to think about data and the operations that can be performed on them.
+DataJoint's model is a refinement of the relational data model: all nodes in the pipeline are simple tables storing data, tables are related by their shared attributes, and query operations can combine the contents of multiple tables.
+DataJoint enforces specific constraints on the relationships between tables that help maintain data integrity and enable flexible access.
+DataJoint uses a succinct data definition language, a powerful data query language, and expressive visualizations of the pipeline.
+A well-defined and principled approach to data organization and computation enables teams of scientists to work together efficiently.
+The data become immediately available to all participants with appropriate access privileges.
 Some of the "participants" may be computational agents that perform processing and analysis, and so DataJoint features a built-in distributed job management process to allow distributing analysis between any number of computers.
 
-From a practical point of view, the back-end data architecture may vary depending on project requirements. 
-Typically, the data architecture includes a relational database server (e.g. MySQL) and a bulk data storage system (e.g. `AWS S3 <https://aws.amazon.com/s3/>`_ or a filesystem). 
-However, users need not interact with the database directly, but via MATLAB or Python objects that are each associated with an individual table in the database. 
+From a practical point of view, the back-end data architecture may vary depending on project requirements.
+Typically, the data architecture includes a relational database server (e.g. MySQL) and a bulk data storage system (e.g. `AWS S3 <https://aws.amazon.com/s3/>`_ or a filesystem).
+However, users need not interact with the database directly, but via MATLAB or Python objects that are each associated with an individual table in the database.
 One of the main advantages of this approach is that DataJoint clearly separates the data model facing the user from the data architecture implementing data management and computing. DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `docker <https://www.docker.com/>`_)
 
-DataJoint is designed for quick prototyping and continuous exploration as experimental designs change or evolve. 
+DataJoint is designed for quick prototyping and continuous exploration as experimental designs change or evolve.
 New analysis methods can be added or removed at any time, and the structure of the workflow itself can change over time, for example as new data acquisition methods are developed.
 
 With DataJoint, data sharing and publishing is no longer a separate step at the end of the project.
@@ -95,7 +97,7 @@ Instead data sharing is an inherent feature of the process: to share data with o
 
 Real-life example
 -----------------
-The `Mesoscale Activity Project <https://www.simonsfoundation.org/funded-project/%20multi-regional-neuronal-dynamics-of-memory-guided-flexible-behavior/>`_ (MAP) is a collaborative project between four neuroscience labs. 
+The `Mesoscale Activity Project <https://www.simonsfoundation.org/funded-project/%20multi-regional-neuronal-dynamics-of-memory-guided-flexible-behavior/>`_ (MAP) is a collaborative project between four neuroscience labs.
 MAP uses DataJoint for data acquisition, processing, analysis, interfaces, and external sharing.
 
 .. figure:: ../_static/img/map-dataflow.png
@@ -104,14 +106,14 @@ MAP uses DataJoint for data acquisition, processing, analysis, interfaces, and e
 
     The DataJoint pipeline for the MAP project.
 
-The pipeline is hosted in the cloud through `Amazon Web Services <https://aws.amazon.com/>`_ (AWS). 
-MAP data scientists at the Janelia Research Campus and Baylor College of Medicine defined the data pipeline. 
+The pipeline is hosted in the cloud through `Amazon Web Services <https://aws.amazon.com/>`_ (AWS).
+MAP data scientists at the Janelia Research Campus and Baylor College of Medicine defined the data pipeline.
 Experimental scientists enter manual data directly into the pipeline using the `Helium web interface <https://github.com/mattbdean/Helium>`_.
 The raw data are preprocessed using the DataJoint client libraries in MATLAB and Python;
 the preprocessed data are ingested into the pipeline while the bulky and raw data are shared using  `Globus <https://globus.org>`_ transfer through the `PETREL <https://www.alcf.anl.gov/petrel>`_ storage servers provided by the Argonne National Lab.
 Data are made immediately available for exploration and analysis to collaborating labs; and the analysis results are also immediately shared.
-Analysis data may be visualized through web interfaces.  
-Intermediate results may be exported into the `NWB <https://nwb.org>`_ format for sharing with external  groups. 
+Analysis data may be visualized through web interfaces.
+Intermediate results may be exported into the `NWB <https://nwb.org>`_ format for sharing with external  groups.
 
 
 

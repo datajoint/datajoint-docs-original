@@ -1,9 +1,11 @@
 .. progress: 2.0 100% Dimitri
 
+.. _publications:
+
 Publications
 ============
 
-The following are some of the studies that used DataJoint for building their data pipelines. 
+The following are some of the studies that used DataJoint for building their data pipelines.
 
 1. Denfield, G. H., Ecker, A. S., Shinn, T. J., Bethge, M., & Tolias, A. S. (2018). Attentional fluctuations induce shared variability in macaque primary visual cortex. `Nature communications, 9(1), 2654. <https://www.nature.com/articles/s41467-018-05123-6>`_
 #. Shan, Kevin Q., Evgueniy V. Lubenov, and Athanassios G. Siapas. "Model-based spike sorting with a mixture of drifting t-distributions." `Journal of neuroscience methods 288 (2017): 82-98. <https://www.sciencedirect.com/science/article/pii/S016502701730225X>`_
@@ -12,7 +14,7 @@ The following are some of the studies that used DataJoint for building their dat
 #. Cadwell, Cathryn R., et al. "Electrophysiological, transcriptomic and morphologic profiling of single neurons using Patch-seq." `Nature biotechnology 34.2 (2016): 199. <https://www.nature.com/articles/nbt.3445>`_
 #. Shan, K. Q., Lubenov, E. V., Papadopoulou, M., & Siapas, A. G. (2016). Spatial tuning and brain state account for dorsal hippocampal CA1 activity in a non-spatial learning task. `Elife, 5, e14321. <https://cdn.elifesciences.org/articles/14321/elife-14321-v1.pdf>`_
 #. Jiang, X., Shen, S., Cadwell, C. R., Berens, P., Sinz, F., Ecker, A. S., ... & Tolias, A. S. (2015). Principles of connectivity among morphologically defined cell types in adult neocortex. `Science, 350(6264), aac9462. <http://science.sciencemag.org/content/sci/350/6264/aac9462.full.pdf>`_
-#. Yatsenko, D., Josić, K., Ecker, A. S., Froudarakis, E., Cotton, R. J., & Tolias, A. S. (2015). Improved estimation and interpretation of correlations in neural circuits. `PLoS computational biology, 11(3), e1004083. <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004083>`_ 
+#. Yatsenko, D., Josić, K., Ecker, A. S., Froudarakis, E., Cotton, R. J., & Tolias, A. S. (2015). Improved estimation and interpretation of correlations in neural circuits. `PLoS computational biology, 11(3), e1004083. <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004083>`_
 #. Reimer, J., Froudarakis, E., Cadwell, C. R., Yatsenko, D., Denfield, G. H., & Tolias, A. S. (2014). Pupil fluctuations track fast switching of cortical states during quiet wakefulness. `Neuron, 84(2), 355-362. <https://www.sciencedirect.com/science/article/pii/S0896627314008915>`_
 #. Erisken, S., Vaiceliunaite, A., Jurjut, O., Fiorini, M., Katzner, S., & Busse, L. (2014). Effects of locomotion extend throughout the mouse early visual system. `Current Biology, 24(24), 2899-2907. <https://www.sciencedirect.com/science/article/pii/S0960982214013542>`_
 #. Froudarakis, E., Berens, P., Ecker, A. S., Cotton, R. J., Sinz, F. H., Yatsenko, D., ... & Tolias, A. S. (2014). Population code in mouse V1 facilitates readout of natural scenes through increased sparseness. `Nature neuroscience, 17(6), 851. <https://www.nature.com/articles/nn.3707>`_

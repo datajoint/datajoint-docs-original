@@ -1,5 +1,7 @@
 .. progress: 6.0 90% Dimitri
 
+.. _teamwork:
+
 Teamwork
 ========
 
@@ -78,7 +80,7 @@ Data engineers
     They rely on their understanding of the DataJoint data model to configure and administer the required IT resources such as database servers, data storage servers, networks, cloud instances, `Globus <https://globus.org>`_ endpoints, etc.
     Data engineers can provide general solutions such as web hosting, data publishing, interfaces, exports and imports.
 
-    The System Administration section of this tutorial contains materials helpful in accomplishing these tasks. 
+    The System Administration section of this tutorial contains materials helpful in accomplishing these tasks.
 
 DataJoint is designed to delineate a clean boundary between **data science** and **data engineering**.
 This allows data scientists to use the same uniform data model for data pipelines backed by a variety of information technologies.
