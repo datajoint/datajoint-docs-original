@@ -28,7 +28,7 @@ on the database. For example, we can instantiate the
 .. python 1 end
 
 More generally, ``tab`` may be a **table expression** constructed as an
-expression using :doc:`query operators <03-Operators>`.
+expression using :doc:`query operators <04-Operators>`.
 
 For example, the following table contains information about all
 experiments and scans for mouse 102 (excluding experiments with no
