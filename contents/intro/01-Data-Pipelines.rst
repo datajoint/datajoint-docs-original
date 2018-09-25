@@ -111,7 +111,7 @@ MAP data scientists at the Janelia Research Campus and Baylor College of Medicin
 Experimental scientists enter manual data directly into the pipeline using the `Helium web interface <https://github.com/mattbdean/Helium>`_.
 The raw data are preprocessed using the DataJoint client libraries in MATLAB and Python;
 the preprocessed data are ingested into the pipeline while the bulky and raw data are shared using  `Globus <https://globus.org>`_ transfer through the `PETREL <https://www.alcf.anl.gov/petrel>`_ storage servers provided by the Argonne National Lab.
-Data are made immediately available for exploration and analysis to collaborating labs; and the analysis results are also immediately shared.
+Data are made immediately available for exploration and analysis to collaborating labs, and the analysis results are also immediately shared.
 Analysis data may be visualized through web interfaces.
 Intermediate results may be exported into the `NWB <https://nwb.org>`_ format for sharing with external  groups.
 

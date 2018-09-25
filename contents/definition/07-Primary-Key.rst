@@ -48,10 +48,9 @@ For example, the following is the definition of a table containing database user
 Entity integrity
 ~~~~~~~~~~~~~~~~
 
-The primary key defines and enforces the desired property of databases known as **entity integrity**.
-Entity integrity is the guarantee made by the data management process that entities from the real world are reliably and uniquely represented in the database system.
-In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
-Entity integrity states that the data management process must prevent any confusion between entities such as duplication or misidentification.
+The primary key defines and enforces the desired property of databases known as :ref:`entity integrity <entity_integrity>`.
+**Entity integrity** ensures that there is a one-to-one and unambiguous mapping between real-world entities and their representations in the database system.
+The data management process must prevent any duplication or misidentification of entities.
 
 To enforce entity integrity, DataJoint implements several rules:
 * Every table must have a primary key.
