@@ -23,10 +23,18 @@ Referential integrity
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 Referential integrity cannot exist without entity integrity: references to entity cannot be validated if the identity of the entity itself is not guaranteed.
 
-
+.. TODO: Example
 
 Relationships
 -------------
 
+In DataJoint, the term **relationship** is used rather generally to describe the effects of particular configurations of :ref:`dependencies <dependencies>` between multiple entity sets.
+A dependency of an entity set containing the death dates of mice on an entity set describing the mice themselves would obviously be a one-to-one relationship.
+Other relationship types include many-to-one, one-to-many, and many-to-many.
+The types of relationships between entity sets are expressed in the :ref:`ERD <erd>` of a schema.
+
 Group integrity
 ---------------
+
+**Group integrity** denotes the guarantee made by the data management process that entities composed of multiple parts always appear in their complete form.
+Group integrity in DataJoint is formalized through the :ref:`master-part relationship <part>`.
