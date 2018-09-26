@@ -48,7 +48,7 @@ For example, the following is the definition of a table containing database user
 Entity integrity
 ~~~~~~~~~~~~~~~~
 
-The primary key defines and enforces the desired property of databases known as :ref:`entity integrity <entity_integrity>`.
+The primary key defines and enforces the desired property of databases known as :ref:`entity integrity <integrity>`.
 **Entity integrity** ensures that there is a one-to-one and unambiguous mapping between real-world entities and their representations in the database system.
 The data management process must prevent any duplication or misidentification of entities.
 

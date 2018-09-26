@@ -61,7 +61,7 @@ This will create the file ``+experiment/Person.m`` with the following contents:
 
 While ``dj.new`` adds a little bit of convenience, some users may create the classes from scratch manually.
 
-Each newly created class must inherit from the DataJoint class corresponding to the correct :ref:`data tier <tier>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
+Each newly created class must inherit from the DataJoint class corresponding to the correct :ref:`data tier <tiers>`: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported`` or ``dj.Computed``.
 
 The most important part of the table definition is the comment preceding the ``classdef``.
 DataJoint will parse this comment to define the table.

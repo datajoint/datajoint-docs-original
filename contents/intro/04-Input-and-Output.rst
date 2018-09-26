@@ -33,13 +33,13 @@ Depending on the size of the raw files and the complexity of analysis, useful re
 Because these results are stored in the database, they can be made available to anyone who is given access credentials for additional downstream analyses.
 
 Won't the database get too big if all my data are there?
--------------------------------------------------------
+--------------------------------------------------------
 Typically, this is not a problem.
 If you find that your database is getting larger than a few dozen TB, DataJoint provides transparent solutions for storing very large chunks of data (larger than the 4 GB that can be natively stored as a LONGBLOB in MySQL).
 However, in many scenarios even long time series or images can be stored directly in the database with little effect on performance.
 
 Why not just process the data and save them back to a file?
----------------------------------------------------------
+-----------------------------------------------------------
 There are two main advantages to storing results in the database.
 The first is data integrity. 
 Because the relationships between data are enforced by the structure of the database, DataJoint ensures that the metadata in the upstream nodes always correctly describes the computed results downstream in the pipeline.
@@ -58,5 +58,8 @@ This brings us to the final important question:
 
 How do I get my data out?
 -------------------------
-
 This is the fun part. See :ref:`queries` for details of the DataJoint query language.
+
+Interfaces
+----------
+GUIs, Google Docs integration, LIMS integration, Slack integration, *etc.*
