@@ -94,7 +94,7 @@ Using hashes as primary keys
 Some tables include too many attributes in their primary keys.
 For example, the stimulus condition in a psychophysics experiment may have a dozen parameters such that a change in any one of them makes a different valid stimulus condition.
 In such a case, all the attributes would need to be included in the primary key to ensure entity integrity.
-However, long primary keys make it difficult to reference individual tuples.
+However, long primary keys make it difficult to reference individual entities.
 To be most useful, primary keys need to be relatively short.
 
 This problem is effectively solved through the use of a hash of all the identifying attributes as the primary key.

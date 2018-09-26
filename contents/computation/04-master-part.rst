@@ -97,10 +97,10 @@ The part table must declare the property ``master`` containing an object of the 
                image = fetch1(test.Image & key, 'image');
                [roi_pixels, roi_weighs] = mylib.segment(image);
                for roi=1:length(roi_pixels)
-                   tuple = key;
-                   tuple.roi_pixels = roi_pixels{roi};
-                   tuple.roi_weights = roi_weights{roi};
-                   self.insert(tuple)
+                   entity = key;
+                   entity.roi_pixels = roi_pixels{roi};
+                   entity.roi_weights = roi_weights{roi};
+                   self.insert(entity)
                end
            end
        end
@@ -129,7 +129,7 @@ To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, 
     Segmentation.populate()
 .. python 2 end
 
-Note that the tuples in the master and the matching tuples in the part are inserted within a single ``make-tuples`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.
+Note that the entities in the master and the matching entities in the part are inserted within a single ``make`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.
 This ensures that partial results never appear in the database.
 
 For example, imagine that a segmentation is performed and an error occurs half way through inserting the results.
