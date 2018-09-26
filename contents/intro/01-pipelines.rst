@@ -1,6 +1,6 @@
 .. progress: 6 30% Dimitri
 
-What is a data pipeline?
+What is a data pipeline?!!
 ========================
 
 DataJoint is a free open-source framework for creating scientific data pipelines using MATLAB or Python (or any mixture of the two) with a relational database and non-relational store as the backend. 
