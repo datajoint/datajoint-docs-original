@@ -68,9 +68,9 @@ The part table must declare the property ``master`` containing an object of the 
     %}
     classdef Segmentation < dj.Computed
         methods(Access=protected)
-            function makeTuples(self, key)
+            function make(self, key)
                 self.insert(key)
-                makeTuples(test.SegmentationRoi, key)
+                make(test.SegmentationRoi, key)
             end
         end
     end
@@ -93,7 +93,7 @@ The part table must declare the property ``master`` containing an object of the 
            master = test.Segmentation
        end
        methods
-           function makeTuples(self, key)
+           function make(self, key)
                image = fetch1(test.Image & key, 'image');
                [roi_pixels, roi_weighs] = mylib.segment(image);
                for roi=1:length(roi_pixels)

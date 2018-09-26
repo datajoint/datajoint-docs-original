@@ -19,7 +19,7 @@ Auto-populated tables are defined and queried exactly as other tables (See :ref:
 Their data definition follows the same :ref:`definition syntax <definition-syntax>`.
 
 For auto-populated tables, data should never be entered using :ref:`insert <insert>` directly.
-Instead these tables must define the callback method ``makeTuples(self, key)`` in MATLAB  ``_make_tuples(self, key)``.
+Instead these tables must define the callback method ``make(self, key)``.
 The ``insert`` method then can only be called on ``self`` inside this callback method.
 
 Consider the following example:
@@ -44,7 +44,7 @@ The class will be defined as follows.
 
     classdef FilteredImage < dj.Computed
         methods(Access=protected)
-            function makeTuples(self, key)
+            function make(self, key)
                 img = fetch1(test.Image & key, 'image');
                 key.filtered_image = myfilter(img);
                 self.insert(key)
