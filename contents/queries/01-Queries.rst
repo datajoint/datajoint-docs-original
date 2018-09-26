@@ -1,11 +1,11 @@
 .. progress: 12.0 50% Dimitri
 
-.. _queries: 
+.. _queries:
 
 Query Objects
 =============
 
-**Data queries** retrieve data from the database. 
+**Data queries** retrieve data from the database.
 
 A data query is formed from  a **query object**, a symbolic representation of the query that represents the query but does not yet contain the actual data.
 
@@ -17,7 +17,7 @@ For example, if  ``experiment.Session`` is a DataJoint table class, we can creat
 
 .. code:: matlab
 
-    query = experiment.Session; 
+    query = experiment.Session;
 
 .. matlab 1 end
 
