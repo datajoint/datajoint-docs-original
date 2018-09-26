@@ -23,7 +23,23 @@ Referential integrity
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 Referential integrity cannot exist without entity integrity: references to entity cannot be validated if the identity of the entity itself is not guaranteed.
 
-.. TODO: Example
+Referential integrity fails when a data management process allows new data to be entered that refers to other data missing from the database.
+For example, assume that each electrophysiology recording must refer to the mouse subject used during data collection.
+Perhaps an experimenter attempts to insert elphys data into the database that refers to a nonexistent mouse, due to a misspelling.
+A system guaranteeing referential integrity, such as DataJoint, will refuse the erroneous data.
+
+Enforcement of referential integrity does not stop with data ingest.
+:ref:`Deleting <delete>` data in DataJoint also deletes any dependent downstream data.
+Such cascading deletions are necessary to maintain referential integrity.
+Consider the deletion of a mouse subject without the deletion of the experimental sessions involving that mouse.
+A database that allows such deletion will break referential integrity, as the experimental sessions for the removed mouse depend on missing data.
+Any data management process that allows data to be deleted with no consideration of dependent data cannot maintain referential integrity.
+
+:ref:`Updating <update>` data already present in a database system also jeopardizes referential integrity.
+For this reason, the DataJoint workflow does not include updates to entities once they have been ingested into a pipeline.
+Allowing updates to upstream entities would break the referential integrity of any dependent data downstream.
+For example, permitting a user to change the name of a mouse subject would invalidate any experimental sessions that used that mouse, presuming the mouse name was part of the primary key.
+The proper way to change data in DataJoint is to delete the existing entities and to insert corrected ones, preserving referential integrity.
 
 Relationships
 -------------
@@ -38,3 +54,4 @@ Group integrity
 
 **Group integrity** denotes the guarantee made by the data management process that entities composed of multiple parts always appear in their complete form.
 Group integrity in DataJoint is formalized through the :ref:`master-part relationship <part>`.
+The master-part relationship has important implications for dependencies, because a downstream entity depending on a master entity set may be considered to depend on the parts as well.

@@ -6,4 +6,4 @@ Custom Key Source
 =================
 
 .. note::
-  Customization of the source of keys for the ``make_tuples`` calls in :ref:`autopopulation <auto>`.
+  Customization of the source of keys for the ``make`` calls in :ref:`autopopulation <auto>`.

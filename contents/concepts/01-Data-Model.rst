@@ -30,14 +30,14 @@ Popular implementations of the relational data model rely on the Structured Quer
 SQL comprises distinct sublanguages for schema definition, data manipulation, and data queries.
 SQL thoroughly dominates in the space of relational databases and is often conflated with the relational data model in casual discourse.
 Various terminologies are used to describe related concepts from the relational data model.
-Similar to spreadsheets, relations are often visualized as *tables* with attributes corresponding to *columns* and tuples corresponding to *rows*.
+Similar to spreadsheets, relations are often visualized as *tables* with attributes corresponding to *columns* and entities corresponding to *rows*.
 In particular, SQL uses the terms *table*, *column*, and *row*.
 
 Core Principles of the relational data model are:
 
 **Data representation.**
   Data are represented and manipulated in the form of relations.
-  A relation is a set (i.e. an unordered collection) of tuples of values for each of the respective named attributes of the relation.
+  A relation is a set (i.e. an unordered collection) of entities of values for each of the respective named attributes of the relation.
   Base relations represent stored data while derived relations are formed from base relations through query expressions.
   A collection of base relations with their attributes, domain constraints, uniqueness constraints, and referential constraints is called a schema.
 
@@ -46,14 +46,14 @@ Core Principles of the relational data model are:
   Attribute domains may not include relations, which keeps the data model flat, i.e. free of nested structures.
 
 **Uniqueness constraints.**
-  Tuples within relations are addressed by values of their attributes.
+  Entities within relations are addressed by values of their attributes.
   To identify and relate data elements, uniqueness constraints are imposed on subsets of attributes.
   Such subsets are then referred to as keys.
   One key in a relation is designated as the primary key used for referencing its elements.
 
 **Referential constraints.**
   Associations among data are established by means of referential constraints with the help of foreign keys.
-  A referential constraint on relation A referencing relation B allows only those tuples in A whose foreign key attributes match the key attributes of a tuple in B.
+  A referential constraint on relation A referencing relation B allows only those entities in A whose foreign key attributes match the key attributes of an entity in B.
 
 **Declarative queries.**
   Data queries are formulated through declarative, as opposed to imperative, specifications of sought results.

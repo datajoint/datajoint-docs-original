@@ -25,7 +25,7 @@ In MATLAB job reservations are activated by replacing ``populate`` calls with id
 In Python job reservations are activated by setting the keyword argument ``reserve_jobs=True`` in ``populate`` calls.
 .. python 1 end
 
-With job management enabled, the ``_make_tuples`` method of each table class will also consult the ``jobs`` table for reserved jobs as part of determining the next record to compute and will create an entry in the ``jobs`` table as part of the attempt to compute the resulting record for that key.
+With job management enabled, the ``make`` method of each table class will also consult the ``jobs`` table for reserved jobs as part of determining the next record to compute and will create an entry in the ``jobs`` table as part of the attempt to compute the resulting record for that key.
 If the operation is a success, the record is removed.
 In the event of failure, the job reservation entry is updated to indicate the details of failure.
 Using this simple mechanism, multiple processes can participate in the auto-population effort without duplicating computational effort, and any errors encountered during the course of the computation can be individually inspected to determine the cause of the issue.
