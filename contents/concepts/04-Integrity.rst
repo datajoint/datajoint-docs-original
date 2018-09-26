@@ -39,6 +39,7 @@ Any data management process that allows data to be deleted with no consideration
 For this reason, the DataJoint workflow does not include updates to entities once they have been ingested into a pipeline.
 Allowing updates to upstream entities would break the referential integrity of any dependent data downstream.
 For example, permitting a user to change the name of a mouse subject would invalidate any experimental sessions that used that mouse, presuming the mouse name was part of the primary key.
+The proper way to change data in DataJoint is to delete the existing entities and to insert corrected ones, preserving referential integrity.
 
 Relationships
 -------------
@@ -53,3 +54,4 @@ Group integrity
 
 **Group integrity** denotes the guarantee made by the data management process that entities composed of multiple parts always appear in their complete form.
 Group integrity in DataJoint is formalized through the :ref:`master-part relationship <part>`.
+The master-part relationship has important implications for dependencies, because a downstream entity depending on a master entity set may be considered to depend on the parts as well.
