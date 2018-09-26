@@ -13,8 +13,8 @@ DataJoint does not enforce the distinction between imported and computed tables:
 If populating a table requires access to external files such as raw storage that is not part of the database, the table is designated as **imported**.
 Otherwise it is **computed**.
 
-Make-tuples
------------
+Make
+----
 Auto-populated tables are defined and queried exactly as other tables (See :ref:`example`).
 Their data definition follows the same :ref:`definition syntax <definition-syntax>`.
 
@@ -68,13 +68,13 @@ The class will be defined as follows.
         filtered_image : longblob
         """
 
-        def _make_tuples(self, key):
+        def make(self, key):
             img = (test.Image & key).fetch1['image']
             key['filtered_image'] = myfilter(img)
             self.insert(key)
 .. python 1 end
 
-The ``make_tuples`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
+The ``make`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
 The key represents the partially filled tuple, usually already containing :ref:`primary key <primary-key>` attributes.
 
 Inside the callback, three things always happen:
@@ -83,11 +83,11 @@ Inside the callback, three things always happen:
 2. The missing attributes are computed and added to the fields already in ``key``.
 3. The entire tuple is inserted into ``self``.
 
-``make_tuples`` may populate multiple tuples in one call when ``key`` does not specify the entire primary key of the populated table.
+``make`` may populate multiple tuples in one call when ``key`` does not specify the entire primary key of the populated table.
 
 Populate
 --------
-The inherited ``populate`` method of ``dj.Imported`` and ``dj.Computed`` automatically calls ``make_tuples`` for every key for which the auto-populated table is missing data.
+The inherited ``populate`` method of ``dj.Imported`` and ``dj.Computed`` automatically calls ``make`` for every key for which the auto-populated table is missing data.
 
 The ``FilteredImage`` table can be populated as
 
@@ -112,7 +112,7 @@ The progress of long-running calls to ``populate()`` in datajoint-python can be 
 .. matlab 2 end
 
 Note that it is not necessary to specify which data needs to be computed.
-DataJoint will call ``make_tuples``, one-by-one, for every key in ``Image`` for which ``FilteredImage`` has not yet been computed.
+DataJoint will call ``make``, one-by-one, for every key in ``Image`` for which ``FilteredImage`` has not yet been computed.
 
 Chains of auto-populated tables form computational pipelines in DataJoint.
 
