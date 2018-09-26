@@ -1,24 +1,23 @@
-.. progress: 12.0 20% Dimitri
+.. progress: 12.0 50% Dimitri
 
 .. _queries: 
 
-Query Basics
-============
+Query objects
+=============
 
-DataJoint allows manipulating and previewing data in the form of
-**table objects** without retrieving any of the data into the workspace
-of the host language.
+**Data queries** retrieve data from the database. 
 
-In the simplest case, ``tab`` is a **simple table** representing data
-on the database. For example, we can instantiate the
-``experiment.Session`` table as
+A data query is formed from  a **query object**, a symbolic representation of the query that represents the query but does not yet contain the actual data.
+
+The simplest query object is an instance of a **table class**, representing the entire table.
+
+For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
 
 .. matlab 1 start
 
 .. code:: matlab
 
-    % matlab
-    tab = experiment.Session;       % in MATLAB, constructors do not require parentheses ()
+    query = experiment.Session; 
 
 .. matlab 1 end
 
@@ -26,24 +25,19 @@ on the database. For example, we can instantiate the
 
 .. code:: python
 
-    # MATLAB or Python
-    tab = experiment.Session
+    query  = experiment.Session()
 
 .. python 1 end
 
-More generally, ``tab`` may be a **table expression** constructed as an
-expression using :ref:`operators`.
+More generally, a query object may be formed as a **table expression** constructed by applying :ref:`operators` to instances of tables classes or to other table expressions.
 
-For example, the following table contains information about all
-experiments and scans for mouse 102 (excluding experiments with no
-scans):
+For example, the following table contains information about all experiments and scans for mouse 102 (excluding experiments with no scans):
 
 .. matlab 2 start
 
 .. code:: matlab
 
-    % matlab
-    tab = experiment.Session * experiment.Scan & 'animal_id = 102';
+    query = experiment.Session * experiment.Scan & 'animal_id = 102';
 
 .. matlab 2 end
 
@@ -51,25 +45,19 @@ scans):
 
 .. code:: python
 
-    # Python or MATLAB
     tab = experiment.Session * experiment.Scan & 'animal_id = 102'
 
-In Python, querying via attribute dictionaries is also permitted:
-
-::
-
-    # Python
-    tab = experiment.Session * experiment.Scan & {'animal_id': 102}
+Note that for brevity, query operators can be applied directly to class objects rather than instances objects.
 
 .. python 2 end
 
 You can preview the contents of the table in Python, Jupyter
+
 Notebook, or MATLAB by simply display the object:
 
 << FIGURE >>
 
-To "fetch" means to transfer the data represented by the table object on the database server
-into the workspace of the host language.
+Once the desired query object is formed, the query can be executed using its ref:`fetch` methods.
 
-All queries have the form ``tab.fetch()`` where ``tab`` is a table object and ``fetch`` is one of several variants of fetch methods, which
-are described in :ref:`fetch`.
+To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
+

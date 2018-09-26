@@ -5,13 +5,11 @@
 Input and Output
 ================
 
-Where do the data live?
--------------------------
+Where are my data?
+------------------
 
-The first question new users ask is "Where are my data?"
-
-Typically users asking this question are coming from the perspective of thinking about **data repositories**, collections of files and folders, and a (usually separate) collection of metadata - information about how the files were collected and what they contain.
-Lets address metadata first, since the answer there is easy: Everything goes in the database!
+New users often ask this question thinking of passive **data repositories** -- collections of files and folders and a separate collection of metadata -- information about how the files were collected and what they contain.
+Let's address metadata first, since the answer there is easy: Everything goes in the database!
 Any information about the experiment that would normally be stored in a lab notebook, in an Excel spreadsheet, or in a Word document is entered into tables in the database.
 These tables can accomodate numbers, strings, dates, or numerical arrays.
 The entry of metadata can be manual, or it can be an automated part of data acquisition (in this case the acquisition software itself is modified to enter information directly into the database).
@@ -34,27 +32,28 @@ When the workflow of cleaning and processing the data, extracting important feat
 Depending on the size of the raw files and the complexity of analysis, useful results may be available in a matter of minutes or hours.
 Because these results are stored in the database, they can be made available to anyone who is given access credentials for additional downstream analyses.
 
-Won't the database get too big if all my data is there?
+Won't the database get too big if all my data are there?
 -------------------------------------------------------
-
 Typically, this is not a problem.
-If you find that your database is getting larger than a few dozen TB, DataJoint provides transparent solutions for storing very large chunks of data (larger than the 4GB that can be natively stored as a LONGBLOB in MySQL).
-However, in many use scenarios even long time series or images can be stored directly in the database with little effect on performance.
+If you find that your database is getting larger than a few dozen TB, DataJoint provides transparent solutions for storing very large chunks of data (larger than the 4 GB that can be natively stored as a LONGBLOB in MySQL).
+However, in many scenarios even long time series or images can be stored directly in the database with little effect on performance.
 
-Why not just process the data and save it back to a file?
+Why not just process the data and save them back to a file?
 ---------------------------------------------------------
-
 There are two main advantages to storing results in the database.
-The first is data integrity. Because the relationships between data are enforced by the structure of the database, DataJoint ensures that the metadata in the upstream nodes always correctly describes the computed results downstream in the pipeline.
-If a specific experimental session is deleted, for example, all the data extracted from that session is automatically removed as well, so there is no chance of "orphaned" data.
+The first is data integrity. 
+Because the relationships between data are enforced by the structure of the database, DataJoint ensures that the metadata in the upstream nodes always correctly describes the computed results downstream in the pipeline.
+If a specific experimental session is deleted, for example, all the data extracted from that session are automatically removed as well, so there is no chance of "orphaned" data.
 Likewise, the database ensures that computations are atomic.
-This means that any computation performed on a data set is performed in an "all or none" fashion.
-Either all of the data is processed and inserted, or none at all.
-This ensures that there are no incomplete data. Neither of these important features of data integrity can be guaranteed by a file system.
+This means that any computation performed on a dataset is performed in an all-or-none fashion.
+Either all of the data are processed and inserted, or none at all.
+This ensures that there are no incomplete data. 
+Neither of these important features of data integrity can be guaranteed by a file system.
 
 The second advantage of storing intermediate results in a data pipeline is flexible access.
-Accessing arbitrarily complex subsets of the data can easily be acheived with DataJoints flexible query language.
-This is unlike the case where data is stored in files, where collecting the desired data requires trawling through the file hierarchy, finding and loading the files of interest, and selecting the parts of the data stored there are interesting for analysis.
+Accessing arbitrarily complex subsets of the data can be achieved with DataJoint's flexible query language.
+When data are stored in files, collecting the desired data requires trawling through the file hierarchy, finding and loading the files of interest, and selecting the interesting parts of the data.
+
 This brings us to the final important question:
 
 How do I get my data out?
