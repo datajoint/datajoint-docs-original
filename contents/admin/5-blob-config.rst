@@ -10,7 +10,7 @@ Relational databases excel at representing relationships between entities and st
 However, relational databases are not particularly well-suited for storing large continuous chunks of data such as images, signals, and movies.
 An attribute of type ``longblob`` can contain an object up to 4 GiB in size (after compression) but storing many such large objects may hamper the performance of queries on the entire table.
 A good rule of thumb is that objects over 10 MiB in size should not be put in the relational database.
-In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) may be more expensive than in cloud-hosted simple storage systems (e.g.  AWS S3).
+In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) may be more expensive than in cloud-hosted simple storage systems (e.g. AWS S3).
 
 DataJoint introduces a new datatype, ``external`` to store large data objects within its relational framework.
 

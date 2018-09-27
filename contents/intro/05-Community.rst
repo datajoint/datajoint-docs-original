@@ -5,10 +5,10 @@
 Community
 =========
 
-DataJoint was originally developed by working systems neuroscientists at Andreas Tolias' Lab at Baylor College of Medicine
-to meet the needs of their own research.
+DataJoint was originally developed by working systems neuroscientists at Andreas Tolias' Lab at Baylor College of Medicine to meet the needs of their own research.
 
-Below is a partial list of known DataJoint users.  Please let us know if you would like to add another lab or make a correction.
+Below is a partial list of known DataJoint users.
+Please let us know if you would like to add another lab or make a correction.
 
 1. `Tolias Lab <https://toliaslab.org>`_ (Andreas Tolias), Baylor College of Medicine
 #. `International Brain Laboratory <https://www.internationalbrainlab.com>`_

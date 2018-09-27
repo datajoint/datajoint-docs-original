@@ -7,7 +7,7 @@ Fetch
 
 Data queries in DataJoint comprise two distinct steps:
 
-1. Construct the ``query`` object to represent the required data using tables and :ref:`operators`. 
+1. Construct the ``query`` object to represent the required data using tables and :ref:`operators`.
 2. Fetch the data from ``query`` into the workspace of the host language -- described in this section.
 
 Fetch works somewhat differently between MATLAB and Python.
@@ -31,11 +31,11 @@ The three methods differ by the type and number of their returned variables.
 The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :ref:`datatypes` of the attributes.
 ``query.fetchn`` will enclose any attributes of  char and blob types in  `cell arrays <https://www.mathworks.com/help/matlab/cell-arrays.html>`_ whereas ``query.fetch1`` will unpack them.
 
-MATLAB has two alternative forms of invoking a method on an object: using the dot notation or passing the object as the first argument. 
+MATLAB has two alternative forms of invoking a method on an object: using the dot notation or passing the object as the first argument.
 The following two notations produce an equivalent result:
 
 .. code:: matlab
-  
+
     result = query.fetch(query, 'attr1')
     result = fetch(query, 'attr1')
 
@@ -62,8 +62,8 @@ The attribute names become the fieldnames of the ``struct``.
 
 .. code:: matlab
 
-    keys = query.fetch; 
-    keys = fetch(experiment.Session & experiment.Scan); 
+    keys = query.fetch;
+    keys = fetch(experiment.Session & experiment.Scan);
 
 Note that MATLAB allows calling functions without the parentheses ``()``.
 
@@ -77,10 +77,10 @@ With a single-quoted asterisk (``'*'``) as the input argument, the ``fetch`` com
 
     data = query.fetch('*');
 
-    data = fetch(experiment.Session & experiment.Scan, '*'); 
+    data = fetch(experiment.Session & experiment.Scan, '*');
 
 In some cases, the amount of data returned by fetch can be quite large.
-When ``query`` is a table object rather than a query expression, ``query.sizeOnDisk()`` reports the estimated size of the entire table.  
+When ``query`` is a table object rather than a query expression, ``query.sizeOnDisk()`` reports the estimated size of the entire table.
 It can be used to assess whether running ``query.fetch('*')`` would be wise.
 Please note that it is only currently possible to query the size of entire tables stored directly in the database .
 
@@ -88,7 +88,7 @@ As separate variables
 ~~~~~~~~~~~~~~~~~~~~~
 
 The ``fetch1`` and ``fetchn`` methods are used to retrieve each attribute into a separate variable.
-We need two different methods to tell MATLAB whether the result should be in array or scalar form; for numerical fields it does not matter (because scalars are still matrices in matlab) but non-uniform collections of values must be enclosed in cell arrays.  
+We need two different methods to tell MATLAB whether the result should be in array or scalar form; for numerical fields it does not matter (because scalars are still matrices in matlab) but non-uniform collections of values must be enclosed in cell arrays.
 
 ``query.fetch1`` is used when ``query``  contains exactly one entity, otherwise ``fetch1`` will raise an error.
 
@@ -189,7 +189,7 @@ As separate variables
 .. code:: python
 
     name, img = query.fetch1('name', 'image')  # when tab has exactly one entity
-    name, img = query.fetch('name', 'image')  # [name, ...] [image, ...] 
+    name, img = query.fetch('name', 'image')  # [name, ...] [image, ...]
 
 Primary key values
 ~~~~~~~~~~~~~~~~~~
@@ -197,7 +197,7 @@ Primary key values
 .. code:: python
 
     keydict = tab.fetch1("KEY")  # single key dict when tab has exactly one entity
-    keylist = tab.fetch("KEY")  # list of key dictionaries [{}, ...] 
+    keylist = tab.fetch("KEY")  # list of key dictionaries [{}, ...]
 
 Usage with Pandas
 ~~~~~~~~~~~~~~~~~
