@@ -5,7 +5,7 @@
 Part Tables
 ===========
 
-Often an entity in one relation is inseparably associated with a group of entities in another, forming a **master-part** relationship.
+Often an entity in one table is inseparably associated with a group of entities in another, forming a **master-part** relationship.
 
 Master-part relationships can form in any data tier but DataJoint observes them more strictly for auto-populated tables and become one of the most powerful data integrity principles in DataJoint, ensuring that all the parts of something appear all together or not at all.
 

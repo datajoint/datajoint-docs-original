@@ -29,9 +29,9 @@ For example, if  ``experiment.Session`` is a DataJoint table class, we can creat
 
 .. python 1 end
 
-More generally, a query object may be formed as a **table expression** constructed by applying :ref:`operators` to instances of tables classes or to other table expressions.
+More generally, a query object may be formed as an **expression** constructed by applying :ref:`operators` to instances of tables classes or to other expressions.
 
-For example, the following table contains information about all experiments and scans for mouse 102 (excluding experiments with no scans):
+For example, the following query retrieves information about all experiments and scans for mouse 102 (excluding experiments with no scans):
 
 .. matlab 2 start
 
@@ -51,13 +51,11 @@ Note that for brevity, query operators can be applied directly to class objects 
 
 .. python 2 end
 
-You can preview the contents of the table in Python, Jupyter
-
-Notebook, or MATLAB by simply display the object:
+You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB by simply displaying the object:
 
 << FIGURE >>
 
-Once the desired query object is formed, the query can be executed using its ref:`fetch` methods.
+Once the desired query object is formed, the query can be executed using its :ref:`fetch` methods.
 
 To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
 
