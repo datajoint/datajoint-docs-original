@@ -9,7 +9,7 @@ Restriction operators ``&`` and ``-``
 -------------------------------------
 
 The restriction operator ``A & cond`` selects the subset of entities from ``A`` that meet the condition ``cond``.
-The exclusion operator ``A - cond`` selects the complement of restriction, *i.e.* the subset of entities from  ``A`` that does not meet the condition ``cond``.
+The exclusion operator ``A - cond`` selects the complement of restriction, i.e. the subset of entities from  ``A`` that do not meet the condition ``cond``.
 
 .. figure:: ../_static/img/op-restrict.png
     :align: center
