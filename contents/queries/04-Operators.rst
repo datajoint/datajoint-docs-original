@@ -9,7 +9,7 @@ Operators
 The expressions themselves do not contain any data.
 They represent the desired data symbolically.
 
-Once a query is formed, the :ref:`fetch <fetc>` methods are used to bring the data into the local workspace.
+Once a query is formed, the :ref:`fetch <fetch>` methods are used to bring the data into the local workspace.
 Since the expressions are only symbolic representations, repeated ``fetch`` calls may yield different results as the state of the database is modified.
 
 DataJoint implements a complete algebra of operators on relations:
@@ -17,8 +17,8 @@ O
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
 ===================================  =======================================   =================================================================================
-:ref:`restriction`                   ``A & cond``                              The subset of table ``A`` that meets condition ``cond``
-:ref:`restriction`                   ``A - cond``  							  The subset of table ``A`` that does not meet condition ``cond``
+:ref:`restriction`                   ``A & cond``                              The subset of entities from table ``A`` that meets condition ``cond``
+:ref:`restriction`                   ``A - cond``  							  The subset of entities from table ``A`` that does not meet condition ``cond``
 :ref:`join`                          ``A * B``     							  Combines all matching information from ``A`` and ``B``
 :ref:`proj`                          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes
 :ref:`aggr`                          ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B``
