@@ -1,4 +1,4 @@
-.. progress 3.0 70% Dimitri
+.. progress: 3.0 70% Dimitri
 
 .. _normalization:
 

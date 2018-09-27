@@ -1,6 +1,6 @@
-.. progress: 18 0% Dimitri
+.. progress: 18 50% Austin
 
-.. _entity_integrity:
+.. _integrity:
 
 Entity integrity
 ----------------

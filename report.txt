@@ -1,5 +1,5 @@
-done         153.4
-remaining    386.8 
+done         164.5
+remaining    378.7 
 
 
               done  remaining
@@ -8,7 +8,7 @@ definition    39.9       90.1
 queries       22.6       79.4
 existing       0.0       72.0
 computation    6.0       64.0
-concepts       7.2       34.8
+concepts      18.3       26.7
 admin         34.5       19.5
 manipulation   2.8       17.7
 intro         20.8        6.9
@@ -18,20 +18,21 @@ setup         13.6        2.4
 
           done  remaining
 author                   
-Dimitri  102.6      257.6
-Austin    26.1      105.9
+Dimitri  104.7      240.5
+Austin    35.1      114.9
 Jake       7.2       16.8
 Chris     11.2        4.8
 Edgar      6.4        1.6 
 
 
      author       section                                           file  done  remaining
-57   Austin      existing             4-Altering-Populated-Pipelines.rst   0.0       24.0
+58   Austin      existing             4-Altering-Populated-Pipelines.rst   0.0       24.0
 25   Austin       queries                               03-Iteration.rst   0.0       12.0
-54   Austin      existing                          1-Virtual-Modules.rst   0.0       12.0
-56   Austin      existing                         3-Interoperability.rst   0.0       12.0
+55   Austin      existing                          1-Virtual-Modules.rst   0.0       12.0
+57   Austin      existing                         3-Interoperability.rst   0.0       12.0
 41   Austin    definition                        03-Table-Definition.rst   4.8       11.2
 45   Austin    definition                             07-Primary-Key.rst   3.0        9.0
+54   Austin      concepts                               04-Integrity.rst   9.0        9.0
 40   Austin    definition                         02-Creating-Tables.rst   3.6        8.4
 42   Austin    definition                       04-Definition-Syntax.rst   3.0        7.0
 48   Austin    definition                                 12-Example.rst   3.2        4.8
@@ -39,9 +40,8 @@ Edgar      6.4        1.6
 44   Austin    definition                               06-Datatypes.rst   4.5        1.5
 22    Chris         admin                                   6-backup.rst   4.0        4.0
 16    Chris         setup  02-DataJoint-Python-Windows-Install-Guide.rst   7.2        0.8
-55  Dimitri      existing                                2-Migration.rst   0.0       24.0
+56  Dimitri      existing                                2-Migration.rst   0.0       24.0
 47  Dimitri    definition                                     11-ERD.rst   2.4       21.6
-53  Dimitri      concepts                               04-Integrity.rst   0.0       18.0
 34  Dimitri   computation                                    02-make.rst   0.0       16.0
 46  Dimitri    definition                            10-Dependencies.rst   5.0       15.0
 27  Dimitri       queries                             05-Restriction.rst   1.4       12.6
@@ -71,6 +71,7 @@ Edgar      6.4        1.6
 31  Dimitri       queries                                   09-Union.rst   0.0        2.0
 19  Dimitri         admin                                 3-accounts.rst   4.5        1.5
 43  Dimitri    definition                              05-Data-Tiers.rst   1.5        1.5
+53  Dimitri      concepts                           03-Normalization.rst   2.1        0.9
 6   Dimitri         intro                                02-Teamwork.rst   5.4        0.6
 1   Dimitri  manipulation                             0-Manipulation.rst   0.2        0.2
 0   Dimitri                                                    index.rst   6.0        0.0
