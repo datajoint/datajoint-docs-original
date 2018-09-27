@@ -9,7 +9,13 @@ Restriction operators ``&`` and ``-``
 -------------------------------------
 
 The restriction operator ``A & cond`` selects the subset of relation ``A`` that meet the condition ``cond``.
-Its negated counterpart ``A - cond`` selects the subset of relation ``A`` that does not meet the condition ``cond``.
+The exclusion operator ``A - cond`` selects the complement of restriction, *i.e.* the subset of relation ``A`` that does not meet the condition ``cond``.
+
+.. figure:: ../_static/img/op-restrict.png
+    :align: center
+    :alt: Restriction and exclusion
+
+    Restriction and exclusion
 
 The condition ``cond`` may be one of the following:
 
