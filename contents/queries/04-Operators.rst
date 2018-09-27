@@ -13,7 +13,7 @@ Once a query is formed, the :ref:`fetch <fetch>` methods are used to bring the d
 Since the expressions are only symbolic representations, repeated ``fetch`` calls may yield different results as the state of the database is modified.
 
 DataJoint implements a complete algebra of operators on relations:
-O
+
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
 ===================================  =======================================   =================================================================================
@@ -36,13 +36,13 @@ In other systems, this concept applies to **base tables**, which store the data 
 DataJoint extends entity integrity to queries as well (see :ref:`queries`).
 
 1. **Purely relational**: Data are represented and manipulated in the form of tables representing entity sets.
-1. **Algebraic closure**: All operators operate on tables and yield tables.
+2. **Algebraic closure**: All operators operate on tables and yield tables.
    Thus query expressions may be used as operands in other expressions or may be assigned to variables to be used in other expressions.
-1. **Attributes are identified by names**:  All attributes of relations have well-defined names.
+3. **Attributes are identified by names**:  All attributes of relations have well-defined names.
    This includes queries resulting from operators.
-	 Operators use attribute names to determine how to perform the operation.
-	 The order of the attributes in tables is not significant.
-1. **All relations have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
+   Operators use attribute names to determine how to perform the operation.
+   The order of the attributes in tables is not significant.
+4. **All relations have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
    Operators use the information about the operands' primary keys to define the query.
 
 Matching entities
