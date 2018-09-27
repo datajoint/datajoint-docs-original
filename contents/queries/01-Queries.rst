@@ -62,9 +62,9 @@ Once the desired query object is formed, the query can be executed using its ref
 To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
 
 
-Normalization in Queries
-========================
+Normalization in queries
+------------------------
 
-Query objects adhere to entity :ref:`normalization` just like the stored tables do.  
-The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other. 
+Query objects adhere to entity :ref:`normalization` just like the stored tables do.
+The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other.
 The query :ref:`operators` are designed to keep the result normalized even in complex query expressions.
