@@ -15,18 +15,15 @@ Information about students, departments, courses, etc. are organized in multiple
   @schema
   class Student (dj.Manual):
     definition = """
-    student_id : int unsigned
-    # university ID
+    student_id      : int unsigned # university ID
     ---
     first_name      : varchar(40)
     last_name       : varchar(40)
     sex             : enum(’F’, ’M’, ’U’)
     date_of_birth   : date
-    home_address    : varchar(200)
-    # street address
+    home_address    : varchar(200) # street address
     home_city       : varchar(30)
-    home_state      : char(2)
-    # two-letter abbreviation
+    home_state      : char(2) # two-letter abbreviation
     home_zipcode    : char(10)
     home_phone      : varchar(14)
     """
@@ -34,13 +31,10 @@ Information about students, departments, courses, etc. are organized in multiple
   @schema
   class Department (dj.Manual):
     definition = """
-    dept : char(6)
-    # abbreviated department name, e.g. BIOL
+    dept         : char(6) # abbreviated department name, e.g. BIOL
     ---
-    dept_name    : varchar(200)
-    # full department name
-    dept_address : varchar(200)
-    # mailing address
+    dept_name    : varchar(200) # full department name
+    dept_address : varchar(200) # mailing address
     dept_phone   : varchar(14)
     """
 
@@ -50,21 +44,17 @@ Information about students, departments, courses, etc. are organized in multiple
     -> Student
     ---
     -> Department
-    declare_date :  date
-    # when student declared her major
+    declare_date :  date # when student declared her major
     """
 
   @schema
   class Course (dj.Manual):
     definition = """
     -> Department
-    course      : int unsigned
-    # course number, e.g. 1010
+    course      : int unsigned # course number, e.g. 1010
     ---
-    course_name : varchar(200)
-    # e.g. "Cell Biology"
-    credits     : decimal(3,1)
-    # number of credits earned by completing the course
+    course_name : varchar(200) # e.g. "Cell Biology"
+    credits     : decimal(3,1) # number of credits earned by completing the course
     """
 
   @schema
@@ -81,8 +71,7 @@ Information about students, departments, courses, etc. are organized in multiple
     -> Term
     section : char(1)
     ---
-    room  :  varchar(12)
-    # building and room code
+    room  :  varchar(12) # building and room code
     """
 
   @schema
@@ -124,18 +113,15 @@ File ``+university/Student.m``
 .. code-block:: matlab
 
   %{
-    student_id : int unsigned
-    # university ID
+    student_id      : int unsigned # university ID
     ---
     first_name      : varchar(40)
     last_name       : varchar(40)
     sex             : enum(’F’, ’M’, ’U’)
     date_of_birth   : date
-    home_address    : varchar(200)
-    # street address
+    home_address    : varchar(200) # street address
     home_city       : varchar(30)
-    home_state      : char(2)
-    # two-letter abbreviation
+    home_state      : char(2) # two-letter abbreviation
     home_zipcode    : char(10)
     home_phone      : varchar(14)
   %}
@@ -147,13 +133,10 @@ File ``+university/Department.m``
 .. code-block:: matlab
 
   %{
-    dept : char(6)
-    # abbreviated department name, e.g. BIOL
+    dept         : char(6) # abbreviated department name, e.g. BIOL
     ---
-    dept_name    : varchar(200)
-    # full department name
-    dept_address : varchar(200)
-    # mailing address
+    dept_name    : varchar(200) # full department name
+    dept_address : varchar(200) # mailing address
     dept_phone   : varchar(14)
   %}
   classdef Department < dj.Manual
@@ -167,8 +150,7 @@ File ``+university/StudentMajor.m``
     -> Student
     ---
     -> Department
-    declare_date :  date
-    # when student declared her major
+    declare_date :  date # when student declared her major
   %}
   classdef StudentMajor < dj.Manual
   end
@@ -179,13 +161,10 @@ File ``+university/Course.m``
 
   %{
     -> Department
-    course      : int unsigned
-    # course number, e.g. 1010
+    course      : int unsigned # course number, e.g. 1010
     ---
-    course_name : varchar(200)
-    # e.g. "Cell Biology"
-    credits     : decimal(3,1)
-    # number of credits earned by completing the course
+    course_name : varchar(200) # e.g. "Cell Biology"
+    credits     : decimal(3,1) # number of credits earned by completing the course
   %}
   classdef Course < dj.Manual
   end
@@ -210,8 +189,7 @@ File ``+university/Section.m``
     -> Term
     section : char(1)
     ---
-    room  :  varchar(12)
-    # building and room code
+    room  :  varchar(12) # building and room code
   %}
   classdef Section < dj.Manual
   end
