@@ -19,12 +19,26 @@ The exclusion operator ``A - cond`` selects the complement of restriction, i.e. 
 
 The condition ``cond`` may be one of the following:
 
+.. matlab 1 start
+
 * another table
-* a mapping (e.g. ``dict`` in Python or ``struct`` in MATLAB)
+* a mapping, or ``struct``
 * an expression in a character string
-* a collection of conditions (e.g. a ``list`` in Python or a cell array in MATLAB)
+* a collection of conditions as a ``struct`` or cell array
+* a boolean expression (``true`` or ``false``)
+
+.. matlab 1 end
+
+.. python 1 start
+
+* another table
+* a mapping, e.g. ``dict``
+* an expression in a character string
+* a collection of conditions, e.g. a ``list``
 * an ``AndList``
-* a boolean expression (``True`` or ``False`` in Python or ``true`` or ``false`` in MATLAB)
+* a boolean expression (``True`` or ``False``)
+
+.. python 1 end
 
 Restriction with a table
 ~~~~~~~~~~~~~~~~~~~~~~~~
