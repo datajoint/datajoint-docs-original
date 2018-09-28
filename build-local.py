@@ -3,28 +3,28 @@ import json
 import glob
 import shutil
 import subprocess
-import datetime
 
 matlab_dir = "../datajoint-matlab/"
 python_dir = "../datajoint-python/"
 
+if os.path.exists('build-local'):
+    shutil.rmtree('build-local')
 
-if not os.path.exists('build-local'):
-    os.makedirs('build-local')
-    if os.path.exists(matlab_dir):
-        print("local matlab doc exists - copying the folder over")
-        shutil.copytree(matlab_dir, 'build-local/datajoint-matlab')
-    else:
-        print("local matlab doc not found - cloning from the git repo")
-        subprocess.Popen(
-            ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build-local").wait()
-    if os.path.exists(python_dir):
-        print("local python doc exists - copying the folder over")
-        shutil.copytree(python_dir, 'build-local/datajoint-python')
-    else:
-        print("local python doc not found - cloning from the git repo")
-        subprocess.Popen(
-            ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build-local").wait()
+os.makedirs('build-local')
+if os.path.exists(matlab_dir):
+    print("local matlab doc exists - copying the folder over")
+    shutil.copytree(matlab_dir, 'build-local/datajoint-matlab')
+else:
+    print("local matlab doc not found - cloning from the git repo")
+    subprocess.Popen(
+        ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build-local").wait()
+if os.path.exists(python_dir):
+    print("local python doc exists - copying the folder over")
+    shutil.copytree(python_dir, 'build-local/datajoint-python')
+else:
+    print("local python doc not found - cloning from the git repo")
+    subprocess.Popen(
+        ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build-local").wait()
 
 
 def local_build(loc_comm=True, python_tag='', matlab_tag=''):
@@ -36,7 +36,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
             ["git", "clone", "git@github.com:mahos/testDocMain.git", "datajoint-docs"], cwd="build-local").wait()
     else:
         # Default - copy the local comm doc to the build folder
-        print("local common folder found - copying over for build")
+        print("using LOCAL common folder for build - copying over")
         # copy_contents("./", "build-local/datajoint-docs")
         
         shutil.copytree("./", "build-local/datajoint-docs", ignore=shutil.ignore_patterns('build-local'))
@@ -47,6 +47,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         print("lang, tag is " + lang + tag)
         if tag is not '':
             print('tag is not empty, tag is ' + tag)
+            # TODO non-existent tag still keeps on building with the latest lang content - needs to throw an error
             subprocess.Popen(["git", "checkout", tag],
                             cwd="build-local/datajoint-" + lang, stdout=subprocess.PIPE).wait()
             dst_build_folder = "build-local/" + lang + "-" + tag
@@ -136,7 +137,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
     for lang, tag in to_build.items():
         if tag:
             f.write('<li class="version-menu"><a href="/' + lang +
-                        "/" + tag + '">' + lang + "-" + tag + '</a></li>\n')
+                        "-" + tag + '">' + lang + "-" + tag + '</a></li>\n')
         else:
             f.write('<li class="version-menu"><a href="/' + lang +
                     "/" '">' + lang + '</a></li>\n')
