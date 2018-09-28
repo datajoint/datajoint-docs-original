@@ -5,7 +5,8 @@
 Example Schema
 ==============
 
-The example schema below
+The example schema below contains data for a university enrollment system.
+Information about students, departments, courses, etc. are organized in multiple tables.
 
 .. python 1 start
 
