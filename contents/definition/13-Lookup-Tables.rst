@@ -19,7 +19,7 @@ The table below is declared as a lookup table with its contents property provide
 .. figure:: ../_static/img/python-tiny.png
    :alt:
 
-.. code:: python
+.. code-block:: python
 
     @schema
     class User(dj.Lookup):
@@ -43,7 +43,7 @@ The table below is declared as a lookup table with its contents property provide
 
 File ``+lab/User.m``
 
-.. code:: matlab
+.. code-block:: matlab
 
     %{
         # users in the lab

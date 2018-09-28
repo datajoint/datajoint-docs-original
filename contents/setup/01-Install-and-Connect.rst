@@ -60,7 +60,7 @@ or upgrade
 
 Next configure the connection through DataJoint's ``config`` object:
 
-.. code:: python
+.. code-block:: python
 
     In [1]: import datajoint as dj
     DataJoint 0.4.9 (February 1, 2017)
@@ -68,7 +68,7 @@ Next configure the connection through DataJoint's ``config`` object:
 
 You may now set the database credentials:
 
-.. code:: python
+.. code-block:: python
 
     In [2]: dj.config['database.host'] = "alicelab.datajoint.io"
     In [3]: dj.config['database.user'] = "alice"
@@ -91,7 +91,7 @@ To change the password, the ``dj.set_password`` function will walk you through t
 
 After that, update the password in the configuration and save it as described above:
 
-.. code:: python
+.. code-block:: python
 
     dj.config['database.password'] = 'my#cool!new*psswrd'
     dj.config.save_local()   # or dj.config.save_global()

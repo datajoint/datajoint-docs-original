@@ -47,7 +47,7 @@ Then
 
 .. python 2 start
 
-.. code:: python
+.. code-block:: python
 
     # python
     tab.proj(animal='mouse', 'stimulus')
@@ -55,7 +55,7 @@ Then
 
 .. matlab 2 start
 
-.. code:: matlab
+.. code-block:: matlab
 
     % matlab
     tab.proj('mouse->animal', 'stimulus')
@@ -70,7 +70,7 @@ However,
 
 .. python 3 start
 
-.. code:: python
+.. code-block:: python
 
     # python
     tab * tab.proj(other='cell')
@@ -78,7 +78,7 @@ However,
 
 .. matlab 3 start
 
-.. code:: matlab
+.. code-block:: matlab
 
     % matlab
     tab * tab.proj('cell->other')
@@ -97,7 +97,7 @@ To obtain the new attribute ``depth`` computed as ``scan_z - surface_z`` and the
 
 .. python 4 start
 
-.. code:: python
+.. code-block:: python
 
     # python
     tab.proj(depth='scan_z-surface_z') & 'depth > 500'
@@ -105,7 +105,7 @@ To obtain the new attribute ``depth`` computed as ``scan_z - surface_z`` and the
 
 .. matlab 4 start
 
-.. code:: matlab
+.. code-block:: matlab
 
     % matlab
     tab.proj('scan_z-surface_z -> depth') & 'depth > 500'

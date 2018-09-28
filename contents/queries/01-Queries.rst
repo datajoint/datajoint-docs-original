@@ -15,7 +15,7 @@ For example, if  ``experiment.Session`` is a DataJoint table class, we can creat
 
 .. matlab 1 start
 
-.. code:: matlab
+.. code-block:: matlab
 
     query = experiment.Session;
 
@@ -23,7 +23,7 @@ For example, if  ``experiment.Session`` is a DataJoint table class, we can creat
 
 .. python 1 start
 
-.. code:: python
+.. code-block:: python
 
     query  = experiment.Session()
 
@@ -35,7 +35,7 @@ For example, the following query retrieves information about all experiments and
 
 .. matlab 2 start
 
-.. code:: matlab
+.. code-block:: matlab
 
     query = experiment.Session * experiment.Scan & 'animal_id = 102';
 
@@ -43,7 +43,7 @@ For example, the following query retrieves information about all experiments and
 
 .. python 2 start
 
-.. code:: python
+.. code-block:: python
 
     tab = experiment.Session * experiment.Scan & 'animal_id = 102'
 

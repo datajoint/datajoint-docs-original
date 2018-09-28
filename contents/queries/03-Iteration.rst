@@ -13,7 +13,7 @@ In DataJoint this is accomplished through iteration.
 
 In the simple MATLAB example below, iteration is used to display the names and values of the primary key attributes of each entity in the simple table or table expression ``tab``.
 
-.. code:: matlab
+.. code-block:: matlab
 
     for key = tab.fetch()'
         disp(key)
@@ -28,7 +28,7 @@ MATLAB iterates across columns, so the single column ``struct`` returned by ``fe
 
 In the simple Python example below, iteration is used to display the names and values of the attributes of each entity in the simple table or table expression ``tab``.
 
-.. code:: python
+.. code-block:: python
 
     for entity in tab:
       print(entity)
@@ -45,7 +45,7 @@ This can be particularly useful for tables containing large amounts of data in n
 The memory savings of the above syntax may not be worth the additional network overhead in all cases, such as for tables with little data stored as non-primary attributes.
 In the example below, DataJoint fetches all of the attributes of each entity in a single call and then iterates over the list of entities stored in memory.
 
-.. code:: python
+.. code-block:: python
 
     for entity in tab.fetch(as_dict=True):
       print(entity)

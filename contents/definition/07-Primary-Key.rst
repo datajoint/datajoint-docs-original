@@ -133,14 +133,14 @@ You must already have the values for ``animal_id`` and ``session`` in the dictio
 Then you can do the following.
 
 .. python 1 start
-.. code:: python
+.. code-block:: python
 
     key['scan_idx'] = (Scan & key).proj(next='max(scan_idx)+1').fetch1['next']
 
 .. python 1 end
 
 .. matlab 1 start
-.. code:: matlab
+.. code-block:: matlab
 
     key.scah_idx = fetch1(Scan & key, 'next=max(scan_idx)+1')
 
