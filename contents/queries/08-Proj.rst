@@ -13,14 +13,14 @@ Simple projection
 The simple projection selects a subset of attributes of the original table.
 However, the primary key attributes are always included.
 
-For example, let table ``tab`` have attributes **``mouse``**, **``session``**, ``session_date``, ``stimulus``, and ``behavior``.
-The primary key attributes are in bold.
+Using the :ref:`example schema <query-example>`, let table ``department`` have attributes **``dept``**, ``dept_name``, ``dept_address``, and ``dept_phone``.
+The primary key attribute is in bold.
 
-Then ``tab.proj()`` will have attributes **``mouse``** and **``session``**.
+Then ``department.proj()`` will have attribute **``dept``**.
 
-``tab.proj('mouse')`` will have attributes **``mouse``** and **``session``**.
+``department.proj('dept')`` will have attribute **``dept``**.
 
-``tab.proj('behavior', 'stimulus')`` will have attributes **``mouse``**, **``session``**, ``behavior``, and ``stimulus``.
+``department.proj('dept_name', 'dept_phone')`` will have attributes **``dept``**, ``dept_name``, and ``dept_phone``.
 
 Renaming
 --------

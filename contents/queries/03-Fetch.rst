@@ -16,6 +16,8 @@ Note that entities returned by ``fetch`` methods are not guaranteed to be sorted
 Furthermore, the order is not guaranteed to be the same in any two queries, and the contents of two identical queries may change between two sequential invocations unless they are wrapped in a transaction.
 Therefore, if you wish to fetch matching pairs of attributes, do so in one ``fetch`` call.
 
+The examples below are based on the :ref:`example schema <query-example>` for this part of the documentation.
+
 .. matlab 1 start
 
 MATLAB
@@ -47,10 +49,10 @@ For example, the two methods below are equivalent although the second method cre
 .. code-block:: matlab
 
     # Method 1
-    result = fetch(experiment.Session, '*');
+    result = fetch(university.Student, '*');
 
     # Method 2
-    query = experiment.Session;
+    query = university.Student;
     result = query.fetch()
 
 
@@ -63,7 +65,7 @@ The attribute names become the fieldnames of the ``struct``.
 .. code-block:: matlab
 
     keys = query.fetch;
-    keys = fetch(experiment.Session & experiment.Scan);
+    keys = fetch(university.Student & university.StudentMajor);
 
 Note that MATLAB allows calling functions without the parentheses ``()``.
 
@@ -77,7 +79,7 @@ With a single-quoted asterisk (``'*'``) as the input argument, the ``fetch`` com
 
     data = query.fetch('*');
 
-    data = fetch(experiment.Session & experiment.Scan, '*');
+    data = fetch(university.Student & university.StudentMajor, '*');
 
 In some cases, the amount of data returned by fetch can be quite large.
 When ``query`` is a table object rather than a query expression, ``query.sizeOnDisk()`` reports the estimated size of the entire table.
@@ -135,19 +137,19 @@ To sort the result, add the additional ``ORDER BY`` argument in ``fetch`` and ``
 
 .. code-block:: matlab
 
-    % retrieve field `notes` from experiment sessions
-    % performed by Alice, sorted by session date
-    notes = fetchn(experiment.Session & 'operator="alice"', 'note', ...
-         'ORDER BY session_date');
+    % retrieve field ``course_name`` from courses
+    % in the biology department, sorted by course number
+    notes = fetchn(university.Course & 'dept="BIOL"', 'course_name', ...
+         'ORDER BY course');
 
 The ORDER BY argument is passed directly to SQL and follows the same syntax as the `ORDER BY clause <https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html>`_
 
 Similarly, the LIMIT and OFFSET clauses can be used to limit the result to a subset of entities.
-For example, to return the top most recent sessions, one could do the following:
+For example, to return the most advanced courses, one could do the following:
 
 .. code-block:: matlab
 
-    s = fetch(experiment.Session, '*', 'ORDER BY session_date DESC LIMIT 5')
+    s = fetch(university.Course, '*', 'ORDER BY course DESC LIMIT 5')
 
 The limit clause is passed directly to SQL and follows the same `rules <https://dev.mysql.com/doc/refman/5.7/en/select.html>`_
 .. matlab 1 end
