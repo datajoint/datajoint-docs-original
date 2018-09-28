@@ -35,10 +35,13 @@ The condition ``cond`` may be one of the following:
 * a mapping, e.g. ``dict``
 * an expression in a character string
 * a collection of conditions, e.g. a ``list``
-* an ``AndList``
 * a boolean expression (``True`` or ``False``)
+* an ``AndList``
 
 .. python 1 end
+
+As the restriction and exclusion operators are complementary, queries can be constructed using both operators that will return the same results.
+For example, the queries ``A & cond`` and ``A - Not(cond)`` will return the same entities.
 
 Restriction with a table
 ~~~~~~~~~~~~~~~~~~~~~~~~
