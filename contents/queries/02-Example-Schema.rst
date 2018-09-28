@@ -5,9 +5,53 @@
 Example Schema
 ==============
 
+The example schema below
+
 .. python 1 start
 
 .. code-block:: python
+
+  @schema
+  class Student (dj.Manual):
+    definition = """
+    student_id : int unsigned
+    # university ID
+    ---
+    first_name      : varchar(40)
+    last_name       : varchar(40)
+    sex             : enum(’F’, ’M’, ’U’)
+    date_of_birth   : date
+    home_address    : varchar(200)
+    # street address
+    home_city       : varchar(30)
+    home_state      : char(2)
+    # two-letter abbreviation
+    home_zipcode    : char(10)
+    home_phone      : varchar(14)
+    """
+
+  @schema
+  class Department (dj.Manual):
+    definition = """
+    dept : char(6)
+    # abbreviated department name, e.g. BIOL
+    ---
+    dept_name    : varchar(200)
+    # full department name
+    dept_address : varchar(200)
+    # mailing address
+    dept_phone   : varchar(14)
+    """
+
+  @schema
+  class StudentMajor (dj.Manual):
+    definition = """
+    -> Student
+    ---
+    -> Department
+    declare_date :  date
+    # when student declared her major
+    """
 
   @schema
   class Course (dj.Manual):
@@ -73,6 +117,60 @@ Example Schema
 .. python 1 end
 
 .. matlab 1 start
+
+File ``+university/Student.m``
+
+.. code-block:: matlab
+
+  %{
+    student_id : int unsigned
+    # university ID
+    ---
+    first_name      : varchar(40)
+    last_name       : varchar(40)
+    sex             : enum(’F’, ’M’, ’U’)
+    date_of_birth   : date
+    home_address    : varchar(200)
+    # street address
+    home_city       : varchar(30)
+    home_state      : char(2)
+    # two-letter abbreviation
+    home_zipcode    : char(10)
+    home_phone      : varchar(14)
+  %}
+  classdef Student < dj.Manual
+  end
+
+File ``+university/Department.m``
+
+.. code-block:: matlab
+
+  %{
+    dept : char(6)
+    # abbreviated department name, e.g. BIOL
+    ---
+    dept_name    : varchar(200)
+    # full department name
+    dept_address : varchar(200)
+    # mailing address
+    dept_phone   : varchar(14)
+  %}
+  classdef Department < dj.Manual
+  end
+
+File ``+university/StudentMajor.m``
+
+.. code-block:: matlab
+
+  %{
+    -> Student
+    ---
+    -> Department
+    declare_date :  date
+    # when student declared her major
+  %}
+  classdef StudentMajor < dj.Manual
+  end
 
 File ``+university/Course.m``
 
