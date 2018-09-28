@@ -1,3 +1,5 @@
+.. progress: 1.0  90% Austin
+
 .. _query-example:
 
 Example Schema
