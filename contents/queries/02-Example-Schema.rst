@@ -251,3 +251,12 @@ File ``+university/Grade.m``
   end
 
 .. matlab 1 end
+
+Example schema ERD
+------------------
+
+.. figure:: ../_static/img/queries_example_erd.png
+    :align: center
+    :alt: university example schema
+
+    Example schema for a university database. Tables contain data on students, departments, courses, etc.
