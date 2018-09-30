@@ -13,14 +13,14 @@ Simple projection
 The simple projection selects a subset of attributes of the original table.
 However, the primary key attributes are always included.
 
-Using the :ref:`example schema <query-example>`, let table ``department`` have attributes **``dept``**, ``dept_name``, ``dept_address``, and ``dept_phone``.
+Using the :ref:`example schema <query-example>`, let table ``department`` have attributes **dept**, *dept_name*, *dept_address*, and *dept_phone*.
 The primary key attribute is in bold.
 
-Then ``department.proj()`` will have attribute **``dept``**.
+Then ``department.proj()`` will have attribute **dept**.
 
-``department.proj('dept')`` will have attribute **``dept``**.
+``department.proj('dept')`` will have attribute **dept**.
 
-``department.proj('dept_name', 'dept_phone')`` will have attributes **``dept``**, ``dept_name``, and ``dept_phone``.
+``department.proj('dept_name', 'dept_phone')`` will have attributes **dept**, *dept_name*, and *dept_phone*.
 
 Renaming
 --------
@@ -40,7 +40,7 @@ In MATLAB, renaming is done using a string:
 ``tab('old_attr->new_attr')``.
 .. matlab 1 end
 
-For example, let table ``tab`` have attributes **``mouse``**, **``session``**, ``session_date``, ``stimulus``, and ``behavior``.
+For example, let table ``tab`` have attributes **mouse**, **session**, *session_date*, *stimulus*, and *behavior*.
 The primary key attributes are in bold.
 
 Then
@@ -61,10 +61,10 @@ Then
     tab.proj('mouse->animal', 'stimulus')
 .. matlab 2 end
 
-will have attributes **``animal``**, **``session``**, and ``stimulus``.
+will have attributes **animal**, **session**, and *stimulus*.
 
 Renaming is often used to control the outcome of a :ref:`join`.
-For example, let ``tab`` have attributes **``slice``**, and **``cell``**.
+For example, let ``tab`` have attributes **slice**, and **cell**.
 Then ``tab * tab`` will simply yield ``tab``.
 However,
 
@@ -91,8 +91,8 @@ Calculations
 
 In addition to selecting or renaming attributes, ``proj`` can compute new attributes from existing ones.
 
-For example, let ``tab`` have attributes **``mouse``**, **``scan``**, ``surface_z``, and ``scan_z``.
-To obtain the new attribute ``depth`` computed as ``scan_z - surface_z`` and then to restrict to
+For example, let ``tab`` have attributes **mouse**, **scan**, *surface_z*, and *scan_z*.
+To obtain the new attribute *depth* computed as ``scan_z - surface_z`` and then to restrict to
 ``depth > 500``:
 
 .. python 4 start
