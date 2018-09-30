@@ -24,7 +24,7 @@ Information about students, departments, courses, etc. are organized in multiple
     ---
     first_name      : varchar(40)
     last_name       : varchar(40)
-    sex             : enum(’F’, ’M’, ’U’)
+    sex             : enum('F', 'M', 'U')
     date_of_birth   : date
     home_address    : varchar(200) # street address
     home_city       : varchar(30)
@@ -66,7 +66,7 @@ Information about students, departments, courses, etc. are organized in multiple
   class Term (dj.Manual):
     definition = """
     term_year : year
-    term      : enum(’Spring’, ’Summer’, ’Fall’)
+    term      : enum('Spring', 'Summer', 'Fall')
     """
 
   @schema
@@ -127,7 +127,7 @@ File ``+university/Student.m``
     ---
     first_name      : varchar(40)
     last_name       : varchar(40)
-    sex             : enum(’F’, ’M’, ’U’)
+    sex             : enum('F', 'M', 'U')
     date_of_birth   : date
     home_address    : varchar(200) # street address
     home_city       : varchar(30)
@@ -185,7 +185,7 @@ File ``+university/Term.m``
 
   %{
     term_year : year
-    term      : enum(’Spring’, ’Summer’, ’Fall’)
+    term      : enum('Spring', 'Summer', 'Fall')
   %}
   classdef Term < dj.Manual
   end
