@@ -10,6 +10,11 @@ Information about students, departments, courses, etc. are organized in multiple
 
 .. python 1 start
 
+.. warning::
+  Empty primary keys, such as in the ``CurrentTerm`` table, are not yet supported by DataJoint.
+  This feature will become available in a future release.
+  See `Issue #113 <https://github.com/datajoint/datajoint-python/issues/113>`_ for more information.
+
 .. code-block:: python
 
   @schema
@@ -107,6 +112,11 @@ Information about students, departments, courses, etc. are organized in multiple
 .. python 1 end
 
 .. matlab 1 start
+
+.. warning::
+  Empty primary keys, such as in the ``CurrentTerm`` table, are not yet supported by DataJoint.
+  This feature will become available in a future release.
+  See `Issue #127 <https://github.com/datajoint/datajoint-matlab/issues/127>`_ for more information.
 
 File ``+university/Student.m``
 
