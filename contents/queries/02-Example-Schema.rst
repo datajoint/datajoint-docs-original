@@ -147,9 +147,9 @@ File ``+university/StudentMajor.m``
 .. code-block:: matlab
 
   %{
-    -> Student
+    -> university.Student
     ---
-    -> Department
+    -> university.Department
     declare_date :  date # when student declared her major
   %}
   classdef StudentMajor < dj.Manual
@@ -160,7 +160,7 @@ File ``+university/Course.m``
 .. code-block:: matlab
 
   %{
-    -> Department
+    -> university.Department
     course      : int unsigned # course number, e.g. 1010
     ---
     course_name : varchar(200) # e.g. "Cell Biology"
@@ -185,8 +185,8 @@ File ``+university/Section.m``
 .. code-block:: matlab
 
   %{
-    -> Course
-    -> Term
+    -> university.Course
+    -> university.Term
     section : char(1)
     ---
     room  :  varchar(12) # building and room code
@@ -200,7 +200,7 @@ File ``+university/CurrentTerm.m``
 
   %{
     ---
-    -> Term
+    -> university.Term
   %}
   classdef CurrentTerm < dj.Manual
   end
@@ -210,8 +210,8 @@ File ``+university/Enroll.m``
 .. code-block:: matlab
 
   %{
-    -> Section
-    -> Student
+    -> university.Section
+    -> university.Student
   %}
   classdef Enroll < dj.Manual
   end
@@ -233,9 +233,9 @@ File ``+university/Grade.m``
 .. code-block:: matlab
 
   %{
-    -> Enroll
+    -> university.Enroll
     ---
-    -> LetterGrade
+    -> university.LetterGrade
   %}
   classdef Grade < dj.Manual
   end
