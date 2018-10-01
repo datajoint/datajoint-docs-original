@@ -1,4 +1,4 @@
-.. progress: 8.0 20% Dimitri
+.. progress: 8.0 50% Austin
 
 .. _join:
 
