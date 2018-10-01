@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 864 252" style="enable-background:new 0 0 864 252;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#93C4CA;}
+	.st1{fill:#8CBAC0;}
+	.st2{fill:#5BB6C8;}
+	.st3{fill:#87B3B9;}
+	.st4{fill:#54A7B7;}
+	.st5{fill:#FDBA54;}
+	.st6{fill:#57AEBE;}
+	.st7{opacity:0.25;fill:#93C4CA;}
+	.st8{fill:#EFB050;}
+	.st9{opacity:0.25;fill:#50A6B7;}
+	.st10{clip-path:url(#SVGID_2_);}
+	.st11{fill:none;}
+	.st12{fill:#FFFFFF;}
+	.st13{font-family:'Rajdhani-Semibold';}
+	.st14{font-size:150px;}
+	.st15{letter-spacing:2;}
+	.st16{clip-path:url(#SVGID_2_);fill:#93C4CA;}
+	.st17{clip-path:url(#SVGID_2_);fill:#5BB6C8;}
+	.st18{font-family:'Rajdhani-Medium';}
+	.st19{font-size:50px;}
+	.st20{letter-spacing:-1;}
+</style>
+<g id="XMLID_1_">
+	<g>
+		<polygon class="st0" points="243.3,48 243.3,113 186.9,145.6 186.9,80.5 		"/>
+		<polygon class="st1" points="130.6,48 130.6,48 130.6,48 186.9,15.4 243.3,48 186.9,80.5 		"/>
+		<polygon class="st2" points="186.9,145.6 186.9,210.7 130.6,243.2 130.6,178.1 		"/>
+		<polygon class="st0" points="186.9,145.6 186.9,145.6 130.6,113.1 130.6,113.1 		"/>
+		<polygon class="st3" points="186.9,80.5 186.9,145.6 130.6,113.1 		"/>
+		<polygon class="st3" points="130.6,48 186.9,80.5 130.6,113.1 130.6,113 130.6,48 		"/>
+		<polygon class="st4" points="186.9,145.6 130.6,178.1 130.6,178.1 130.6,176.2 130.6,113.1 130.6,113.1 		"/>
+		<polygon class="st5" points="130.6,113.1 130.6,113.1 74.2,80.5 74.3,80.5 130.6,48 130.6,113 130.6,113.1 130.6,113.1 		"/>
+		<polygon class="st3" points="130.6,113.1 130.6,113.1 130.6,113.1 		"/>
+		<polygon class="st6" points="130.6,178.1 130.6,243.2 74.2,210.7 74.2,145.9 74.2,145.6 		"/>
+		<polygon class="st4" points="130.6,178.1 130.6,178.1 74.2,145.6 130.6,113.1 130.6,113.1 130.6,176.2 		"/>
+		<polygon class="st4" points="130.6,113.1 130.6,113.1 130.6,113.1 		"/>
+		<polygon class="st5" points="130.6,113.1 74.2,145.6 74.2,80.9 74.2,80.5 		"/>
+		<polygon class="st7" points="130.6,178.1 130.6,113.1 187,80.5 187,145.6 		"/>
+		<polygon class="st8" points="130.6,48 74.3,80.5 17.9,48 17.9,48 17.9,48 74.3,15.4 		"/>
+		<polygon class="st9" points="130.6,113.1 130.6,178.1 74.3,145.6 74.3,80.8 74.3,80.5 74.3,80.5 		"/>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="271" y="8.8" width="579.3" height="233"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st10">
+		<rect x="271" y="23.8" class="st11" width="352" height="150"/>
+		<text transform="matrix(1 0 0 1 270.9585 129.2549)" class="st12 st13 st14 st15">Data</text>
+	</g>
+	<g class="st10">
+		<rect x="508.3" y="119.9" class="st11" width="352" height="150"/>
+		<text transform="matrix(1 0 0 1 508.292 225.3384)" class="st12 st13 st14 st15">Joint</text>
+	</g>
+	<rect x="560.5" y="81.1" class="st16" width="45.5" height="45.5"/>
+	<rect x="512.4" y="131.3" class="st17" width="45.5" height="45.5"/>
+	<g class="st10">
+		<rect x="606" y="78.3" class="st11" width="293" height="51"/>
+		<text transform="matrix(1 0 0 1 606.042 113.4561)" class="st2 st18 st19 st20">open source</text>
+	</g>
+</g>
+</svg>
