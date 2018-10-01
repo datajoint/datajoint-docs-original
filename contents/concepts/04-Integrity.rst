@@ -58,7 +58,7 @@ Group integrity
 ---------------
 
 **Group integrity** denotes the guarantee made by the data management process that entities composed of multiple parts always appear in their complete form.
-Group integrity in DataJoint is formalized through the :ref:`master-part`.
+Group integrity in DataJoint is formalized through :ref:`master-part <master-part>` relationships.
 The master-part relationship has important implications for dependencies, because a downstream entity depending on a master entity set may be considered to depend on the parts as well.
 
 

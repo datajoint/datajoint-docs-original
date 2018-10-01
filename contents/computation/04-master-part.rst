@@ -2,7 +2,7 @@
 
 .. _master-part:
 
-Master-part relationship
+Master-Part Relationship
 ========================
 
 Often an entity in one table is inseparably associated with a group of entities in another, forming a **master-part** relationship.
