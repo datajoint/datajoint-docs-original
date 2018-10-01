@@ -117,6 +117,23 @@ DataJoint will call ``make``, one-by-one, for every key in ``Image`` for which `
 
 Chains of auto-populated tables form computational pipelines in DataJoint.
 
+The ``populate`` method accepts a number of optional arguments that provide more features and allow greater control over the method's behavior.
+
+- ``restrictions`` - A list of restrictions, each restricting as ``tab.key_source - target.proj()``.
+- ``suppress_erros`` - If ``True``, errors will not be reported.
+  Defaults to ``False``.
+- ``return_exception_objects`` - If ``True``, error objects are returned instead of error messages.
+  Defaults to ``False``.
+- ``reserve_jobs`` - If ``True``, reserves job to populate asynchronously.
+  Defaults to ``False``.
+- ``order`` - The order of execution, either ``"original"``, ``"reverse"``, or ``"random"``.
+  Defaults to ``"original"``.
+- ``display_progress`` - If ``True``, displays a progress bar.
+  Defaults to ``False``.
+- ``limit`` - If not ``None``, checks at most this number of keys.
+  Defaults to ``None``.
+- ``max_calls`` - If not ``None``, populates at most this many keys.
+  Defaults to ``None``.
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
