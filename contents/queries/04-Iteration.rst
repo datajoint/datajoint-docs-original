@@ -1,4 +1,4 @@
-.. progress: 12.0 0% Austin
+.. progress: 12.0 50% Austin
 
 .. _iteration:
 
@@ -31,7 +31,7 @@ In the simple Python example below, iteration is used to display the names and v
 .. code-block:: python
 
     for entity in tab:
-      print(entity)
+        print(entity)
 
 This example illustrates the function of the iterator: DataJoint iterates through the whole table expression, returning the entire entity during each step.
 In this case, each entity will be returned as a ``dict`` containing all attributes.
@@ -48,6 +48,6 @@ In the example below, DataJoint fetches all of the attributes of each entity in 
 .. code-block:: python
 
     for entity in tab.fetch(as_dict=True):
-      print(entity)
+        print(entity)
 
 .. python 1 end

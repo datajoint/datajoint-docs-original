@@ -69,7 +69,7 @@ Again, DataJoint users do not need to know these conventions, but database admin
 Part tables
 -----------
 
-:ref:`Part tables <part>` do not have their own tier.
+:ref:`Part tables <master-part>` do not have their own tier.
 Instead, they share the same tier as their master table.
 The prefix for part tables also differs from the other tiers.
 They are prefixed by the name of their master table, separated by two underscores.

@@ -1,4 +1,4 @@
-.. progress: 18.0 50% Dimitri
+.. progress: 12.0 70% Dimitri
 
 .. _operators:
 
