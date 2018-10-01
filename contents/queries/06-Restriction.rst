@@ -37,6 +37,7 @@ The condition ``cond`` may be one of the following:
 * a collection of conditions, e.g. a ``list``
 * a boolean expression (``True`` or ``False``)
 * an ``AndList``
+* a ``Not`` object
 
 .. python 1 end
 
@@ -44,7 +45,7 @@ As the restriction and exclusion operators are complementary, queries can be con
 For example, the queries ``A & cond`` and ``A - Not(cond)`` will return the same entities.
 
 Restriction with a table
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 When restricting table ``A`` with another table ``A & B``, the two relations must be **join-compatible**.
 The result will contain all entities from ``A`` for which there exist a matching entity in ``B``.
@@ -73,6 +74,36 @@ Restriction with an empty table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |Restriction with an empty table| Difference |Difference from an empty table|
+
+Restriction by a mapping
+------------------------
+
+
+
+Restriction by a string
+-----------------------
+
+
+
+Restriction by a collection
+---------------------------
+
+
+
+Restriction by a Boolean expression
+-----------------------------------
+
+
+
+Restriction by an ``AndList``
+-----------------------------
+
+
+
+Restriction by a ``Not`` object
+-------------------------------
+
+
 
 .. |Difference from another table| image:: ../_static/img/diff-example1.png
 .. |Difference from another table with no common attributes| image:: ../_static/img/diff-example2.png
