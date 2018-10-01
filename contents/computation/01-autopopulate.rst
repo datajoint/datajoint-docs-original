@@ -133,7 +133,7 @@ The ``populate`` method accepts a number of optional arguments that provide more
 - ``limit`` - If not ``None``, checks at most this number of keys.
   Defaults to ``None``.
 - ``max_calls`` - If not ``None``, populates at most this many keys.
-  Defaults to ``None``.
+  Defaults to ``None``, which means no limit.
 
 Progress
 --------

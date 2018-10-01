@@ -97,13 +97,16 @@ Thus, restriction of table ``A`` by a collection will return all entities in ``A
 Restriction by a Boolean expression
 -----------------------------------
 
-
+``A & True`` is equivalent to ``A``.
+``A & False`` is empty.
 
 Restriction by an ``AndList``
 -----------------------------
 
 The special function ``And`` represents logical conjunction (logical AND).
 Restriction of table ``A`` by an ``AndList`` will return all entities in ``A`` that meet *all* of the conditions in the list.
+``A & AndList([c1, c2, c3])`` is equivalent to ``A & c1 & c2 & c3``.
+
 
 Restriction by a ``Not`` object
 -------------------------------
