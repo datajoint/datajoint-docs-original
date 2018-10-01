@@ -78,17 +78,21 @@ Restriction with an empty table
 Restriction by a mapping
 ------------------------
 
-
+A key-value mapping may be used as an operand in restriction.
+For each key that is an attribute in ``A``, the paired value is treated as part of an equality condition.
+Any key-value pairs without corresponding attributes in ``A`` are ignored.
 
 Restriction by a string
 -----------------------
 
-
+Restriction can be performed when ``cond`` is an explicit condition on attribute values, expressed as a string.
+Such conditions may include arithmetic operations, functions, range tests, etc.
 
 Restriction by a collection
 ---------------------------
 
-
+When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
+Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
 
 Restriction by a Boolean expression
 -----------------------------------
@@ -98,12 +102,13 @@ Restriction by a Boolean expression
 Restriction by an ``AndList``
 -----------------------------
 
-
+The special function ``And`` represents logical conjunction (logical AND).
+Restriction of table ``A`` by an ``AndList`` will return all entities in ``A`` that meet *all* of the conditions in the list.
 
 Restriction by a ``Not`` object
 -------------------------------
 
-
+The special function ``Not`` represents logical negation, such that ``A & Not(cond)`` is equivalent to ``A \ cond``.
 
 .. |Difference from another table| image:: ../_static/img/diff-example1.png
 .. |Difference from another table with no common attributes| image:: ../_static/img/diff-example2.png
