@@ -25,7 +25,7 @@ The condition ``cond`` may be one of the following:
 * a mapping, or ``struct``
 * an expression in a character string
 * a collection of conditions as a ``struct`` or cell array
-* a boolean expression (``true`` or ``false``)
+* a Boolean expression (``true`` or ``false``)
 
 .. matlab 1 end
 
@@ -35,7 +35,7 @@ The condition ``cond`` may be one of the following:
 * a mapping, e.g. ``dict``
 * an expression in a character string
 * a collection of conditions, e.g. a ``list``
-* a boolean expression (``True`` or ``False``)
+* a Boolean expression (``True`` or ``False``)
 * an ``AndList``
 * a ``Not`` object
 
