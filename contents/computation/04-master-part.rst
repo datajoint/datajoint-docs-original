@@ -1,9 +1,9 @@
-.. progress: 12.0 10% Dimitri
+.. progress: 12.0 30% Dimitri
 
-.. _part:
+.. _master-part:
 
-Part Tables
-===========
+Master-Part Relationship
+========================
 
 Often an entity in one table is inseparably associated with a group of entities in another, forming a **master-part** relationship.
 

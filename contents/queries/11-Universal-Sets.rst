@@ -1,4 +1,4 @@
-.. progress: 10.0 0% Dimitri
+.. progress: 10.0 50% Austin
 
 .. _universal-sets:
 
@@ -19,14 +19,13 @@ A virtual table can fill the role of the nonexistent base table, allowing querie
 .. code-block:: python
 
   # All home cities of students
-  dj.U(home_city, home_state) & Student
+  dj.U('home_city', 'home_state') & Student
   # Total number of students from each city
-  dj.U(home_city, home_state).aggr(Student, n: count())
+  dj.U('home_city', 'home_state').aggr(Student, n: count())
   # Total number of students from each state
-  U(home_state).aggr(Student, n: count())
+  U('home_state').aggr(Student, n: count())
   # Total number of students in the database
   U().aggr(Student, n: count())
-
 
 .. python 1 end
 
@@ -35,11 +34,11 @@ A virtual table can fill the role of the nonexistent base table, allowing querie
 .. code-block:: matlab
 
   % All home cities of students
-  dj.U(home_city, home_state) & university.Student
+  dj.U('home_city', 'home_state') & university.Student
   % Total number of students from each city
-  dj.U(home_city, home_state).aggr(university.Student, n: count())
+  dj.U('home_city', 'home_state').aggr(university.Student, n: count())
   % Total number of students from each state
-  U(home_state).aggr(university.Student, n: count())
+  U('home_state').aggr(university.Student, n: count())
   % Total number of students in the database
   U().aggr(university.Student, n: count())
 

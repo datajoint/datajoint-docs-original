@@ -5,24 +5,24 @@
 Auto-populate
 =============
 
+Auto-populated tables are used to define, execute, and coordinate computations in a DataJoint pipeline.
+
 Tables in the initial portions of the pipeline are populated from outside the pipeline.
-In subsequent steps, computations are performed automatically by the DataJoint pipeline.
+In subsequent steps, computations are performed automatically by the DataJoint pipeline in auto-populated tables.
 
 Computed tables belong to one of the two auto-populated :ref:`data tiers <tiers>`: ``dj.Imported`` and ``dj.Computed``.
 DataJoint does not enforce the distinction between imported and computed tables: the difference is purely semantic, a convention for developers to follow.
 If populating a table requires access to external files such as raw storage that is not part of the database, the table is designated as **imported**.
 Otherwise it is **computed**.
 
-Make
-----
 Auto-populated tables are defined and queried exactly as other tables (See :ref:`example`).
 Their data definition follows the same :ref:`definition syntax <definition-syntax>`.
 
+Make
+----
 For auto-populated tables, data should never be entered using :ref:`insert <insert>` directly.
 Instead these tables must define the callback method ``make(self, key)``.
 The ``insert`` method then can only be called on ``self`` inside this callback method.
-
-Consider the following example:
 
 Imagine that there is a table ``test.Image`` that contains 2D grayscale images in its ``image`` attribute.
 Let us define the computed table, ``test.FilteredImage`` that filters the image in some way and saves the result in its ``filtered_image`` attribute.
@@ -51,6 +51,7 @@ The class will be defined as follows.
             end
         end
     end
+
 .. matlab 1 end
 
 .. python 1 start

@@ -1,4 +1,4 @@
-.. progress: 2.0 0% Dimitri
+.. progress: 2.0 20% Austin
 
 .. _union:
 

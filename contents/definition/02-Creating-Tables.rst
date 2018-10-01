@@ -16,7 +16,7 @@ Users never need to see the database directly; they only interact with data in t
 Data tiers
 ^^^^^^^^^^
 The table class must inherit from one of the following superclasses to indicate its data tier: ``dj.Lookup``, ``dj.Manual``, ``dj.Imported``, ``dj.Computed``, or ``dj.Part``.
-See :ref:`tiers` and :ref:`part`.
+See :ref:`tiers` and :ref:`master-part`.
 
 Defining a table
 ----------------

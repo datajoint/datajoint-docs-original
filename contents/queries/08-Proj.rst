@@ -1,4 +1,4 @@
-.. progress: 12.0 25%  Dimitri
+.. progress: 12.0 60% Austin
 
 .. _proj:
 
@@ -32,6 +32,7 @@ Any attribute can be renamed, including primary key attributes.
 
 In Python, this is done using keyword arguments:
 ``tab.proj(new_attr='old_attr')``
+
 .. python 1 end
 
 .. matlab 1 start
@@ -51,6 +52,7 @@ Then
 
     # python
     tab.proj(animal='mouse', 'stimulus')
+
 .. python 2 end
 
 .. matlab 2 start
@@ -59,6 +61,7 @@ Then
 
     % matlab
     tab.proj('mouse->animal', 'stimulus')
+
 .. matlab 2 end
 
 will have attributes **animal**, **session**, and *stimulus*.
@@ -74,6 +77,7 @@ However,
 
     # python
     tab * tab.proj(other='cell')
+
 .. python 3 end
 
 .. matlab 3 start
@@ -82,6 +86,7 @@ However,
 
     % matlab
     tab * tab.proj('cell->other')
+
 .. matlab 3 end
 
 yields all ordered pairs of all cells in each slice.
@@ -101,6 +106,7 @@ To obtain the new attribute *depth* computed as ``scan_z - surface_z`` and then 
 
     # python
     tab.proj(depth='scan_z-surface_z') & 'depth > 500'
+
 .. python 4 end
 
 .. matlab 4 start
@@ -109,6 +115,7 @@ To obtain the new attribute *depth* computed as ``scan_z - surface_z`` and then 
 
     % matlab
     tab.proj('scan_z-surface_z -> depth') & 'depth > 500'
+
 .. matlab 4 end
 
 Calculations are passed to SQL and are not parsed by DataJoint.

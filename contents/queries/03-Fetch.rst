@@ -1,4 +1,4 @@
-.. progress: 6.0  20% Dimitri
+.. progress: 6.0 70% Dimitri
 
 .. _fetch:
 

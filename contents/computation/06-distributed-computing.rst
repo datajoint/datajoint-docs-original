@@ -17,12 +17,14 @@ When ``dj.Computed`` tables are auto-populated using job reservation, a record o
 
 |matlab|
 In MATLAB job reservations are activated by replacing ``populate`` calls with identical ``parpopulate`` calls.
+
 .. matlab 1 end
 
 .. python 1 start
 
 |python|
 In Python job reservations are activated by setting the keyword argument ``reserve_jobs=True`` in ``populate`` calls.
+
 .. python 1 end
 
 With job management enabled, the ``make`` method of each table class will also consult the ``jobs`` table for reserved jobs as part of determining the next record to compute and will create an entry in the ``jobs`` table as part of the attempt to compute the resulting record for that key.
@@ -31,8 +33,6 @@ In the event of failure, the job reservation entry is updated to indicate the de
 Using this simple mechanism, multiple processes can participate in the auto-population effort without duplicating computational effort, and any errors encountered during the course of the computation can be individually inspected to determine the cause of the issue.
 
 As part of DataJoint, the jobs table can be queried using native DataJoint syntax. For example, to list the jobs currently being run:
-
-.. todo? : provide example schema here or later?
 
 .. python 2 start
 
@@ -109,6 +109,7 @@ For example, given the above table, errors can be inspected in Python as follows
 
 This particular error occurred when processing the record with ID ``2``, resulted from a `KeyboardInterrupt`, and has no additional
 error trace.
+
 .. python 4 end
 
 .. todo?: might be 'interesting' to rerun a given error job -
