@@ -45,6 +45,8 @@ DataJoint extends entity integrity to queries as well (see :ref:`queries`).
 4. **All relations have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
    Operators use the information about the operands' primary keys to define the query.
 
+.. _matching:
+
 Matching entities
 -----------------
 

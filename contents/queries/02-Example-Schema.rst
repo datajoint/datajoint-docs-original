@@ -10,6 +10,11 @@ Information about students, departments, courses, etc. are organized in multiple
 
 .. python 1 start
 
+.. warning::
+  Empty primary keys, such as in the ``CurrentTerm`` table, are not yet supported by DataJoint.
+  This feature will become available in a future release.
+  See `Issue #113 <https://github.com/datajoint/datajoint-python/issues/113>`_ for more information.
+
 .. code-block:: python
 
   @schema
@@ -19,7 +24,7 @@ Information about students, departments, courses, etc. are organized in multiple
     ---
     first_name      : varchar(40)
     last_name       : varchar(40)
-    sex             : enum(’F’, ’M’, ’U’)
+    sex             : enum('F', 'M', 'U')
     date_of_birth   : date
     home_address    : varchar(200) # street address
     home_city       : varchar(30)
@@ -61,7 +66,7 @@ Information about students, departments, courses, etc. are organized in multiple
   class Term (dj.Manual):
     definition = """
     term_year : year
-    term      : enum(’Spring’, ’Summer’, ’Fall’)
+    term      : enum('Spring', 'Summer', 'Fall')
     """
 
   @schema
@@ -108,6 +113,11 @@ Information about students, departments, courses, etc. are organized in multiple
 
 .. matlab 1 start
 
+.. warning::
+  Empty primary keys, such as in the ``CurrentTerm`` table, are not yet supported by DataJoint.
+  This feature will become available in a future release.
+  See `Issue #127 <https://github.com/datajoint/datajoint-matlab/issues/127>`_ for more information.
+
 File ``+university/Student.m``
 
 .. code-block:: matlab
@@ -117,7 +127,7 @@ File ``+university/Student.m``
     ---
     first_name      : varchar(40)
     last_name       : varchar(40)
-    sex             : enum(’F’, ’M’, ’U’)
+    sex             : enum('F', 'M', 'U')
     date_of_birth   : date
     home_address    : varchar(200) # street address
     home_city       : varchar(30)
@@ -147,9 +157,9 @@ File ``+university/StudentMajor.m``
 .. code-block:: matlab
 
   %{
-    -> Student
+    -> university.Student
     ---
-    -> Department
+    -> university.Department
     declare_date :  date # when student declared her major
   %}
   classdef StudentMajor < dj.Manual
@@ -160,7 +170,7 @@ File ``+university/Course.m``
 .. code-block:: matlab
 
   %{
-    -> Department
+    -> university.Department
     course      : int unsigned # course number, e.g. 1010
     ---
     course_name : varchar(200) # e.g. "Cell Biology"
@@ -175,7 +185,7 @@ File ``+university/Term.m``
 
   %{
     term_year : year
-    term      : enum(’Spring’, ’Summer’, ’Fall’)
+    term      : enum('Spring', 'Summer', 'Fall')
   %}
   classdef Term < dj.Manual
   end
@@ -185,8 +195,8 @@ File ``+university/Section.m``
 .. code-block:: matlab
 
   %{
-    -> Course
-    -> Term
+    -> university.Course
+    -> university.Term
     section : char(1)
     ---
     room  :  varchar(12) # building and room code
@@ -200,7 +210,7 @@ File ``+university/CurrentTerm.m``
 
   %{
     ---
-    -> Term
+    -> university.Term
   %}
   classdef CurrentTerm < dj.Manual
   end
@@ -210,8 +220,8 @@ File ``+university/Enroll.m``
 .. code-block:: matlab
 
   %{
-    -> Section
-    -> Student
+    -> university.Section
+    -> university.Student
   %}
   classdef Enroll < dj.Manual
   end
@@ -233,11 +243,20 @@ File ``+university/Grade.m``
 .. code-block:: matlab
 
   %{
-    -> Enroll
+    -> university.Enroll
     ---
-    -> LetterGrade
+    -> university.LetterGrade
   %}
   classdef Grade < dj.Manual
   end
 
 .. matlab 1 end
+
+Example schema ERD
+------------------
+
+.. figure:: ../_static/img/queries_example_erd.png
+    :align: center
+    :alt: university example schema
+
+    Example schema for a university database. Tables contain data on students, departments, courses, etc.
