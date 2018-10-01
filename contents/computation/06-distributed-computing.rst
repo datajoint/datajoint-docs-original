@@ -5,6 +5,9 @@
 Distributed computing
 =====================
 
+Job reservations
+----------------
+
 Running ``populate`` on the same table on multiple computers will causes them to attempt to compute the same data all at once.
 This will not corrupt the data since DataJoint will reject any duplication.
 One solution could be to cause the different computing nodes to populate the tables in random order.
@@ -143,6 +146,19 @@ For example, in Python:
 
 .. todo: how to make the 'dj-jobs.py' example script available? listing?
 
+Managing connections
+--------------------
+
+The DataJoint method ``dj.kill`` allows for viewing and termination of database connections.
+Restrictive conditions can be used to identify specific connections.
+Restrictions are specified as strings and can involve any of the attributes of ``information_schema.processlist``: ``ID``, ``USER``, ``HOST``, ``DB``, ``COMMAND``, ``TIME``, ``STATE``, and ``INFO``.
+
+Examples:
+
+  ``dj.kill('HOST LIKE "%compute%"')`` lists only connections from hosts containing "compute".
+  ``dj.kill('TIME > 600')`` lists only connections older than 10 minutes.
+
+A list of connections meeting the restriction conditions (if present) are presented to the user, along with the option to kill processes.
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
