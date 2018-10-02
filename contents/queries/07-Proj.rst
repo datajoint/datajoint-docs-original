@@ -29,7 +29,7 @@ In addition to selecting attributes, ``proj`` can rename them.
 Any attribute can be renamed, including primary key attributes.
 
 
-.. include: 07-Proj_lang1.rst
+.. include:: 07-Proj_lang1.rst
 
 For example, let table ``tab`` have attributes **``mouse``**, **``session``**, ``session_date``, ``stimulus``, and ``behavior``.
 The primary key attributes are in bold.
@@ -37,7 +37,7 @@ The primary key attributes are in bold.
 Then
 
 
-.. include: 07-Proj_lang2.rst
+.. include:: 07-Proj_lang2.rst
 
 will have attributes **``animal``**, **``session``**, and ``stimulus``.
 
@@ -47,7 +47,7 @@ Then ``tab * tab`` will simply yield ``tab``.
 However,
 
 
-.. include: 07-Proj_lang3.rst
+.. include:: 07-Proj_lang3.rst
 
 yields all ordered pairs of all cells in each slice.
 
@@ -61,7 +61,7 @@ To obtain the new attribute ``depth`` computed as ``scan_z - surface_z`` and the
 ``depth > 500``:
 
 
-.. include: 07-Proj_lang4.rst
+.. include:: 07-Proj_lang4.rst
 
 Calculations are passed to SQL and are not parsed by DataJoint.
 For available functions, you may refer to the `MySQL documentation <https://dev.mysql.com/doc/refman/5.7/en/functions.html>`_.

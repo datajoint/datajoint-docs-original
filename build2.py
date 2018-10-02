@@ -7,18 +7,18 @@ import subprocess
 import tagpicker
 
 
-# if os.path.exists('build1'):
-#     shutil.rmtree('build1')
+if os.path.exists('build1'):
+    shutil.rmtree('build1')
 
-# os.makedirs('build1')
-# subprocess.Popen(
-#     ["git", "clone", "git@github.com:mahos/testDocMain.git", "datajoint-docs"], cwd="build1").wait()
+os.makedirs('build1')
+subprocess.Popen(
+    ["git", "clone", "git@github.com:mahos/testDocMain.git", "datajoint-docs"], cwd="build1").wait()
 
-# subprocess.Popen(
-#     ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build1").wait()
+subprocess.Popen(
+    ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build1").wait()
 
-# subprocess.Popen(
-#     ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build1").wait()
+subprocess.Popen(
+    ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build1").wait()
     
 
 def create_build_folders(lang): 

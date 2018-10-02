@@ -34,14 +34,14 @@ Diagramming an entire schema
 ----------------------------
 
 
-.. include: 11-ERD_lang1.rst
+.. include:: 11-ERD_lang1.rst
 
 Initializing with a single table
 ++++++++++++++++++++++++++++++++
 
 A `dj.ERD` object can be initialized with a single table.
 
-.. include: 11-ERD_lang2.rst
+.. include:: 11-ERD_lang2.rst
 
 
 A single node makes a rather boring graph but ERDs can be added together or subtracted from each other using graph algebra.
@@ -52,7 +52,7 @@ Adding ERDs together
 However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs.
 The corresponding foreign keys will be automatically
 
-.. include: 11-ERD_lang3.rst
+.. include:: 11-ERD_lang3.rst
 
 
 Expanding ERDs upstream and downstream
@@ -62,7 +62,7 @@ Adding a number to an ERD object adds nodes downstream in the pipeline while sub
 
 Examples:
 
-.. include: 11-ERD_lang4.rst
+.. include:: 11-ERD_lang4.rst
 
 
 .. |python| image:: ../_static/img/python-tiny.png

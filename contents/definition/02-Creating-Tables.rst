@@ -21,7 +21,7 @@ See :ref:`tiers` and :ref:`part`.
 Defining a table
 ----------------
 
-.. include: 02-Creating-Tables_lang1.rst
+.. include:: 02-Creating-Tables_lang1.rst
 
 
 Valid class names
