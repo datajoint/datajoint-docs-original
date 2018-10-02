@@ -18,3 +18,5 @@ The ``drop`` method is often used during initial design to allow altered table d
 .. |matlab| image:: ../_static/img/matlab-tiny.png
 
 
+
+.. include:: 14-Drop_lang2.rst
