@@ -5,5 +5,5 @@
 Install and Connect
 ===================
 
-.. include: 01-Install-and-Connect_lang1.rst
+.. include:: 01-Install-and-Connect_lang1.rst
 

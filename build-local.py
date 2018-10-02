@@ -164,6 +164,8 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
     #     # copy_contents('loc_built_site/' + lang_version,
     #     #               'loc_built_site/_static')
 
+        copy_contents('dj_root_theme', 'loc_built_site')
+        copy_contents('loc_built_site/python/_static', 'loc_built_site/_static')
 
 def copy_contents(src_dir, dest_dir):
     """

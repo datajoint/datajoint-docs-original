@@ -1,45 +1,45 @@
 
-git_tags = { "python": [
-                "v0.8.7",
+# git_tags = { "python": [
+#                 "v0.8.7",
 
-                "v0.9.0",
-                "v0.9.1",
-                "v0.9.5",
+#                 "v0.9.0",
+#                 "v0.9.1",
+#                 "v0.9.5",
 
-                "v0.10.0",
-                "v0.10.3",
+#                 "v0.10.0",
+#                 "v0.10.3",
 
-                "v1.0.1", 
-                "v1.0.2", 
+#                 "v1.0.1", 
+#                 "v1.0.2", 
 
-                "v1.1",
-                "v1.1.3"
-                ],
-          "matlab": [
-                "v3.1.6",
-                "v3.2.0",
-                "v3.2.1",
-                "v3.2.2",
-                "v3.2.14",
-                "v3.3.1",
-                "v3.3.2-dev.5",
-                "v3.3.3"
-                ]
-        }
+#                 "v1.1",
+#                 "v1.1.3"
+#                 ],
+#           "matlab": [
+#                 "v3.1.6",
+#                 "v3.2.0",
+#                 "v3.2.1",
+#                 "v3.2.2",
+#                 "v3.2.14",
+#                 "v3.3.1",
+#                 "v3.3.2-dev.5",
+#                 "v3.3.3"
+#                 ]
+#         }
 
-# this should probably be specified in a file outside - this is the actual build that we want to see on the website
-to_make_tags = {
-    "python": [
-        "v0.9",
-        "v0.10",
-        "v1.0",
-        "v1.1"
-    ],
-    "matlab": [
-        "v3.2",
-        "v3.3"
-    ]
-}
+# # this should probably be specified in a file outside - this is the actual build that we want to see on the website
+# to_make_tags = {
+#     "python": [
+#         "v0.9",
+#         "v0.10",
+#         "v1.0",
+#         "v1.1"
+#     ],
+#     "matlab": [
+#         "v3.2",
+#         "v3.3"
+#     ]
+# }
 
 
 def pick_tag(future_tags, raw_tags, lang):

@@ -14,7 +14,7 @@ Both MATLAB and Python use the same syntax define tables.
 
 For example, the following code in defines the table ``User``, that contains users of the database:
 
-.. include: 03-Table-Definition_lang1.rst
+.. include:: 03-Table-Definition_lang1.rst
 
 
 This defines the class ``User`` that creates the table in the database and provides all its data manipulation functionality.
@@ -26,7 +26,7 @@ Users do not need to do anything special to have the table created in the databa
 If it is not already defined, it will get automatically created as soon as it is necessary.
 
 
-.. include: 03-Table-Definition_lang2.rst
+.. include:: 03-Table-Definition_lang2.rst
 
 Changing the definition of an existing table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,10 +51,11 @@ Examples
 --------
 
 
-.. include: 03-Table-Definition_lang3.rst
+.. include:: 03-Table-Definition_lang3.rst
 
 
-.. include: 03-Table-Definition_lang4.rst
+.. include:: 03-Table-Definition_lang4.rst
+
 
 .. |matlab| image:: ../_static/img/matlab-tiny.png
 .. |python| image:: ../_static/img/python-tiny.png

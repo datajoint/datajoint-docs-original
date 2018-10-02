@@ -13,7 +13,7 @@ What makes a manual table manual is that it does not perform any computations wi
 The following code defines three manual tables ``Animal``, ``Session``, and ``Scan``:
 
 
-.. include: 12-Example_lang1.rst
+.. include:: 12-Example_lang1.rst
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png

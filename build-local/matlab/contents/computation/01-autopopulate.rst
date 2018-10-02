@@ -29,7 +29,7 @@ Let us define the computed table, ``test.FilteredImage`` that filters the image 
 
 The class will be defined as follows.
 
-.. include: 01-autopopulate_lang1.rst
+.. include:: 01-autopopulate_lang1.rst
 
 
 The ``make`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
@@ -49,7 +49,7 @@ The inherited ``populate`` method of ``dj.Imported`` and ``dj.Computed`` automat
 
 The ``FilteredImage`` table can be populated as
 
-.. include: 01-autopopulate_lang2.rst
+.. include:: 01-autopopulate_lang2.rst
 
 Note that it is not necessary to specify which data needs to be computed.
 DataJoint will call ``make``, one-by-one, for every key in ``Image`` for which ``FilteredImage`` has not yet been computed.

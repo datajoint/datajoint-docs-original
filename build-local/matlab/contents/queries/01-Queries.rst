@@ -13,14 +13,14 @@ The simplest query object is an instance of a **table class**, representing the 
 
 For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
 
-.. include: 01-Queries_lang1.rst
+.. include:: 01-Queries_lang1.rst
 
 
 More generally, a query object may be formed as an **expression** constructed by applying :ref:`operators` to instances of tables classes or to other expressions.
 
 For example, the following query retrieves information about all experiments and scans for mouse 102 (excluding experiments with no scans):
 
-.. include: 01-Queries_lang2.rst
+.. include:: 01-Queries_lang2.rst
 
 
 You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB by simply displaying the object:

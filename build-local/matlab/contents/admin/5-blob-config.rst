@@ -51,6 +51,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 1. The external storage locations are specified in the DataJoint connection configuration, with one specification for each store.
 
 
+.. include:: 5-blob-config_lang1.rst
 
 2. Each schema corresponds to a dedicated folder at the storage location with the same name as the database schema.
 

@@ -18,6 +18,14 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    intro/*
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Server Administration
+   :glob:
+
+   admin/*
+
 .. toctree::
    :maxdepth: 2
    :includehidden:
@@ -28,17 +36,12 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
 .. toctree::
    :maxdepth: 2
-   :caption: Server Administration
-   :glob:
-
-   admin/*
-
-.. toctree::
-   :maxdepth: 2 
+   :includehidden:
    :caption: Concepts
    :glob:
 
    concepts/*
+
 
 .. toctree::
    :maxdepth: 2
@@ -50,25 +53,10 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
   
 .. toctree::
    :maxdepth: 2
-   :caption: Schema diagrams
-   :glob:
-
-   diagrams/*
-
-
-.. toctree::
-   :maxdepth: 2
    :caption: Work with existing pipelines
    :glob:
    
    existing/*
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Design principles
-   :glob:
-
-   design/*
 
 .. toctree::
    :maxdepth: 2
@@ -90,13 +78,9 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :maxdepth: 2
    :includehidden:
    :caption: Computation
+   :glob:
 
-   computation/01-autopopulate.rst
-   computation/02-make.rst
-   computation/03-keysource.rst
-   computation/04-master-part.rst
-   computation/05-transactions.rst
-   computation/06-distributed-computing.rst
+   computation/*
 
 
 Progress report

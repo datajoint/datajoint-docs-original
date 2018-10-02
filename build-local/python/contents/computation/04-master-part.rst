@@ -16,13 +16,13 @@ As an example, imagine segmenting an image to identify regions of interest. The 
 In this case, the two tables might be called ``Segmentation`` and ``Segmentation.ROI``.
 
 
-.. include: 04-master-part_lang1.rst
+.. include:: 04-master-part_lang1.rst
 
 Populating
 ----------
 To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, it is sufficient to call the ``populate`` method of the master:
 
-.. include: 04-master-part_lang2.rst
+.. include:: 04-master-part_lang2.rst
 
 
 Note that the entities in the master and the matching entities in the part are inserted within a single ``make`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.

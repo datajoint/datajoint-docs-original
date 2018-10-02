@@ -7,7 +7,7 @@ Insert
 
 The ``insert`` method of DataJoint table objects inserts entities into the table.
 
-.. include: 1-Insert_lang1.rst
+.. include:: 1-Insert_lang1.rst
 
 
 Batched inserts

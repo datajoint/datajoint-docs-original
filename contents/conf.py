@@ -114,31 +114,28 @@ htmlhelp_basename = 'DataJointDocssdoc'
 # latex_engine = 'xelatex'
 
 latex_elements = {
-    # 'utf8extra':   ('\\ifdefined\\DeclareUnicodeCharacter\n'
-    #                 ' \\ifdefined\\DeclareUnicodeCharacterAsOptional\\else\n'
-    #                 '  \\DeclareUnicodeCharacter{2229}{\sphinxunichar{2229}}}\n'
-    #                 '\\fi\\fi')
-    'utf8extra' : ('\\ifdefined\\DeclareUnicodeCharacter\n'
-        '\\ifdefined\\DeclareUnicodeCharacterAsOptional\n'
-        '\\DeclareUnicodeCharacter{"00A0}{\\nobreakspace}\n'
-        '\\DeclareUnicodeCharacter{"2500}{\\sphinxunichar{2500}}\n'
-        '\\DeclareUnicodeCharacter{"2502}{\\sphinxunichar{2502}}\n'
-        '\\DeclareUnicodeCharacter{"2514}{\\sphinxunichar{2514}}\n'
-        '\\DeclareUnicodeCharacter{"251C}{\\sphinxunichar{251C}}\n'
-        '\\DeclareUnicodeCharacter{"2229}{\\(\\cap\\)}\n'
-        '\\DeclareUnicodeCharacter{"2572}{\\textbackslash}\n'
-        '\\else\n' 
-        '\\DeclareUnicodeCharacter{00A0}{\\nobreakspace}\n'
-        '\\DeclareUnicodeCharacter{2500}{\\sphinxunichar{2500}}\n'
-        '\\DeclareUnicodeCharacter{2502}{\\sphinxunichar{2502}}\n'
-        '\\DeclareUnicodeCharacter{2514}{\\sphinxunichar{2514}}\n'
-        '\\DeclareUnicodeCharacter{251C}{\\sphinxunichar{251C}}\n'
-        '\\DeclareUnicodeCharacter{2229}{\\(\\cap\\)}\n'
-        '\\DeclareUnicodeCharacter{2572}{\\textbackslash}\n'
-        '\\fi\n'
-    '\\fi')
 
-
+    'utf8extra': ('\\ifdefined\\DeclareUnicodeCharacter\n'
+                  '\\ifdefined\\DeclareUnicodeCharacterAsOptional\n'
+                  '\\DeclareUnicodeCharacter{"00A0}{\\nobreakspace}\n'
+                  '\\DeclareUnicodeCharacter{"2A09}{\\(\\varprod\\)}\n'
+                  '\\DeclareUnicodeCharacter{"2500}{\\sphinxunichar{2500}}\n'
+                  '\\DeclareUnicodeCharacter{"2502}{\\sphinxunichar{2502}}\n'
+                  '\\DeclareUnicodeCharacter{"2514}{\\sphinxunichar{2514}}\n'
+                  '\\DeclareUnicodeCharacter{"251C}{\\sphinxunichar{251C}}\n'
+                  '\\DeclareUnicodeCharacter{"2229}{\\(\\cap\\)}\n'
+                  '\\DeclareUnicodeCharacter{"2572}{\\textbackslash}\n'
+                  '\\else\n'
+                  '\\DeclareUnicodeCharacter{00A0}{\\nobreakspace}\n'
+                  '\\DeclareUnicodeCharacter{2A09}{\\(\\varprod\\)}\n'
+                  '\\DeclareUnicodeCharacter{2500}{\\sphinxunichar{2500}}\n'
+                  '\\DeclareUnicodeCharacter{2502}{\\sphinxunichar{2502}}\n'
+                  '\\DeclareUnicodeCharacter{2514}{\\sphinxunichar{2514}}\n'
+                  '\\DeclareUnicodeCharacter{251C}{\\sphinxunichar{251C}}\n'
+                  '\\DeclareUnicodeCharacter{2229}{\\(\\cap\\)}\n'
+                  '\\DeclareUnicodeCharacter{2572}{\\textbackslash}\n'
+                  '\\fi\n'
+                  '\\fi'),
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -149,7 +146,11 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    'preamble':  r'''
+    \usepackage{txfonts}
+    \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
+    \setcounter{tocdepth}{1}
+    '''
 
     # Latex figure (float) alignment
     #
@@ -161,7 +162,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 
 latex_documents = [
-    (master_doc, 'DataJointDocs.tex', 'DataJoint Docs',
+    (master_doc, 'DataJointDocs.tex', 'DataJoint User Manual',
      'DataJoint contributors', 'manual'),
 ]
 
