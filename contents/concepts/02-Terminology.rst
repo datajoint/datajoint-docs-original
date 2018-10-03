@@ -1,4 +1,4 @@
-.. progress: 12.0 10% Jake
+.. progress: 10.0 75% Jake
 
 .. _terminology:
 

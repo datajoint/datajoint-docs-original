@@ -15,5 +15,5 @@ The decision of which tables are lookup tables and which are manual can be somew
 
 The table below is declared as a lookup table with its contents property provided to generate entities.
 
-
 .. include:: 13-Lookup-Tables_lang1.rst
+

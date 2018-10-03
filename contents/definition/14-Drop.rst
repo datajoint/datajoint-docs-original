@@ -11,12 +11,11 @@ DataJoint will first display the tables being dropped and the number of entities
 
 The ``drop`` method is often used during initial design to allow altered table definitions to take effect.
 
-.. include:: 14-Drop_lang1.rst
 
+.. include:: 14-Drop_lang1.rst
 
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
-
 
 
 .. include:: 14-Drop_lang2.rst

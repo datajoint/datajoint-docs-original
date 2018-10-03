@@ -1,4 +1,4 @@
-.. progress: 18.0 50% Dimitri
+.. progress: 12.0 70% Dimitri
 
 .. _operators:
 
@@ -17,8 +17,8 @@ DataJoint implements a complete algebra of operators on relations:
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
 ===================================  =======================================   =================================================================================
-:ref:`restriction`                   ``A & cond``                              The subset of entities from table ``A`` that meets condition ``cond``
-:ref:`restriction`                   ``A - cond``  							  The subset of entities from table ``A`` that does not meet condition ``cond``
+:ref:`restriction`                   ``A & cond``                              The subset of entities from table ``A`` that meet condition ``cond``
+:ref:`restriction`                   ``A - cond``  							  The subset of entities from table ``A`` that do not meet condition ``cond``
 :ref:`join`                          ``A * B``     							  Combines all matching information from ``A`` and ``B``
 :ref:`proj`                          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes
 :ref:`aggr`                          ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B``
@@ -44,6 +44,8 @@ DataJoint extends entity integrity to queries as well (see :ref:`queries`).
    The order of the attributes in tables is not significant.
 4. **All relations have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
    Operators use the information about the operands' primary keys to define the query.
+
+.. _matching:
 
 Matching entities
 -----------------

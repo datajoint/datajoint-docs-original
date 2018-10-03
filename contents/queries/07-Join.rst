@@ -1,4 +1,4 @@
-.. progress: 8.0 20% Dimitri
+.. progress: 8.0 50% Austin
 
 .. _join:
 
@@ -14,7 +14,7 @@ The result contains all matching combinations of entities from both arguments.
 Principles of joins
 ~~~~~~~~~~~~~~~~~~~
 
-1. The operands ``A`` and ``B`` must be *join-compatible*.
+1. The operands ``A`` and ``B`` must be **join-compatible**.
 2. The primary key of the result is the union of the primary keys of the operands.
 
 Examples of joins
@@ -41,7 +41,7 @@ Left join
 *Left joins are not yet implemented:*
 https://github.com/datajoint/datajoint-python/issues/264
 
-A modification of the join operator is the *left join*.
+A modification of the join operator is the **left join**.
 It is implemented as ``A ** B`` in Python and ``A .* B`` in MATLAB.
 The left join keeps all the entities from ``A`` even in the absence of the matching entities from ``B``.
 For entities with no matches in ``B``, the non-primary attributes from ``B`` are filled with ``NULL``\ s.
@@ -62,6 +62,6 @@ Properties of join
 
 2. Commutative: ``A * B`` is equivalent to ``B * A``.
    However, the left join is *not* commutative.
-   
+
 3. Associative: ``(A * B) * C`` is equivalent to ``A * (B * C)``.
    However, the left joint is *not* associative.

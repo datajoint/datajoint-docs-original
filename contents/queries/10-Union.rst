@@ -1,17 +1,23 @@
-.. progress: 2.0 0% Dimitri
+.. progress: 2.0 20% Austin
 
 .. _union:
 
 Union
 =====
 
-Union operator ``+``
---------------------
-
 The union operator is not yet implemented -- this page serves as the specification for the upcoming implementation.
 Union is rarely needed in practice.
 
+Union operator ``+``
+--------------------
+
 The result of the union operator ``A + B`` contains all the entities from both operands.
+:ref:`Entity normalization <normalization>` requires that the operands in a union both belong to the same entity type with the same primary key using homologous attributes.
+In the absence of any secondary attributes, the result of a union is the simple set union.
+
+When secondary attributes are present, they must have the same names and datatypes in both operands.
+The two operands must also be **disjoint**, without any duplicate primary key values across both inputs.
+These requirements prevent ambiguity of attribute values and preserve entity identity.
 
 Principles of union
 ~~~~~~~~~~~~~~~~~~~
@@ -23,8 +29,8 @@ Principles of union
    Otherwise, an error will be raised.
 4. The result ``A + B`` will have the same primary key as ``A`` and ``B``.
 5. The result ``A + B`` will have all the non-key attributes from both ``A`` and ``B``.
-6. For entities that are found in both ``a`` and ``b`` (based on the primary key), the non-key attributes will be filled from the corresponding entities in ``A`` and ``B``.
-7. For entities that are only found in either ``A`` or ``B``, the other operands' non-key attributes will filled with NULLs.
+6. For entities that are found in both ``A`` and ``B`` (based on the primary key), the secondary attributes will be filled from the corresponding entities in ``A`` and ``B``.
+7. For entities that are only found in either ``A`` or ``B``, the other operand's secondary attributes will filled with null values.
 
 Examples of union
 ~~~~~~~~~~~~~~~~~

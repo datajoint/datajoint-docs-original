@@ -1,4 +1,4 @@
-.. progress: 6.0  20% Dimitri
+.. progress: 6.0 70% Dimitri
 
 .. _fetch:
 
@@ -16,5 +16,7 @@ Note that entities returned by ``fetch`` methods are not guaranteed to be sorted
 Furthermore, the order is not guaranteed to be the same in any two queries, and the contents of two identical queries may change between two sequential invocations unless they are wrapped in a transaction.
 Therefore, if you wish to fetch matching pairs of attributes, do so in one ``fetch`` call.
 
-.. include:: 02-Fetch_lang1.rst
+The examples below are based on the :ref:`example schema <query-example>` for this part of the documentation.
 
+
+.. include:: 03-Fetch_lang1.rst

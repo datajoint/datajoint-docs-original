@@ -13,8 +13,8 @@ A database server may contain multiple schemas each containing a subset of the t
 A single pipeline may comprise multiple schemas.
 Tables are defined within a schema, so we must create a schema before we can create any tables.
 
-.. include:: 01-Creating-Schemas_lang1.rst
 
+.. include:: 01-Creating-Schemas_lang1.rst
 
 Working with existing data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

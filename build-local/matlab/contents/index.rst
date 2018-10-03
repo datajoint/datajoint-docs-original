@@ -9,6 +9,9 @@ This documentation can be read sequentially from start to end or used as referen
 
 For a guided introduction to DataJoint, please explore our tutorials at http://tutorials.datajoint.io
 
+.. raw:: latex
+
+   \part{Introduction}
 
 .. toctree::
    :maxdepth: 2
@@ -18,6 +21,9 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    intro/*
 
+.. raw:: latex
+
+   \part{Server Administration}
 
 .. toctree::
    :maxdepth: 2
@@ -26,13 +32,21 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    admin/*
 
+.. raw:: latex
+
+   \part{Client Setup}
+
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Client setup
+   :caption: Client Setup
    :glob:
 
    setup/* 
+
+.. raw:: latex
+
+   \part{Concepts}
 
 .. toctree::
    :maxdepth: 2
@@ -42,6 +56,9 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    concepts/*
 
+.. raw:: latex
+
+   \part{Data Definition}
 
 .. toctree::
    :maxdepth: 2
@@ -50,13 +67,21 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :glob:
 
    definition/*
-  
+
+.. raw:: latex
+
+   \part{Work with Existing Pipelines}
+
 .. toctree::
    :maxdepth: 2
    :caption: Work with existing pipelines
    :glob:
    
    existing/*
+
+.. raw:: latex
+
+   \part{Data Manipulation}
 
 .. toctree::
    :maxdepth: 2
@@ -66,6 +91,10 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    manipulation/*
 
+.. raw:: latex
+
+   \part{Queries}
+
 .. toctree::
    :maxdepth: 2
    :includehidden:
@@ -73,6 +102,10 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :glob:
 
    queries/*
+
+.. raw:: latex
+
+   \part{Computation}
 
 .. toctree::
    :maxdepth: 2
