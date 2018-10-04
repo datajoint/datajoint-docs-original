@@ -12,7 +12,7 @@ They represent the desired data symbolically.
 Once a query is formed, the :ref:`fetch <fetch>` methods are used to bring the data into the local workspace.
 Since the expressions are only symbolic representations, repeated ``fetch`` calls may yield different results as the state of the database is modified.
 
-DataJoint implements a complete algebra of operators on relations:
+DataJoint implements a complete algebra of operators on tables:
 
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
@@ -38,11 +38,11 @@ DataJoint extends entity integrity to queries as well (see :ref:`queries`).
 1. **Purely relational**: Data are represented and manipulated in the form of tables representing entity sets.
 2. **Algebraic closure**: All operators operate on tables and yield tables.
    Thus query expressions may be used as operands in other expressions or may be assigned to variables to be used in other expressions.
-3. **Attributes are identified by names**:  All attributes of relations have well-defined names.
+3. **Attributes are identified by names**:  All attributes of tables have well-defined names.
    This includes queries resulting from operators.
    Operators use attribute names to determine how to perform the operation.
    The order of the attributes in tables is not significant.
-4. **All relations have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
+4. **All tables have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
    Operators use the information about the operands' primary keys to define the query.
 
 .. _matching:
