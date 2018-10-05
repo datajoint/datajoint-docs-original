@@ -208,6 +208,7 @@ div#dropdown-menu {
     background-color: #fff;
     border: 1px solid #54a8b7;
     margin-left: 90px;
+    z-index: 2000;
 
 }
 div#dropdown-menu.show {
@@ -218,11 +219,13 @@ div#dropdown-menu.show {
 
 ul.dropdown-versions {
     font-size: 0.9rem;
+    
 }
 
 li.version-menu {
     border-bottom: 1px solid #b2dfe7;
     padding: 2px 25px;
+    z-index: inherit;
 }
 
 li.version-menu:hover {
