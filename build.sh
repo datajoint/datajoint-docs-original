@@ -1,5 +1,5 @@
 pip3 install -r requirements.txt
 make site
-which xelatex \
-	&& make latexpdf LATEXMKOPTS="-xelatex" \
-	|| echo "skipping pdf build: xelatex not installed"
+which latex \
+	&& make latexpdf \
+	|| echo "skipping pdf build: latex not installed"
