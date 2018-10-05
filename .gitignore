@@ -14,6 +14,7 @@ build-all/
 build-local/
 loc_built_site/
 full_site/
+version-menu.html
 
 
 # Byte-compiled / optimized / DLL files
