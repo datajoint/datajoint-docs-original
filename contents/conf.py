@@ -112,6 +112,31 @@ htmlhelp_basename = 'DataJointDocssdoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
+
+    # 'x': fetch matlab (./contents/queries/03-Fetch.rst)
+    # 'n': properties of join (./contents/queries/07-Join.rst)
+
+    'utf8extra': ('\\ifdefined\\DeclareUnicodeCharacter\n'
+                  '\\ifdefined\\DeclareUnicodeCharacterAsOptional\n'
+                  '\\DeclareUnicodeCharacter{"00A0}{\\nobreakspace}\n'
+                  '\\DeclareUnicodeCharacter{"2A09}{\\(\\varprod\\)}\n' 
+                  '\\DeclareUnicodeCharacter{"2500}{\\sphinxunichar{2500}}\n'
+                  '\\DeclareUnicodeCharacter{"2502}{\\sphinxunichar{2502}}\n'
+                  '\\DeclareUnicodeCharacter{"2514}{\\sphinxunichar{2514}}\n'
+                  '\\DeclareUnicodeCharacter{"251C}{\\sphinxunichar{251C}}\n'
+                  '\\DeclareUnicodeCharacter{"2229}{\\(\\cap\\)}\n'
+                  '\\DeclareUnicodeCharacter{"2572}{\\textbackslash}\n'
+                  '\\else\n'
+                  '\\DeclareUnicodeCharacter{00A0}{\\nobreakspace}\n'
+                  '\\DeclareUnicodeCharacter{2A09}{\\(\\varprod\\)}\n'
+                  '\\DeclareUnicodeCharacter{2500}{\\sphinxunichar{2500}}\n'
+                  '\\DeclareUnicodeCharacter{2502}{\\sphinxunichar{2502}}\n'
+                  '\\DeclareUnicodeCharacter{2514}{\\sphinxunichar{2514}}\n'
+                  '\\DeclareUnicodeCharacter{251C}{\\sphinxunichar{251C}}\n'
+                  '\\DeclareUnicodeCharacter{2229}{\\(\\cap\\)}\n'
+                  '\\DeclareUnicodeCharacter{2572}{\\textbackslash}\n'
+                  '\\fi\n'
+                  '\\fi'),
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -122,7 +147,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    'preamble': r'\usepackage{txfonts}'
 
     # Latex figure (float) alignment
     #
