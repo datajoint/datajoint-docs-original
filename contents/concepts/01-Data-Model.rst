@@ -9,11 +9,12 @@ What is a data model?
 ---------------------
 
 By a **data model**, we refer to a conceptual framework for thinking about data and about operations on data.
-A data model defines the mental toolbox of the data scientist; it has less to do with the *architecture* of the data systems.
+A data model defines the mental toolbox of the data scientist; it has less to do with the *architecture* of the data systems, although data models and data architectures are often intertwined.
 
-For example, the most widely used and commonly familiar data model is a model based on files and folders, or more technically, a "hierarchical file system".
-In this model, data of any kind can be lumped together into a file, files are collected together into folders, and folders can be nested within other folders to create a folder hierarchy.
+For example, the most familiar data model is a model based on files and folders.
+In this model, data of any kind are lumped together into binary strings called *files*, files are collected into folders, and folders can be nested within other folders to create a folder hierarchy.
 
+Another family of data models are tabular forms such as spreadsheets.
 Another familiar data model is the two-dimensional representation of data in a "spreadsheet", where items are listed in rows, and attributes of each item are stored in columns.
 
 The "object model" for data is used in object-oriented programming, where data are stored in properties of a class along with the methods that operate on them.
@@ -22,8 +23,8 @@ The "object model" for data is used in object-oriented programming, where data a
 Relational data model
 ---------------------
 The "relational model" is a way of thinking about data as sets and operations on sets.
-Formalized almost a half-century ago in `A relational model of data for large shared data banks <https://dl.acm.org/citation.cfm?doid=362384.362685>`_, the relational data model provides the most rigorous approach to structured data storage and the most precise approach to data querying.
-The model is defined by the principles of data representation, domain constraints, uniqueness constraints, referential constraints, and declarative queries as summarized in Table 1.
+Formalized almost a half-century ago in (`Codd, 1969 <https://dl.acm.org/citation.cfm?doid=362384.362685>`_), the relational data model provides the most rigorous approach to structured data storage and the most precise approach to data querying.
+The model is defined by the principles of data representation, domain constraints, uniqueness constraints, referential constraints, and declarative queries as summarized below.
 From a practical point of view, the relational model has many advantages over both hierarchical file systems and spreadsheets in terms of maintaining data integrity, building analysis workflows, and providing flexible access to interesting subsets of the data.
 
 Popular implementations of the relational data model rely on the Structured Query Language (SQL).
@@ -63,12 +64,12 @@ Core Principles of the relational data model are:
 DataJoint is a refinement of the relational data model
 ------------------------------------------------------
 
-DataJoint is a conceptual refinement of the relational data model offering a more expressive and rigorous framework for database programming.
+DataJoint is a conceptual refinement of the relational data model offering a more expressive and rigorous framework for database programming (`Yatsenko et al., 2018 <https://arxiv.org/abs/1807.11104>`_).
 The DataJoint model facilitates clear conceptual modeling, efficient schema design, and precise and flexible data queries.
 The model has emerged over a decade of continuous development of complex data pipelines for neuroscience experiments (`Yatsenko et al., 2015 <https://www.biorxiv.org/content/early/2015/11/14/031658>`_).
 DataJoint has allowed researchers with no prior knowledge of databases to collaborate effectively on common data pipelines sustaining data integrity and supporting flexible access.
 DataJoint is currently implemented as client libraries in MATLAB and Python.
-These libraries work by transpiling DataJoint queries into SQL before passing them on to conventional relational database systems that serve as the backend.
+These libraries work by transpiling DataJoint queries into SQL before passing them on to conventional relational database systems that serve as the backend in combination with a bulk storage system for storing contiguous blocks of dataa
 
 DataJoint comprises
  * a schema definition language (:ref:`definitions`)
