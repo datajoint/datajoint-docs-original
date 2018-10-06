@@ -178,3 +178,8 @@ nav .hidden-section {
       overflow: visible; 
    }
 }
+
+p.thisVersion {
+    color: #54a8b7;
+    margin-bottom: 0;
+}
