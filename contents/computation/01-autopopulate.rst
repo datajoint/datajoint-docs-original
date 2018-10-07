@@ -121,11 +121,14 @@ The ``populate`` method accepts a number of optional arguments that provide more
 
 - ``restrictions`` - A list of restrictions, restricting as ``(tab.key_source & AndList(restrictions)) - tab.proj()``.
   Here ``target`` is the table to be populated, usually ``tab`` itself.
-- ``suppress_erros`` - If ``True``, errors will not be reported.
+- ``suppress_errors`` - If ``True``, errors will cancel the current ``make`` call, log the error, and continue to the next call. See also ``return_exception_objects`` and ``reserve_jobs``.
   Defaults to ``False``.
-- ``return_exception_objects`` - If ``True``, error objects are returned instead of error messages.
+- ``return_exception_objects`` - If ``True``, error objects are returned instead of error messages. 
+  Applies only when ``suppress_errors`` is set.
   Defaults to ``False``.
-- ``reserve_jobs`` - If ``True``, reserves job to populate asynchronously.
+- ``reserve_jobs`` - If ``True``, reserves job to indicate to other distributed processes.
+  The job reservation table may  be access as ``schema.jobs``.
+  Errors are logged in the jobs table.
   Defaults to ``False``.
 - ``order`` - The order of execution, either ``"original"``, ``"reverse"``, or ``"random"``.
   Defaults to ``"original"``.
