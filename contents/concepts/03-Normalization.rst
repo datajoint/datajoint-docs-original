@@ -36,6 +36,6 @@ Entity normalization in data queries
 ------------------------------------
 Entity normalization applies to data queries as well.
 DataJoint's :ref:`query operators <operators>` are designed to preserve the entity normalization of its inputs.
-For example, the output of operators :ref:`restriction`, :ref:`projection`, and :ref:`aggregation` retains the same entity type as the (first) input.
+For example, the output of operators :ref:`restriction`, :ref:`proj`, and :ref:`aggr` retains the same entity type as the (first) input.
 The :ref:`join` operator produces a new entity type comprising the pairing of the entity types of its inputs.
 :ref:`Universal sets <universal-sets>` explicitly introduce virtual entity sets when necessary to accomplish a query.
