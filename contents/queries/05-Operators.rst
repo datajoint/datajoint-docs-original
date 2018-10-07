@@ -12,7 +12,7 @@ They represent the desired data symbolically.
 Once a query is formed, the :ref:`fetch <fetch>` methods are used to bring the data into the local workspace.
 Since the expressions are only symbolic representations, repeated ``fetch`` calls may yield different results as the state of the database is modified.
 
-DataJoint implements a complete algebra of operators on relations:
+DataJoint implements a complete algebra of operators on tables:
 
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
@@ -37,7 +37,7 @@ DataJoint'salgebra improves upon the classical relational algebra and upon other
    Thus query expressions may be used as operands in other expressions or may be assigned to variables to be used in other expressions.
 3. **Attributes are identified by names**:  All attributes have explicit names.
    This includes results of queries.
-   Operators use attribute names to determine how to perform operations.
+   Operators use attribute names to determine how to perform the operation.
    The order of the attributes is not significant.
 
 .. _matching:

@@ -119,7 +119,8 @@ Chains of auto-populated tables form computational pipelines in DataJoint.
 
 The ``populate`` method accepts a number of optional arguments that provide more features and allow greater control over the method's behavior.
 
-- ``restrictions`` - A list of restrictions, each restricting as ``tab.key_source - target.proj()``.
+- ``restrictions`` - A list of restrictions, restricting as ``(tab.key_source & AndList(restrictions)) - tab.proj()``.
+  Here ``target`` is the table to be populated, usually ``tab`` itself.
 - ``suppress_erros`` - If ``True``, errors will not be reported.
   Defaults to ``False``.
 - ``return_exception_objects`` - If ``True``, error objects are returned instead of error messages.
