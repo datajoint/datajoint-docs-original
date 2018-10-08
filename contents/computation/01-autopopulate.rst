@@ -129,7 +129,7 @@ The ``populate`` method accepts a number of optional arguments that provide more
   This applies only when ``suppress_errors`` is ``True``.
   Defaults to ``False``.
 - ``reserve_jobs`` - If ``True``, reserves job to indicate to other distributed processes.
-  The job reservation table may  be access as ``schema.jobs``.
+  The job reservation table may be access as ``schema.jobs``.
   Errors are logged in the jobs table.
   Defaults to ``False``.
 - ``order`` - The order of execution, either ``"original"``, ``"reverse"``, or ``"random"``.

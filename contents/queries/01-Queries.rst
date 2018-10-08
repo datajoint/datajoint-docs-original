@@ -6,9 +6,7 @@ Query Objects
 =============
 
 **Data queries** retrieve data from the database.
-
 A data query is formed from a **query object**, a symbolic representation of the query that does not in itself contain any actual data.
-
 The simplest query object is an instance of a **table class**, representing the contents of an entire table.
 
 For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
@@ -29,7 +27,7 @@ For example, if  ``experiment.Session`` is a DataJoint table class, we can creat
 
 .. python 1 end
 
-More generally, a query object may be formed as a **query expression** constructed by applying :ref:`operators` to other query objects.
+More generally, a query object may be formed as a **query expression** constructed by applying :ref:`operators <operators>` to other query objects.
 
 For example, the following query retrieves information about all experiments and scans for mouse 102 (excluding experiments with no scans):
 
@@ -47,7 +45,7 @@ For example, the following query retrieves information about all experiments and
 
     query = experiment.Session * experiment.Scan & 'animal_id = 102'
 
-Note that for brevity, query operators can be applied directly to class objects rather than instances objects so that ``experiment.Session`` may be used in place of ``experiment.Session()``.
+Note that for brevity, query operators can be applied directly to class objects rather than instance objects so that ``experiment.Session`` may be used in place of ``experiment.Session()``.
 
 .. python 2 end
 
@@ -60,21 +58,21 @@ Once the desired query object is formed, the query can be executed using its :re
 To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
 
 
-.. matlab 3 start 
+.. matlab 3 start
 
 .. code-block:: matlab
 
     s = query.fetch()
 
-Here fetching from the ``query`` object produces the struct array ``s`` of the queried data. 
+Here fetching from the ``query`` object produces the struct array ``s`` of the queried data.
 
-.. matlab 3 end 
+.. matlab 3 end
 
 .. python 3 start
-    
+
     s = query.fetch()
 
-Here fetching from the ``query`` object produces the numpy record array ``s`` of the queried data. 
+Here fetching from the ``query`` object produces the numpy record array ``s`` of the queried data.
 
 .. python 3 end
 
