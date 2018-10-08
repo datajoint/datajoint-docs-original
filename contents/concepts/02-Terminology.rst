@@ -9,14 +9,14 @@ DataJoint introduces a principled data model, which is described in detail in `Y
 This data model is a conceptual refinement of the Relational Data Model and also draws on the Entity-Relationship Model (ERM).
 
 The Relational Data Model was inspired by the concepts of **relations** in Set Theory.
-When the formal relational data model was formulated it introduced additional terminology (e.g. *relation*, *attribute*, *tuple*, *domain*).
-Practical programming languages such as SQL do not precisely follow the relational data model and introduce other terms to approximate relational concepts (e.g. *table*, *column*, *row*, *datatype*).
-Subsequent data models (e.g. ERM) refined the relational data model and introduced their own terminology to describe analogous concepts (e.g. *entity set*, *relationship set*, *attribute set*).
+When the formal relational data model was formulated, it introduced additional terminology (e.g. **relation**, **attribute**, **tuple**, **domain**).
+Practical programming languages such as SQL do not precisely follow the relational data model and introduce other terms to approximate relational concepts (e.g. **table**, **column**, **row**, **datatype**).
+Subsequent data models (e.g. ERM) refined the relational data model and introduced their own terminology to describe analogous concepts (e.g. **entity set**, **relationship set**, **attribute set**).
 As a result, similar concepts may be described using different sets of terminologies, depending on the context and the speaker's background.
 
-For example, what is known as a *relation* in the formal relational model is called a *table* in SQL; the analogous concept in ERM and DataJoint is called an *entity set*.
+For example, what is known as a **relation** in the formal relational model is called a **table** in SQL; the analogous concept in ERM and DataJoint is called an **entity set**.
 
-In the manual, we follow the terminology defined in `Yatsenko et al, 2018 <https://arxiv.org/abs/1807.11104>`_  except we replace  *entity set* with the more colloquial *table* or *query result* in most cases.
+In the manual, we follow the terminology defined in `Yatsenko et al, 2018 <https://arxiv.org/abs/1807.11104>`_  except we replace  **entity set** with the more colloquial **table** or **query result** in most cases.
 
 The table below summarizes the terms used for similar concepts across the related data models.
 

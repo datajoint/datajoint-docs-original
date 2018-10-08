@@ -31,7 +31,7 @@ Principles of relational algebra
 DataJoint's algebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.
 
 1. **Entity integrity**: Data are represented and manipulated in the form of tables representing :ref:`well-formed entity sets <integrity>`.
-   This applies to the inputs and outputs of query operators. 
+   This applies to the inputs and outputs of query operators.
    The output of a query operator is an entity set with a well-defined entity type, a primary key, unique attribute names, etc.
 2. **Algebraic closure**: All operators operate on entity sets and yield entity sets.
    Thus query expressions may be used as operands in other expressions or may be assigned to variables to be used in other expressions.

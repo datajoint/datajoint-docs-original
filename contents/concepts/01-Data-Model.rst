@@ -9,23 +9,23 @@ What is a data model?
 ---------------------
 
 By a **data model**, we refer to a conceptual framework for thinking about data and about operations on data.
-A data model defines the mental toolbox of the data scientist; it has less to do with the *architecture* of the data systems, although architectures are often intertwined with data models.
+A data model defines the mental toolbox of the data scientist; it has less to do with the **architecture** of the data systems, although architectures are often intertwined with data models.
 
-Among the most familiar data models are those based on files and folders: data of any kind are lumped together into binary strings called *files*, files are collected into folders, and folders can be nested within other folders to create a folder hierarchy.
+Among the most familiar data models are those based on files and folders: data of any kind are lumped together into binary strings called **files**, files are collected into folders, and folders can be nested within other folders to create a folder hierarchy.
 
 Another family of data models are various **tabular models**.
-For example, in CSV files, items are listed in rows and the attributes of each item are stored in columns. 
-Various **spreadsheet** models allow forming dependencies between cells and groups of cells, including complex calculations. 
+For example, items in CSV files are listed in rows, and the attributes of each item are stored in columns.
+Various **spreadsheet** models allow forming dependencies between cells and groups of cells, including complex calculations.
 
-The **object data model** is common in programming, where data are represented as *objects* in memory with properties and methods for transformations of such data.
+The **object data model** is common in programming, where data are represented as **objects** in memory with properties and methods for transformations of such data.
 
 .. _relational-model:
 
 Relational data model
 ---------------------
-The "relational model" is a way of thinking about data as sets and operations on sets.
+The **relational model** is a way of thinking about data as sets and operations on sets.
 Formalized almost a half-century ago in `Codd, 1969 <https://dl.acm.org/citation.cfm?doid=362384.362685>`_, the relational data model provides the most rigorous approach to structured data storage and the most precise approach to data querying.
-The model is defined by the principles of *data representation*, *domain constraints*, *uniqueness constraints*, *referential constraints*, and *declarative queries* as summarized below.
+The model is defined by the principles of **data representation**, **domain constraints**, **uniqueness constraints**, **referential constraints**, and **declarative queries** as summarized below.
 
 Core principles of the relational data model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,14 +55,14 @@ Core principles of the relational data model
   This means that query expressions convey the logic for the result rather than the procedure for obtaining it.
   Formal languages for query expressions include relational algebra, relational calculus, and SQL.
 
-The relational model has many advantages over both hierarchical file systems and tabular models for  maintaining data integrity and providing flexible access to interesting subsets of the data.
+The relational model has many advantages over both hierarchical file systems and tabular models for maintaining data integrity and providing flexible access to interesting subsets of the data.
 
 Popular implementations of the relational data model rely on the Structured Query Language (SQL).
 SQL comprises distinct sublanguages for schema definition, data manipulation, and data queries.
 SQL thoroughly dominates in the space of relational databases and is often conflated with the relational data model in casual discourse.
 Various terminologies are used to describe related concepts from the relational data model.
-Similar to spreadsheets, relations are often visualized as *tables* with attributes corresponding to *columns* and entities corresponding to *rows*.
-In particular, SQL uses the terms *table*, *column*, and *row*.
+Similar to spreadsheets, relations are often visualized as **tables** with attributes corresponding to **columns** and entities corresponding to **rows**.
+In particular, SQL uses the terms **table**, **column**, and **row**.
 
 DataJoint is a refinement of the relational data model
 ------------------------------------------------------
@@ -80,4 +80,4 @@ DataJoint comprises
  * a data query language (:ref:`queries`)
  * a diagramming notation for visualizing relationships between modeled entities (:ref:`erd`).
 
-The key refinement of DataJoint over other relational data models and their implementations is its support of :ref:`entity normalization <normalization>`.
+The key refinement of DataJoint over other relational data models and their implementations is DataJoint's support of :ref:`entity normalization <normalization>`.

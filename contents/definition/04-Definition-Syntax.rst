@@ -48,7 +48,7 @@ Invalid attribute names
 Default values
 --------------
 
-Non-primary attributes can be given default values.
+Secondary attributes can be given default values.
 A default value will be used for an attribute if no other value is given at the time the entity is :ref:`inserted <insert>` into the table.
 Note that default values can only be used when inserting as a mapping.
 Primary key attributes cannot have default values (with the exception of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
