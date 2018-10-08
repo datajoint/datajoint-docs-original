@@ -28,7 +28,7 @@ operator                             notation                                  m
 
 Principles of relational algebra
 ---------------------------------
-DataJoint'salgebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.
+DataJoint's algebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.
 
 1. **Entity integrity**: Data are represented and manipulated in the form of tables representing :ref:`well-formed entity sets <integrity>`.
    This applies to the inputs and outputs of query operators. 

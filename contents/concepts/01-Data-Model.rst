@@ -24,7 +24,7 @@ The **object data model** is common in programming, where data are represented a
 Relational data model
 ---------------------
 The "relational model" is a way of thinking about data as sets and operations on sets.
-Formalized almost a half-century ago in (`Codd, 1969 <https://dl.acm.org/citation.cfm?doid=362384.362685>`_), the relational data model provides the most rigorous approach to structured data storage and the most precise approach to data querying.
+Formalized almost a half-century ago in `Codd, 1969 <https://dl.acm.org/citation.cfm?doid=362384.362685>`_, the relational data model provides the most rigorous approach to structured data storage and the most precise approach to data querying.
 The model is defined by the principles of *data representation*, *domain constraints*, *uniqueness constraints*, *referential constraints*, and *declarative queries* as summarized below.
 
 Core principles of the relational data model
