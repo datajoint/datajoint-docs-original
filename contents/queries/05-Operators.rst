@@ -28,22 +28,17 @@ operator                             notation                                  m
 
 Principles of relational algebra
 ---------------------------------
-DataJoint's relational algebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.
+DataJoint'salgebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.
 
-The clarity of DataJoint's query expressions stems from the concept of :ref:`entity integrity <integrity>`.
-Entity integrity states that every table must have a well-defined **primary key**.
-In other systems, this concept applies to **base tables**, which store the data in the database.
-DataJoint extends entity integrity to queries as well (see :ref:`queries`).
-
-1. **Purely relational**: Data are represented and manipulated in the form of tables representing entity sets.
-2. **Algebraic closure**: All operators operate on tables and yield tables.
+1. **Entity integrity**: Data are represented and manipulated in the form of tables representing :ref:`well-formed entity sets <integrity>`.
+   This applies to the inputs and outputs of query operators. 
+   The output of a query operator is an entity set with a well-defined entity type, a primary key, unique attribute names, etc.
+2. **Algebraic closure**: All operators operate on entity sets and yield entity sets.
    Thus query expressions may be used as operands in other expressions or may be assigned to variables to be used in other expressions.
-3. **Attributes are identified by names**:  All attributes of tables have well-defined names.
-   This includes queries resulting from operators.
+3. **Attributes are identified by names**:  All attributes have explicit names.
+   This includes results of queries.
    Operators use attribute names to determine how to perform the operation.
-   The order of the attributes in tables is not significant.
-4. **All tables have a primary key**:  This includes queries resulting from operators, for which the primary key is properly derived from the primary keys of the operands in expressions.
-   Operators use the information about the operands' primary keys to define the query.
+   The order of the attributes is not significant.
 
 .. _matching:
 
