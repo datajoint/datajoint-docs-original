@@ -121,9 +121,12 @@ The ``populate`` method accepts a number of optional arguments that provide more
 
 - ``restrictions`` - A list of restrictions, restricting as ``(tab.key_source & AndList(restrictions)) - tab.proj()``.
   Here ``target`` is the table to be populated, usually ``tab`` itself.
-- ``suppress_erros`` - If ``True``, errors will not be reported.
+- ``suppress_errors`` - If ``True``, errors will not terminate execution of ``populate``.
+  Error messages will be logged in the job reservation table (if ``reserve_jobs`` is ``True``) and returned as a list.
+  See also ``return_exception_objects``.
   Defaults to ``False``.
 - ``return_exception_objects`` - If ``True``, error objects are returned instead of error messages.
+  This applies only when ``suppress_errors`` is ``True``.
   Defaults to ``False``.
 - ``reserve_jobs`` - If ``True``, reserves job to populate asynchronously.
   Defaults to ``False``.

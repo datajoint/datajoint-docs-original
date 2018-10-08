@@ -30,7 +30,7 @@ Example 2 : When the operands have common attributes, only entities with matchin
 .. figure:: ../_static/img/join-example2.png
    :alt:
 
-Example 3 : Joining on non-primary attribute
+Example 3 : Joining on secondary attribute
 
 .. figure:: ../_static/img/join-example3.png
    :alt:
@@ -44,7 +44,7 @@ https://github.com/datajoint/datajoint-python/issues/264
 A modification of the join operator is the **left join**.
 It is implemented as ``A ** B`` in Python and ``A .* B`` in MATLAB.
 The left join keeps all the entities from ``A`` even in the absence of the matching entities from ``B``.
-For entities with no matches in ``B``, the non-primary attributes from ``B`` are filled with ``NULL``\ s.
+For entities with no matches in ``B``, the secondary attributes from ``B`` are filled with ``NULL``\ s.
 
 Example 4 : A left join
 
