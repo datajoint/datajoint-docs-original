@@ -5,7 +5,7 @@
 Terminology
 ===========
 
-DataJoint introduces a principled data model, which is described in detail in (`Yatsenko et al., 2018 <https://arxiv.org/abs/1807.11104>`_).
+DataJoint introduces a principled data model, which is described in detail in `Yatsenko et al., 2018 <https://arxiv.org/abs/1807.11104>`_.
 This data model is a conceptual refinement of the Relational Data Model and also draws on the Entity-Relationship Model (ERM).
 
 The Relational Data Model was inspired by the concepts of **relations** in Set Theory.
