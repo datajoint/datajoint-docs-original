@@ -1,45 +1,46 @@
 import os
+from os import path
 import json
 import glob
 import shutil
 import subprocess
+import build_config as config
 
-matlab_dir = "../datajoint-matlab/"
-python_dir = "../datajoint-python/"
+matlab_dir = config.loc_mat_path
+python_dir = config.loc_py_path
 
-if os.path.exists('build-local'):
+if path.exists('build-local'):
     shutil.rmtree('build-local')
 
 os.makedirs('build-local')
-if os.path.exists(matlab_dir):
+if path.exists(matlab_dir):
     print("local matlab doc exists - copying the folder over")
-    shutil.copytree(matlab_dir, 'build-local/datajoint-matlab')
+    shutil.copytree(matlab_dir, path.join('build-local', 'datajoint-matlab'))
 else:
     print("local matlab doc not found - cloning from the git repo")
     subprocess.Popen(
-        ["git", "clone", "git@github.com:mahos/testDocMatlab.git", "datajoint-matlab"], cwd="build-local").wait()
-if os.path.exists(python_dir):
+        ["git", "clone", config.matlab_doc_url, "datajoint-matlab"], cwd="build-local").wait()
+if path.exists(python_dir):
     print("local python doc exists - copying the folder over")
-    shutil.copytree(python_dir, 'build-local/datajoint-python')
+    shutil.copytree(python_dir, path.join('build-local', 'datajoint-python'))
 else:
     print("local python doc not found - cloning from the git repo")
     subprocess.Popen(
-        ["git", "clone", "git@github.com:mahos/testDocPython.git", "datajoint-python"], cwd="build-local").wait()
+        ["git", "clone", config.python_doc_url, "datajoint-python"], cwd="build-local").wait()
 
 
 def local_build(loc_comm=True, python_tag='', matlab_tag=''):
-    if os.path.exists("build-local/datajoint-docs"):
-            shutil.rmtree("build-local/datajoint-docs")
+    if path.exists(path.join("build-local", "datajoint-docs")):
+            shutil.rmtree(path.join("build-local", "datajoint-docs"))
     if not loc_comm:
         print("local common folder build set to False - cloning from the git repo")
         subprocess.Popen(
-            ["git", "clone", "git@github.com:mahos/testDocMain.git", "datajoint-docs"], cwd="build-local").wait()
+            ["git", "clone", config.common_doc_url, "datajoint-docs"], cwd="build-local").wait()
     else:
         # Default - copy the local comm doc to the build folder
         print("using LOCAL common folder for build - copying over")
-        # copy_contents("./", "build-local/datajoint-docs")
         
-        shutil.copytree("./", "build-local/datajoint-docs", ignore=shutil.ignore_patterns('build-local'))
+        shutil.copytree(".", path.join("build-local", "datajoint-docs"), ignore=shutil.ignore_patterns('build-local'))
 
     to_build = { 'python' : python_tag, 'matlab' : matlab_tag }
 
@@ -49,17 +50,17 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
             print('tag is not empty, tag is ' + tag)
             # TODO non-existent tag still keeps on building with the latest lang content - needs to throw an error
             subprocess.Popen(["git", "checkout", tag],
-                            cwd="build-local/datajoint-" + lang, stdout=subprocess.PIPE).wait()
-            dst_build_folder = "build-local/" + lang + "-" + tag
+                            cwd=path.join("build-local", "datajoint-" + lang), stdout=subprocess.PIPE).wait()
+            dst_build_folder = path.join("build-local", lang + "-" + tag)
         else:
             print("creating build folder for " + lang + "-" +tag)
-            dst_build_folder = "build-local/" + lang
+            dst_build_folder = path.join("build-local", lang)
 
-        dsrc_lang = "build-local/datajoint-" + lang + "/docs"
-        dst_main = dst_build_folder + "/contents"
-        dst_temp = dst_main + "/comm"
+        dsrc_lang = path.join("build-local", "datajoint-" + lang, "docs")
+        dst_main = path.join(dst_build_folder, "contents")
+        dst_temp = path.join(dst_main, "comm")
 
-        if os.path.exists(dst_build_folder):
+        if path.exists(dst_build_folder):
             shutil.rmtree(dst_build_folder)
 
         # copy over the lang source doc contents into the build folder
@@ -67,52 +68,49 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
 
         if tag:
             print("tag exists and it is tag-" + tag) 
-            if os.path.exists(dsrc_lang + "/_version_common.json"):
+            if path.exists(path.join(dsrc_lang, "_version_common.json")):
                 # grab which version of the common folder the lang doc needs to be merged with
-                cv = open(dsrc_lang + "/_version_common.json")
+                cv = open(path.join(dsrc_lang, "_version_common.json"))
                 v = cv.read()  # expected in this format { "comm_version" : "v0.0.0"}
                 version_info = json.loads(v)
                 cv.close
                 subprocess.Popen(["git", "checkout", version_info['comm_version']],
-                                cwd="build-local/datajoint-docs", stdout=subprocess.PIPE).wait()
+                                cwd=path.join("build-local", "datajoint-docs"), stdout=subprocess.PIPE).wait()
  
-        dsrc_comm = "build-local/datajoint-docs/contents"
+        dsrc_comm = path.join("build-local", "datajoint-docs", "contents")
         # copy over the cmmon source doc contents into the build folder
         shutil.copytree(dsrc_comm, dst_temp)
 
         # copying and merging all of the folders from lang-specific repo to build folder
         for root, dirs, filename in os.walk(dst_temp):
             for f in filename:
-                fullpath = os.path.join(root, f)
+                fullpath = path.join(root, f)
                 print(fullpath)
                 if len(dirs) == 0:
-                    root_path, new_path = root.split("comm/")
-                    shutil.copy2(fullpath, root_path + new_path)
+                    root_path, new_path = root.split("comm")
+                    shutil.copy2(fullpath, path.normpath(root_path + new_path))
             print("-------------------------------")
 
         # copying the toc tree and the config files
-        shutil.copy2(dst_temp + "/" + "index.rst",
-                     dst_main + "/" + "index.rst")
+        shutil.copy2(path.join(dst_temp, "index.rst"), path.join(dst_main, "index.rst"))
 
         # removing the temporary comm folder because that shouldn't get build
         shutil.rmtree(dst_temp)
 
         # copy the datajoint_theme folder, conf.py and makefile for individual lang-ver folder building
-        shutil.copytree("datajoint_theme",
-                        dst_build_folder + "/datajoint_theme")
-        shutil.copy2("Makefile", dst_build_folder + "/Makefile")
-        shutil.copy2("contents/conf.py", dst_build_folder +
-                     "/contents/" + "conf.py")
+        shutil.copytree("datajoint_theme", path.join(dst_build_folder, "datajoint_theme"))
+        shutil.copy2("Makefile", path.join(dst_build_folder, "Makefile"))
+        shutil.copy2(path.join("contents", "conf.py"), path.join(dst_build_folder, "contents", "conf.py"))
 
         # add current_version <p> tag into the datajoint_theme folder
-        f = open(dst_build_folder + '/datajoint_theme/this_version.html', 'w+')
+        f = open(path.join(dst_build_folder, 'datajoint_theme', 'this_version.html'), 'w+')
         if tag:
             f.write('<p class="thisVersion">' + lang + "-" + tag + '</p>')
         else:
             f.write('<p class="thisVersion">' + lang + '</p>')
         f.close()
         # add current_version as release into the conf.py file (for pdf generation)
-        f = open(dst_build_folder + "/contents/" + "conf.py", 'a+')
+        f = open(path.join(dst_build_folder, "contents", "conf.py"), 'a+')
         if tag:
             f.write('release = "' + lang + "-" + tag + '"')
         else:
@@ -120,20 +118,19 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         f.close()
 
 # generate site folder with all contents using hte above build folders
-    if os.path.exists('loc_built_site'):
+    if path.exists('loc_built_site'):
         shutil.rmtree('loc_built_site')
         os.makedirs('loc_built_site')
     else:
         os.makedirs('loc_built_site')
 
     # build individual lang-ver folder - expect 2 for local build
-    to_make = [folder for folder in glob.glob(
-        'build-local/**') if not os.path.basename(folder).startswith('datajoint')]
+    to_make = [folder for folder in glob.glob(path.join('build-local', '**')) if not path.basename(folder).startswith('datajoint')]
     print(to_make)
 
     # create full version-menu listing using the built folders from above
     # refresher: to_build = {'python': python_tag, 'matlab': matlab_tag}
-    f = open('datajoint_theme/version-menu.html', 'w+')
+    f = open(path.join('datajoint_theme', 'version-menu.html'), 'w+')
     for lang, tag in to_build.items():
         if tag:
             f.write('<li class="version-menu"><a href="/' + lang +
@@ -147,25 +144,20 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
     # then build individual folders, and copy to loc_built_site folder
 
     for folder in to_make:
-        shutil.copy2('datajoint_theme/version-menu.html',
-                     folder + "/datajoint_theme/version-menu.html")
+        shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
         subprocess.Popen(["make", "site"], cwd=folder).wait()
         subprocess.Popen(["pdflatex", "DataJointDocs.tex"],
-                         cwd=folder + '/_build/latex').wait()
+                         cwd=path.join(folder, '_build', 'latex')).wait()
         subprocess.Popen(["pdflatex", "DataJointDocs.tex"],
-                         cwd=folder + '/_build/latex').wait()
+                         cwd=path.join(folder, '_build', 'latex')).wait()
 
-        lang_version = folder.split('/')[1]  # 'matlab-v3.2.2'
-        shutil.copytree(folder + "/site", 'loc_built_site/' + lang_version)
-        os.rename(folder + '/_build/latex/DataJointDocs.pdf', folder +
-                  '/_build/latex/DataJointDocs_' + lang_version + '.pdf')
-        shutil.copy2(folder + '/_build/latex/DataJointDocs_' + lang_version +
-                     '.pdf', 'loc_built_site/' + lang_version)
-    #     # copy_contents('loc_built_site/' + lang_version,
-    #     #               'loc_built_site/_static')
+        lang_version = folder.split(os.sep)[1]  # 'matlab' from `build-local/matlab/contents/...`
+        shutil.copytree(path.join(folder, "site"), path.join('loc_built_site', lang_version))
+        os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'))
+        shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'), path.join('loc_built_site', lang_version))
 
         copy_contents('dj_root_theme', 'loc_built_site')
-        copy_contents('loc_built_site/python/_static', 'loc_built_site/_static')
+        copy_contents(path.join('loc_built_site', 'python', '_static'), path.join('loc_built_site', '_static'))
 
 def copy_contents(src_dir, dest_dir):
     """
@@ -174,12 +166,12 @@ def copy_contents(src_dir, dest_dir):
     """
     for root, dirnames, filenames in os.walk(src_dir):
         for fname in filenames:
-            fpath = os.path.join(root, fname)
-            rel_path = os.path.relpath(fpath, src_dir)
-            dpath = os.path.join(dest_dir, rel_path)
+            fpath = path.join(root, fname)
+            rel_path = path.relpath(fpath, src_dir)
+            dpath = path.join(dest_dir, rel_path)
             # print(fpath + " >>>>>> " + dpath)
-            dir_name, _ = os.path.split(dpath)
-            if not os.path.exists(dir_name):
+            dir_name, _ = path.split(dpath)
+            if not path.exists(dir_name):
                 os.makedirs(dir_name)
             shutil.copy2(fpath, dpath)
 
