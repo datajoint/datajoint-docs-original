@@ -1,12 +1,16 @@
-.. progress: 10.0 50% Austin
+.. progress: 10.0 75% Austin
 
 .. _universal-sets:
 
 Universal Sets
 ==============
+All :ref:`query operators <operators>` are designed to preserve the entity types of their inputs.
+However, some queries require creating a new entity type that is not represented by any stored tables. 
+This means that a new entity type must be explicitly defined on the fly.
+Universal sets fulfill this role.
 
 **Universal sets** are used in DataJoint to define virtual tables with arbitrary primary key structures for use in query expressions.
-A universal set, defined using ``dj.U``, denotes the set of all possible entities with given attributes of any possible datatype.
+A universal set, defined using class ``dj.U``, denotes the set of all possible entities with given attributes of any possible datatype.
 Universal sets allow query expressions using virtual tables when no suitable base table exists.
 Attributes of universal sets are allowed to be matched to any namesake attributes, even those that do not come from the same initial source.
 

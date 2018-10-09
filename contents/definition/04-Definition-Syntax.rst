@@ -16,7 +16,7 @@ Each line can be one of the following:
   - ``name : datatype # comment``
   - ``name = default : datatype``
   - ``name = default : datatype  # comment``
-* The divider ``---`` (at least three hyphens) separating primary key attributes above from non-primary attributes below.
+* The divider ``---`` (at least three hyphens) separating primary key attributes above from secondary attributes below.
 * A foreign key in the format ``-> ReferencedTable``.
   (See :ref:`Dependencies`.)
 
@@ -44,3 +44,11 @@ Valid attribute names
 
 Invalid attribute names
    ``firstName``, ``first name``, ``2photon_scan``, ``two-photon_scan``, ``TwoPhotonScan``
+
+Default values
+--------------
+
+Secondary attributes can be given default values.
+A default value will be used for an attribute if no other value is given at the time the entity is :ref:`inserted <insert>` into the table.
+Note that default values can only be used when inserting as a mapping.
+Primary key attributes cannot have default values (with the exception of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
