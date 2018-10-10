@@ -13,74 +13,56 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Introduction 
-   :glob: 
 
-   intro/*
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Server Administration
-   :glob:
-
-   admin/*
+   intro/Intro.rst
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Client setup
-   :glob:
 
-   setup/* 
+   admin/Admin.rst
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Concepts
-   :glob:
 
-   concepts/*
-
+   setup/Setup.rst 
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Data Definition
-   :glob:
 
-   definition/*
-  
-.. toctree::
-   :maxdepth: 2
-   :caption: Work with existing pipelines
-   :glob:
-   
-   existing/*
+   concepts/Concepts.rst
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Data Manipulation
-   :glob:
 
-   manipulation/*
+   definition/Definition.rst
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Queries
-   :glob:
 
-   queries/*
+   existing/Existing.rst
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :caption: Computation
-   :glob:
 
-   computation/*
+   manipulation/Manipulation.rst
+
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
+
+   queries/Queries.rst
+
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
+
+   computation/Computation.rst
 
 
 Progress report
