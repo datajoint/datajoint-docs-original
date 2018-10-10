@@ -15,7 +15,7 @@ The exclusion operator ``A - cond`` selects the complement of restriction, i.e. 
     :align: center
     :alt: Restriction and exclusion
 
-    Restriction and exclusion
+    Restriction and exclusion.
 
 The condition ``cond`` may be one of the following:
 
@@ -44,36 +44,61 @@ The condition ``cond`` may be one of the following:
 As the restriction and exclusion operators are complementary, queries can be constructed using both operators that will return the same results.
 For example, the queries ``A & cond`` and ``A - Not(cond)`` will return the same entities.
 
-Restriction with a table
-------------------------
+Restriction by a table
+----------------------
 
-When restricting table ``A`` with another table ``A & B``, the two tables must be **join-compatible**.
+When restricting table ``A`` with another table, written ``A & B``, the two tables must be **join-compatible**.
 The result will contain all entities from ``A`` for which there exist a matching entity in ``B``.
-
-Restriction with another table
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exclusion of table ``A`` with table ``B``, or ``A - B``, will contain all entities from ``A`` for which there are no matching entities in ``B``.
 
 .. figure:: ../_static/img/restrict-example1.png
-   :alt: Restriction with another table
+    :alt: Restriction with another table
 
-   Restriction with another table
+    Restriction with another table.
 
-Difference |Difference from another table|
+.. figure:: ../_static/img/diff-example1.png
+    :alt: Exclusion with another table
 
-Restriction with a table with no common attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    Exclusion with another table.
+
+Restriction by a table with no common attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Restriction of table ``A`` with another table ``B`` having none of the same attributes as ``A`` will simply return all entities in ``A``.
+Exclusion of table ``A`` with ``B`` having no common attributes will return no entities.
 
 .. figure:: ../_static/img/restrict-example2.png
    :alt: Restriction with a table with no common attributes
 
-   Restriction with a table with no common attributes
+   Restriction with a table having no common attributes.
 
-Difference |Difference from another table with no common attributes|
+.. figure:: ../_static/img/diff-example2.png
+   :alt: Exclusion with a table having no common attributes
 
-Restriction with an empty table
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   Exclusion with a table having no common attributes.
 
-|Restriction with an empty table| Difference |Difference from an empty table|
+Restriction by an empty table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Restriction of table ``A`` with an empty table will return no entities.
+Exclusion of table ``A`` with an empty table will return all entities in ``A``.
+Note that restriction by an empty table has inverted behavior from restriction by an empty mapping, ``AndList``, or ``Not`` object.
+
+.. figure:: ../_static/img/restrict-example3.png
+   :alt: Restriction with an empty table
+
+   Restriction with an empty table.
+
+.. figure:: ../_static/img/diff-example3.png
+   :alt: Exclusion with an empty table
+
+   Exclusion with an empty table.
+
+Restriction by a query
+----------------------
+
+Restriction by a query or query object is no different from restriction by a table, because queries in DataJoint adhere to :ref:`normalization <normalization>` and produce well-defined entity sets.
+As such, restriction by queries follows the same behavior as restriction by tables described above.
 
 Restriction by a mapping
 ------------------------
@@ -82,11 +107,15 @@ A key-value mapping may be used as an operand in restriction.
 For each key that is an attribute in ``A``, the paired value is treated as part of an equality condition.
 Any key-value pairs without corresponding attributes in ``A`` are ignored.
 
+Restriction by an empty mapping or by a mapping with no keys matching the attributes in ``A`` will return all the entities in ``A``.
+Exclusion by an empty mapping or by a mapping with no matches will return no entities.
+
 Restriction by a string
 -----------------------
 
 Restriction can be performed when ``cond`` is an explicit condition on attribute values, expressed as a string.
 Such conditions may include arithmetic operations, functions, range tests, etc.
+Restriction of table ``A`` by a string containing an attribute not found in table ``A`` produces an error.
 
 Restriction by a collection
 ---------------------------
@@ -94,26 +123,32 @@ Restriction by a collection
 When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
 Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
 
+Restriction by an empty collection returns no entities.
+Exclusion of table ``A`` by an empty collection returns all the entities of ``A``.
+Note that restriction by an empty collection has inverted behavior from restriction by an empty mapping, ``AndList``, or ``Not`` object.
+
 Restriction by a Boolean expression
 -----------------------------------
 
-``A & True`` is equivalent to ``A``.
-``A & False`` is empty.
+``A & True`` and ``A - False`` are equivalent to ``A``.
+``A & False`` and ``A - True`` are empty.
 
 Restriction by an ``AndList``
 -----------------------------
 
-The special function ``And`` represents logical conjunction (logical AND).
+The special function ``dj.AndList`` represents logical conjunction (logical AND).
 Restriction of table ``A`` by an ``AndList`` will return all entities in ``A`` that meet *all* of the conditions in the list.
-``A & AndList([c1, c2, c3])`` is equivalent to ``A & c1 & c2 & c3``.
+``A & dj.AndList([c1, c2, c3])`` is equivalent to ``A & c1 & c2 & c3``.
+Usually, it is more convenient to simply write out all of the conditions, as ``A & c1 & c2 & c3``.
+However, when a list of conditions has already been generated, the list can simply be passed as the argument to ``dj.AndList``.
 
+Restriction of table ``A`` by an empty ``AndList``, as in ``A & dj.AndList([])``, will return all of the entities in ``A``.
+Exclusion by an empty ``AndList`` will return no entities.
 
 Restriction by a ``Not`` object
 -------------------------------
 
-The special function ``Not`` represents logical negation, such that ``A & Not(cond)`` is equivalent to ``A \ cond``.
+The special function ``dj.Not`` represents logical negation, such that ``A & dj.Not(cond)`` is equivalent to ``A \ cond``.
 
-.. |Difference from another table| image:: ../_static/img/diff-example1.png
-.. |Difference from another table with no common attributes| image:: ../_static/img/diff-example2.png
-.. |Restriction with an empty table| image:: ../_static/img/restrict-example3.png
-.. |Difference from an empty table| image:: ../_static/img/diff-example3.png
+Restriction of table ``A`` by an empty ``Not`` object will return all of the entities in ``A``.
+Exclusion of by an empty ``Not`` object will return no entities.

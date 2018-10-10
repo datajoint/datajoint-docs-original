@@ -109,6 +109,6 @@ The ``count`` function applied to a query object determines the number of entiti
 Normalization in queries
 ------------------------
 
-Query objects adhere to entity :ref:`normalization` just like the stored tables do.
+Query objects adhere to entity :ref:`normalization <normalization>` just like the stored tables do.
 The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other.
-The query :ref:`operators` are designed to keep the result normalized even in complex query expressions.
+The query :ref:`operators <operators>` are designed to keep the result normalized even in complex query expressions.
