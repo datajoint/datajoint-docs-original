@@ -51,7 +51,9 @@ Note that for brevity, query operators can be applied directly to class objects 
 
 You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
 In the image below, the object ``query`` is first defined as a restriction of the table ``EEG`` by values of the attribute ``eeg_sample_rate`` greater than 1000 Hz.
-When we display the object, we get a preview of the entities that will be returned by ``query``, but this preview only lists a few entities and does not contain any data for attributes of datatype ``blob``.
+When we display the object, we get a preview of the entities that will be returned by ``query``.
+Note that this preview only lists a few of the entities that will be returned.
+Also, the preview does not contain any data for attributes of datatype ``blob``.
 
 .. image:: ../_static/img/query_object_preview.png
 
