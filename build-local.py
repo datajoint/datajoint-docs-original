@@ -75,7 +75,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
                 cv = open(path.join(dsrc_lang, "_version_common.json"))
                 v = cv.read()  # expected in this format { "comm_version" : "v0.0.0"}
                 version_info = json.loads(v)
-                cv.close
+                cv.close()
                 subprocess.Popen(["git", "checkout", version_info['comm_version']],
                                 cwd=path.join("build-local", "datajoint-docs"), stdout=subprocess.PIPE).wait()
  

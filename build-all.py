@@ -53,7 +53,7 @@ def create_build_folders(lang):
         cv = open(path.join(dsrc_lang2, "_version_common.json"))
         v = cv.read() # expected in this format { "comm_version" : "v0.0.0"}
         version_info = json.loads(v)
-        cv.close
+        cv.close()
         subprocess.Popen(["git", "checkout", version_info['comm_version']],cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).wait()
         dsrc_comm2 = path.join("build-all", "datajoint-docs", "contents")
         # copy over the cmmon source doc contents into the build folder 
