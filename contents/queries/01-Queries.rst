@@ -49,13 +49,17 @@ Note that for brevity, query operators can be applied directly to class objects 
 
 .. python 2 end
 
-You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
+You can preview the contents of the query in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
 In the image below, the object ``query`` is first defined as a restriction of the table ``EEG`` by values of the attribute ``eeg_sample_rate`` greater than 1000 Hz.
 When we display the object, we get a preview of the entities that will be returned by ``query``.
 Note that this preview only lists a few of the entities that will be returned.
 Also, the preview does not contain any data for attributes of datatype ``blob``.
 
-.. image:: ../_static/img/query_object_preview.png
+.. figure:: ../_static/img/query_object_preview.png
+   :align: center
+   :alt: query object preview
+
+   Defining a query object and previewing the entities returned by the query.
 
 Once the desired query object is formed, the query can be executed using its :ref:`fetch` methods.
 To **fetch** means to transfer the data represented by the query object from the database server into the workspace of the host language.
