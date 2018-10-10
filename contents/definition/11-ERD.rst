@@ -7,7 +7,7 @@ ERD
 
 ERD stands for **entity relationship diagram**.
 Objects of type ``dj.ERD`` allow visualizing portions of the data pipeline in graphical form.
-Tables are depicted as nodes and :ref:`dependencies` as directed edges between them.
+Tables are depicted as nodes and :ref:`dependencies <dependencies>` as directed edges between them.
 The `draw` method plots the graph.
 
 Diagram notation
@@ -61,7 +61,8 @@ or, alternatively an object that has the schema object as an attribute, such as 
 |matlab| MATLAB
 +++++++++++++++
 
-In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function (See :ref:`schema`).
+In MATLAB, the schema object for a package can be obtained using its ``getSchema`` function.
+(See :ref:`schema`.)
 
 .. code-block:: matlab
 

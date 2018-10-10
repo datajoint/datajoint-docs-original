@@ -15,7 +15,8 @@ DataJoint does not enforce the distinction between imported and computed tables:
 If populating a table requires access to external files such as raw storage that is not part of the database, the table is designated as **imported**.
 Otherwise it is **computed**.
 
-Auto-populated tables are defined and queried exactly as other tables (See :ref:`example`).
+Auto-populated tables are defined and queried exactly as other tables.
+(See :ref:`example`.)
 Their data definition follows the same :ref:`definition syntax <definition-syntax>`.
 
 Make
@@ -80,7 +81,7 @@ The key represents the partially filled entity, usually already containing :ref:
 
 Inside the callback, three things always happen:
 
-1. :ref:`fetch` data from tables upstream in the pipeline using the ``key`` for :ref:`restriction <restriction>`.
+1. Data are :ref:`fetched <fetch>` from tables upstream in the pipeline using the ``key`` for :ref:`restriction <restriction>`.
 2. The missing attributes are computed and added to the fields already in ``key``.
 3. The entire entity is inserted into ``self``.
 

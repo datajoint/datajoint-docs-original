@@ -61,7 +61,7 @@ Also, the preview does not contain any data for attributes of datatype ``blob``.
 
    Defining a query object and previewing the entities returned by the query.
 
-Once the desired query object is formed, the query can be executed using its :ref:`fetch` methods.
+Once the desired query object is formed, the query can be executed using its :ref:`fetch <fetch>` methods.
 To **fetch** means to transfer the data represented by the query object from the database server into the workspace of the host language.
 
 

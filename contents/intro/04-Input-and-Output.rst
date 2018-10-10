@@ -11,7 +11,7 @@ Where are my data?
 New users often ask this question thinking of passive **data repositories** -- collections of files and folders and a separate collection of metadata -- information about how the files were collected and what they contain.
 Let's address metadata first, since the answer there is easy: Everything goes in the database!
 Any information about the experiment that would normally be stored in a lab notebook, in an Excel spreadsheet, or in a Word document is entered into tables in the database.
-These tables can accomodate numbers, strings, dates, or numerical arrays.
+These tables can accommodate numbers, strings, dates, or numerical arrays.
 The entry of metadata can be manual, or it can be an automated part of data acquisition (in this case the acquisition software itself is modified to enter information directly into the database).
 
 Depending on their size and contents, raw data files can be stored in a number of ways.
@@ -41,13 +41,13 @@ However, in many scenarios even long time series or images can be stored directl
 Why not just process the data and save them back to a file?
 -----------------------------------------------------------
 There are two main advantages to storing results in the database.
-The first is data integrity. 
+The first is data integrity.
 Because the relationships between data are enforced by the structure of the database, DataJoint ensures that the metadata in the upstream nodes always correctly describes the computed results downstream in the pipeline.
 If a specific experimental session is deleted, for example, all the data extracted from that session are automatically removed as well, so there is no chance of "orphaned" data.
 Likewise, the database ensures that computations are atomic.
 This means that any computation performed on a dataset is performed in an all-or-none fashion.
 Either all of the data are processed and inserted, or none at all.
-This ensures that there are no incomplete data. 
+This ensures that there are no incomplete data.
 Neither of these important features of data integrity can be guaranteed by a file system.
 
 The second advantage of storing intermediate results in a data pipeline is flexible access.
@@ -58,7 +58,8 @@ This brings us to the final important question:
 
 How do I get my data out?
 -------------------------
-This is the fun part. See :ref:`queries` for details of the DataJoint query language.
+This is the fun part.
+See :ref:`queries` for details of the DataJoint query language.
 
 Interfaces
 ----------

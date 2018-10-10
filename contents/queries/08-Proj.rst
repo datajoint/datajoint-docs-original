@@ -66,7 +66,7 @@ Then
 
 will have attributes **animal**, **session**, and *stimulus*.
 
-Renaming is often used to control the outcome of a :ref:`join`.
+Renaming is often used to control the outcome of a :ref:`join <join>`.
 For example, let ``tab`` have attributes **slice**, and **cell**.
 Then ``tab * tab`` will simply yield ``tab``.
 However,
