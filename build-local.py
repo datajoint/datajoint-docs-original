@@ -10,23 +10,9 @@ import build_config as config
 matlab_dir = config.loc_mat_path
 python_dir = config.loc_py_path
 
-# workaround for Windows issue of not wanting to remove some folders
-import errno
-import stat
-
-def handleRemoveReadonly(func, path, exc):
-  excvalue = exc[1]
-  if func in (os.rmdir, os.remove) and excvalue.errno == errno.EACCES:
-      os.chmod(path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)  # 0777
-      func(path)
-  else:
-      raise
-
-# shutil.rmtree(filename, ignore_errors=False, onerror=handleRemoveReadonly)
-
 
 if path.exists('build-local'):
-    shutil.rmtree('build-local', ignore_errors=False, onerror=handleRemoveReadonly)
+    shutil.rmtree('build-local')
 
 os.makedirs('build-local')
 if path.exists(matlab_dir):
