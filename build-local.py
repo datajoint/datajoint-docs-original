@@ -86,7 +86,6 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         for root, dirs, filename in os.walk(dst_temp):
             for f in filename:
                 if f.endswith(".doctree"):
-                    print("ignoring doctree files")
                     break
                 fullpath = path.join(root, f)
                 print(fullpath)

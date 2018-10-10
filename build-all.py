@@ -62,6 +62,8 @@ def create_build_folders(lang):
         # copying and merging all of the folders from lang-specific repo to build folder
         for root, dirs, filename in os.walk(dst_temp):
             for f in filename:
+                if f.endswith(".doctree"):
+                    break
                 fullpath = path.join(root, f)
                 print(fullpath) #
                 if len(dirs) == 0:
@@ -129,9 +131,12 @@ def make_full_site():
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
         if platform.system() == "Windows":
-            subprocess.Popen(["sphinx-build", ".", "_build\html"], cwd="contents").wait() # builds html by default
-            subprocess.Popen(["sphinx-build", "-b", "latex", ".", "_build\latex"], cwd="contents").wait()
-            copy_contents("_build\html", "site")
+            subprocess.Popen(["sphinx-build", ".", "..\_build\html"], cwd=path.join(folder, "contents")).wait() # builds html by default
+            subprocess.Popen(["sphinx-build", "-b", "latex", ".", "..\_build\latex"], cwd=path.join(folder, "contents")).wait()
+            if path.exists(path.join(folder, "site")):
+                shutil.rmtree(path.join(folder, "site"))
+            os.makedirs(path.join(folder, "site"))
+            copy_contents(path.join(folder, "_build", "html"), path.join(folder, "site"))
         else:
             subprocess.Popen(["make", "site"], cwd=folder).wait()
 
@@ -139,7 +144,7 @@ def make_full_site():
         try:
             subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
             subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
-        except Warning:
+        except:
             print("Latex environment not set up - no pdf will be generated")
 
         lang_version = folder.split(os.sep)[1] # 'matlab-v3.2.2'
