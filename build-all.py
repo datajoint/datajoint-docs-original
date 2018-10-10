@@ -4,6 +4,7 @@ import json
 import glob
 import shutil
 import subprocess
+import platform
 import build_config as config
 import tagpicker
 
@@ -52,7 +53,7 @@ def create_build_folders(lang):
         cv = open(path.join(dsrc_lang2, "_version_common.json"))
         v = cv.read() # expected in this format { "comm_version" : "v0.0.0"}
         version_info = json.loads(v)
-        cv.close
+        cv.close()
         subprocess.Popen(["git", "checkout", version_info['comm_version']],cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).wait()
         dsrc_comm2 = path.join("build-all", "datajoint-docs", "contents")
         # copy over the cmmon source doc contents into the build folder 
@@ -61,6 +62,8 @@ def create_build_folders(lang):
         # copying and merging all of the folders from lang-specific repo to build folder
         for root, dirs, filename in os.walk(dst_temp):
             for f in filename:
+                if f.endswith(".doctree"):
+                    break
                 fullpath = path.join(root, f)
                 print(fullpath) #
                 if len(dirs) == 0:
@@ -127,17 +130,32 @@ def make_full_site():
 
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
-        subprocess.Popen(["make", "site"], cwd=folder).wait()
-        subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
-        subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+        if platform.system() == "Windows":
+            subprocess.Popen(["sphinx-build", ".", "..\_build\html"], cwd=path.join(folder, "contents")).wait() # builds html by default
+            subprocess.Popen(["sphinx-build", "-b", "latex", ".", "..\_build\latex"], cwd=path.join(folder, "contents")).wait()
+            if path.exists(path.join(folder, "site")):
+                shutil.rmtree(path.join(folder, "site"))
+            os.makedirs(path.join(folder, "site"))
+            copy_contents(path.join(folder, "_build", "html"), path.join(folder, "site"))
+        else:
+            subprocess.Popen(["make", "site"], cwd=folder).wait()
+
+        # making pdf out of the latex directory only if pdflatex runs
+        try:
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+        except:
+            print("Latex environment not set up - no pdf will be generated")
 
         lang_version = folder.split(os.sep)[1] # 'matlab-v3.2.2'
         version = lang_version.split("-")[1].split(".")[:-1] #['v3', '2']
         abbr_ver = ".".join(version)  #v3.2
         abbr_lang_ver = ".".join(lang_version.split(".")[:-1])
         shutil.copytree(path.join(folder, "site"), path.join('full_site', lang_version.split("-")[0], abbr_ver))
-        os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'))
-        shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'), path.join('full_site', lang_version.split("-")[0], abbr_ver))
+
+        if path.exists(path.join('_build', 'latex', 'DataJointDocs.pdf')):
+            os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'))
+            shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'), path.join('full_site', lang_version.split("-")[0], abbr_ver))
 
     for lang in ["matlab", "python"]:
         ver_list=[]

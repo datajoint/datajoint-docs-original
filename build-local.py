@@ -4,10 +4,12 @@ import json
 import glob
 import shutil
 import subprocess
+import platform
 import build_config as config
 
 matlab_dir = config.loc_mat_path
 python_dir = config.loc_py_path
+
 
 if path.exists('build-local'):
     shutil.rmtree('build-local')
@@ -73,7 +75,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
                 cv = open(path.join(dsrc_lang, "_version_common.json"))
                 v = cv.read()  # expected in this format { "comm_version" : "v0.0.0"}
                 version_info = json.loads(v)
-                cv.close
+                cv.close()
                 subprocess.Popen(["git", "checkout", version_info['comm_version']],
                                 cwd=path.join("build-local", "datajoint-docs"), stdout=subprocess.PIPE).wait()
  
@@ -84,6 +86,8 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         # copying and merging all of the folders from lang-specific repo to build folder
         for root, dirs, filename in os.walk(dst_temp):
             for f in filename:
+                if f.endswith(".doctree"):
+                    break
                 fullpath = path.join(root, f)
                 print(fullpath)
                 if len(dirs) == 0:
@@ -145,16 +149,28 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
 
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
-        subprocess.Popen(["make", "site"], cwd=folder).wait()
-        subprocess.Popen(["pdflatex", "DataJointDocs.tex"],
-                         cwd=path.join(folder, '_build', 'latex')).wait()
-        subprocess.Popen(["pdflatex", "DataJointDocs.tex"],
-                         cwd=path.join(folder, '_build', 'latex')).wait()
+        if platform.system() == "Windows":
+            subprocess.Popen(["sphinx-build", "-b", "html", ".", "..\_build\html"], cwd=path.join(folder, "contents")).wait()  
+            subprocess.Popen(["sphinx-build", "-b", "latex", ".", "..\_build\latex"], cwd=path.join(folder, "contents")).wait()
+            if path.exists(path.join(folder,"site")):
+                shutil.rmtree(path.join(folder, "site"))
+            os.makedirs(path.join(folder, "site"))
+            copy_contents(path.join(folder, "_build", "html"), path.join(folder, "site"))
+        else:
+            subprocess.Popen(["make", "site"], cwd=folder).wait()
+
+        try:
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+        except:
+            print("Latex environment not set up - no pdf will be generated")
 
         lang_version = folder.split(os.sep)[1]  # 'matlab' from `build-local/matlab/contents/...`
         shutil.copytree(path.join(folder, "site"), path.join('loc_built_site', lang_version))
-        os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'))
-        shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'), path.join('loc_built_site', lang_version))
+
+        if path.exists(path.join('_build', 'latex', 'DataJointDocs.pdf')):
+            os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'))
+            shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'), path.join('loc_built_site', lang_version))
 
         copy_contents('dj_root_theme', 'loc_built_site')
         copy_contents(path.join('loc_built_site', 'python', '_static'), path.join('loc_built_site', '_static'))
