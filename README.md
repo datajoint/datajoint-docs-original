@@ -12,7 +12,8 @@ The documentation can be distributed for free use under the [Creative Commons At
 # In-Development: Building All Versions (Full Site)
 1. Clone the repository to your local machine.
 2. Currently this will build using `testDocMain.git`, `testDocMatlab.git` and `testDocPython.git` repo. This will eventually need to be switched out to the actual official DJ documentation repositories. 
-3. Build the website by running `python build-all.py`. This will build and generate the static website in the `full_site` directory. 
+3. Build the website by running `python build-all.py`. This will build and generate the static website in the `full_site` directory.
+- Note for Windows users: Please manually remove the `build-all` folder before running `python build-all.py` for building second time and on... 
 4. Move inside the `full_site` folder and run the following command to launch a local web server:
     ```bash
     $ python3 -m http.server
