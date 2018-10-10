@@ -4,6 +4,7 @@ import json
 import glob
 import shutil
 import subprocess
+import platform
 import build_config as config
 
 matlab_dir = config.loc_mat_path
@@ -145,16 +146,25 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
 
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
-        subprocess.Popen(["make", "site"], cwd=folder).wait()
-        subprocess.Popen(["pdflatex", "DataJointDocs.tex"],
-                         cwd=path.join(folder, '_build', 'latex')).wait()
-        subprocess.Popen(["pdflatex", "DataJointDocs.tex"],
-                         cwd=path.join(folder, '_build', 'latex')).wait()
+        if platform.system() == "Windows":
+            subprocess.Popen(["spinx-build", ".", "_build\html"], cwd="contents").wait()  # builds html by default
+            subprocess.Popen(["spinx-build", "latex", ".", "_build\latex"], cwd="contents").wait()
+            copy_contents("_build\html", "site")
+        else:
+            subprocess.Popen(["make", "site"], cwd=folder).wait()
+
+        try:
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+        except Warning:
+            print("Latex environment not set up - no pdf will be generated")
 
         lang_version = folder.split(os.sep)[1]  # 'matlab' from `build-local/matlab/contents/...`
         shutil.copytree(path.join(folder, "site"), path.join('loc_built_site', lang_version))
-        os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'))
-        shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'), path.join('loc_built_site', lang_version))
+
+        if path.exists(path.join('_build', 'latex', 'DataJointDocs.pdf')):
+            os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'))
+            shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'), path.join('loc_built_site', lang_version))
 
         copy_contents('dj_root_theme', 'loc_built_site')
         copy_contents(path.join('loc_built_site', 'python', '_static'), path.join('loc_built_site', '_static'))
