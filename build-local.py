@@ -85,6 +85,8 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         # copying and merging all of the folders from lang-specific repo to build folder
         for root, dirs, filename in os.walk(dst_temp):
             for f in filename:
+                # if f.endswith(".doctree"):
+
                 fullpath = path.join(root, f)
                 print(fullpath)
                 if len(dirs) == 0:
@@ -147,7 +149,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
         if platform.system() == "Windows":
-            subprocess.Popen(["sphinx-build", ".", "_build\html"], cwd="contents").wait()  # builds html by default
+            subprocess.Popen(["sphinx-build", "-b", "html", ".", "_build\html"], cwd="contents").wait()  # builds html by default
             subprocess.Popen(["sphinx-build", "-b", "latex", ".", "_build\latex"], cwd="contents").wait()
             copy_contents("_build\html", "site")
         else:
