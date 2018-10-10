@@ -93,6 +93,7 @@ It can be useful to know the number of entities returned by a query, or even whe
 .. python 4 start
 
 The ``bool`` function applied to a query object evaluates to ``True`` if the query returns any entities and to ``False`` if the query does not return any entities.
+
 The ``len`` function applied to a query object determines the number of entities returned by the query.
 
 .. python 4 end
@@ -100,6 +101,7 @@ The ``len`` function applied to a query object determines the number of entities
 .. matlab 4 start
 
 The ``exists`` function applied to a query object evaluates to ``true`` if the query returns any entities and to ``false`` if the query does not return any entities.
+
 The ``count`` function applied to a query object determines the number of entities returned by the query.
 
 .. matlab 4 end
