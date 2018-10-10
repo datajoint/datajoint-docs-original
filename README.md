@@ -13,7 +13,7 @@ The documentation can be distributed for free use under the [Creative Commons At
 1. Clone the repository to your local machine.
 2. Currently this will build using `testDocMain.git`, `testDocMatlab.git` and `testDocPython.git` repo. This will eventually need to be switched out to the actual official DJ documentation repositories. 
 3. Build the website by running `python build-all.py`. This will build and generate the static website in the `full_site` directory. 
-4. Move inside the `full_site` folder and run the following command to launch a locally web server:
+4. Move inside the `full_site` folder and run the following command to launch a local web server:
     ```bash
     $ python3 -m http.server
     ```
@@ -22,15 +22,15 @@ The documentation can be distributed for free use under the [Creative Commons At
 6. If you made changes to the documentation source but you're not seeing the changes reflected, that is because this command builds from contents that are already pushed and tagged in the git repository. Please build locally to test, and then push with updated version numbers to see the changes in the full-site building.
 7. To stop the server, hit `Ctrl+C` in the termianl window that's running the server.
 
-# In-Development: Building Locally[Neo]/Partially 
+# In-Development: Building Locally/Partially 
 1. Fork and clone the repository to your local machine. Note: datajoint-docs now only contains the common documentions. If you are writing for specific language, you also need to clone the datajoint-matlab or datajoint-python repository and make sure they are place on the same level as the datajoint-docs folder.
 2. Rename the cloned folder to `datajoint-docs`. If you cloned the python/matlab repository for local development/building, make sure to rename the folders to `datajoint-python` and `datajoint-matlab` respectively.
 3. Build the website by running `python build-local.py`. This will build and generate the static website in the `loc_built_site` directory. 
 
-- Note 1: `python build-local.py` defaults to building the most updated local common documentation. If you have both datajoint-matlab or datajoint-python folder locally on the same level, then this will build using those local folders. If you don't have a local language-specific folder, then it will still build using the most current lang-specific documentation on its respective git repository.
+- Note 1: `python build-local.py` defaults to building the most updated local common documentation. If you have both datajoint-matlab or datajoint-python folder locally on the same level, then this will build using those local folders (check/edit the `build-config.py` to make sure the local language folders are correctly placed. If you don't have a local language-specific folder, then it will still build using the most current lang-specific documentation on its respective git repository.
 - Note 2: If you want to test-build a specific language version locally, then add `python/matlab_tag=(version)` after the `python build-local.py`. For example like, `python build-local.py matlab_tag=v3.2.5` and this should automatically grab the matching common version for building. Make sure you are specifying the full version tag (and not the abbreviated v3.2 in this case).
 Note 3: If for some reason, you don't want to build using the local common version, you can also build using the most updated common version on the git repository by running `python build-local.py False` or `python build-local.py loc_comm=False`. This is mostly likely not going to work well if you already have a pre-existing local language-specific folder. 
-4. Move inside the specific language you are building for in the `loc_built_site` folder and run the following command to launch a locally web server:
+4. Move inside the `loc_built_site` folder and run the following command to launch a local web server:
     ```bash
     $ python3 -m http.server
     ```
