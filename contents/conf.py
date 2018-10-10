@@ -158,7 +158,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'DataJointDocs.tex', 'DataJoint Docs',
+    (master_doc, 'DataJointDocs.tex', 'DataJoint User Manual',
      'DataJoint contributors', 'manual'),
 ]
 
