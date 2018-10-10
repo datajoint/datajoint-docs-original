@@ -150,9 +150,10 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
         if platform.system() == "Windows":
-            subprocess.Popen(["sphinx-build", "-b", "html", ".", "_build\html"], cwd="contents").wait()  
-            subprocess.Popen(["sphinx-build", "-b", "latex", ".", "_build\latex"], cwd="contents").wait()
-            copy_contents("_build\html", "site")
+            subprocess.Popen(["sphinx-build", "-b", "html", ".", "..\_build\html"], cwd="contents").wait()  
+            subprocess.Popen(["sphinx-build", "-b", "latex", ".", "..\_build\latex"], cwd="contents").wait()
+            
+            copy_contents(path.join(folder, "_build", "html"), path.join(folder, "site"))
         else:
             subprocess.Popen(["make", "site"], cwd=folder).wait()
 
