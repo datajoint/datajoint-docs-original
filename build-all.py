@@ -129,8 +129,8 @@ def make_full_site():
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
         if platform.system() == "Windows":
-            subprocess.Popen(["spinx-build", ".", "_build\html"], cwd="contents").wait() # builds html by default
-            subprocess.Popen(["spinx-build", "latex", ".", "_build\latex"], cwd="contents").wait()
+            subprocess.Popen(["sphinx-build", ".", "_build\html"], cwd="contents").wait() # builds html by default
+            subprocess.Popen(["sphinx-build", "latex", ".", "_build\latex"], cwd="contents").wait()
             copy_contents("_build\html", "site")
         else:
             subprocess.Popen(["make", "site"], cwd=folder).wait()
@@ -147,7 +147,7 @@ def make_full_site():
         abbr_ver = ".".join(version)  #v3.2
         abbr_lang_ver = ".".join(lang_version.split(".")[:-1])
         shutil.copytree(path.join(folder, "site"), path.join('full_site', lang_version.split("-")[0], abbr_ver))
-        
+
         if path.exists(path.join('_build', 'latex', 'DataJointDocs.pdf')):
             os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'))
             shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'), path.join('full_site', lang_version.split("-")[0], abbr_ver))
