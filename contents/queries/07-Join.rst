@@ -30,7 +30,7 @@ Example 2 : When the operands have common attributes, only entities with matchin
 .. figure:: ../_static/img/join-example2.png
    :alt:
 
-Example 3 : Joining on secondary attribute
+Example 3 : Joining on secondary attribute.
 
 .. figure:: ../_static/img/join-example3.png
    :alt:

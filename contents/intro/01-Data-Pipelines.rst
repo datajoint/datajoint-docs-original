@@ -73,7 +73,7 @@ DataJoint enables data scientists to build and operate scientific data pipelines
     :align: center
     :alt: DataJoint operation
 
-    Conceptual overview of DataJoint operation
+    Conceptual overview of DataJoint operation.
 
 DataJoint provides a simple and powerful data model, which is detailed more formally in `Yatsenko D, Walker EY, Tolias AS (2018). *DataJoint: A Simpler Relational Data Model.* <https://arxiv.org/abs/1807.11104>`_.
 Put most generally, a "data model" defines how to think about data and the operations that can be performed on them.
