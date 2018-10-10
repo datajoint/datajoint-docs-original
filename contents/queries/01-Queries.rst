@@ -79,10 +79,30 @@ Here fetching from the ``query`` object produces the struct array ``s`` of the q
 
     s = query.fetch()
 
-Here fetching from the ``query`` object produces the numpy record array ``s`` of the queried data.
+Here fetching from the ``query`` object produces the NumPy record array ``s`` of the queried data.
 
 .. python 3 end
 
+
+Checking for returned entities
+------------------------------
+
+The preview of the query object shown above displayed only a few of the entities returned by the query but also displayed the total number of entities that would be returned.
+It can be useful to know the number of entities returned by a query, or even whether a query will return any entities at all, without having to fetch all the data themselves.
+
+.. python 4 start
+
+The ``bool`` function applied to a query object evaluates to ``True`` if the query returns any entities and to ``False`` if the query does not return any entities.
+The ``len`` function applied to a query object determines the number of entities returned by the query.
+
+.. python 4 end
+
+.. matlab 4 start
+
+The ``exists`` function applied to a query object evaluates to ``true`` if the query returns any entities and to ``false`` if the query does not return any entities.
+The ``count`` function applied to a query object determines the number of entities returned by the query.
+
+.. matlab 4 end
 
 Normalization in queries
 ------------------------
