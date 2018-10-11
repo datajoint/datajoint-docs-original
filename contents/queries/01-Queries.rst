@@ -92,23 +92,33 @@ It can be useful to know the number of entities returned by a query, or even whe
 
 .. python 4 start
 
-The ``bool`` function applied to a query object evaluates to ``True`` if the query returns any entities and to ``False`` if the query does not return any entities.
+The ``bool`` function applied to a query object evaluates to ``True`` if the query returns any entities and to ``False`` if the query result is empty.
 
 The ``len`` function applied to a query object determines the number of entities returned by the query.
+
+.. code-block:: python
+
+    # number of sessions since the start of 2018.
+    n = len(Session & 'session_date >= "2018-01-01"')
 
 .. python 4 end
 
 .. matlab 4 start
 
-The ``exists`` function applied to a query object evaluates to ``true`` if the query returns any entities and to ``false`` if the query does not return any entities.
+The ``exist`` method applied to a query object evaluates to ``true`` if the query returns any entities and to ``false`` if the query result is empty.
 
-The ``count`` function applied to a query object determines the number of entities returned by the query.
+The ``count`` method applied to a query object determines the number of entities returned by the query.
+
+.. code-block:: matlab
+
+    # number of ephys sessions since the start of 2018.
+    n = count(ephys.Session & 'session_date >= "2018-01-01"')
 
 .. matlab 4 end
 
 Normalization in queries
 ------------------------
 
-Query objects adhere to entity :ref:`normalization <normalization>` just like the stored tables do.
+Query objects adhere to entity :ref:`entity normalization <normalization>` just like the stored tables do.
 The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other.
 The query :ref:`operators <operators>` are designed to keep the result normalized even in complex query expressions.
