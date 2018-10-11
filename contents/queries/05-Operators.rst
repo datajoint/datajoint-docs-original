@@ -77,6 +77,8 @@ but these entities do *not* match:
 
 .. image:: ../_static/img/matched_tuples3.png
 
+.. _join-compatible:
+
 Join compatibility
 -------------------
 All binary operators with other tables as their two operands require that the operands be **join-compatible**, which means that:
