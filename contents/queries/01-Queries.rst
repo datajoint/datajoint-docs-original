@@ -111,7 +111,7 @@ The ``count`` method applied to a query object determines the number of entities
 
 .. code-block:: matlab
 
-    # number of ephys sessions since the start of 2018.
+    % number of ephys sessions since the start of 2018.
     n = count(ephys.Session & 'session_date >= "2018-01-01"')
 
 .. matlab 4 end
