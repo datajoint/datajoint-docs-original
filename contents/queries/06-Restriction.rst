@@ -47,57 +47,58 @@ For example, the queries ``A & cond`` and ``A - Not(cond)`` will return the same
 Restriction by a table
 ----------------------
 
-When restricting table ``A`` with another table, written ``A & B``, the two tables must be **join-compatible**.
+When restricting table ``A`` with another table, written ``A & B``, the two tables must be **join-compatible** (see :ref:`join-compatible`).
 The result will contain all entities from ``A`` for which there exist a matching entity in ``B``.
 Exclusion of table ``A`` with table ``B``, or ``A - B``, will contain all entities from ``A`` for which there are no matching entities in ``B``.
 
 .. figure:: ../_static/img/restrict-example1.png
-    :alt: Restriction with another table
+    :alt: Restriction by another table
 
-    Restriction with another table.
+    Restriction by another table.
 
 .. figure:: ../_static/img/diff-example1.png
-    :alt: Exclusion with another table
+    :alt: Exclusion by another table
 
-    Exclusion with another table.
+    Exclusion by another table.
 
 Restriction by a table with no common attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Restriction of table ``A`` with another table ``B`` having none of the same attributes as ``A`` will simply return all entities in ``A``.
-Exclusion of table ``A`` with ``B`` having no common attributes will return no entities.
+Restriction of table ``A`` with another table ``B`` having none of the same attributes as ``A`` will simply return all entities in ``A``, unless ``B`` is empty as described below.
+Exclusion of table ``A`` with ``B`` having no common attributes will return no entities, unless ``B`` is empty as described below.
 
 .. figure:: ../_static/img/restrict-example2.png
-   :alt: Restriction with a table with no common attributes
+   :alt: Restriction by a table with no common attributes
 
-   Restriction with a table having no common attributes.
+   Restriction by a table having no common attributes.
 
 .. figure:: ../_static/img/diff-example2.png
-   :alt: Exclusion with a table having no common attributes
+   :alt: Exclusion by a table having no common attributes
 
-   Exclusion with a table having no common attributes.
+   Exclusion by a table having no common attributes.
 
 Restriction by an empty table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Restriction of table ``A`` with an empty table will return no entities.
 Exclusion of table ``A`` with an empty table will return all entities in ``A``.
+The behavior of restriction of table ``A`` by an empty table ``B`` applies even when ``B`` has no matching attributes.
 Note that restriction by an empty table has inverted behavior from restriction by an empty mapping, ``AndList``, or ``Not`` object.
 
 .. figure:: ../_static/img/restrict-example3.png
-   :alt: Restriction with an empty table
+   :alt: Restriction by an empty table
 
-   Restriction with an empty table.
+   Restriction by an empty table.
 
 .. figure:: ../_static/img/diff-example3.png
-   :alt: Exclusion with an empty table
+   :alt: Exclusion by an empty table
 
-   Exclusion with an empty table.
+   Exclusion by an empty table.
 
 Restriction by a query
 ----------------------
 
-Restriction by a query or query object is no different from restriction by a table, because queries in DataJoint adhere to :ref:`normalization <normalization>` and produce well-defined entity sets.
+Restriction by a query or query object is no different from restriction by a table, because queries in DataJoint adhere to :ref:`entity normalization <normalization>` and produce well-defined entity sets.
 As such, restriction by queries follows the same behavior as restriction by tables described above.
 
 Restriction by a mapping
@@ -109,6 +110,28 @@ Any key-value pairs without corresponding attributes in ``A`` are ignored.
 
 Restriction by an empty mapping or by a mapping with no keys matching the attributes in ``A`` will return all the entities in ``A``.
 Exclusion by an empty mapping or by a mapping with no matches will return no entities.
+
+For example, let's say that table ``Session`` has the attribute ``session_date`` of :ref:`datatype <datatype>` ``datetime``.
+We are interested in sessions from January 1st, 2018, so we write the following restriction query using a mapping.
+
+.. python 2 start
+
+.. code-block:: python
+
+    Session & {'session_dat': "2018-01-01"}
+
+.. python 2 end
+
+.. matlab 2 start
+
+.. code-block:: matlab
+
+    Session & struct('session_dat', "2018-01-01")
+
+.. matlab 2 end
+
+Our mapping contains a typo omitting the final ``e`` from ``session_date``, so no keys in our mapping will match any attribute in ``Session``.
+As such, our query will return all of the entities of ``Session``.
 
 Restriction by a string
 -----------------------
@@ -130,8 +153,19 @@ Note that restriction by an empty collection has inverted behavior from restrict
 Restriction by a Boolean expression
 -----------------------------------
 
+.. python 3 start
+
 ``A & True`` and ``A - False`` are equivalent to ``A``.
 ``A & False`` and ``A - True`` are empty.
+
+.. python 3 end
+
+.. matlab 3 start
+
+``A & true`` and ``A - false`` are equivalent to ``A``.
+``A & false`` and ``A - true`` are empty.
+
+.. matlab 3 end
 
 Restriction by an ``AndList``
 -----------------------------
