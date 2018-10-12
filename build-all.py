@@ -5,22 +5,33 @@ import glob
 import shutil
 import subprocess
 import platform
-import build_config as config
 import tagpicker
 
+# default values in case the build config file is missing
+git_urls = {
+    'common': "https://github.com/datajoint/datajoint-docs.git",
+    'matlab': "https://github.com/datajoint/datajoint-matlab.git",
+    'python': "https://github.com/datajoint/datajoint-python.git"
+}
 
 if path.exists('build-all'):
     shutil.rmtree('build-all')
 
+try:
+    import build_config as config
+    git_urls = dict(git_urls, **config.config_urls)
+except:
+    print("build_config.py file missing - will use default values for git repo")
+
 os.makedirs('build-all')
 subprocess.Popen(
-    ["git", "clone", config.common_doc_url, "datajoint-docs"], cwd="build-all").wait()
+    ["git", "clone", git_urls['common'], "datajoint-docs"], cwd="build-all").wait()
 
 subprocess.Popen(
-    ["git", "clone", config.matlab_doc_url, "datajoint-matlab"], cwd="build-all").wait()
+    ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-all").wait()
 
 subprocess.Popen(
-    ["git", "clone", config.python_doc_url, "datajoint-python"], cwd="build-all").wait()
+    ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-all").wait()
     
 
 def create_build_folders(lang): 

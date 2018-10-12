@@ -5,11 +5,30 @@ import glob
 import shutil
 import subprocess
 import platform
-import build_config as config
 
-matlab_dir = config.loc_mat_path
-python_dir = config.loc_py_path
 
+# default values in case the build config file is missing
+git_urls = {
+    'common': "https://github.com/datajoint/datajoint-docs.git",
+    'matlab': "https://github.com/datajoint/datajoint-matlab.git",
+    'python': "https://github.com/datajoint/datajoint-python.git"
+}
+
+# default path location for the language local folders
+local_lang_path = {
+    'matlab': "../datajoint-matlab",
+    'python': "../datajoint-python"
+}
+
+try:
+    import build_config as config
+    git_urls = dict(git_urls, **config.config_urls)
+    local_lang_path = dict(local_lang_path, **config.local_path)
+except:
+    print("build_config.py file missing - will use default values for git repo")
+
+matlab_dir = local_lang_path['matlab']
+python_dir = local_lang_path['python']
 
 if path.exists('build-local'):
     shutil.rmtree('build-local')
@@ -21,14 +40,14 @@ if path.exists(matlab_dir):
 else:
     print("local matlab doc not found - cloning from the git repo")
     subprocess.Popen(
-        ["git", "clone", config.matlab_doc_url, "datajoint-matlab"], cwd="build-local").wait()
+        ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-local").wait()
 if path.exists(python_dir):
     print("local python doc exists - copying the folder over")
     shutil.copytree(python_dir, path.join('build-local', 'datajoint-python'))
 else:
     print("local python doc not found - cloning from the git repo")
     subprocess.Popen(
-        ["git", "clone", config.python_doc_url, "datajoint-python"], cwd="build-local").wait()
+        ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-local").wait()
 
 
 def local_build(loc_comm=True, python_tag='', matlab_tag=''):
@@ -37,7 +56,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
     if not loc_comm:
         print("local common folder build set to False - cloning from the git repo")
         subprocess.Popen(
-            ["git", "clone", config.common_doc_url, "datajoint-docs"], cwd="build-local").wait()
+            ["git", "clone", git_urls['common'], "datajoint-docs"], cwd="build-local").wait()
     else:
         # Default - copy the local comm doc to the build folder
         print("using LOCAL common folder for build - copying over")
