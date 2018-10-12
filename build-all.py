@@ -92,6 +92,7 @@ def create_build_folders(lang):
         shutil.copytree("datajoint_theme", path.join(dst_build_folder, "datajoint_theme"))
         shutil.copy2("Makefile", path.join(dst_build_folder, "Makefile"))
         shutil.copy2(path.join("contents", "conf.py"), path.join(dst_build_folder, "contents", "conf.py"))
+        shutil.copy2("report.txt", path.join(dst_build_folder, "report.txt"))
 
         # add current_version <p> tag into the datajoint_theme folder 
         f = open(path.join(dst_build_folder, 'datajoint_theme', 'this_version.html'), 'w+')
@@ -164,7 +165,7 @@ def make_full_site():
         abbr_lang_ver = ".".join(lang_version.split(".")[:-1])
         shutil.copytree(path.join(folder, "site"), path.join('full_site', lang_version.split("-")[0], abbr_ver))
 
-        if path.exists(path.join('_build', 'latex', 'DataJointDocs.pdf')):
+        if path.exists(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf')):
             os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'))
             shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + abbr_lang_ver + '.pdf'), path.join('full_site', lang_version.split("-")[0], abbr_ver))
 

@@ -124,6 +124,7 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         shutil.copytree("datajoint_theme", path.join(dst_build_folder, "datajoint_theme"))
         shutil.copy2("Makefile", path.join(dst_build_folder, "Makefile"))
         shutil.copy2(path.join("contents", "conf.py"), path.join(dst_build_folder, "contents", "conf.py"))
+        shutil.copy2("report.txt", path.join(dst_build_folder, "report.txt"))
 
         # add current_version <p> tag into the datajoint_theme folder
         f = open(path.join(dst_build_folder, 'datajoint_theme', 'this_version.html'), 'w+')
@@ -187,12 +188,13 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         lang_version = folder.split(os.sep)[1]  # 'matlab' from `build-local/matlab/contents/...`
         shutil.copytree(path.join(folder, "site"), path.join('loc_built_site', lang_version))
 
-        if path.exists(path.join('_build', 'latex', 'DataJointDocs.pdf')):
+        if path.exists(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf')):
             os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'))
             shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_' + lang_version + '.pdf'), path.join('loc_built_site', lang_version))
 
         copy_contents('dj_root_theme', 'loc_built_site')
         copy_contents(path.join('loc_built_site', 'python', '_static'), path.join('loc_built_site', '_static'))
+        
 
 def copy_contents(src_dir, dest_dir):
     """

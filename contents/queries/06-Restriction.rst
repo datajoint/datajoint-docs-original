@@ -28,7 +28,7 @@ For example, the queries ``A & cond`` and ``A - Not(cond)`` will return the same
 Restriction with a table
 ------------------------
 
-When restricting table ``A`` with another table ``A & B``, the two relations must be **join-compatible**.
+When restricting table ``A`` with another table ``A & B``, the two tables must be **join-compatible**.
 The result will contain all entities from ``A`` for which there exist a matching entity in ``B``.
 
 Restriction with another table

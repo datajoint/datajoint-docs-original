@@ -5,6 +5,7 @@ import re
 import pandas as pd
 
 pd.options.display.width = 120
+pd.options.display.precision = 1
 
 pattern = re.compile(r'\.\.\s+progress:\s+(?P<hours>\d*\.?\d*)\s*(?P<percent>\d+\.?\d*)%\s*(?P<author>\w+)\s*(?P<comment>.*)?$')
 
@@ -17,7 +18,7 @@ def filegen(path):
                     match = pattern.match(f.readline())
                     if match is None:
                         raise ValueError('File {file} has invalid progress report'.format(file=fullfile))
-                    yield dict(match.groupdict(), section=root[len(path):], file=file)
+                    yield dict(match.groupdict(), section=root[len(path)+1:], file=file)
 
 data = pd.DataFrame(filegen('./contents'))
 data['hours'] = data['hours'].astype(float)
