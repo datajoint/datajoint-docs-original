@@ -25,7 +25,7 @@ try:
     git_urls = dict(git_urls, **config.config_urls)
     local_lang_path = dict(local_lang_path, **config.local_path)
 except:
-    print("build_config.py file missing - will use default values for git repo")
+    print("build_config.py file missing - will use default values")
 
 matlab_dir = local_lang_path['matlab']
 python_dir = local_lang_path['python']
