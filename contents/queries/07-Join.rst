@@ -30,29 +30,10 @@ Example 2 : When the operands have common attributes, only entities with matchin
 .. figure:: ../_static/img/join-example2.png
    :alt:
 
-Example 3 : Joining on non-primary attribute
+Example 3 : Joining on secondary attribute
 
 .. figure:: ../_static/img/join-example3.png
    :alt:
-
-Left join
-~~~~~~~~~
-
-*Left joins are not yet implemented:*
-https://github.com/datajoint/datajoint-python/issues/264
-
-A modification of the join operator is the **left join**.
-It is implemented as ``A ** B`` in Python and ``A .* B`` in MATLAB.
-The left join keeps all the entities from ``A`` even in the absence of the matching entities from ``B``.
-For entities with no matches in ``B``, the non-primary attributes from ``B`` are filled with ``NULL``\ s.
-
-Example 4 : A left join
-
-.. figure:: ../_static/img/outer-example1.png
-   :alt:
-
-*Caution:* The left join is the only operator that can introduce ``NULL``\ s in the primary key of the result.
-``NULL``\ s in primary attributes may produce unintuitive results in subsequent expressions.
 
 Properties of join
 ~~~~~~~~~~~~~~~~~~
@@ -60,8 +41,6 @@ Properties of join
 1. When ``A`` and ``B`` have the same attributes, the join ``A * B`` becomes equivalent to the set intersection ``A`` ∩ ``B``.
    Hence, DataJoint does not need a separate intersection operator.
 
-2. Commutative: ``A * B`` is equivalent to ``B * A``.
-   However, the left join is *not* commutative.
+2. Commutativity: ``A * B`` is equivalent to ``B * A``.
 
-3. Associative: ``(A * B) * C`` is equivalent to ``A * (B * C)``.
-   However, the left joint is *not* associative.
+3. Associativity: ``(A * B) * C`` is equivalent to ``A * (B * C)``.

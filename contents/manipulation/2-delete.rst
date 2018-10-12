@@ -14,5 +14,6 @@ Delete is performed as an atomic transaction so that partial deletes never occur
 
 .. include:: 2-Delete_lang2.rst
 
+
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png

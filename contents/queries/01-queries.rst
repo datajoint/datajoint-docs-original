@@ -6,17 +6,15 @@ Query Objects
 =============
 
 **Data queries** retrieve data from the database.
-
-A data query is formed from  a **query object**, a symbolic representation of the query that represents the query but does not yet contain the actual data.
-
-The simplest query object is an instance of a **table class**, representing the entire table.
+A data query is formed from a **query object**, a symbolic representation of the query that does not in itself contain any actual data.
+The simplest query object is an instance of a **table class**, representing the contents of an entire table.
 
 For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
 
 
 .. include:: 01-Queries_lang1.rst
 
-More generally, a query object may be formed as an **expression** constructed by applying :ref:`operators` to instances of tables classes or to other expressions.
+More generally, a query object may be formed as a **query expression** constructed by applying :ref:`operators <operators>` to other query objects.
 
 For example, the following query retrieves information about all experiments and scans for mouse 102 (excluding experiments with no scans):
 
@@ -30,6 +28,10 @@ You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB
 Once the desired query object is formed, the query can be executed using its :ref:`fetch` methods.
 
 To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
+
+
+
+.. include:: 01-Queries_lang3.rst
 
 
 Normalization in queries
