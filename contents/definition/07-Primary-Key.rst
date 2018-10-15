@@ -63,7 +63,7 @@ Datatypes in primary keys
 All integer types, dates, timestamps, and short character strings make good primary key attributes.
 Character strings are somewhat less suitable because they can be long and because they may have invisible trailing spaces.
 Floating-point numbers should be avoided because rounding errors may lead to misidentification of entities.
-Enums are okay as long as they do not need to be modified after :ref:`Dependencies` are already created referencing the table.
+Enums are okay as long as they do not need to be modified after :ref:`dependencies <dependencies>` are already created referencing the table.
 Finally, DataJoint does not support blob types in primary keys.
 
 The primary key may be composite, i.e. comprising several attributes.

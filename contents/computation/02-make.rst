@@ -2,5 +2,5 @@
 
 .. _make:
 
-The make callback
+The Make Callback
 =================

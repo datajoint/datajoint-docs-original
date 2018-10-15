@@ -49,13 +49,20 @@ Note that for brevity, query operators can be applied directly to class objects 
 
 .. python 2 end
 
-You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB by simply displaying the object:
+You can preview the contents of the query in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
+In the image below, the object ``query`` is first defined as a restriction of the table ``EEG`` by values of the attribute ``eeg_sample_rate`` greater than 1000 Hz.
+When we display the object, we get a preview of the entities that will be returned by ``query``.
+Note that this preview only lists a few of the entities that will be returned.
+Also, the preview does not contain any data for attributes of datatype ``blob``.
 
-<< FIGURE >>
+.. figure:: ../_static/img/query_object_preview.png
+   :align: center
+   :alt: query object preview
 
-Once the desired query object is formed, the query can be executed using its :ref:`fetch` methods.
+   Defining a query object and previewing the entities returned by the query.
 
-To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
+Once the desired query object is formed, the query can be executed using its :ref:`fetch <fetch>` methods.
+To **fetch** means to transfer the data represented by the query object from the database server into the workspace of the host language.
 
 
 .. matlab 3 start
@@ -72,14 +79,46 @@ Here fetching from the ``query`` object produces the struct array ``s`` of the q
 
     s = query.fetch()
 
-Here fetching from the ``query`` object produces the numpy record array ``s`` of the queried data.
+Here fetching from the ``query`` object produces the NumPy record array ``s`` of the queried data.
 
 .. python 3 end
 
 
+Checking for returned entities
+------------------------------
+
+The preview of the query object shown above displayed only a few of the entities returned by the query but also displayed the total number of entities that would be returned.
+It can be useful to know the number of entities returned by a query, or even whether a query will return any entities at all, without having to fetch all the data themselves.
+
+.. python 4 start
+
+The ``bool`` function applied to a query object evaluates to ``True`` if the query returns any entities and to ``False`` if the query result is empty.
+
+The ``len`` function applied to a query object determines the number of entities returned by the query.
+
+.. code-block:: python
+
+    # number of sessions since the start of 2018.
+    n = len(Session & 'session_date >= "2018-01-01"')
+
+.. python 4 end
+
+.. matlab 4 start
+
+The ``exist`` method applied to a query object evaluates to ``true`` if the query returns any entities and to ``false`` if the query result is empty.
+
+The ``count`` method applied to a query object determines the number of entities returned by the query.
+
+.. code-block:: matlab
+
+    % number of ephys sessions since the start of 2018.
+    n = count(ephys.Session & 'session_date >= "2018-01-01"')
+
+.. matlab 4 end
+
 Normalization in queries
 ------------------------
 
-Query objects adhere to entity :ref:`normalization` just like the stored tables do.
+Query objects adhere to entity :ref:`entity normalization <normalization>` just like the stored tables do.
 The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other.
-The query :ref:`operators` are designed to keep the result normalized even in complex query expressions.
+The query :ref:`operators <operators>` are designed to keep the result normalized even in complex query expressions.

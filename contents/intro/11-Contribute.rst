@@ -5,7 +5,7 @@
 Contribute
 ==========
 
-This documentation is published on the website https://docs.datajoint.io and may be distributed under the terms of the :ref:`license` with a required reference to https://docs.datajoint.io and copyright to *DataJoint Contributors*.
+This documentation is published on the website https://docs.datajoint.io and may be distributed under the terms of the :ref:`license <license>` with a required reference to https://docs.datajoint.io and copyright to *DataJoint Contributors*.
 
 The master source for this documentation is hosted at https://github.com/datajoint/datajoint-docs.
 To report an issue with the documentation, please use the issue tracker https://github.com/datajoint/datajoint-docs.

@@ -17,12 +17,12 @@ DataJoint implements a complete algebra of operators on tables:
 ===================================  =======================================   =================================================================================
 operator                             notation                                  meaning
 ===================================  =======================================   =================================================================================
-:ref:`restriction`                   ``A & cond``                              The subset of entities from table ``A`` that meet condition ``cond``
-:ref:`restriction`                   ``A - cond``  							  The subset of entities from table ``A`` that do not meet condition ``cond``
-:ref:`join`                          ``A * B``     							  Combines all matching information from ``A`` and ``B``
-:ref:`proj`                          ``A.proj(...)``  						  Selects and renames attributes from ``A`` or computes new attributes
-:ref:`aggr`                          ``A.aggr(B, ...)``  					  Same as projection but allows computations based on matching information in ``B``
-:ref:`union`                         ``A + B``     							  All unique entities from both ``A`` and ``B``
+:ref:`restriction <restriction>`     ``A & cond``                              The subset of entities from table ``A`` that meet condition ``cond``
+:ref:`restriction <restriction>`     ``A - cond``               							 The subset of entities from table ``A`` that do not meet condition ``cond``
+:ref:`join <join>`                   ``A * B``     							               Combines all matching information from ``A`` and ``B``
+:ref:`proj <proj>`                   ``A.proj(...)``  						             Selects and renames attributes from ``A`` or computes new attributes
+:ref:`aggr <aggr>`                   ``A.aggr(B, ...)``  					             Same as projection but allows computations based on matching information in ``B``
+:ref:`union <union>`                 ``A + B``     							               All unique entities from both ``A`` and ``B``
 ===================================  =======================================   =================================================================================
 
 
@@ -76,6 +76,8 @@ and so is this one:
 but these entities do *not* match:
 
 .. image:: ../_static/img/matched_tuples3.png
+
+.. _join-compatible:
 
 Join compatibility
 -------------------

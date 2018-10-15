@@ -7,7 +7,7 @@ Fetch
 
 Data queries in DataJoint comprise two distinct steps:
 
-1. Construct the ``query`` object to represent the required data using tables and :ref:`operators`.
+1. Construct the ``query`` object to represent the required data using tables and :ref:`operators <operators>`.
 2. Fetch the data from ``query`` into the workspace of the host language -- described in this section.
 
 Fetch works somewhat differently between MATLAB and Python.
@@ -30,7 +30,7 @@ The three methods differ by the type and number of their returned variables.
 
 ``query.fetch1`` and ``query.fetchn`` split the result into separate output arguments, one for each attribute of the query.
 
-The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :ref:`datatypes` of the attributes.
+The types of the variables returned by ``fetch1`` and ``fetchn`` depend on the :ref:`datatypes <datatypes>` of the attributes.
 ``query.fetchn`` will enclose any attributes of  char and blob types in  `cell arrays <https://www.mathworks.com/help/matlab/cell-arrays.html>`_ whereas ``query.fetch1`` will unpack them.
 
 MATLAB has two alternative forms of invoking a method on an object: using the dot notation or passing the object as the first argument.
@@ -121,7 +121,7 @@ This mechanism is only implemented for ``fetchn``.
 Rename and calculate
 ~~~~~~~~~~~~~~~~~~~~
 
-In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :ref:`proj` operator.
+In DataJoint for MATLAB, all ``fetch`` methods have all the same capability as the :ref:`proj <proj>` operator.
 For example, renaming an attribute can be accomplished using the syntax below.
 
 .. code-block:: matlab
