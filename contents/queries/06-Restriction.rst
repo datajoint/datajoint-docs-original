@@ -82,10 +82,8 @@ Exclusion of table ``A`` with ``B`` having no common attributes will return no e
 Restriction by an empty table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Restriction of table ``A`` with an empty table will return no entities.
+Restriction of table ``A`` with an empty table will return no entities regardless of whether there are any matching attributes.
 Exclusion of table ``A`` with an empty table will return all entities in ``A``.
-The behavior of restriction of table ``A`` by an empty table ``B`` applies even when ``B`` has no matching attributes.
-Note that restriction by an empty table has inverted behavior from restriction by an empty mapping, ``AndList``, or ``Not`` object.
 
 .. figure:: ../_static/img/restrict-example3.png
    :alt: Restriction by an empty table
@@ -113,7 +111,7 @@ Any key-value pairs without corresponding attributes in ``A`` are ignored.
 Restriction by an empty mapping or by a mapping with no keys matching the attributes in ``A`` will return all the entities in ``A``.
 Exclusion by an empty mapping or by a mapping with no matches will return no entities.
 
-For example, let's say that table ``Session`` has the attribute ``session_date`` of :ref:`datatype <datatype>` ``datetime``.
+For example, let's say that table ``Session`` has the attribute ``session_date`` of :ref:`datatype <datatypes>` ``datetime``.
 We are interested in sessions from January 1st, 2018, so we write the following restriction query using a mapping.
 
 .. python 2 start
@@ -128,7 +126,7 @@ We are interested in sessions from January 1st, 2018, so we write the following 
 
 .. code-block:: matlab
 
-    Session & struct('session_dat', "2018-01-01")
+    Session & struct('session_dat', '2018-01-01')
 
 .. matlab 2 end
 
@@ -145,43 +143,95 @@ Restriction of table ``A`` by a string containing an attribute not found in tabl
 Restriction by a collection
 ---------------------------
 
-When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
-Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
-
 .. python 3 start
 
 A collection in Python can be a list or tuple.
 
+.. code-block:: python
+
+    # a list:
+    cond_list = ['first_name = "Aaron"', 'last_name = "Aaronson"']
+
+    # a tuple:
+    cond_tuple = ('first_name = "Aaron"', 'last_name = "Aaronson"')
+
 .. python 3 end
 
-.. python 3 start
+.. matlab 3 start
+
+.. warning::
+  This section documents future intended behavior in MATLAB, which is contrary to current behavior.
+  DataJoint for MATLAB has an open `issue <https://github.com/datajoint/datajoint-matlab/issues/128>`_ tracking this change.
 
 A collection in MATLAB can be a cell array or structure array.
+Cell arrays can contain collections of arbitrary restriction conditions.
+Structure arrays are limited to collections of mappings, each having the same attributes.
 
-.. python 3 end
+.. code-block:: matlab
 
-Restriction by an empty collection returns no entities.
-Exclusion of table ``A`` by an empty collection returns all the entities of ``A``.
-Note that restriction by an empty collection has inverted behavior from restriction by an empty mapping, ``AndList``, or ``Not`` object.
+    % a cell aray:
+    cond_cell = {'first_name = "Aaron"', 'last_name = "Aaronson"'}
 
-Restriction by a Boolean expression
------------------------------------
+    % a structure array:
+    cond_struct = struct('first_name', 'Aaron', 'last_name', 'Paul')
+    cond_struct(2) = struct('first_name', 'Rosie', 'last_name', 'Aaronson')
+
+
+.. matlab 3 end
+
+When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
+Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
+For example, if we restrict the ``Student`` table by a collection containing two conditions, one for a first and one for a last name, our query will return any students with a matching first name *or* a matching last name.
 
 .. python 4 start
 
-``A & True`` and ``A - False`` are equivalent to ``A``.
-``A & False`` and ``A - True`` are empty.
+.. code-block:: python
+
+    Student() & ['first_name = "Aaron"', 'last_name = "Aaronson"']
+
+.. figure:: ../_static/img/python_collection.png
+    :align: center
+    :alt: restriction by collection
+
+    Restriction by a collection, returning any entities matching any condition in the collection.
 
 .. python 4 end
 
 .. matlab 4 start
 
-``A & true`` and ``A - false`` are equivalent to ``A``.
-``A & false`` and ``A - true`` are empty.
+.. code-block:: matlab
+
+    university.Student() & {'first_name = "Aaron"', 'last_name = "Aaronson"'}
+
+.. figure:: ../_static/img/matlab_collection.png
+    :align: center
+    :alt: restriction by collection
+
+    Restriction by a collection, returning any entities matching any condition in the collection.
 
 .. matlab 4 end
 
+Restriction by an empty collection returns no entities.
+Exclusion of table ``A`` by an empty collection returns all the entities of ``A``.
+
+Restriction by a Boolean expression
+-----------------------------------
+
 .. python 5 start
+
+``A & True`` and ``A - False`` are equivalent to ``A``.
+``A & False`` and ``A - True`` are empty.
+
+.. python 5 end
+
+.. matlab 5 start
+
+``A & true`` and ``A - false`` are equivalent to ``A``.
+``A & false`` and ``A - true`` are empty.
+
+.. matlab 5 end
+
+.. python 6 start
 
 Restriction by an ``AndList``
 -----------------------------
@@ -200,7 +250,4 @@ Restriction by a ``Not`` object
 
 The special function ``dj.Not`` represents logical negation, such that ``A & dj.Not(cond)`` is equivalent to ``A - cond``.
 
-Restriction of table ``A`` by ``dj.Not([])`` will return all of the entities in ``A``.
-Exclusion of by ``dj.Not([])`` object will return no entities.
-
-.. python 5 end
+.. python 6 end

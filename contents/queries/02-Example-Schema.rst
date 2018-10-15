@@ -259,4 +259,5 @@ Example schema ERD
     :align: center
     :alt: university example schema
 
-    Example schema for a university database. Tables contain data on students, departments, courses, etc.
+    Example schema for a university database.
+    Tables contain data on students, departments, courses, etc.
