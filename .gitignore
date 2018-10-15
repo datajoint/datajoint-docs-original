@@ -15,6 +15,7 @@ build-local/
 loc_built_site/
 full_site/
 version-menu.html
+build_config.py
 
 
 # Byte-compiled / optimized / DLL files

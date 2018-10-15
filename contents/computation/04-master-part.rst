@@ -15,119 +15,15 @@ As an example, imagine segmenting an image to identify regions of interest. The 
 
 In this case, the two tables might be called ``Segmentation`` and ``Segmentation.ROI``.
 
-.. python 1 start
+.. include:: 04-master-part_lang1.rst
 
-|python| Python
----------------
-
-In Python, the master-part relationship is expressed by making the part a nested class of the master.
-The part is subclassed from ``dj.Part`` and does not need the ``@schema`` decorator.
-
-
-.. code-block:: python
-
-    @schema
-    class Segmentation(dj.Computed):
-        definition = """  # image segmentation
-        -> Image
-        """
-
-        class ROI(dj.Part):
-            definition = """  # Region of interest resulting from segmentation
-            -> Segmentation
-            roi  : smallint   # roi number
-            ---
-            roi_pixels  : longblob   #  indices of pixels
-            roi_weights : longblob   #  weights of pixels
-            """
-
-        def make(self, key):
-            image = (Image & key).fetch1['image']
-            self.insert1(key)
-            count = itertools.count()
-            Segmentation.ROI.insert(
-                    dict(key, roi=next(count), roi_pixel=roi_pixels, roi_weights=roi_weights)
-                    for roi_pixels, roi_weights in mylib.segment(image))
-.. python 1 end
-
-.. matlab 1 start
-
-|matlab| MATLAB
----------------
-In MATLAB, the master and  part tables are declared in a separate ``classdef`` file.
-The name of the part table must begin with the name of the master table.
-The part table must declare the property ``master`` containing an object of the master.
-
-``+test/Segmentation.m``
-
-.. code-block:: matlab
-
-    %{
-    # image segmentation
-    -> test.Image
-    %}
-    classdef Segmentation < dj.Computed
-        methods(Access=protected)
-            function make(self, key)
-                self.insert(key)
-                make(test.SegmentationRoi, key)
-            end
-        end
-    end
-
-``+test/SegmentationROI.m``
-
-.. code-block:: matlab
-
-   %{
-   # Region of interest resulting from segmentation
-   -> Segmentation
-   roi  : smallint   # roi number
-   ---
-   roi_pixels  : longblob   #  indices of pixels
-   roi_weights : longblob   #  weights of pixels
-   %}
-
-   classdef SegmentationROI < dj.Part
-       properties(SetAccess=protected)
-           master = test.Segmentation
-       end
-       methods
-           function make(self, key)
-               image = fetch1(test.Image & key, 'image');
-               [roi_pixels, roi_weighs] = mylib.segment(image);
-               for roi=1:length(roi_pixels)
-                   entity = key;
-                   entity.roi_pixels = roi_pixels{roi};
-                   entity.roi_weights = roi_weights{roi};
-                   self.insert(entity)
-               end
-           end
-       end
-   end
-.. matlab 1 end
 
 Populating
 ----------
 To populate both the master ``Segmentation`` and the part ``Segmentation.ROI``, it is sufficient to call the ``populate`` method of the master:
 
-.. matlab 2 start
 
-|matlab|
-
-.. code-block:: matlab
-
-    populate(Segmentation)
-.. matlab 2 end
-
-.. python 2 start
-
-|python|
-
-.. code-block:: python
-
-    Segmentation.populate()
-.. python 2 end
+.. include:: 04-master-part_lang2.rst
 
 Note that the entities in the master and the matching entities in the part are inserted within a single ``make`` call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.
 This ensures that partial results never appear in the database.

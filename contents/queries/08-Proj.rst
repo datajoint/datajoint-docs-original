@@ -28,41 +28,16 @@ Renaming
 In addition to selecting attributes, ``proj`` can rename them.
 Any attribute can be renamed, including primary key attributes.
 
-.. python 1 start
+.. include:: 08-Proj_lang1.rst
 
-In Python, this is done using keyword arguments:
-``tab.proj(new_attr='old_attr')``
-
-.. python 1 end
-
-.. matlab 1 start
-
-In MATLAB, renaming is done using a string:
-``tab('old_attr->new_attr')``.
-.. matlab 1 end
 
 For example, let table ``tab`` have attributes **mouse**, **session**, *session_date*, *stimulus*, and *behavior*.
 The primary key attributes are in bold.
 
 Then
 
-.. python 2 start
+.. include:: 08-Proj_lang2.rst
 
-.. code-block:: python
-
-    # python
-    tab.proj(animal='mouse', 'stimulus')
-
-.. python 2 end
-
-.. matlab 2 start
-
-.. code-block:: matlab
-
-    % matlab
-    tab.proj('mouse->animal', 'stimulus')
-
-.. matlab 2 end
 
 will have attributes **animal**, **session**, and *stimulus*.
 
@@ -71,23 +46,8 @@ For example, let ``tab`` have attributes **slice**, and **cell**.
 Then ``tab * tab`` will simply yield ``tab``.
 However,
 
-.. python 3 start
+.. include:: 08-Proj_lang3.rst
 
-.. code-block:: python
-
-    # python
-    tab * tab.proj(other='cell')
-
-.. python 3 end
-
-.. matlab 3 start
-
-.. code-block:: matlab
-
-    % matlab
-    tab * tab.proj('cell->other')
-
-.. matlab 3 end
 
 yields all ordered pairs of all cells in each slice.
 
@@ -100,23 +60,8 @@ For example, let ``tab`` have attributes **mouse**, **scan**, *surface_z*, and *
 To obtain the new attribute *depth* computed as ``scan_z - surface_z`` and then to restrict to
 ``depth > 500``:
 
-.. python 4 start
+.. include:: 08-Proj_lang4.rst
 
-.. code-block:: python
-
-    # python
-    tab.proj(depth='scan_z-surface_z') & 'depth > 500'
-
-.. python 4 end
-
-.. matlab 4 start
-
-.. code-block:: matlab
-
-    % matlab
-    tab.proj('scan_z-surface_z -> depth') & 'depth > 500'
-
-.. matlab 4 end
 
 Calculations are passed to SQL and are not parsed by DataJoint.
 For available functions, you may refer to the `MySQL documentation <https://dev.mysql.com/doc/refman/5.7/en/functions.html>`_.
