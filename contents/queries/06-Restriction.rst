@@ -22,6 +22,7 @@ The condition ``cond`` may be one of the following:
 .. matlab 1 start
 
 * another table
+* a query expression
 * a mapping, or ``struct``
 * an expression in a character string
 * a collection of conditions as a ``struct`` or cell array
@@ -32,9 +33,10 @@ The condition ``cond`` may be one of the following:
 .. python 1 start
 
 * another table
+* a query expression
 * a mapping, e.g. ``dict``
 * an expression in a character string
-* a collection of conditions, e.g. a ``list``
+* a collection of conditions as a ``list`` or ``tuple``
 * a Boolean expression (``True`` or ``False``)
 * an ``AndList``
 * a ``Not`` object
@@ -146,6 +148,18 @@ Restriction by a collection
 When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
 Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
 
+.. python 3 start
+
+A collection in Python can be a list or tuple.
+
+.. python 3 end
+
+.. python 3 start
+
+A collection in MATLAB can be a cell array or structure array.
+
+.. python 3 end
+
 Restriction by an empty collection returns no entities.
 Exclusion of table ``A`` by an empty collection returns all the entities of ``A``.
 Note that restriction by an empty collection has inverted behavior from restriction by an empty mapping, ``AndList``, or ``Not`` object.
@@ -153,19 +167,21 @@ Note that restriction by an empty collection has inverted behavior from restrict
 Restriction by a Boolean expression
 -----------------------------------
 
-.. python 3 start
+.. python 4 start
 
 ``A & True`` and ``A - False`` are equivalent to ``A``.
 ``A & False`` and ``A - True`` are empty.
 
-.. python 3 end
+.. python 4 end
 
-.. matlab 3 start
+.. matlab 4 start
 
 ``A & true`` and ``A - false`` are equivalent to ``A``.
 ``A & false`` and ``A - true`` are empty.
 
-.. matlab 3 end
+.. matlab 4 end
+
+.. python 5 start
 
 Restriction by an ``AndList``
 -----------------------------
@@ -182,7 +198,9 @@ Exclusion by an empty ``AndList`` will return no entities.
 Restriction by a ``Not`` object
 -------------------------------
 
-The special function ``dj.Not`` represents logical negation, such that ``A & dj.Not(cond)`` is equivalent to ``A \ cond``.
+The special function ``dj.Not`` represents logical negation, such that ``A & dj.Not(cond)`` is equivalent to ``A - cond``.
 
-Restriction of table ``A`` by an empty ``Not`` object will return all of the entities in ``A``.
-Exclusion of by an empty ``Not`` object will return no entities.
+Restriction of table ``A`` by ``dj.Not([])`` will return all of the entities in ``A``.
+Exclusion of by ``dj.Not([])`` object will return no entities.
+
+.. python 5 end
