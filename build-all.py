@@ -36,15 +36,19 @@ subprocess.Popen(
 
 def create_build_folders(lang): 
     raw_tags = subprocess.Popen(["git", "tag"], cwd= path.join("build-all", "datajoint-" + lang), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
-    git_tags = {}
-    git_tags[lang] = raw_tags
+    # git_tags = {}
+    # git_tags[lang] = raw_tags
 
     lv = open("build_versions.json")
     buildver = lv.read()
     min_tags = json.loads(buildver)
     lv.close()
 
-    tags = tagpicker.pick_tag(min_tags, git_tags, lang)
+    # tags = tagpicker.pick_tag(min_tags, git_tags, lang)
+    tags = []
+    for t in min_tags[lang]:
+        result = tagpicker.get_newest_tag(t, raw_tags)
+        tags.append(result)
 
     for tag in tags:
         subprocess.Popen(["git", "checkout", tag],
@@ -61,29 +65,40 @@ def create_build_folders(lang):
         shutil.copytree(dsrc_lang2, dst_main)
 
         # grab which version of the common folder the lang doc needs to be merged with
-        cv = open(path.join(dsrc_lang2, "_version_common.json"))
-        v = cv.read() # expected in this format { "comm_version" : "v0.0.0"}
+        cv = open(path.join(dsrc_lang2, "version_common.json"))
+        v = cv.read() # expected in this format { "comm_version" : "v0.0"}
         version_info = json.loads(v)
         cv.close()
-        subprocess.Popen(["git", "checkout", version_info['comm_version']],cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).wait()
+
+        raw_tags_comm = subprocess.Popen(["git", "tag"], cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
+        comm_to_build = tagpicker.get_newest_tag(version_info['comm_version'], raw_tags_comm)
+
+        subprocess.Popen(["git", "checkout", comm_to_build],cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).wait()
         dsrc_comm2 = path.join("build-all", "datajoint-docs", "contents")
         # copy over the cmmon source doc contents into the build folder 
         shutil.copytree(dsrc_comm2, dst_temp)
 
         # copying and merging all of the folders from lang-specific repo to build folder
-        for root, dirs, filename in os.walk(dst_temp):
-            for f in filename:
+        for root, dirs, filenames in os.walk(dst_temp):
+            for f in filenames:
                 if f.endswith(".doctree"):
                     break
                 fullpath = path.join(root, f)
                 print(fullpath) #
                 if len(dirs) == 0:
-                    root_path, new_path = root.split("comm")
-                    shutil.copy2(fullpath, path.normpath(root_path + new_path)) # gets rid of the // resulting from the split
+                    root_path, new_dir = root.split("comm")
+                    new_fullpath = root_path + new_dir
+                    # normpath gets rid of the // resulting from the split
+                    if not path.exists(path.normpath(new_fullpath)):
+                        os.makedirs(path.normpath(new_fullpath))
+
+                    shutil.copy2(fullpath, path.normpath(new_fullpath))
+
             print("-------------------------------")
 
         # copying the toc tree and the config files
         shutil.copy2(path.join(dst_temp, "index.rst"), path.join(dst_main, "index.rst"))
+        copy_contents(path.join(dst_temp, "_static"), path.join(dst_main, "_static"))
 
         # removing the temporary comm folder because that shouldn't get build
         shutil.rmtree(dst_temp)
