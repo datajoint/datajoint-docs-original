@@ -197,11 +197,11 @@ def local_build(loc_comm=True, python_tag='', matlab_tag=''):
         else:
             subprocess.Popen(["make", "site"], cwd=folder).wait()
 
-        # try:
-        #     subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
-        #     subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
-        # except:
-        #     print("Latex environment not set up - no pdf will be generated")
+        try:
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+            subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
+        except:
+            print("Latex environment not set up - no pdf will be generated")
 
         lang_version = folder.split(os.sep)[1]  # 'matlab' from `build-local/matlab/contents/...`
         shutil.copytree(path.join(folder, "site"), path.join('loc_built_site', lang_version))
