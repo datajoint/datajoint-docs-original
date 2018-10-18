@@ -50,28 +50,8 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 1. The external storage locations are specified in the DataJoint connection configuration, with one specification for each store.
 
-.. python 1 start
-.. code-block:: python
+.. include:: 5-blob-config_lang1.rst
 
-   # default external storage
-   dj.config['external'] = dict(
-                 protocol='s3',
-                 endpoint='https://s3.amazonaws.com',
-                 bucket = 'testbucket',
-                 location = '/datajoint-projects/myschema',
-                 access_key='1234567',
-                 secret_key='foaf1234')
-
-   # raw data storage
-   dj.config['extnernal-raw'] = dict(
-                 protocol='file',
-                 location='/net/djblobs/myschema')
-
-   # external object cache - see fetch operation below for details.
-   dj.config['cache'] = dict(
-                 protocol='file',
-                 location='/net/djcache')
-.. python 1 end
 
 
 2. Each schema corresponds to a dedicated folder at the storage location with the same name as the database schema.

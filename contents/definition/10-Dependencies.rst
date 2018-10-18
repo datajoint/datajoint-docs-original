@@ -15,7 +15,7 @@ Foreign keys play a functional role in DataJoint and do not simply label the str
 Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
 
 A DataJoint pipeline, including the relationships established by foreign keys, can be visualized as a graph with nodes and edges.
-The diagram of such a graph is called the **entity relationship diagram** or :ref:`ERD`.
+The diagram of such a graph is called the **entity relationship diagram** or :ref:`ERD <erd>`.
 The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
 
@@ -52,25 +52,8 @@ For example, the following definition for the table ``mp.Slice`` has three forei
     thickness         : smallint unsigned    # slice thickness in microns
     experimenter      : varchar(20)          # person who performed this experiment
 
-.. matlab 1 start
 
-You can examine the resulting table heading in MATLAB with
-
-.. code-block:: matlab
-
-    show(mp.BrainSlice)
-
-.. matlab 1 end
-
-.. python 1 start
-
-You can examine the resulting table heading in Python with
-
-.. code-block:: python
-
-    mp.BrainSlice.heading
-
-.. python 1 end
+.. include:: 10-Dependencies_lang1.rst
 
 The heading of ``mp.Slice`` may look something like
 

@@ -15,7 +15,7 @@ Science labs organize their projects as a sequence of activities of experiment d
     :align: center
     :alt: data science in a science lab
 
-    Workflow and dataflow in a common findings-centered approach to data science in a science lab
+    Workflow and dataflow in a common findings-centered approach to data science in a science lab.
 
 Many labs lack a uniform data management strategy that would span longitudinally across the entire project lifecycle as well as laterally across different projects.
 
@@ -33,7 +33,7 @@ The team uses DataJoint to build data pipelines to support multiple projects.
     :align: center
     :alt: data science in a science lab
 
-    Workflow and dataflow in a data pipeline-centred approach.
+    Workflow and dataflow in a data pipeline-centered approach.
 
 Data pipelines support project data across their entire lifecycle, including the following functions
 
@@ -58,7 +58,7 @@ The adoption of a uniform data management framework allows separation of roles a
     :align: center
     :alt: data science vs engineering
 
-    Distinct responsibilities of data science and data engineering
+    Distinct responsibilities of data science and data engineering.
 
 Scientists
 

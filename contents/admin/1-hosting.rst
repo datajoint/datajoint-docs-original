@@ -9,7 +9,7 @@ Let’s say a person, a lab, or a multi-lab consortium decide to use DataJoint a
 What IT resources and support will be required?
 
 DataJoint uses a MySQL-compatible database server such as MySQL, MariaDB, Percona Server, or Amazon Aurora to store the structured data used for all relational operations.
-Large blocks of data associated with these records such as multidimensional numeric arrays (signals, images, scans, movies, etc) can be stored within the database or stored in additionally configured :ref:`bulk-storage-systems`.
+Large blocks of data associated with these records such as multidimensional numeric arrays (signals, images, scans, movies, etc) can be stored within the database or stored in additionally configured :ref:`bulk storage <bulk-storage-systems>`.
 
 The first decisions you need to make are where this server will be hosted and how it will be administered.
 The server may be hosted on your personal computer, on a dedicated machine in your lab, or in a cloud-based database service.

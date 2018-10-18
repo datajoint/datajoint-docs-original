@@ -11,75 +11,48 @@ The simplest query object is an instance of a **table class**, representing the 
 
 For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
 
-.. matlab 1 start
 
-.. code-block:: matlab
-
-    query = experiment.Session;
-
-.. matlab 1 end
-
-.. python 1 start
-
-.. code-block:: python
-
-    query  = experiment.Session()
-
-.. python 1 end
+.. include:: 01-Queries_lang1.rst
 
 More generally, a query object may be formed as a **query expression** constructed by applying :ref:`operators <operators>` to other query objects.
 
 For example, the following query retrieves information about all experiments and scans for mouse 102 (excluding experiments with no scans):
 
-.. matlab 2 start
 
-.. code-block:: matlab
+.. include:: 01-Queries_lang2.rst
 
-    query = experiment.Session * experiment.Scan & 'animal_id = 102';
+You can preview the contents of the query in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
+In the image below, the object ``query`` is first defined as a restriction of the table ``EEG`` by values of the attribute ``eeg_sample_rate`` greater than 1000 Hz.
+When we display the object, we get a preview of the entities that will be returned by ``query``.
+Note that this preview only lists a few of the entities that will be returned.
+Also, the preview does not contain any data for attributes of datatype ``blob``.
 
-.. matlab 2 end
+.. figure:: ../_static/img/query_object_preview.png
+   :align: center
+   :alt: query object preview
 
-.. python 2 start
+   Defining a query object and previewing the entities returned by the query.
 
-.. code-block:: python
-
-    query = experiment.Session * experiment.Scan & 'animal_id = 102'
-
-Note that for brevity, query operators can be applied directly to class objects rather than instance objects so that ``experiment.Session`` may be used in place of ``experiment.Session()``.
-
-.. python 2 end
-
-You can preview the contents of the table in Python, Jupyter Notebook, or MATLAB by simply displaying the object:
-
-<< FIGURE >>
-
-Once the desired query object is formed, the query can be executed using its :ref:`fetch` methods.
-
-To "fetch" means to transfer the data represented by the query object from the database server into the workspace of the host language.
+Once the desired query object is formed, the query can be executed using its :ref:`fetch <fetch>` methods.
+To **fetch** means to transfer the data represented by the query object from the database server into the workspace of the host language.
 
 
-.. matlab 3 start
 
-.. code-block:: matlab
+.. include:: 01-Queries_lang3.rst
 
-    s = query.fetch()
 
-Here fetching from the ``query`` object produces the struct array ``s`` of the queried data.
+Checking for returned entities
+------------------------------
 
-.. matlab 3 end
+The preview of the query object shown above displayed only a few of the entities returned by the query but also displayed the total number of entities that would be returned.
+It can be useful to know the number of entities returned by a query, or even whether a query will return any entities at all, without having to fetch all the data themselves.
 
-.. python 3 start
-
-    s = query.fetch()
-
-Here fetching from the ``query`` object produces the numpy record array ``s`` of the queried data.
-
-.. python 3 end
+.. include:: 01-Queries_lang4.rst
 
 
 Normalization in queries
 ------------------------
 
-Query objects adhere to entity :ref:`normalization` just like the stored tables do.
+Query objects adhere to entity :ref:`entity normalization <normalization>` just like the stored tables do.
 The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other.
-The query :ref:`operators` are designed to keep the result normalized even in complex query expressions.
+The query :ref:`operators <operators>` are designed to keep the result normalized even in complex query expressions.

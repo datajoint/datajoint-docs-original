@@ -23,7 +23,7 @@ RAM
 ~~~
 
 The amount of RAM will impact the amount of DataJoint data kept in memory, allowing for faster querying of data since the data can be searched and returned to the user without needing to access the slower disk drives.
-It is a good idea to get enough memory to fully store the more important and frequently accessed portions of your dataset with room to spare, especially if in-database blob storage is used instead of external :ref:`bulk-storage-systems`.
+It is a good idea to get enough memory to fully store the more important and frequently accessed portions of your dataset with room to spare, especially if in-database blob storage is used instead of external :ref:`bulk storage <bulk-storage-systems>`.
 
 Disk
 ~~~~
