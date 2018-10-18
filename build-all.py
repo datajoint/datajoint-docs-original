@@ -5,6 +5,7 @@ import glob
 import shutil
 import subprocess
 import platform
+from collections import defaultdict
 from util import get_newest_tag 
 from util import copy_contents
 
@@ -116,7 +117,7 @@ def make_full_site():
         else:
             subprocess.Popen(["make", "site"], cwd=folder).wait()
 
-        # making pdf out of the latex directory only if pdflatex runs
+        #making pdf out of the latex directory only if pdflatex runs
         try:
             subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
             subprocess.Popen(["pdflatex", "DataJointDocs.tex"], cwd=path.join(folder, '_build', 'latex')).wait()
@@ -135,12 +136,23 @@ def make_full_site():
             shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_{}.pdf'.format(abbr_lang_ver)), path.join('full_site', lang_version.split("-")[0], abbr_ver))
 
     for lang in min_tags:
-        ver_list=[]
+        available_vers= defaultdict(list)
         for to_sort in glob.glob(path.join('full_site', lang, '**')):
-            ver_list.append(float((path.basename(to_sort).strip("v"))))
-        # ensure clean format in case float above produces something like 3.70000000000001
-        newest_ver = 'v{:.1f}'.format(max(ver_list)) 
+            version = path.basename(to_sort).strip("v")
+            major_v, minor_v = version.split(".")
+            major_v = int(major_v)
+            minor_v = int(minor_v)
+            # example: available_vers = {3: [0, 1, 2], 4: [1, 2, 3]}
+            available_vers[major_v].append(minor_v)
+
+        # get the latest of the major version, then get the latest minor version within the latest major version
+        newest_ver_maj = max(available_vers)
+        newest_ver_min = max(available_vers[newest_ver_maj])
+  
+        newest_ver = "v{maj}.{min}".format(maj=str(newest_ver_maj), min=str(newest_ver_min))
+
         src_path = path.join('full_site', lang, newest_ver)
+        # make the latest version of each language available by default
         copy_contents(src_path, path.join('full_site', lang))
 
     copy_contents('dj_root_theme', 'full_site')
