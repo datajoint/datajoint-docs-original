@@ -16,6 +16,11 @@ git_urls = {
 }
 
 def create_build_folders(lang): 
+    """
+    Prepares the necessary parts for full-versioned documentation site building by 
+    cloning and checking out appropriate tags from the `lang` respective repositories. 
+    Prepared parts will be inside `build-all` directory 
+    """
     raw_tags = subprocess.Popen(["git", "tag"], cwd= path.join("build-all", "datajoint-" + lang), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
 
     with open("build_versions.json") as f:
@@ -74,6 +79,9 @@ def create_build_folders(lang):
 
 # generate site folder with all contents using the above build folders
 def make_full_site():
+    """
+    Builds the full-versioned site using the `build-all` directory and puts the resulting html/pdf into `full_site` directory.
+    """
 
     if path.exists('full_site'):
         shutil.rmtree('full_site')
@@ -130,37 +138,39 @@ def make_full_site():
         ver_list=[]
         for to_sort in glob.glob(path.join('full_site', lang, '**')):
             ver_list.append(float((path.basename(to_sort).strip("v"))))
-        newest_ver = 'v{:.1f}'.format(max(ver_list)) # ensure clean format in case float above produces something like 3.70000000000001 
+        # ensure clean format in case float above produces something like 3.70000000000001
+        newest_ver = 'v{:.1f}'.format(max(ver_list)) 
         src_path = path.join('full_site', lang, newest_ver)
         copy_contents(src_path, path.join('full_site', lang))
 
     copy_contents('dj_root_theme', 'full_site')
     copy_contents(path.join('full_site', 'python', '_static'), path.join('full_site', '_static'))
 
+
 ##########################################################
 ####====== begin building full version doc here ======####
+if __name__ == "__main__":
+    # if build_config file exists, override the default git_url values with config values
+    try:
+        import build_config as config
+        git_urls = dict(git_urls, **config.config_urls)
+    except:
+        print("build_config.py file missing - will use default values for git repo")
 
-# if build_config file exists, override the default git_url values with config values
-try:
-    import build_config as config
-    git_urls = dict(git_urls, **config.config_urls)
-except:
-    print("build_config.py file missing - will use default values for git repo")
+    # ensure build folder is clean before the build
+    if path.exists('build-all'):
+        shutil.rmtree('build-all')
+    os.makedirs('build-all')
 
-# ensure build folder is clean before the build
-if path.exists('build-all'):
-    shutil.rmtree('build-all')
-os.makedirs('build-all')
+    subprocess.Popen(
+        ["git", "clone", git_urls['common'], "datajoint-docs"], cwd="build-all").wait()
 
-subprocess.Popen(
-    ["git", "clone", git_urls['common'], "datajoint-docs"], cwd="build-all").wait()
+    subprocess.Popen(
+        ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-all").wait()
 
-subprocess.Popen(
-    ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-all").wait()
+    subprocess.Popen(
+        ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-all").wait()
 
-subprocess.Popen(
-    ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-all").wait()
-
-create_build_folders("matlab")
-create_build_folders("python")
-make_full_site()
+    create_build_folders("matlab")
+    create_build_folders("python")
+    make_full_site()

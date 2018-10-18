@@ -3,6 +3,7 @@ from os import path
 import json
 import glob
 import shutil
+import sys
 import subprocess
 import platform
 import warnings
@@ -24,6 +25,12 @@ local_lang_path = {
 
 
 def local_build(use_local_common=True, python_tag='', matlab_tag=''):
+    """
+    Builds the most recent version of locally placed documentation folder(s) by default. 
+    If `use_local_common` set to False, then the most recent common documentation is cloned from the git repository.
+    `python_tag` and `matlab_tag` may be set with full patch versions for specific language folder building.
+    """
+
     if path.exists(path.join("build-local", "datajoint-docs")):
         shutil.rmtree(path.join("build-local", "datajoint-docs"))
     if not use_local_common:
@@ -166,41 +173,40 @@ def local_build(use_local_common=True, python_tag='', matlab_tag=''):
 
 ##########################################################
 ####====== begin building local version doc here ======####
-
-# if build_config file exists, override the default git_url and/or local_lang_path values with config values
-try:
-    import build_config as config
-    git_urls = dict(git_urls, **config.config_urls)
-    local_lang_path = dict(local_lang_path, **config.local_path)
-except:
-    print("build_config.py file missing - will use default values")
-
-matlab_dir = local_lang_path['matlab']
-python_dir = local_lang_path['python']
-
-# ensure build folder is clean before the build
-if path.exists('build-local'):
-    shutil.rmtree('build-local')
-os.makedirs('build-local')
-
-if path.exists(matlab_dir):
-    print("local matlab doc exists - copying the folder over")
-    shutil.copytree(matlab_dir, path.join('build-local', 'datajoint-matlab'))
-else:
-    print("local matlab doc not found - cloning from the git repo")
-    subprocess.Popen(
-        ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-local").wait()
-if path.exists(python_dir):
-    print("local python doc exists - copying the folder over")
-    shutil.copytree(python_dir, path.join('build-local', 'datajoint-python'))
-else:
-    print("local python doc not found - cloning from the git repo")
-    subprocess.Popen(
-        ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-local").wait()
-
-
 if __name__ == "__main__":
-    import sys
+    # if build_config file exists, override the default git_url and/or local_lang_path values with config values
+    try:
+        import build_config as config
+        git_urls = dict(git_urls, **config.config_urls)
+        local_lang_path = dict(local_lang_path, **config.local_path)
+    except:
+        print("build_config.py file missing - will use default values")
+
+    matlab_dir = local_lang_path['matlab']
+    python_dir = local_lang_path['python']
+
+    # ensure build folder is clean before the build
+    if path.exists('build-local'):
+        shutil.rmtree('build-local')
+    os.makedirs('build-local')
+
+    if path.exists(matlab_dir):
+        print("local matlab doc exists - copying the folder over")
+        shutil.copytree(matlab_dir, path.join('build-local', 'datajoint-matlab'))
+    else:
+        print("local matlab doc not found - cloning from the git repo")
+        subprocess.Popen(
+            ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-local").wait()
+    if path.exists(python_dir):
+        print("local python doc exists - copying the folder over")
+        shutil.copytree(python_dir, path.join('build-local', 'datajoint-python'))
+    else:
+        print("local python doc not found - cloning from the git repo")
+        subprocess.Popen(
+            ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-local").wait()
+
+
+    # set up for arguments passed in for local_build()
     kwargs = {}
 
     for arg in sys.argv[1:]:
@@ -221,6 +227,7 @@ if __name__ == "__main__":
             kwargs['matlab_tag'] = arg
         else:
             local_build()
+            
     local_build(**kwargs)
 
 
