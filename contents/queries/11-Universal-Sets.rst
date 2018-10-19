@@ -18,35 +18,8 @@ For example, we may like to query the university database for the complete list 
 The :ref:`schema <query-example>` for the university database does not have a table for cities and states.
 A virtual table can fill the role of the nonexistent base table, allowing queries that would not be possible otherwise.
 
-.. python 1 start
+.. include:: 11-Universal-Sets_lang1.rst
 
-.. code-block:: python
-
-  # All home cities of students
-  dj.U('home_city', 'home_state') & Student
-  # Total number of students from each city
-  dj.U('home_city', 'home_state').aggr(Student, n: count())
-  # Total number of students from each state
-  U('home_state').aggr(Student, n: count())
-  # Total number of students in the database
-  U().aggr(Student, n: count())
-
-.. python 1 end
-
-.. matlab 1 start
-
-.. code-block:: matlab
-
-  % All home cities of students
-  dj.U('home_city', 'home_state') & university.Student
-  % Total number of students from each city
-  dj.U('home_city', 'home_state').aggr(university.Student, n: count())
-  % Total number of students from each state
-  U('home_state').aggr(university.Student, n: count())
-  % Total number of students in the database
-  U().aggr(university.Student, n: count())
-
-.. matlab 1 end
 
 The result of aggregation on a universal set is restricted to the entities with matches in the aggregated table, such as ``Student`` in the example above.
 In other words, ``X.aggr(A, ...)`` is interpreted as ``(X & A).aggr(A, ...)`` for universal set ``X``.
