@@ -11,7 +11,7 @@ The documentation can be distributed for free use under the [Creative Commons At
 
 # In-Development: Building All Versions (Full Site)
 1. Clone the repository to your local machine.
-2. Currently this will build using `testDocMain.git`, `testDocMatlab.git` and `testDocPython.git` repo. This will eventually need to be switched out to the actual official DJ documentation repositories. 
+2. The default setting will build using `datajoint/datajoint-docs.git`, `datajoint/datajoint-matlab.git` and `datajoint/datajoint-python.git` repo. If you'd like to change the repo that the build points to, modify the content of the `build_config_template.py` and rename the file to `build_config.py` (follow the instruction inside the template file for further instructions) 
 3. Build the website by running `python build-all.py`. This will build and generate the static website in the `full_site` directory.
 - Note for Windows users: Please manually remove the `build-all` folder before running `python build-all.py` for building second time and on... 
 4. Move inside the `full_site` folder and run the following command to launch a local web server:
@@ -24,8 +24,8 @@ The documentation can be distributed for free use under the [Creative Commons At
 7. To stop the server, hit `Ctrl+C` in the terminal window that's running the server.
 
 # In-Development: Building Locally/Partially 
-1. Fork and clone the repository to your local machine. Note: datajoint-docs now only contains the common documentions. If you are writing for a specific language, you also need to clone the datajoint-matlab or datajoint-python repository and make sure they are placed on the same level as the datajoint-docs folder.
-2. Rename the cloned folder to `datajoint-docs`. If you cloned the Python/MATLAB repository for local development and building, make sure to rename the folders to `datajoint-python` and `datajoint-matlab` respectively.
+1. Fork and clone the repository to your local machine. Note: datajoint-docs now only contains the common documentions. If you are writing for a specific language, you also need to clone the datajoint-matlab or datajoint-python repository and make sure they are placed on the same level as the datajoint-docs folder. 
+2. If you have the Python/MATLAB repository for local development/building and the folders aren't named `datajoint-python`/`datajoint-matlab` or have them somewhere other than on the same level as the `datajoint-docs` folder, open the `build_config_template.py` and set the new path inside, then rename the config file to `build_config.py` (follow the instruction inside the template file for further instructions)
 3. Build the website by running `python build-local.py`. This will build and generate the static website in the `loc_built_site` directory. 
 
 - Note for Windows users: Please manually remove the `build-local` folder before running `python build-local.py` for building second time and on...
@@ -61,6 +61,12 @@ Note 3: If for some reason, you don't want to build using the local common versi
         :alt: A data pipeline
     ```
     Alternatively you can also use `figure` directive. For more information, refer to the documentation of [image](http://docutils.sourceforge.net/docs/ref/rst/directives.html#image) and/or [figure](http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure) directives.
+- For referring to a language-specific content, use `.. include:: [FILENAME OF COMMON]_lang[#].rst` 
+
+    - For example, if you are editing the RST file `01-autopopulate.rst` inside of `contents/computation` then you would refer to language specific parts with `.. include:: 01-autopopulate_lang1.rst` and `.. include:: 01-autopopulate_lang2.rst` if you have 2 sections. 
+    
+    - Then inside the language specific contents inside `docs-parts` folder in `datajoint-matlab`/`datajoint-python`, make sure to add a RST file with the same format as `[FILENAME OF COMMON]_lang[#].rst`. Following the previous example - inside of `datajoint-matlab/docs-parts` folder, you should put `01-autopopulate_lang1.rst` and `01-autopopulate_lang2.rst` inside the computation folder and do the same in inside the `datajoint-python`. For organization purposes, if one language has more includes than the other, it is recommended that you still keep an empty rst file as a placeholder inside the language that has less includes. 
+
 
 # References
 [Sphinx restructured text reference](http://www.sphinx-doc.org/en/master/usage/restructuredtext/)
