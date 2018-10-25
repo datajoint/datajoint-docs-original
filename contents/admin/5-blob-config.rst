@@ -133,3 +133,23 @@ The following steps must be performed to enable external storage:
    In Python, this is done using the ``set_cache_folder`` method of the schema object.
 
    In MATLAB, this is done using the ``setCacheFolder`` method of the schema object.
+
+Cleanup
+-------
+
+Deletion of records containing externally stored blobs is a 'soft delete' which only removes the database-side records from the database.
+To remove the actual blob data, a separate cleanup process is run as described here.
+
+1. Remove tracking entries for unused external blob items.
+
+this will remove the tracking entry from the external storage table for any external blobs not referred to by any record.
+
+.. include:: 5-blob-config_delete_garbage-lang.rst
+
+1. Remove actual blob files from the deisred external storage location.
+
+.. important:: this action should only be performed if no modifications are being done to the tables using this external.
+
+.. include:: 5-blob-config_clean_store-lang.rst
+
+This will remove the actual unused files kept in the external storage 'external-name'.
