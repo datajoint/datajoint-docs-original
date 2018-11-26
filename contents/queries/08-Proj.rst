@@ -56,8 +56,8 @@ Calculations
 
 In addition to selecting or renaming attributes, ``proj`` can compute new attributes from existing ones.
 
-For example, let ``tab`` have attributes **mouse**, **scan**, *surface_z*, and *scan_z*.
-To obtain the new attribute *depth* computed as ``scan_z - surface_z`` and then to restrict to
+For example, let ``tab`` have attributes ``mouse``, ``scan``, ``surface_z``, and ``scan_z``.
+To obtain the new attribute ``depth`` computed as ``scan_z - surface_z`` and then to restrict to
 ``depth > 500``:
 
 .. include:: 08-Proj_lang4.rst
