@@ -19,6 +19,8 @@ Auto-populated tables are defined and queried exactly as other tables.
 (See :ref:`example`.)
 Their data definition follows the same :ref:`definition syntax <definition-syntax>`.
 
+.. _make:
+
 Make
 ----
 For auto-populated tables, data should never be entered using :ref:`insert <insert>` directly.
