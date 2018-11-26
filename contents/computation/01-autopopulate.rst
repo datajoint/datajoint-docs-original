@@ -36,11 +36,11 @@ The class will be defined as follows.
 The ``make`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
 The key represents the partially filled entity, usually already containing :ref:`primary key <primary-key>` attributes.
 
-Inside the callback, three things always happen:
+The ``make`` callback does three things:
 
-1. Data are :ref:`fetched <fetch>` from tables upstream in the pipeline using the ``key`` for :ref:`restriction <restriction>`.
-2. The missing attributes are computed and added to the fields already in ``key``.
-3. The entire entity is inserted into ``self``.
+1. :ref:`Fetches <fetch>` data from tables upstream in the pipeline using the ``key`` for :ref:`restriction <restriction>`.
+2. Computes and adds any missing attributes to the fields already in ``key``.
+3. Inserts the entire entity into ``self``.
 
 ``make`` may populate multiple entities in one call when ``key`` does not specify the entire primary key of the populated table.
 
