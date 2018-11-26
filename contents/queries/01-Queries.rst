@@ -1,6 +1,6 @@
 .. progress: 12.0 50% Dimitri
 
-.. _queries:
+.. _query-objects:
 
 Query Objects
 =============

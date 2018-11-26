@@ -5,7 +5,7 @@
 Operators
 =============
 
-:ref:`Data queries <queries>` have the form of expressions using operators to derive the desired table.
+:ref:`Data queries <query-objects>` have the form of expressions using operators to derive the desired table.
 The expressions themselves do not contain any data.
 They represent the desired data symbolically.
 
