@@ -6,7 +6,7 @@ Query Objects
 =============
 
 **Data queries** retrieve data from the database.
-A data query is formed from a **query object**, a symbolic representation of the query that does not in itself contain any actual data.
+A data query is performed with the help of a **query object**, which is a symbolic representation of the query that does not in itself contain any actual data.
 The simplest query object is an instance of a **table class**, representing the contents of an entire table.
 
 For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
