@@ -31,4 +31,4 @@ Server-side inserts
 
 Data inserted into a table often come from other tables already present on the database server.
 In such cases, data can be :ref:`fetched <fetch>` from the first table and then inserted into another table, but this results in transfers back and forth between the database and the local system.
-Instead, data can be inserted from one table into another without transfers between the database and the local system using :ref:`queries <queries>`.
+Instead, data can be inserted from one table into another without transfers between the database and the local system using :ref:`queries <query-objects>`.

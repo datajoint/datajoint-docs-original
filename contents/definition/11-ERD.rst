@@ -28,7 +28,6 @@ DataJoint uses the following conventions:
 * Foreign keys that are outside the primary key are indicated by dashed lines.
 * If the primary key of the dependent table has no other attributes besides the foreign key, the foreign key is a thick solid line, indicating a 1:{0,1} relationship.
 * Foreign keys made without renaming the foreign key attributes are in black whereas foreign keys that rename the attributes are indicated in red.
-  This includes renamed foreign keys within the primary key (solid line) or outside (dashed line).
 
 Diagramming an entire schema
 ----------------------------

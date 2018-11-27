@@ -8,28 +8,23 @@ Data Tiers
 DataJoint assigns all tables to one of the following data tiers that differentiate how the data originate.
 
 .. list-table:: Table tiers
-   :widths: 15 20 20 30
+   :widths: 15 20 30
    :header-rows: 1
 
    * - Tier
      - Superclass
-     - Prefix
      - Description
    * - **Lookup**
      - ``dj.Lookup``
-     - ``#``
      - Small tables containing general facts and settings of the data pipeline; not specific to any experiment or dataset.
    * - **Manual**
      - ``dj.Manual``
-     -
      - Data entered from outside the pipeline, either by hand or with external helper scripts.
    * - **Imported**
      - ``dj.Imported``
-     - ``_``
      - Data ingested automatically inside the pipeline but requiring access to data outside the pipeline.
    * - **Computed**
      - ``dj.Computed``
-     - ``__``
      - Data computed automatically entirely inside the pipeline.
 
 Table data tiers indicate to database administrators how valuable the data are.
@@ -57,6 +52,11 @@ On the server side, DataJoint uses the following naming scheme to generate the t
 
 First, the name of the class is converted from ``CamelCase`` to ``snake_case`` (`separation by underscores <https://en.wikipedia.org/wiki/Snake_case>`_).
 Then the name is prefixed according to the data tier.
+
+  * ``Manual`` tables have no prefix.
+  * ``Lookup`` tables are prefixed with ``#``.
+  * ``Imported`` tables are prefixed with ``_``, a single underscore.
+  * ``Computed`` tables are prefixed with ``__``, two underscores.
 
 For example:
 
