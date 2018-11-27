@@ -1,9 +1,11 @@
+.. _setup:
+
 Client Setup
 ===============
 
 .. toctree::
    :maxdepth: 2
    :includehidden:
-   :glob: 
+   :glob:
 
    *

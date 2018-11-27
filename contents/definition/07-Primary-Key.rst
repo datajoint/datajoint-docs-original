@@ -130,18 +130,6 @@ If you need to auto-increment an attribute in a composite primary key, you will 
 
 For example, let’s say that you want to auto-increment ``scan_idx`` in a table called ``Scan`` whose primary key is ``(animal_id, session, scan_idx)``.
 You must already have the values for ``animal_id`` and ``session`` in the dictionary ``key``.
-Then you can do the following.
+Then you can do the following:
 
-.. python 1 start
-.. code-block:: python
-
-    key['scan_idx'] = (Scan & key).proj(next='max(scan_idx)+1').fetch1['next']
-
-.. python 1 end
-
-.. matlab 1 start
-.. code-block:: matlab
-
-    key.scah_idx = fetch1(Scan & key, 'next=max(scan_idx)+1')
-
-.. matlab 1 end
+.. include:: 07-Primary-Key_lang1.rst

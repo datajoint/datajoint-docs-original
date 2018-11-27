@@ -19,24 +19,5 @@ Primary key attributes are always included in the output and may be renamed, jus
 Examples
 --------
 
-.. matlab 1 start
 
-.. code-block:: matlab
-
-  % Number of students in each course section
-  university.Section.aggr(university.Enroll, n: count())
-  % Average grade in each course
-  university.Course.aggr(university.Grade * university.LetterGrade, avg_grade: avg(points))
-
-.. matlab 1 end
-
-.. python 1 start
-
-.. code-block:: python
-
-# Number of students in each course section
-Section.aggr(Enroll, n: count())
-# Average grade in each course
-Course.aggr(Grade * LetterGrade, avg_grade: avg(points))
-
-.. python 1 end
+.. include:: 09-Aggr_lang1.rst
