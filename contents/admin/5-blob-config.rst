@@ -144,12 +144,12 @@ To remove the actual blob data, a separate cleanup process is run as described h
 
 this will remove the tracking entry from the external storage table for any external blobs not referred to by any record.
 
-.. include:: 5-blob-config_delete_garbage-lang.rst
+.. include:: 5-blob-config_lang2.rst
 
-1. Remove actual blob files from the deisred external storage location.
+1. Remove actual blob files from the desired external storage location.
 
 .. important:: this action should only be performed if no modifications are being done to the tables using this external.
 
-.. include:: 5-blob-config_clean_store-lang.rst
+.. include:: 5-blob-config_lang3.rst
 
 This will remove the actual unused files kept in the external storage 'external-name'.
