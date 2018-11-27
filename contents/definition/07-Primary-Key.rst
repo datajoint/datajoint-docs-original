@@ -130,7 +130,6 @@ If you need to auto-increment an attribute in a composite primary key, you will 
 
 For example, let’s say that you want to auto-increment ``scan_idx`` in a table called ``Scan`` whose primary key is ``(animal_id, session, scan_idx)``.
 You must already have the values for ``animal_id`` and ``session`` in the dictionary ``key``.
-Then you can do the following.
+Then you can do the following:
 
 .. include:: 07-Primary-Key_lang1.rst
-
