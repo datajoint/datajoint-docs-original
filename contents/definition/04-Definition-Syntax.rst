@@ -12,10 +12,10 @@ Each line can be one of the following:
   It may also be thought of as the table's long title.
 * A new attribute definition in any of the following forms (see :ref:`datatypes` for valid datatypes):
 
-  - ``name : datatype``
-  - ``name : datatype # comment``
-  - ``name = default : datatype``
-  - ``name = default : datatype  # comment``
+  ``name : datatype``
+  ``name : datatype # comment``
+  ``name = default : datatype``
+  ``name = default : datatype  # comment``
 * The divider ``---`` (at least three hyphens) separating primary key attributes above from secondary attributes below.
 * A foreign key in the format ``-> ReferencedTable``.
   (See :ref:`Dependencies`.)
