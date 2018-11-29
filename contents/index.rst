@@ -3,7 +3,7 @@
 Welcome to DataJoint Documentation
 ====================================
 
-This is a detailed manual for active users of DataJoint in Python and MATLAB. 
+.. include:: index_lang1.rst
 
 This documentation can be read sequentially from start to end or used as reference for specific topics.
 
@@ -26,7 +26,7 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :maxdepth: 2
    :includehidden:
 
-   setup/Setup.rst 
+   setup/Setup.rst
 
 .. toctree::
    :maxdepth: 2
