@@ -86,8 +86,8 @@ A foreign key constraint means that an entity in ``B`` cannot exist without a ma
 An attempt to insert an entity into ``B`` that does not have a matching counterpart in ``A`` will fail.
 Conversely, deleting an entity from ``A`` that has matching entities in ``B`` will result in the deletion of those matching entities and so forth, recursively, downstream in the pipeline.
 
-When ``B`` references ``A`` with a foreign key, we often say that ``B`` **depends** on ``A``.
-We will therefore call ``B`` the **dependent table** and ``A`` the **referenced table** with respect to the foreign key from ``B`` to ``A``.
+When ``B`` references ``A`` with a foreign key, one can say that ``B`` **depends** on ``A``.
+In DataJoint terms, ``B`` is the **dependent table** and ``A`` is the **referenced table** with respect to the foreign key from ``B`` to ``A``.
 
 .. note::
     Note to those already familiar with the theory of relational databases: The usage of the words "depends" and "dependency" here should not be confused with the unrelated concept of *functional dependencies* that is used to define normal forms.
@@ -137,8 +137,8 @@ If the primary key of ``Cell`` is (``animal_id``, ``slice_id``, ``cell_id``), th
 Projection always returns all of the primary key attributes of a table, so ``animal_id`` and ``slice_id`` are included, with their original names.
 
 Note that the design of the ``Synapse`` table above imposes the constraint that the synapse can only be found between cells in the same animal and in the same slice.
-If we wished to allow representation of synapses between cells from different slices, then we would have to rename ``slice_id`` as well:
 
+Allowing representation of synapses between cells from different slices requires the renamimg of ``slice_id`` as well:
 .. code-block:: text
 
     ## synapse between two cells

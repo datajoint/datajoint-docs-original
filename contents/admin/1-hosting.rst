@@ -30,7 +30,7 @@ To support a small group of users, a larger computer can be used instead and con
 As the number of users grows, individual workstations can be installed with the DataJoint software and used to connect to a larger and more specialized centrally located database server machine.
 
 For even larger groups or multi-site collaborations, multiple database servers may be configured in a replicated fashion to support larger workloads and simultaneous multi-site access.
-We provide some basic guidelines for these configurations here and in the subsequent sections of the documentation.
+The following section provides some basic guidelines for these configurations here and in the subsequent sections of the documentation.
 
 General server / hardware support requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

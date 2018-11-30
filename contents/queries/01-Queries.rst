@@ -9,8 +9,7 @@ Query Objects
 A data query is performed with the help of a **query object**, which is a symbolic representation of the query that does not in itself contain any actual data.
 The simplest query object is an instance of a **table class**, representing the contents of an entire table.
 
-For example, if  ``experiment.Session`` is a DataJoint table class, we can create a query object to retrieve its entire contents as follows:
-
+For example, if  ``experiment.Session`` is a DataJoint table class, you can create a query object to retrieve its entire contents as follows:
 
 .. include:: 01-Queries_lang1.rst
 
@@ -23,7 +22,7 @@ For example, the following query retrieves information about all experiments and
 
 You can preview the contents of the query in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
 In the image below, the object ``query`` is first defined as a restriction of the table ``EEG`` by values of the attribute ``eeg_sample_rate`` greater than 1000 Hz.
-When we display the object, we get a preview of the entities that will be returned by ``query``.
+Displaying the object gibes a preview of the entities that will be returned by ``query``.
 Note that this preview only lists a few of the entities that will be returned.
 Also, the preview does not contain any data for attributes of datatype ``blob``.
 

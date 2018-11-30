@@ -16,7 +16,7 @@ As a result, similar concepts may be described using different sets of terminolo
 
 For example, what is known as a **relation** in the formal relational model is called a **table** in SQL; the analogous concept in ERM and DataJoint is called an **entity set**.
 
-The documentation follows the terminology defined in `Yatsenko et al, 2018 <https://arxiv.org/abs/1807.11104>`_, except "entity set" is replaced with the more colloquial "table" or "query result" in most cases.
+The DataJoint documentation follows the terminology defined in `Yatsenko et al, 2018 <https://arxiv.org/abs/1807.11104>`_, except "entity set" is replaced with the more colloquial "table" or "query result" in most cases.
 
 The table below summarizes the terms used for similar concepts across the related data models.
 
@@ -97,17 +97,17 @@ However, this organization is up to the user's discretion.
 Base tables
 -----------
 
-**Base tables** are tables stored in the database, and we often refer to them as simply tables.
+**Base tables** are tables stored in the database, and are often referred to simply as tables in DataJoint.
 Base tables are distinguished from **derived tables**, which result from relational :ref:`operators <operators>`.
 
 Relvars and relation values
 ---------------------------
-In our early documentation we referred to the relation objects as **relvars** `<https://en.wikipedia.org/wiki/Relvar>`_.
+Early versions of the DataJoint documentation referred to the relation objects as **relvars** `<https://en.wikipedia.org/wiki/Relvar>`_.
 This term  emphasizes the fact that relational variables and expressions do not contain actual data but are rather symbolic representations of data to be retrieved from the database.
 The specific value of a relvar would then be referred to as the **relation value**.
 The value of a relvar can change with changes in the state of the database.
 
-In the more recent documentation, we have grown less pedantic and more often use the term table instead.
+The more recent iteration of the documentation has grown less pedantic and more often uses the term table instead.
 
 Metadata
 --------

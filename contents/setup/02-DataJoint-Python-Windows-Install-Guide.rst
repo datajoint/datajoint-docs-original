@@ -82,11 +82,12 @@ Install Graphviz
 ^^^^^^^^^^^^^^^^
 
 DataJoint currently utilizes `Graphviz <http://graphviz.org>`_ to generate the ERD visualizations.
-Although a Windows version of Graphviz is available from the main site, it is an older and out of date 32-bit version, so we recommend using the pre-release builds of the 64 bit version, which are available here:
+Although a Windows version of Graphviz is available from the main site, it is an older and out of date 32-bit version.
+The recommended pre-release builds of the 64 bit version are available here:
 
 https://ci.appveyor.com/project/ellson/graphviz-pl238
 
-More specifically, we use the build artifacts from the ``Win64; Configuration: Release`` which are available `here <https://ci.appveyor.com/api/buildjobs/hlkclpfhf6gnakjq/artifacts/build%2FGraphviz-install.exe>`_.
+More specifically, the build artifacts from the ``Win64; Configuration: Release`` are recommended, available `here <https://ci.appveyor.com/api/buildjobs/hlkclpfhf6gnakjq/artifacts/build%2FGraphviz-install.exe>`_.
 
 This is a regular Windows installer executable, and will present a dialog when starting:
 
