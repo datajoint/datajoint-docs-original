@@ -111,14 +111,16 @@ In the more recent documentation, we have grown less pedantic and more often use
 
 Metadata
 --------
-We avoid this term.
+The vocabulary of DataJoint does not include this term.
 
 In data science, the term **metadata** commonly means "data about the data" rather than the data themselves.
 For example, metadata could include data sizes, timestamps, data types, indexes, keywords.
+
 In contrast,  neuroscientists often use the term to refer to conditions and annotations about experiments.
-Such "metadata" are used to search and classify the data and are in fact an integral part of the actual **data**.
+This distinction arose when such information was stored separately from experimental recordings, such as in physical notebooks.
+Such "metadata" are used to search and to classify the data and are in fact an integral part of the *actual* data.
 
 In DataJoint, all data other than blobs can be used in searches and categorization.
-These fields may originate from manual annotations, preprocessing, or analysis.
-Since *metadata* are not distinguished from simple *data*, we avoid this term.
-Instead, we differentiate data into :ref:`data tiers <tiers>`.
+These fields may originate from manual annotations, preprocessing, or analyses just as easily as from recordings or behavioral performance.
+Since "metadata" in the neuroscience sense are not distinguished from any other data in a pipeline, DataJoint avoids the term entirely.
+Instead, DataJoint differentiates data into :ref:`data tiers <tiers>`.
