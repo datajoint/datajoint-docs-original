@@ -102,4 +102,4 @@ These requirements can be reduced through the use of external or cloud storage, 
 Docker
 ------
 
-A docker image is available for a MySQL server configured to work with DataJoint: https://github.com/datajoint/mysql-docker.
+A Docker image is available for a MySQL server configured to work with DataJoint: https://github.com/datajoint/mysql-docker.
