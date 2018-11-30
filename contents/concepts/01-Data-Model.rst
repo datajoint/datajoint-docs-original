@@ -8,7 +8,7 @@ Data Model
 What is a data model?
 ---------------------
 
-By a **data model**, we refer to a conceptual framework for thinking about data and about operations on data.
+A **data model** refers to a conceptual framework for thinking about data and about operations on data.
 A data model defines the mental toolbox of the data scientist; it has less to do with the architecture of the data systems, although architectures are often intertwined with data models.
 
 Among the most familiar data models are those based on files and folders: data of any kind are lumped together into binary strings called **files**, files are collected into folders, and folders can be nested within other folders to create a folder hierarchy.
