@@ -2,11 +2,11 @@
 
 .. _integrity:
 
-Data Integrity 
+Data Integrity
 ==============
 
-The term **data integrity** describes  guarantees made by the data management process that prevent errors and corruption in data due to technical failures and human errors arising in the course of continuous use by multiple agents. 
-DataJoint pipelines respect the following forms of data integrity: **entity integrity**, **referential integrity**, and **group integrity** as described in more detail below. 
+The term **data integrity** describes  guarantees made by the data management process that prevent errors and corruption in data due to technical failures and human errors arising in the course of continuous use by multiple agents.
+DataJoint pipelines respect the following forms of data integrity: **entity integrity**, **referential integrity**, and **group integrity** as described in more detail below.
 
 .. _entity-integrity:
 
@@ -24,7 +24,10 @@ Suppose the system automatically generates an ID number each time a student reco
 Such a system violates entity integrity, because the same student may be assigned multiple ID numbers.
 The ID numbers succeed in uniquely identifying each student record but fail to do so for the actual students.
 
-.. _referential-integrity: 
+Note that a database cannot guarantee or enforce entity integrity by itself.
+Entity integrity is a property of the entire data management process as a whole, including institutional practices and user actions in addition to database configurations.
+
+.. _referential-integrity:
 
 Referential integrity
 ---------------------
@@ -35,7 +38,7 @@ Referential integrity cannot exist without entity integrity: references to entit
 
 Referential integrity fails when a data management process allows new data to be entered that refers to other data missing from the database.
 For example, assume that each electrophysiology recording must refer to the mouse subject used during data collection.
-Perhaps an experimenter attempts to insert elphys data into the database that refers to a nonexistent mouse, due to a misspelling.
+Perhaps an experimenter attempts to insert ephys data into the database that refers to a nonexistent mouse, due to a misspelling.
 A system guaranteeing referential integrity, such as DataJoint, will refuse the erroneous data.
 
 Enforcement of referential integrity does not stop with data ingest.
@@ -62,7 +65,7 @@ Group integrity in DataJoint is formalized through :ref:`master-part <master-par
 The master-part relationship has important implications for dependencies, because a downstream entity depending on a master entity set may be considered to depend on the parts as well.
 
 
-.. _relationships: 
+.. _relationships:
 
 Relationships
 -------------

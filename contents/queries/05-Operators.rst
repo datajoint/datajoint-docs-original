@@ -45,7 +45,7 @@ DataJoint's algebra improves upon the classical relational algebra and upon othe
 Matching entities
 -----------------
 
-Binary operators in DataJoint are based on the concept of **matching entities**, and we will use this phrase throughout.
+Binary operators in DataJoint are based on the concept of **matching entities**; this phrase will be used throughout the documentation.
 
 	| Two entities **match** when they have no common attributes or when their common attributes contain the same values.
 

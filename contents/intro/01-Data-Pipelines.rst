@@ -87,7 +87,7 @@ Some of the "participants" may be computational agents that perform processing a
 From a practical point of view, the back-end data architecture may vary depending on project requirements.
 Typically, the data architecture includes a relational database server (e.g. MySQL) and a bulk data storage system (e.g. `AWS S3 <https://aws.amazon.com/s3/>`_ or a filesystem).
 However, users need not interact with the database directly, but via MATLAB or Python objects that are each associated with an individual table in the database.
-One of the main advantages of this approach is that DataJoint clearly separates the data model facing the user from the data architecture implementing data management and computing. DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `docker <https://www.docker.com/>`_)
+One of the main advantages of this approach is that DataJoint clearly separates the data model facing the user from the data architecture implementing data management and computing. DataJoint works well in combination with good code sharing (e.g. with `git <https://git-scm.com/>`_) and environment sharing (e.g. with `Docker <https://www.docker.com/>`_)
 
 DataJoint is designed for quick prototyping and continuous exploration as experimental designs change or evolve.
 New analysis methods can be added or removed at any time, and the structure of the workflow itself can change over time, for example as new data acquisition methods are developed.

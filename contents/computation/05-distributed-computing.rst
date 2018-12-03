@@ -31,7 +31,7 @@ As part of DataJoint, the jobs table can be queried using native DataJoint synta
 
 The above output shows that a record for the ``JobResults`` table is currently reserved for computation, along with various related details of the reservation, such as the MySQL connection ID, client user and host, process ID on the remote system, timestamp, and the key for the record that the job is using for its computation.
 Since DataJoint table keys can be of varying types, the key is stored in a binary format to allow the table to store arbitrary types of record key data.
-We will discuss querying the jobs table for key data in the sections which follow.
+The subsequent sections will discuss querying the jobs table for key data.
 
 As mentioned above, jobs encountering errors during computation will leave their record reservations in place, and update the reservation record with details of the error.
 

@@ -5,7 +5,7 @@
 Universal Sets
 ==============
 All :ref:`query operators <operators>` are designed to preserve the entity types of their inputs.
-However, some queries require creating a new entity type that is not represented by any stored tables. 
+However, some queries require creating a new entity type that is not represented by any stored tables.
 This means that a new entity type must be explicitly defined on the fly.
 Universal sets fulfill this role.
 
@@ -14,7 +14,7 @@ A universal set, defined using class ``dj.U``, denotes the set of all possible e
 Universal sets allow query expressions using virtual tables when no suitable base table exists.
 Attributes of universal sets are allowed to be matched to any namesake attributes, even those that do not come from the same initial source.
 
-For example, we may like to query the university database for the complete list of students' home cities, along with the number of students from each city.
+For example, you may like to query the university database for the complete list of students' home cities, along with the number of students from each city.
 The :ref:`schema <query-example>` for the university database does not have a table for cities and states.
 A virtual table can fill the role of the nonexistent base table, allowing queries that would not be possible otherwise.
 

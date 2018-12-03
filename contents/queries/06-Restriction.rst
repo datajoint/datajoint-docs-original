@@ -91,7 +91,7 @@ Restriction by an empty mapping or by a mapping with no keys matching the attrib
 Exclusion by an empty mapping or by a mapping with no matches will return no entities.
 
 For example, let's say that table ``Session`` has the attribute ``session_date`` of :ref:`datatype <datatypes>` ``datetime``.
-We are interested in sessions from January 1st, 2018, so we write the following restriction query using a mapping.
+You are interested in sessions from January 1st, 2018, so you write the following restriction query using a mapping.
 
 .. include:: 06-Restriction_lang2.rst
 
@@ -114,7 +114,7 @@ Restriction by a collection
 
 When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
 Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
-For example, if we restrict the ``Student`` table by a collection containing two conditions, one for a first and one for a last name, our query will return any students with a matching first name *or* a matching last name.
+For example, if you restrict the ``Student`` table by a collection containing two conditions, one for a first and one for a last name, your query will return any students with a matching first name *or* a matching last name.
 
 .. include:: 06-Restriction_lang4.rst
 
@@ -129,4 +129,3 @@ Restriction by a Boolean expression
 
 
 .. include:: 06-Restriction_lang6.rst
-
