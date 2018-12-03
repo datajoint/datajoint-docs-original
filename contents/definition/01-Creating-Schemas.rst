@@ -18,10 +18,8 @@ Tables are defined within a schema, so a schema must be created before the creat
 
 Working with existing data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-What if the database schema already exists?
-For example, what if you created the schema in Python but want to access the data from MATLAB or vice versa?
-Follow the same process for creating the schema and specify the existing schema name.
-See the chapter :ref:`existing` for how to work with existing tables.
+
+See the chapter :ref:`existing` for how to work with data in existing pipelines, including accessing a pipeline from one language when the pipeline was developed using another.
 
 .. |matlab| image:: ../_static/img/matlab-tiny.png
 .. |python| image:: ../_static/img/python-tiny.png
