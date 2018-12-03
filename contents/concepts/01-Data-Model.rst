@@ -61,8 +61,8 @@ Popular implementations of the relational data model rely on the Structured Quer
 SQL comprises distinct sublanguages for schema definition, data manipulation, and data queries.
 SQL thoroughly dominates in the space of relational databases and is often conflated with the relational data model in casual discourse.
 Various terminologies are used to describe related concepts from the relational data model.
-Similar to spreadsheets, relations are often visualized as tables with attributes corresponding to columns and entities corresponding to rows.
-In particular, SQL uses the terms table, column, and row.
+Similar to spreadsheets, relations are often visualized as tables with *attributes* corresponding to *columns* and *entities* corresponding to *rows*.
+In particular, SQL uses the terms *table*, *column*, and *row*.
 
 DataJoint is a refinement of the relational data model
 ------------------------------------------------------
