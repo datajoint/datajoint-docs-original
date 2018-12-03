@@ -51,3 +51,6 @@ However, it is common to have multiple part tables that depend on each other.
 For example:
 
 .. include:: 04-master-part_lang3.rst
+
+Conceptually, one or more channels belongs to an electrode, and one or more electrodes belong to an array.
+This example assumes that information about an array's response (which consists ultimately of the responses of multiple electrodes each consisting of multiple channel responses) including it's electrodes and channels are entered together.
