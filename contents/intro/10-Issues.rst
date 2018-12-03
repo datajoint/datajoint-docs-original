@@ -11,6 +11,6 @@ For questions, issues, and requests concerning this documentation, please submit
 
 For questions and issues pertaining specifically to the client libraries, please use the corresponding issue trackers for `datajoint-python <https://github.com/datajoint/datajoint-python/issues>`_ and `datajoint-matlab <https://github.com/datajoint/datajoint-matlab/issues>`_.
 
-For general *How do I...* types of questions, you are encouraged to use `StackExchange <https://stackexchange.com>`_, tagging your questions as ``datajoint`` to make them show in web search engines.
+For general *How do I...* types of questions, please use `StackExchange <https://stackexchange.com>`_ and tag your questions with ``datajoint``.
 
 Also see :ref:`contribute`.
