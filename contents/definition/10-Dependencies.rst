@@ -44,7 +44,7 @@ For example, the following definition for the table ``mp.Slice`` has three forei
 
 .. code-block:: text
 
-    ## brain slice
+    # brain slice
     -> mp.Subject
     slice_id        : smallint       # slice number within subject
     ---
@@ -102,14 +102,14 @@ Referential integrity is the guarantee made by the data management process that 
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 An entity in table ``B`` depends on an entity in table ``A`` when they belong to them or are computed from them.
 
-Renamed foreign keys
---------------------
+Dependencies with renamed attributes
+------------------------------------
 
-In most cases, a foreign key includes the primary key attributes of the referenced table as they appear in its table definition.
+In most cases, a dependency includes the primary key attributes of the referenced table as they appear in its table definition.
 Sometimes it can be helpful to choose a new name for a foreign key attribute that better fits the context of the dependent table.
 DataJoint provides the following :ref:`projection <proj>` syntax to rename the primary key attributes when they are included in the new table.
 
-The foreign key
+The dependency
 
 .. code-block:: text
 
@@ -117,7 +117,7 @@ The foreign key
 
 renames the primary key attribute ``old_attr`` of ``Table`` as ``new_attr`` before integrating it into the table definition.
 Any additional primary key attributes will retain their original names.
-For example, the table ``Experiment`` may depend on table ``User`` but rename the foreign key attribute into ``operator`` as follows:
+For example, the table ``Experiment`` may depend on table ``User`` but rename the ``user`` attribute into ``operator`` as follows:
 
 .. code-block:: text
 
@@ -131,9 +131,9 @@ The table definition may appear as
 
 .. code-block:: text
 
-    ## synapse between two cells
-    Cell.proj(presynaptic='cell_id')
-    Cell.proj(postsynaptic='cell_id')
+    # synapse between two cells
+    -> Cell.proj(presynaptic='cell_id')
+    -> Cell.proj(postsynaptic='cell_id')
     ---
     connection_strength : double  # (pA) peak synaptic current
 
@@ -145,7 +145,7 @@ Note that the design of the ``Synapse`` table above imposes the constraint that 
 Allowing representation of synapses between cells from different slices requires the renamimg of ``slice_id`` as well:
 .. code-block:: text
 
-    ## synapse between two cells
+    # synapse between two cells
     -> Cell(presynaptic_slice='slice_id', presynaptic_cell='cell_id')
     -> Cell(postsynaptic_slice='slice_id', postsynaptic_cell='cell_id')
     ---

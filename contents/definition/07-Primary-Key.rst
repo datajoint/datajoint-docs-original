@@ -38,7 +38,7 @@ For example, the following is the definition of a table containing database user
 
 ::
 
-    ## database users
+    # database users
     username : varchar(20)   # unique user name
     ---
     first_name : varchar(30)
@@ -118,7 +118,7 @@ The example definition below defines an auto-incremented primary key
 
 ::
 
-    ## log entries
+    # log entries
     entry_id  :  smallint auto_increment
     ---
     entry_text :  varchar(4000)
