@@ -22,7 +22,7 @@ For example, the following query retrieves information about all experiments and
 
 You can preview the contents of the query in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
 In the image below, the object ``query`` is first defined as a restriction of the table ``EEG`` by values of the attribute ``eeg_sample_rate`` greater than 1000 Hz.
-Displaying the object gibes a preview of the entities that will be returned by ``query``.
+Displaying the object gives a preview of the entities that will be returned by ``query``.
 Note that this preview only lists a few of the entities that will be returned.
 Also, the preview does not contain any data for attributes of datatype ``blob``.
 
