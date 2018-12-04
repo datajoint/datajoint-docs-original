@@ -7,14 +7,15 @@ Dependencies
 
 Understanding dependencies
 --------------------------
+
 A schema contains collections of tables of related data.
 Accordingly, entities in one table often derive some of their meaning or context from entities in other tables.
 A **foreign key** defines a **dependency** of entities in one table on entities in another within a schema.
-In more complex designs, foreign keys can even exist between entities in tables from different schemas.
-Foreign keys play a functional role in DataJoint and do not simply label the structure of a pipeline.
-Foreign keys provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
+In more complex designs, dependencies can even exist between entities in tables from different schemas.
+Dependencies play a functional role in DataJoint and do not simply label the structure of a pipeline.
+Dependencies provide entities in one table with access to data in another table and establish certain constraints on entities containing a foreign key.
 
-A DataJoint pipeline, including the relationships established by foreign keys, can be visualized as a graph with nodes and edges.
+A DataJoint pipeline, including the dependency relationships established by foreign keys, can be visualized as a graph with nodes and edges.
 The diagram of such a graph is called the **entity relationship diagram** or :ref:`ERD <erd>`.
 The nodes of the graph are tables and the edges connecting them are foreign keys.
 The edges are directed and the overall graph is a **directed acyclic graph**, a graph with no loops.
@@ -30,6 +31,7 @@ The middle has many imported tables (blue triangles), and the bottom has compute
 
 Defining a dependency
 ---------------------
+
 Foreign keys are defined with arrows ``->`` in the :ref:`table definition <definitions>`, pointing to another table.
 
 A foreign key may be defined as part of the :ref:`primary-key`.
@@ -42,7 +44,7 @@ For example, the following definition for the table ``mp.Slice`` has three forei
 
 .. code-block:: text
 
-    ## brain slice
+    # brain slice
     -> mp.Subject
     slice_id        : smallint       # slice number within subject
     ---
@@ -52,6 +54,7 @@ For example, the following definition for the table ``mp.Slice`` has three forei
     thickness         : smallint unsigned    # slice thickness in microns
     experimenter      : varchar(20)          # person who performed this experiment
 
+You can examine the resulting table heading with
 
 .. include:: 10-Dependencies_lang1.rst
 
@@ -71,17 +74,17 @@ The heading of ``mp.Slice`` may look something like
 This displayed heading reflects the actual attributes in the table.
 The foreign keys have been replaced by the primary key attributes of the referenced tables, including their data types and comments.
 
-How foreign keys work
+How dependencies work
 ---------------------
 
 The foreign key ``-> A`` in the definition of table ``B`` has the following effects:
 
 1. The primary key attributes of ``A`` are made part of ``B``'s definition.
-2. A foreign key constraint is created in ``B`` with reference to ``A``.
+2. A referential constraint is created in ``B`` with reference to ``A``.
 3. If one does not already exist, an index is created to speed up searches in ``B`` for matches to ``A``.
    (The reverse search is already fast because it uses the primary key of ``A``.)
 
-A foreign key constraint means that an entity in ``B`` cannot exist without a matching entity in ``A``.
+A referential constraint means that an entity in ``B`` cannot exist without a matching entity in ``A``.
 **Matching** means attributes in ``B`` that correspond to the primary key of ``A`` must have the same values.
 An attempt to insert an entity into ``B`` that does not have a matching counterpart in ``A`` will fail.
 Conversely, deleting an entity from ``A`` that has matching entities in ``B`` will result in the deletion of those matching entities and so forth, recursively, downstream in the pipeline.
@@ -94,18 +97,20 @@ In DataJoint terms, ``B`` is the **dependent table** and ``A`` is the **referenc
 
 Referential integrity
 ---------------------
-Foreign keys enforce the desired property of databases known as **referential integrity**.
+
+Dependencies enforce the desired property of databases known as **referential integrity**.
 Referential integrity is the guarantee made by the data management process that related data across the database remain present, correctly associated, and mutually consistent.
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 An entity in table ``B`` depends on an entity in table ``A`` when they belong to them or are computed from them.
 
-Renamed foreign keys
---------------------
-In most cases, a foreign key includes the primary key attributes of the referenced table as they appear in its table definition.
+Dependencies with renamed attributes
+------------------------------------
+
+In most cases, a dependency includes the primary key attributes of the referenced table as they appear in its table definition.
 Sometimes it can be helpful to choose a new name for a foreign key attribute that better fits the context of the dependent table.
 DataJoint provides the following :ref:`projection <proj>` syntax to rename the primary key attributes when they are included in the new table.
 
-The foreign key
+The dependency
 
 .. code-block:: text
 
@@ -113,7 +118,7 @@ The foreign key
 
 renames the primary key attribute ``old_attr`` of ``Table`` as ``new_attr`` before integrating it into the table definition.
 Any additional primary key attributes will retain their original names.
-For example, the table ``Experiment`` may depend on table ``User`` but rename the foreign key attribute into ``operator`` as follows:
+For example, the table ``Experiment`` may depend on table ``User`` but rename the ``user`` attribute into ``operator`` as follows:
 
 .. code-block:: text
 
@@ -127,9 +132,9 @@ The table definition may appear as
 
 .. code-block:: text
 
-    ## synapse between two cells
-    Cell.proj(presynaptic='cell_id')
-    Cell.proj(postsynaptic='cell_id')
+    # synapse between two cells
+    -> Cell.proj(presynaptic='cell_id')
+    -> Cell.proj(postsynaptic='cell_id')
     ---
     connection_strength : double  # (pA) peak synaptic current
 
@@ -141,7 +146,7 @@ Note that the design of the ``Synapse`` table above imposes the constraint that 
 Allowing representation of synapses between cells from different slices requires the renamimg of ``slice_id`` as well:
 .. code-block:: text
 
-    ## synapse between two cells
+    # synapse between two cells
     -> Cell(presynaptic_slice='slice_id', presynaptic_cell='cell_id')
     -> Cell(postsynaptic_slice='slice_id', postsynaptic_cell='cell_id')
     ---

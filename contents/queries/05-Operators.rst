@@ -83,7 +83,7 @@ Join compatibility
 -------------------
 All binary operators with other tables as their two operands require that the operands be **join-compatible**, which means that:
 
-1. All common attributes in both operands (attributes with the same name) must be part of the primary key or of a foreign key.
+1. All common attributes in both operands (attributes with the same name) must be part of either the primary key or a foreign key.
 2. All common attributes in the two relations must be of a compatible datatype for equality comparisons.
 
 These restrictions are introduced both for performance reasons and for conceptual reasons.
