@@ -54,6 +54,7 @@ For example, the following definition for the table ``mp.Slice`` has three forei
     thickness         : smallint unsigned    # slice thickness in microns
     experimenter      : varchar(20)          # person who performed this experiment
 
+You can examine the resulting table heading with
 
 .. include:: 10-Dependencies_lang1.rst
 
