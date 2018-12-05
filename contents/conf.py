@@ -136,6 +136,8 @@ latex_elements = {
                   '\\DeclareUnicodeCharacter{2572}{\\textbackslash}\n'
                   '\\fi\n'
                   '\\fi'),
+
+    'sphinxsetup': 'VerbatimColor={rgb}{0.9, 0.9, 0.9}, VerbatimBorderColor={rgb}{0.85,0.85,0.85}',
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -148,9 +150,25 @@ latex_elements = {
     #
     'preamble':  r'''
     \usepackage{txfonts}
+    \usepackage{xcolor}
+    \definecolor{light-gray}{gray}{0.9}
     \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
     \setcounter{tocdepth}{1}
+    \makeatletter
+    \renewcommand{\sphinxupquote}{\colorbox{\@sphinxupquotecolor}}
+    \newcommand{\@sphinxupquotecolor}{light-gray}
+    \newcommand{\sphinxupquotecolor}[1]{\renewcommand{\@sphinxupquotecolor}{}}
+    \makeatother
+
     '''
+
+    
+    #\sphinxcode{\sphinxupquote{experiment.Session}} needed to be styled with light gray background
+    # \makeatletter
+    # \renewcommand{\sphinxupquote}{\colorbox{\@sphinxupquotecolor}}
+    # \newcommand{\@sphinxupquotecolor}{light-gray}
+    # \newcommand{\sphinxupquotecolor}[1]{\renewcommand{\@sphinxupquotecolor}{}}
+    # \makeatother
 
     # Latex figure (float) alignment
     #
