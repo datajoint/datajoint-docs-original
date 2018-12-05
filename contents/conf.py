@@ -138,6 +138,10 @@ latex_elements = {
                   '\\fi'),
 
     'sphinxsetup': 'VerbatimColor={rgb}{0.9, 0.9, 0.9}, VerbatimBorderColor={rgb}{0.85,0.85,0.85}',
+    'passoptionstopackages': r'\PassOptionsToPackage{table}{xcolor}',
+    # Latex figure (float) alignment
+    # 'figure_align' set to 'H' makes the figures appear strictly in the order it was inserted in the doc
+    'figure_align': 'H',
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -150,8 +154,8 @@ latex_elements = {
     #
     'preamble':  r'''
     \usepackage{txfonts}
-    \usepackage{xcolor}
     \definecolor{light-gray}{gray}{0.9}
+    \rowcolors{2}{light-gray}{white}
     \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
     \setcounter{tocdepth}{1}
     \makeatletter
@@ -159,10 +163,10 @@ latex_elements = {
     \newcommand{\@sphinxupquotecolor}{light-gray}
     \newcommand{\sphinxupquotecolor}[1]{\renewcommand{\@sphinxupquotecolor}{}}
     \makeatother
-
     '''
 
-    
+
+    #\usepackage[table]{xcolor}
     #\sphinxcode{\sphinxupquote{experiment.Session}} needed to be styled with light gray background
     # \makeatletter
     # \renewcommand{\sphinxupquote}{\colorbox{\@sphinxupquotecolor}}
@@ -170,9 +174,7 @@ latex_elements = {
     # \newcommand{\sphinxupquotecolor}[1]{\renewcommand{\@sphinxupquotecolor}{}}
     # \makeatother
 
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
+    
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
