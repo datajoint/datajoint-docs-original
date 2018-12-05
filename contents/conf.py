@@ -151,7 +151,7 @@ latex_elements = {
     'preamble':  r'''
     \usepackage{txfonts}
     \usepackage{xcolor}
-    \definecolor{light-gray}{gray}{0.95}
+    \definecolor{light-gray}{gray}{0.9}
     \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
     \setcounter{tocdepth}{1}
     \makeatletter
