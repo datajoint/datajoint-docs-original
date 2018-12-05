@@ -142,6 +142,7 @@ latex_elements = {
     # Latex figure (float) alignment
     # 'figure_align' set to 'H' makes the figures appear strictly in the order it was inserted in the doc
     'figure_align': 'H',
+    # 'pxunit' : '0.7227bp',
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',

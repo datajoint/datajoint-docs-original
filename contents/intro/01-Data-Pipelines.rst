@@ -39,11 +39,22 @@ Data pipelines
 
   Therefore, a full-featured data pipeline framework may also be described as a `scientific workflow system <https://en.wikipedia.org/wiki/Scientific_workflow_system>`_.
 
-.. figure:: ../_static/img/pipeline-database.png
-    :align: center
-    :alt: data pipelines vs databases vs data repositories
+.. only:: html
 
-    Major features of data management frameworks: data repositories, databases, and data pipelines.
+    .. figure:: ../_static/img/pipeline-database.png
+        :align: center
+        :alt: data pipelines vs databases vs data repositories
+
+        Major features of data management frameworks: data repositories, databases, and data pipelines.
+
+.. only:: latex
+
+    .. figure:: ../_static/img/pipeline-database.png
+        :width: 220px
+        :align: center
+        :alt: data pipelines vs databases vs data repositories
+
+        Major features of data management frameworks: data repositories, databases, and data pipelines.
 
 What is DataJoint?
 ------------------
@@ -56,6 +67,7 @@ The pipeline may have some nodes requiring manual data entry or import from exte
 In a typical scenario, experimenters and acquisition instruments feed data into nodes at the head of the pipeline, while downstream nodes perform automated computations for data processing and analysis.
 
 .. figure:: ../_static/img/pipeline.png
+    :width: 250px
     :align: center
     :alt: A data pipeline
 

@@ -22,18 +22,48 @@ Examples of joins
 
 Example 1 : When the operands have no common attributes, the result is the cross product -- all combinations of entities.
 
-.. figure:: ../_static/img/join-example1.png
-   :alt:
+.. only:: html
+
+    .. figure:: ../_static/img/join-example1.png
+        :width: 464px
+        :align: center
+        :alt:
+
+.. only:: latex
+
+    .. figure:: ../_static/img/join-example1.png
+        :align: center
+        :alt:
 
 Example 2 : When the operands have common attributes, only entities with matching values are kept.
 
-.. figure:: ../_static/img/join-example2.png
-   :alt:
+.. only:: html
+
+    .. figure:: ../_static/img/join-example2.png
+        :width: 689px
+        :align: center
+        :alt:
+
+.. only:: latex
+
+    .. figure:: ../_static/img/join-example2.png
+        :align: center
+        :alt:
 
 Example 3 : Joining on secondary attribute.
 
-.. figure:: ../_static/img/join-example3.png
-   :alt:
+.. only:: html
+
+    .. figure:: ../_static/img/join-example3.png
+        :width: 689px
+        :align: center
+        :alt:
+
+.. only:: latex
+
+    .. figure:: ../_static/img/join-example3.png
+        :align: center
+        :alt:
 
 Properties of join
 ~~~~~~~~~~~~~~~~~~

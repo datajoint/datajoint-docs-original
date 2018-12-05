@@ -12,6 +12,7 @@ The restriction operator ``A & cond`` selects the subset of entities from ``A`` 
 The exclusion operator ``A - cond`` selects the complement of restriction, i.e. the subset of entities from  ``A`` that do not meet the condition ``cond``.
 
 .. figure:: ../_static/img/op-restrict.png
+    :width: 400px
     :align: center
     :alt: Restriction and exclusion
 
@@ -32,15 +33,35 @@ When restricting table ``A`` with another table, written ``A & B``, the two tabl
 The result will contain all entities from ``A`` for which there exist a matching entity in ``B``.
 Exclusion of table ``A`` with table ``B``, or ``A - B``, will contain all entities from ``A`` for which there are no matching entities in ``B``.
 
-.. figure:: ../_static/img/restrict-example1.png
-    :alt: Restriction by another table
+.. only:: html
 
-    Restriction by another table.
+    .. figure:: ../_static/img/restrict-example1.png
+        :width: 546px
+        :align: center
+        :alt: Restriction by another table
 
-.. figure:: ../_static/img/diff-example1.png
-    :alt: Exclusion by another table
+        Restriction by another table.
 
-    Exclusion by another table.
+    .. figure:: ../_static/img/diff-example1.png
+        :width: 539px
+        :align: center
+        :alt: Exclusion by another table
+
+        Exclusion by another table.
+
+.. only:: latex
+
+    .. figure:: ../_static/img/restrict-example1.png
+        :align: center
+        :alt: Restriction by another table
+
+        Restriction by another table.
+
+    .. figure:: ../_static/img/diff-example1.png
+        :align: center
+        :alt: Exclusion by another table
+
+        Exclusion by another table.
 
 Restriction by a table with no common attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,15 +69,36 @@ Restriction by a table with no common attributes
 Restriction of table ``A`` with another table ``B`` having none of the same attributes as ``A`` will simply return all entities in ``A``, unless ``B`` is empty as described below.
 Exclusion of table ``A`` with ``B`` having no common attributes will return no entities, unless ``B`` is empty as described below.
 
-.. figure:: ../_static/img/restrict-example2.png
-   :alt: Restriction by a table with no common attributes
+.. only:: html
 
-   Restriction by a table having no common attributes.
+    .. figure:: ../_static/img/restrict-example2.png
+        :width: 571px
+        :align: center
+        :alt: Restriction by a table with no common attributes
 
-.. figure:: ../_static/img/diff-example2.png
-   :alt: Exclusion by a table having no common attributes
+        Restriction by a table having no common attributes.
 
-   Exclusion by a table having no common attributes.
+    .. figure:: ../_static/img/diff-example2.png
+        :width: 571px
+        :align: center
+        :alt: Exclusion by a table having no common attributes
+
+        Exclusion by a table having no common attributes.
+
+.. only:: latex
+
+    .. figure:: ../_static/img/restrict-example2.png
+        :align: center
+        :alt: Restriction by a table with no common attributes
+
+        Restriction by a table having no common attributes.
+
+    .. figure:: ../_static/img/diff-example2.png
+        :align: center
+        :alt: Exclusion by a table having no common attributes
+
+        Exclusion by a table having no common attributes.
+
 
 Restriction by an empty table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,15 +106,35 @@ Restriction by an empty table
 Restriction of table ``A`` with an empty table will return no entities regardless of whether there are any matching attributes.
 Exclusion of table ``A`` with an empty table will return all entities in ``A``.
 
-.. figure:: ../_static/img/restrict-example3.png
-   :alt: Restriction by an empty table
+.. only:: html
 
-   Restriction by an empty table.
+    .. figure:: ../_static/img/restrict-example3.png
+        :width: 563px
+        :align: center
+        :alt: Restriction by an empty table
 
-.. figure:: ../_static/img/diff-example3.png
-   :alt: Exclusion by an empty table
+        Restriction by an empty table.
 
-   Exclusion by an empty table.
+    .. figure:: ../_static/img/diff-example3.png
+        :width: 571px
+        :align: center
+        :alt: Exclusion by an empty table
+
+        Exclusion by an empty table.
+
+.. only:: latex
+
+    .. figure:: ../_static/img/restrict-example3.png
+        :align: center
+        :alt: Restriction by an empty table
+
+        Restriction by an empty table.
+
+    .. figure:: ../_static/img/diff-example3.png
+        :align: center
+        :alt: Exclusion by an empty table
+
+        Exclusion by an empty table.
 
 Restriction by a query
 ----------------------
