@@ -37,13 +37,33 @@ Examples of union
 
 Example 1 : Note that the order of the attributes does not matter.
 
-.. figure:: ../_static/img/union-example1.png
-   :alt:
+.. only:: html
+
+    .. figure:: ../_static/img/union-example1.png
+        :width: 404px
+        :align: center
+        :alt:
+
+.. only:: latex
+
+    .. figure:: ../_static/img/union-example1.png
+        :align: center
+        :alt:
 
 Example 2 : Non-key attributes are combined from both tables and filled with NULLs when missing.
 
-.. figure:: ../_static/img/union-example2.png
-   :alt:
+.. only:: html
+
+    .. figure:: ../_static/img/union-example2.png
+        :width: 539px
+        :align: center
+        :alt:
+
+.. only:: latex
+
+    .. figure:: ../_static/img/union-example2.png
+        :align: center
+        :alt:
 
 Properties of union
 ~~~~~~~~~~~~~~~~~~~

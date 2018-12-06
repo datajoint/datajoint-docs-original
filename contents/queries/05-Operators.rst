@@ -67,15 +67,36 @@ Examples
 ^^^^^^^^
 This is a matching pair of entities:
 
-.. image:: ../_static/img/matched_tuples1.png
+.. only:: html
+
+    .. image:: ../_static/img/matched_tuples1.png
+        :width: 366px
+
+.. only:: latex
+
+    .. image:: ../_static/img/matched_tuples1.png
 
 and so is this one:
 
-.. image:: ../_static/img/matched_tuples2.png
+.. only:: html
+
+    .. image:: ../_static/img/matched_tuples2.png
+        :width: 366px
+
+.. only:: latex
+
+    .. image:: ../_static/img/matched_tuples2.png
 
 but these entities do *not* match:
 
-.. image:: ../_static/img/matched_tuples3.png
+.. only:: html
+
+    .. image:: ../_static/img/matched_tuples3.png
+        :width: 366px
+
+.. only:: latex
+
+    .. image:: ../_static/img/matched_tuples3.png
 
 .. _join-compatible:
 

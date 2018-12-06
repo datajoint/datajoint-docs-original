@@ -12,6 +12,7 @@ Science labs organize their projects as a sequence of activities of experiment d
 
 
 .. figure:: ../_static/img/data-science-before.png
+    :width: 520px
     :align: center
     :alt: data science in a science lab
 
@@ -30,6 +31,7 @@ This approach requires formulating a general data science plan and upfront inves
 The team uses DataJoint to build data pipelines to support multiple projects.
 
 .. figure:: ../_static/img/data-science-after.png
+    :width: 510px
     :align: center
     :alt: data science in a science lab
 
@@ -55,6 +57,7 @@ Team roles
 The adoption of a uniform data management framework allows separation of roles and division of labor among team members, leading to greater efficiency and better scaling.
 
 .. figure:: ../_static/img/data-engineering.png
+    :width: 350px
     :align: center
     :alt: data science vs engineering
 
