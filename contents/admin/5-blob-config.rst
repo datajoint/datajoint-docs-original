@@ -69,26 +69,54 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
    Below are sample entries in ``~external``.
 
-    .. list-table:: ~external
-       :widths: 12 12 12 12 12
-       :header-rows: 1
+   .. only:: latex
 
-       * - STORAGE
-         - HASH
-         - count
-         - size
-         - timestamp
-       * - raw
-         - 1GEqtEU6JYEOLS4sZHeHDxWQ3JJfLlHVZio1ga25vd2
-         - 3
-         - 1039536788
-         - 2017-06-07 23:14:01
-       * -
-         - wqsKbNB1LKSX7aLEV+ACKWGr-XcB6+h6x91Wrfh9uf7
-         - 0
-         - 168849430
-         - 2017-06-07 22:47:58
+      .. list-table:: ~external
+            :widths: 3 10 2 3 5 
+            :header-rows: 1
 
+            * - STORAGE
+              - HASH
+              - count
+              - size
+              - timestamp
+            * - raw
+              - 1GEqtEU6JYEOLS4sZHeHDxWQ3JJfLlH VZio1ga25vd2
+              - 3
+              - 1039536788
+              - 2017-06-07 23:14:01
+            * - 
+              - wqsKbNB1LKSX7aLEV+ACKWGr-XcB6+h6x91Wrfh9uf7
+              - 0
+              - 168849430
+              - 2017-06-07 22:47:58
+   
+   .. only:: html
+    
+        .. |br| unicode::  U+2028 .. line separator
+            :trim:
+
+        .. list-table:: ~external
+            :widths: auto
+            :header-rows: 1
+            :align: center
+
+            * - STORAGE
+              - HASH
+              - count
+              - size
+              - timestamp
+            * - raw
+              - 1GEqtEU6JYE |br| OLS4sZHeHDx |br| WQ3JJfLlHVZ |br| io1ga25vd2
+              - 3
+              - 1039536788
+              - 2017-06-07 23:14:01
+            * - 
+              - wqsKbNB1LKS |br| X7aLEV+ACKW |br| Gr-XcB6+h6x |br| 91Wrfh9uf7
+              - 0
+              - 168849430
+              - 2017-06-07 22:47:58
+        
 6. Attributes of type ``external`` are declared as renamed :ref:`foreign keys <dependencies>` referencing the ``~external`` table (but are not shown as such to the user).
 
 7. The :ref:`insert <insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
