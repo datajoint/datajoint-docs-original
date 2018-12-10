@@ -50,6 +50,7 @@ Step 2: verify installation
 To verify the Python installation and make sure that your system is ready to install DataJoint, open a command window by entering ``cmd`` into the Windows search bar:
 
 .. image:: ../_static/img/windows/cmd-prompt.png
+  :width: 42%
 
 From here ``python`` and the Python package manager ``pip`` can be verified by running ``python -V`` and ``pip -V``, respectively:
 
