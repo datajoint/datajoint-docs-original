@@ -63,9 +63,3 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
    :includehidden:
 
    computation/Computation.rst
-
-
-Progress report
-===============
-.. include:: ../report.txt
-   :literal:
