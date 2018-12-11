@@ -75,9 +75,9 @@ DataJoint is currently implemented as client libraries in MATLAB and Python.
 These libraries work by transpiling DataJoint queries into SQL before passing them on to conventional relational database systems that serve as the backend, in combination with bulk storage systems for storing large contiguous data objects.
 
 DataJoint comprises:
- * a :ref:`schema definition language <definitions>`
- * a data :ref:`manipulation language <manipulation>`
- * a data :ref:`query language <query-objects>`
- * a :ref:`diagramming notation <erd>` for visualizing relationships between modeled entities
+ * a schema :ref:`definition <definitions>` language
+ * a data :ref:`manipulation <manipulation>` language
+ * a data :ref:`query <query-objects>` language
+ * a :ref:`diagramming <erd>` notation for visualizing relationships between modeled entities
 
 The key refinement of DataJoint over other relational data models and their implementations is DataJoint's support of :ref:`entity normalization <normalization>`.
