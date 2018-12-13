@@ -9,6 +9,7 @@ Default key source
 ------------------
 
 **Key source** refers to the set of primary keys over which :ref:`autopopulate <auto>` iterates.
+Each ``key`` from the key source is used in the table's ``make`` call.
 By default, the key source for a table is the :ref:`join <join>` of its primary :ref:`dependencies <dependencies>`.
 
 For example, consider a schema with three tables.
@@ -27,5 +28,9 @@ Custom key source
 
 .. include:: 02-keysource_lang1.rst
 
-.. note::
-  Customization of the source of keys for the ``make`` calls in :ref:`autopopulation <auto>`.
+Any :ref:`query object <query-objects>` can be used as the key source.
+In most cases the new key source will be some alteration of the default key source.
+Custom key sources often involve restriction to limit the key source to only relevant entities.
+Other designs may involve using only one of a table's primary dependencies.
+
+.. include:: 02-keysource_lang1.rst
