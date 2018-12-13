@@ -54,7 +54,7 @@ img.logo {
 
 /* for mobile */
 .wy-nav-top {
-    background-image: url('../img/djDocsLogo.svg'); 
+    background-image: url('../djDocsLogo.svg'); 
     background-color: #f4fdfe;
     background-repeat: no-repeat;
     background-position: center;
@@ -207,7 +207,9 @@ div#dropdown-menu {
     position: absolute;
     background-color: #fff;
     border: 1px solid #54a8b7;
-    margin-left: 90px;
+    /* margin-left: 90px; */
+    margin-left: 50%;
+    transform: translateX(-50%);
     z-index: 2000;
 
 }
