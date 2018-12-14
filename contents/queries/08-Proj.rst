@@ -5,7 +5,7 @@
 Proj
 ====
 
-The ``proj`` operator is used to select attributes (columns) from a table, to rename them, or to create new calculated attributes.
+The ``proj`` operator represents **projection** and is used to select attributes (columns) from a table, to rename them, or to create new calculated attributes.
 
 Simple projection
 -----------------
