@@ -33,4 +33,8 @@ In most cases the new key source will be some alteration of the default key sour
 Custom key sources often involve restriction to limit the key source to only relevant entities.
 Other designs may involve using only one of a table's primary dependencies.
 
+In the example below, the ``EEG`` table depends on the ``Recording`` table that lists all recording sessions.
+However, the ``populate`` method of ``EEG`` should only ingest recordings where the ``recording_type`` is ``EEG``.
+Setting a custom key source prevents the ``populate`` call from iterating over recordings of the wrong type.
+
 .. include:: 02-keysource_lang1.rst

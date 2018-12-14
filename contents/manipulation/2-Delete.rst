@@ -18,4 +18,6 @@ Examples
 Deleting from part tables
 -------------------------
 
+Entities in a :ref:`part table <master-part>` are usually removed as a consequence of deleting the master table.
+
 .. include:: 2-Delete_lang3.rst
