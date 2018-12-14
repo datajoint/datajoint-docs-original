@@ -20,7 +20,6 @@ The exclusion operator ``A - cond`` selects the complement of restriction, i.e. 
 
 The condition ``cond`` may be one of the following:
 
-
 .. include:: 06-Restriction_lang1.rst
 
 As the restriction and exclusion operators are complementary, queries can be constructed using both operators that will return the same results.
@@ -136,12 +135,6 @@ Exclusion of table ``A`` with an empty table will return all entities in ``A``.
 
         Exclusion by an empty table.
 
-Restriction by a query
-----------------------
-
-Restriction by a query or query object is no different from restriction by a table, because queries in DataJoint adhere to :ref:`entity normalization <normalization>` and produce well-defined entity sets.
-As such, restriction by queries follows the same behavior as restriction by tables described above.
-
 Restriction by a mapping
 ------------------------
 
@@ -168,17 +161,19 @@ Restriction can be performed when ``cond`` is an explicit condition on attribute
 Such conditions may include arithmetic operations, functions, range tests, etc.
 Restriction of table ``A`` by a string containing an attribute not found in table ``A`` produces an error.
 
+.. include:: 06-Restriction_lang3.rst
+
 Restriction by a collection
 ---------------------------
 
-.. include:: 06-Restriction_lang3.rst
+.. include:: 06-Restriction_lang4.rst
 
 
 When ``cond`` is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
 Thus, restriction of table ``A`` by a collection will return all entities in ``A`` that meet *any* of the conditions in the collection.
 For example, if you restrict the ``Student`` table by a collection containing two conditions, one for a first and one for a last name, your query will return any students with a matching first name *or* a matching last name.
 
-.. include:: 06-Restriction_lang4.rst
+.. include:: 06-Restriction_lang5.rst
 
 
 Restriction by an empty collection returns no entities.
@@ -187,7 +182,18 @@ Exclusion of table ``A`` by an empty collection returns all the entities of ``A`
 Restriction by a Boolean expression
 -----------------------------------
 
-.. include:: 06-Restriction_lang5.rst
-
-
 .. include:: 06-Restriction_lang6.rst
+
+
+.. include:: 06-Restriction_lang7.rst
+
+Restriction by a query
+----------------------
+
+Restriction by a query or query object is no different from restriction by a table, because queries in DataJoint adhere to :ref:`entity normalization <normalization>` and produce well-defined entity sets.
+As such, restriction by queries follows the same behavior as restriction by tables described above.
+
+The example below creates a query object corresponding to all the sessions performed by the user Alice.
+The ``Experiment`` table is then restricted by the query object, returning all the experiments that are part of sessions performed by Alice.
+
+.. include:: 06-Restriction_lang8.rst
