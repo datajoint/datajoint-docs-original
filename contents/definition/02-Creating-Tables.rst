@@ -10,7 +10,7 @@ Classes represent tables
 
 To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
 Computer programmers refer to this concept as `object-relational mapping <https://en.wikipedia.org/wiki/Object-relational_mapping>`_.
-For example, the class ``experiment.Subject`` in MATLAB or Python may correspond to the table called ``subject`` on the database server.
+For example, the class ``experiment.Subject`` in the DataJoint client language may correspond to the table called ``subject`` on the database server.
 Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.
 
 Data tiers
