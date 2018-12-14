@@ -52,8 +52,6 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 .. include:: 5-blob-config_lang1.rst
 
-
-
 2. Each schema corresponds to a dedicated folder at the storage location with the same name as the database schema.
 
 3. Stored objects are identified by the `SHA-256 <https://en.wikipedia.org/wiki/SHA-2>`_ hashes (in web-safe base-64 ASCII) of their serialized contents.
@@ -72,7 +70,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
    .. only:: latex
 
       .. list-table:: ~external
-            :widths: 3 10 2 3 5 
+            :widths: 3 10 2 3 5
             :header-rows: 1
 
             * - STORAGE
@@ -85,14 +83,14 @@ DataJoint organizes external storage to preserve the same data integrity princip
               - 3
               - 1039536788
               - 2017-06-07 23:14:01
-            * - 
+            * -
               - wqsKbNB1LKSX7aLEV+ACKWGr-XcB6+h6x91Wrfh9uf7
               - 0
               - 168849430
               - 2017-06-07 22:47:58
-   
+
    .. only:: html
-    
+
         .. |br| unicode::  U+2028 .. line separator
             :trim:
 
@@ -111,12 +109,12 @@ DataJoint organizes external storage to preserve the same data integrity princip
               - 3
               - 1039536788
               - 2017-06-07 23:14:01
-            * - 
+            * -
               - wqsKbNB1LKS |br| X7aLEV+ACKW |br| Gr-XcB6+h6x |br| 91Wrfh9uf7
               - 0
               - 168849430
               - 2017-06-07 22:47:58
-        
+
 6. Attributes of type ``external`` are declared as renamed :ref:`foreign keys <dependencies>` referencing the ``~external`` table (but are not shown as such to the user).
 
 7. The :ref:`insert <insert>` operation first saves all the external objects in the external storage, then inserts the corresponding entities in ``~external`` for new data or increments the ``count`` for duplicates.
@@ -148,9 +146,7 @@ The following steps must be performed to enable external storage:
 
 1. Assign external location settings for each storage as shown in the Step 1 example above.
 
-   In Python this is performed using ``dj.config``.
-
-   In MATLAB, this is performed using ``dj.set``.
+.. include:: 5-blob-config_lang2.rst
 
    ``location`` specifies the root path to the external data for all schemas as well as the protocol in the prefix such as ``file://`` or ``s3://``.
 
@@ -158,9 +154,7 @@ The following steps must be performed to enable external storage:
 
 2. Optionally, for each schema specify the cache folder for local fetch cache.
 
-   In Python, this is done using the ``set_cache_folder`` method of the schema object.
-
-   In MATLAB, this is done using the ``setCacheFolder`` method of the schema object.
+.. include:: 5-blob-config_lang3.rst
 
 Cleanup
 -------
@@ -172,12 +166,12 @@ To remove the actual blob data, a separate cleanup process is run as described h
 
 this will remove the tracking entry from the external storage table for any external blobs not referred to by any record.
 
-.. include:: 5-blob-config_lang2.rst
+.. include:: 5-blob-config_lang4.rst
 
 1. Remove actual blob files from the desired external storage location.
 
 .. important:: this action should only be performed if no modifications are being done to the tables using this external.
 
-.. include:: 5-blob-config_lang3.rst
+.. include:: 5-blob-config_lang5.rst
 
 This will remove the actual unused files kept in the external storage 'external-name'.
