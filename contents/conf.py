@@ -65,7 +65,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', '*/*_lang[0-9].rst']
+exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', '*/*_lang[0-9].rst', '*/*_WIP.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'default'
@@ -175,7 +175,7 @@ latex_elements = {
     # \newcommand{\sphinxupquotecolor}[1]{\renewcommand{\@sphinxupquotecolor}{}}
     # \makeatother
 
-    
+
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
