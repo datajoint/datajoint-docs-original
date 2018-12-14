@@ -6,7 +6,7 @@ Universal Sets
 ==============
 All :ref:`query operators <operators>` are designed to preserve the entity types of their inputs.
 However, some queries require creating a new entity type that is not represented by any stored tables.
-This means that a new entity type must be explicitly defined on the fly.
+This means that a new entity type must be explicitly defined as part of the query.
 Universal sets fulfill this role.
 
 **Universal sets** are used in DataJoint to define virtual tables with arbitrary primary key structures for use in query expressions.
