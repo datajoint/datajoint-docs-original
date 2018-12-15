@@ -63,4 +63,5 @@ See :ref:`queries` for details of the DataJoint query language.
 
 Interfaces
 ----------
+Multiple interfaces may be used to get the data into and out of the pipeline. 
 GUIs, Google Docs integration, LIMS integration, Slack integration, *etc.*

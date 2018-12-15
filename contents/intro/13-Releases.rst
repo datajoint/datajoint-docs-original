@@ -5,4 +5,4 @@
 Release Notes 
 =============
 
-.. include:: Release_lang1.rst
+.. include:: Releases_lang1.rst
