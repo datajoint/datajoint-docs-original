@@ -58,10 +58,26 @@ This brings us to the final important question:
 
 How do I get my data out?
 -------------------------
-This is the fun part.
-See :ref:`queries` for details of the DataJoint query language.
+This is the fun part.  See :ref:`queries` for details of the DataJoint query language directly from MATLAB and Python.
 
 Interfaces
 ----------
 Multiple interfaces may be used to get the data into and out of the pipeline. 
+
+Some labs use third-party GUI applications such as `HeidiSQL <https://www.heidisql.com/>`_ and `Navicat <https://www.navicat.com/>`_, for example.  
+These applications allow entering and editing data in tables similarly to spreadsheets.
+
+The Helium Application (https://mattbdean.github.io/Helium/ and https://github.com/mattbdean/Helium) is web application for browsing DataJoint pipelines and entering new data. 
+Matt Dean develops and maintains Helium under the direction of members of Karel Svoboda's lab at Janelia Research Campus and Vathes LLC.
+
+Data may also be imported or  synchronized into a DataJoint pipeline from exising LIMS (laboratory information management systems). 
+For example, the `International Brain Lab <https://internationalbrainlab.com>`_ synchronizes data from an `Alyx database <https://github.com/cortex-lab/alyx>`_. 
+For implementation details, see https://github.com/int-brain-lab/IBL-pipeline.
+
+Other labs (e.g. Sinz Lab) have developed GUI interfaces using the Flask web framework in Python.
+
+
+
+
+
 GUIs, Google Docs integration, LIMS integration, Slack integration, *etc.*
