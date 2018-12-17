@@ -22,9 +22,6 @@ Inserting a set of entities in a single ``insert`` differs from inserting the sa
 However, inserting too many entities in a single query may run against buffer size or packet size limits of the database server.
 Due to these limitations, performing inserts of very large numbers of entities should be broken up into moderately sized batches, such as a few hundred at a time.
 
-.. |python| image:: ../_static/img/python-tiny.png
-.. |matlab| image:: ../_static/img/matlab-tiny.png
-
 Server-side inserts
 -------------------
 
