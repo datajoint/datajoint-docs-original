@@ -54,11 +54,13 @@ The ``FilteredImage`` table can be populated as
 
 .. include:: 01-autopopulate_lang2.rst
 
-
 Note that it is not necessary to specify which data needs to be computed.
 DataJoint will call ``make``, one-by-one, for every key in ``Image`` for which ``FilteredImage`` has not yet been computed.
 
 Chains of auto-populated tables form computational pipelines in DataJoint.
+
+Populate options
+----------------
 
 .. include:: 01-autopopulate_lang3.rst
 
