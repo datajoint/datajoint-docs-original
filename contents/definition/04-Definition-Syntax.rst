@@ -54,5 +54,20 @@ Default values
 
 Secondary attributes can be given default values.
 A default value will be used for an attribute if no other value is given at the time the entity is :ref:`inserted <insert>` into the table.
+Generally, default values are numerical values or character strings.
+Default values for dates must be given as strings as well, contained within quotes (with the exception of ``CURRENT_TIMESTAMP``).
 Note that default values can only be used when inserting as a mapping.
-Primary key attributes cannot have default values (with the exception of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
+Primary key attributes cannot have default values (with the exceptions of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
+
+An attribute with a default value of ``NULL`` is called a **nullable attribute**.
+Nullable attributes can be thought of as optional, such as an attribute that may not have a value for every entity.
+However, nullable attributes should be used deliberately where their inclusion in an entity is meaningful; they should not be used as a shortcut to easy data entry.
+``NULL`` is a special literal value and does not need to be enclosed in quotes.
+
+Here are some examples of attributes with default values:
+
+.. code-block::
+
+  failures = 0 : int
+  due_date = "2020-05-31" : date
+  additional_comments = NULL : varchar(256)
