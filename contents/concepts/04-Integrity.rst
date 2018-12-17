@@ -71,6 +71,18 @@ Relationships
 -------------
 
 In DataJoint, the term **relationship** is used rather generally to describe the effects of particular configurations of :ref:`dependencies <dependencies>` between multiple entity sets.
+It is often useful to classify relationships as one-to-one, many-to-one, one-to-many, and many-to-many.
+
+In a **one-to-one relationship**, each entity in a downstream table has exactly one corresponding entity in the upstream table.
 A dependency of an entity set containing the death dates of mice on an entity set describing the mice themselves would obviously be a one-to-one relationship.
-Other relationship types include many-to-one, one-to-many, and many-to-many.
+
+In a **many-to-one relationship**, each entity in a downstream table may depend on multiple entities from the same upstream table.
+Performance results averaged across multiple recording sessions is an example of a many-to-one relationship.
+
+In a **one-to-many relationship**, multiple entities in a downstream table may depend on the same entity in the upstream table.
+A table containing spike firing times for many neurons within a single recording session represents a one-to-many relationship.
+
+In a **many-to-many relationship**, multiple entities in a downstream table may each depend on multiple entities in the upstream table.
+An example of a many-to-many relationship would be a table of recording modalities and a dependent table of multimodal recording sessions: sessions depend on multiple modalities, and each modality appears in multiple sessions.
+
 The types of relationships between entity sets are expressed in the :ref:`ERD <erd>` of a schema.
