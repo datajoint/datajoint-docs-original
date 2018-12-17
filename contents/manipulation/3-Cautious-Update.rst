@@ -1,4 +1,4 @@
-.. progress: 6 20% Dimitri
+.. progress: 4 100% Dimitri
 
 .. _update:
 

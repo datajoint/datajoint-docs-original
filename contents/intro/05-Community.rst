@@ -10,9 +10,17 @@ DataJoint was originally developed by working systems neuroscientists at Andreas
 Below is a partial list of known DataJoint users.
 Please let us know if you would like to add another lab or make a correction.
 
-1. `Tolias Lab <https://toliaslab.org>`_ (Andreas Tolias), Baylor College of Medicine
-#. `International Brain Laboratory <https://www.internationalbrainlab.com>`_
+Multi-lab collaboratives
+------------------------
+1. `International Brain Laboratory <https://www.internationalbrainlab.com>`_
 #. `Mesoscale Activity Project <https://www.simonsfoundation.org/funded-project/%20multi-regional-neuronal-dynamics-of-memory-guided-flexible-behavior/>`_
+#. `IARPA MICrONS <https://www.iarpa.gov/index.php/research-programs/microns>`_
+#. `Princeton U19 Project <https://www.princeton.edu/news/2017/10/24/seven-princeton-researchers-receive-nih-brain-initiative-awards>`_
+#. UCSD U19 Project 
+
+Invidiual Labs
+--------------
+1. `Tolias Lab <https://toliaslab.org>`_ (Andreas Tolias), Baylor College of Medicine
 #. Siapas Lab (Athanassios G. Siapas), California Institute of Technology
 #. `Svoboda Lab <https://www.janelia.org/lab/svoboda-lab>`_ (Karel Svoboda), Janelia Research Campus
 #. Li Lab (Nuo Li), Baylor College of Medicine
@@ -30,3 +38,4 @@ Please let us know if you would like to add another lab or make a correction.
 #. Angelaki Lab (Dora Angelaki), New York University
 #. Smirnakis Lab (Stelios Smirnakis), Harvard Medical School
 #. McGinley Lab (Matthew McGinley), Baylor College of Medicine
+#. Reimer Lab (Jacob Reimer), Bayolor College of Medicine
