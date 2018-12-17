@@ -1,4 +1,4 @@
-.. progress: 6.0 10% Dimitri
+.. progress: 6.0 90% Austin
 
 .. _delete:
 

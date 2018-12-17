@@ -36,7 +36,7 @@ The class will be defined as follows.
 .. include:: 01-autopopulate_lang1.rst
 
 The ``make`` method received one argument: the ``key`` of type ``struct`` in MATLAB and ``dict`` in Python.
-The key represents the partially filled entity, usually already containing :ref:`primary key <primary-key>` attributes.
+The key represents the partially filled entity, usually already containing the :ref:`primary key <primary-key>` attributes of the key source.
 
 The ``make`` callback does three things:
 
@@ -92,5 +92,3 @@ Two optional parameters allow more advanced use of the method.
 A parameter of restriction conditions can be provided, specifying which entities to consider.
 A Boolean parameter ``display`` (default is ``True``) allows disabling the output, such that the numbers of remaining and total entities are returned but not printed.
 
-.. |python| image:: ../_static/img/python-tiny.png
-.. |matlab| image:: ../_static/img/matlab-tiny.png

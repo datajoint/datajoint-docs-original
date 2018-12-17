@@ -1,4 +1,4 @@
-.. progress: 12.0 30% Austin
+.. progress: 12.0 75% Austin
 
 .. _table:
 
