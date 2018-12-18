@@ -66,7 +66,7 @@ However, nullable attributes should be used deliberately where their inclusion i
 
 Here are some examples of attributes with default values:
 
-.. code-block::
+.. code-block:: text
 
   failures = 0 : int
   due_date = "2020-05-31" : date
