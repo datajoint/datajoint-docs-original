@@ -45,7 +45,7 @@ Examples of poor normalization
 ------------------------------
 
 Design choices lacking entity normalization may lead to data inconsistencies or anomalies. 
-Below are several examples of poorly normalized designs and improved alternatives.
+Below are several examples of poorly normalized designs and their normalized alternatives.
 
 Indirect attributes
 ^^^^^^^^^^^^^^^^^^^
