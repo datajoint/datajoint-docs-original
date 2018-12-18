@@ -37,7 +37,3 @@ Examples of valid class names:
 Invalid class names:
 
 ``Two_photon_Scan``, ``twoPhotonScan``, ``2PhotonScan``, ``membranePotential``, ``membrane_potential``
-
-
-.. |python| image:: ../_static/img/python-tiny.png
-.. |matlab| image:: ../_static/img/matlab-tiny.png
