@@ -67,7 +67,7 @@ Optional attributes
 ^^^^^^^^^^^^^^^^^^^
 
 All attributes should be relevant to every entity in a table.
-Attributes that do not apply to all entities should be moved to another dependent table containing only the appropriate entities.
+Attributes that apply only to a subset of entities in a table likely belong in a separate table containing only that subset of entities.
 For example, a table ``Protocol`` should include the attribute ``stimulus`` only if all experiment protocols include stimulation.
 If the not all entities in ``Protocol`` involve stimulation, then the ``stimulus`` attribute should be located in another table that depends on ``Protocol`` and references its entities as appropriate.
 
