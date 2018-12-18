@@ -44,7 +44,7 @@ The :ref:`join <join>` operator produces a new entity type comprising the pairin
 Examples of poor normalization
 ------------------------------
 
-Some design choices that work well in other database systems poorly fit DataJoint's emphasis on entity normalization.
+Design choices lacking entity normalization may lead to data inconsistencies or anomalies. 
 Below are several examples of poorly normalized designs and improved alternatives.
 
 Indirect attributes
