@@ -146,11 +146,11 @@ The following steps must be performed to enable external storage:
 
 1. Assign external location settings for each storage as shown in the Step 1 example above.
 
-.. include:: 5-blob-config_lang2.rst
+  .. include:: 5-blob-config_lang2.rst
 
-   ``location`` specifies the root path to the external data for all schemas as well as the protocol in the prefix such as ``file://`` or ``s3://``.
+  ``location`` specifies the root path to the external data for all schemas as well as the protocol in the prefix such as ``file://`` or ``s3://``.
 
-   ``account`` and ``token`` specify the credentials for accessing the external location.
+  ``account`` and ``token`` specify the credentials for accessing the external location.
 
 2. Optionally, for each schema specify the cache folder for local fetch cache.
 
