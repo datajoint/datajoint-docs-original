@@ -45,7 +45,7 @@ Valid attribute names
 Invalid attribute names
    ``firstName``, ``first name``, ``2photon_scan``, ``two-photon_scan``, ``TwoPhotonScan``
 
-Attribute names should be unique across all tables.
+Ideally, attribute names should be unique across all tables that are likely to be used in queries together.
 For example, tables often have attributes representing the start times of sessions, recordings, etc.
 Such attributes must be uniquely named in each table, such as ``session_start_time`` or ``recording_start_time``.
 
