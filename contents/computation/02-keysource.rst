@@ -8,7 +8,7 @@ Key Source
 Default key source
 ------------------
 
-**Key source** refers to the set of primary keys over which :ref:`autopopulate <auto>` iterates.
+**Key source** refers to the set of primary key values over which :ref:`autopopulate <auto>` iterates, calling the ``make`` method at each iteration.
 Each ``key`` from the key source is used in the table's ``make`` call.
 By default, the key source for a table is the :ref:`join <join>` of its primary :ref:`dependencies <dependencies>`.
 
