@@ -82,7 +82,9 @@ Performance results averaged across multiple recording sessions is an example of
 In a **one-to-many relationship**, multiple entities in a downstream table may depend on the same entity in the upstream table.
 A table containing spike firing times for many neurons within a single recording session represents a one-to-many relationship.
 
-In a **many-to-many relationship**, multiple entities in a downstream table may each depend on multiple entities in the upstream table.
-An example of a many-to-many relationship would be a table of recording modalities and a dependent table of multimodal recording sessions: sessions depend on multiple modalities, and each modality appears in multiple sessions.
+In a **many-to-many relationship**, multiple entities in one table may each relate to multiple entities in another upstream table.
+An example of a many-to-many relationship would be a table of recording modalities and a table of multimodal recording sessions
+Many-to-many relationships between two tables are usually established using a separate association table.
+Each entity in the association table links one entity from each of the two upstream tables it depends on.
 
 The types of relationships between entity sets are expressed in the :ref:`ERD <erd>` of a schema.
