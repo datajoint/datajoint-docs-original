@@ -44,7 +44,7 @@ The :ref:`join <join>` operator produces a new entity type comprising the pairin
 Examples of poor normalization
 ------------------------------
 
-Design choices lacking entity normalization may lead to data inconsistencies or anomalies. 
+Design choices lacking entity normalization may lead to data inconsistencies or anomalies.
 Below are several examples of poorly normalized designs and their normalized alternatives.
 
 Indirect attributes
@@ -64,7 +64,7 @@ For example, consider the table ``Protocol`` that includes the attributes ``equi
 A better design would be to create a ``ProtocolEquipment`` table that links each entity in ``Protocol`` with multiple entities in ``Equipment`` through :ref:`dependencies <dependencies>`.
 
 Attributes that do not apply to all entities
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All attributes should be relevant to every entity in a table.
 Attributes that apply only to a subset of entities in a table likely belong in a separate table containing only that subset of entities.
