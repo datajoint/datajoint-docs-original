@@ -63,7 +63,7 @@ A better solution is to create a separate table that depends on the first (often
 For example, consider the table ``Protocol`` that includes the attributes ``equipment1`, ``equipment2``, and ``equipment3``.
 A better design would be to create a ``ProtocolEquipment`` table that links each entity in ``Protocol`` with multiple entities in ``Equipment`` through :ref:`dependencies <dependencies>`.
 
-Optional attributes
+Attributes that do not apply to all entities
 ^^^^^^^^^^^^^^^^^^^
 
 All attributes should be relevant to every entity in a table.
