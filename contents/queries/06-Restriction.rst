@@ -190,7 +190,7 @@ Restriction by a Boolean expression
 Restriction by a query
 ----------------------
 
-Restriction by a query or query object is no different from restriction by a table, because queries in DataJoint adhere to :ref:`entity normalization <normalization>` and produce well-defined entity sets.
+Restriction by a query object is a generalization of restriction by a table (which is also a query object), because DataJoint queries always produce well-defined entity sets, as described in  :ref:`entity normalization <normalization>`.
 As such, restriction by queries follows the same behavior as restriction by tables described above.
 
 The example below creates a query object corresponding to all the sessions performed by the user Alice.
