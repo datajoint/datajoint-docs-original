@@ -2,7 +2,7 @@
 
 .. _distributed:
 
-Distributed computing
+Distributed Computing
 =====================
 
 Job reservations

@@ -40,3 +40,44 @@ DataJoint's :ref:`query operators <operators>` are designed to preserve the enti
 For example, the outputs of operators :ref:`restriction <restriction>`, :ref:`proj <proj>`, and :ref:`aggr <aggr>` retain the same entity type as the (first) input.
 The :ref:`join <join>` operator produces a new entity type comprising the pairing of the entity types of its inputs.
 :ref:`Universal sets <universal-sets>` explicitly introduce virtual entity sets when necessary to accomplish a query.
+
+Examples of poor normalization
+------------------------------
+
+Design choices lacking entity normalization may lead to data inconsistencies or anomalies.
+Below are several examples of poorly normalized designs and their normalized alternatives.
+
+Indirect attributes
+^^^^^^^^^^^^^^^^^^^
+
+All attributes should apply to the entity itself.
+Avoid attributes that actually apply to one of the entity's other attributes.
+For example, consider the table ``Author`` with attributes ``author_name``, ``institution``, and ``institution_address``.
+The attribute ``institution_address`` should really be held in a separate ``Institution`` table that ``Author`` depends on.
+
+Repeated attributes
+^^^^^^^^^^^^^^^^^^^
+
+Avoid tables with repeated attributes of the same category.
+A better solution is to create a separate table that depends on the first (often a :ref:`part table <master-part>`), with multiple individual entities rather than repeated attributes.
+For example, consider the table ``Protocol`` that includes the attributes ``equipment1`, ``equipment2``, and ``equipment3``.
+A better design would be to create a ``ProtocolEquipment`` table that links each entity in ``Protocol`` with multiple entities in ``Equipment`` through :ref:`dependencies <dependencies>`.
+
+Attributes that do not apply to all entities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All attributes should be relevant to every entity in a table.
+Attributes that apply only to a subset of entities in a table likely belong in a separate table containing only that subset of entities.
+For example, a table ``Protocol`` should include the attribute ``stimulus`` only if all experiment protocols include stimulation.
+If the not all entities in ``Protocol`` involve stimulation, then the ``stimulus`` attribute should be moved to a part table that has ``Protocol`` as its master.
+Only protocols using stimulation will have an entry in this part table.
+
+Transient attributes
+^^^^^^^^^^^^^^^^^^^^
+
+Attributes should be relevant to all entities in a table at all times.
+Attributes that do not apply to all entities should be moved to another dependent table containing only the appropriate entities.
+This principle also applies to attributes that have not yet become meaningful for some entities or that will not remain meaningful indefinitely.
+For example, consider the table ``Mouse`` with attributes ``birth_date`` and ``death_date``, where ``death_date`` is set to ``NULL`` for living mice.
+Since the ``death_date`` attribute is not meaningful for mice that are still living, the proper design would include a separate table ``DeceasedMouse`` that depends on ``Mouse``.
+``DeceasedMouse`` would only contain entities for dead mice, which improves integrity and averts the need for :ref:`updates <update>`.

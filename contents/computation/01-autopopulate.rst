@@ -54,41 +54,17 @@ The ``FilteredImage`` table can be populated as
 
 .. include:: 01-autopopulate_lang2.rst
 
-
 Note that it is not necessary to specify which data needs to be computed.
 DataJoint will call ``make``, one-by-one, for every key in ``Image`` for which ``FilteredImage`` has not yet been computed.
 
 Chains of auto-populated tables form computational pipelines in DataJoint.
 
-The ``populate`` method accepts a number of optional arguments that provide more features and allow greater control over the method's behavior.
+Populate options
+----------------
 
-- ``restrictions`` - A list of restrictions, restricting as ``(tab.key_source & AndList(restrictions)) - tab.proj()``.
-  Here ``target`` is the table to be populated, usually ``tab`` itself.
-- ``suppress_errors`` - If ``True``, encountering an error will cancel the current ``make`` call, log the error, and continue to the next ``make`` call.
-  Error messages will be logged in the job reservation table (if ``reserve_jobs`` is ``True``) and returned as a list.
-  See also ``return_exception_objects`` and ``reserve_jobs``.
-  Defaults to ``False``.
-- ``return_exception_objects`` - If ``True``, error objects are returned instead of error messages.
-  This applies only when ``suppress_errors`` is ``True``.
-  Defaults to ``False``.
-- ``reserve_jobs`` - If ``True``, reserves job to indicate to other distributed processes.
-  The job reservation table may be access as ``schema.jobs``.
-  Errors are logged in the jobs table.
-  Defaults to ``False``.
-- ``order`` - The order of execution, either ``"original"``, ``"reverse"``, or ``"random"``.
-  Defaults to ``"original"``.
-- ``display_progress`` - If ``True``, displays a progress bar.
-  Defaults to ``False``.
-- ``limit`` - If not ``None``, checks at most this number of keys.
-  Defaults to ``None``.
-- ``max_calls`` - If not ``None``, populates at most this many keys.
-  Defaults to ``None``, which means no limit.
+.. include:: 01-autopopulate_lang3.rst
 
 Progress
 --------
 
-The method ``table.progress`` reports how many ``key_source`` entries have been populated and how many remain.
-Two optional parameters allow more advanced use of the method.
-A parameter of restriction conditions can be provided, specifying which entities to consider.
-A Boolean parameter ``display`` (default is ``True``) allows disabling the output, such that the numbers of remaining and total entities are returned but not printed.
-
+.. include:: 01-autopopulate_lang4.rst

@@ -47,7 +47,7 @@ Multiple parts
 
 The master-part relationship cannot be chained or nested.
 DataJoint does not allow part tables of other part tables per se.
-However, it is common to have multiple part tables that depend on each other.
+However, it is common to have a master table with multiple part tables that depend on each other.
 For example:
 
 .. include:: 04-master-part_lang3.rst

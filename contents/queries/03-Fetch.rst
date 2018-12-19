@@ -16,5 +16,4 @@ Therefore, if you wish to fetch matching pairs of attributes, do so in one ``fet
 
 The examples below are based on the :ref:`example schema <query-example>` for this part of the documentation.
 
-
 .. include:: 03-Fetch_lang1.rst

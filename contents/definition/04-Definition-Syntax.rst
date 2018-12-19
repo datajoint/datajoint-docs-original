@@ -45,10 +45,30 @@ Valid attribute names
 Invalid attribute names
    ``firstName``, ``first name``, ``2photon_scan``, ``two-photon_scan``, ``TwoPhotonScan``
 
+Ideally, attribute names should be unique across all tables that are likely to be used in queries together.
+For example, tables often have attributes representing the start times of sessions, recordings, etc.
+Such attributes must be uniquely named in each table, such as ``session_start_time`` or ``recording_start_time``.
+
 Default values
 --------------
 
 Secondary attributes can be given default values.
 A default value will be used for an attribute if no other value is given at the time the entity is :ref:`inserted <insert>` into the table.
+Generally, default values are numerical values or character strings.
+Default values for dates must be given as strings as well, contained within quotes (with the exception of ``CURRENT_TIMESTAMP``).
 Note that default values can only be used when inserting as a mapping.
-Primary key attributes cannot have default values (with the exception of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
+Primary key attributes cannot have default values (with the exceptions of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
+
+An attribute with a default value of ``NULL`` is called a **nullable attribute**.
+ A nullable attribute can be thought of as applying to all entities in a table but having an optional *value* that may be absent in some entities.
+ Nullable attributes should *not* be used to indicate that an attribute is inapplicable to some entities in a table (see :ref:`normalization`).
+Nullable attributes should be used sparingly to indicate optional rather than inapplicable attributes that still apply to all entities in the table.
+``NULL`` is a special literal value and does not need to be enclosed in quotes.
+
+Here are some examples of attributes with default values:
+
+.. code-block:: text
+
+  failures = 0 : int
+  due_date = "2020-05-31" : date
+  additional_comments = NULL : varchar(256)

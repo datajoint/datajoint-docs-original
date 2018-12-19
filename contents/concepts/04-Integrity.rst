@@ -71,6 +71,39 @@ Relationships
 -------------
 
 In DataJoint, the term **relationship** is used rather generally to describe the effects of particular configurations of :ref:`dependencies <dependencies>` between multiple entity sets.
-A dependency of an entity set containing the death dates of mice on an entity set describing the mice themselves would obviously be a one-to-one relationship.
-Other relationship types include many-to-one, one-to-many, and many-to-many.
+It is often useful to classify relationships as one-to-one, many-to-one, one-to-many, and many-to-many.
+
+In a **one-to-one relationship**, each entity in a downstream table has exactly one corresponding entity in the upstream table.
+A dependency of an entity set containing the death dates of mice on an entity set describing the mice themselves would obviously be a one-to-one relationship, as in the example below.
+
+.. include:: 04-Integrity_lang1.rst
+
+.. figure:: ../_static/img/doc_1-1.png
+
+In a **one-to-many relationship**, multiple entities in a downstream table may depend on the same entity in the upstream table.
+The example below shows a table containing individual channel data from multi-channel recordings, representing a one-to-many relationship.
+
+.. include:: 04-Integrity_lang2.rst
+
+.. figure:: ../_static/img/doc_1-many.png
+
+In a **many-to-one relationship**, each entity in a table is associated with multiple entities from another table.
+Many-to-one relationships between two tables are usually established using a separate membership table.
+The example below includes a table of mouse subjects, a table of subject groups, and a membership :ref:`part table <master-part>` listing the subjects in each group.
+A many-to-one relationship exists between the ``Mouse`` table and the ``SubjectGroup`` table, with is expressed through entities in ``GroupMember``.
+
+.. include:: 04-Integrity_lang3.rst
+
+.. figure:: ../_static/img/doc_many-1.png
+
+In a **many-to-many relationship**, multiple entities in one table may each relate to multiple entities in another upstream table.
+Many-to-many relationships between two tables are usually established using a separate association table.
+Each entity in the association table links one entity from each of the two upstream tables it depends on.
+The below example of a many-to-many relationship contains a table of recording modalities and a table of multimodal recording sessions.
+Entities in a third table represent the modes used for each session.
+
+.. include:: 04-Integrity_lang4.rst
+
+.. figure:: ../_static/img/doc_many-many.png
+
 The types of relationships between entity sets are expressed in the :ref:`ERD <erd>` of a schema.

@@ -22,9 +22,6 @@ This defines the class ``User`` that creates the table in the database and provi
 Table creation on the database server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Users do not need to do anything special to have the table created in the database.
-If it is not already defined, it will get automatically created as soon as it is necessary.
-
 .. include:: 03-Table-Definition_lang2.rst
 
 

@@ -17,6 +17,9 @@ The ``drop`` method is often used during initial design to allow altered table d
 .. |python| image:: ../_static/img/python-tiny.png
 .. |matlab| image:: ../_static/img/matlab-tiny.png
 
+Dropping part tables
+--------------------
+
+A :ref:`part table <master-part>` is usually removed as a consequence of calling ``drop`` on its master table.
 
 .. include:: 14-Drop_lang2.rst
-
