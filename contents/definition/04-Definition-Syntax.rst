@@ -60,7 +60,8 @@ Note that default values can only be used when inserting as a mapping.
 Primary key attributes cannot have default values (with the exceptions of ``auto_increment`` and ``CURRENT_TIMESTAMP`` attributes; see :ref:`primary-key`).
 
 An attribute with a default value of ``NULL`` is called a **nullable attribute**.
-Nullable attributes can be thought of as optional, such as an attribute that may not have a value for every entity.
+ A nullable attribute can be thought of as applying to all entities in a table but having an optional *value* that may be absent in some entities.
+ Nullable attributes should *not* be used to indicate that an attribute is inapplicable to some entities in a table (see :ref:`normalization`).
 Nullable attributes should be used sparingly to indicate optional rather than inapplicable attributes that still apply to all entities in the table.
 ``NULL`` is a special literal value and does not need to be enclosed in quotes.
 
