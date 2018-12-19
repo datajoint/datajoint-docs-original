@@ -58,7 +58,7 @@ The attribute ``institution_address`` should really be held in a separate ``Inst
 Repeated attributes
 ^^^^^^^^^^^^^^^^^^^
 
-Avoid tables with many attributes that are merely different instances of the same data.
+Avoid tables with repeated attributes of the same category.
 A better solution is to create a separate table that depends on the first (often a :ref:`part table <master-part>`), with multiple individual entities rather than repeated attributes.
 For example, consider the table ``Protocol`` that includes the attributes ``equipment1`, ``equipment2``, and ``equipment3``.
 A better design would be to create a ``ProtocolEquipment`` table that links each entity in ``Protocol`` with multiple entities in ``Equipment`` through :ref:`dependencies <dependencies>`.
