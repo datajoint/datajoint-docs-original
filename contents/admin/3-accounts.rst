@@ -34,6 +34,22 @@ Then the SQL code to grant her privileges might look like
 To note, the :code:`ALL PRIVILEGES` option allows the user to create
 and remove databases without administrator intervention.
 
+Once created, grants for a user can be listed using the :code:`SHOW GRANTS`
+statement.
+
+.. code-block:: mysql
+
+ SHOW GRANTS FOR 'alice'@'%';
+ +--------------------------------------------------------------------------------------------------------+
+ | Grants for alice@%                                                                                     |
+ +--------------------------------------------------------------------------------------------------------+
+ | GRANT USAGE ON *.* TO 'alice'@'%' IDENTIFIED BY PASSWORD '*EB6CE16739B46D0FA9FE919C15B2EA6B72F41CBE'   |
+ | GRANT SELECT, INSERT ON `common\_%`.* TO 'alice'@'%'                                                   |
+ | GRANT ALL PRIVILEGES ON `pipeline\_%`.* TO 'alice'@'%'                                                 |
+ | GRANT ALL PRIVILEGES ON `alice\_%`.* TO 'alice'@'%'                                                    |
+ +--------------------------------------------------------------------------------------------------------+
+ 4 rows in set (0.04 sec)
+
 Grouping with Wildcards
 -----------------------
 
