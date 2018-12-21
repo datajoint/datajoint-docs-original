@@ -7,6 +7,7 @@ import subprocess
 import platform
 from collections import defaultdict
 from util import get_newest_tag 
+from util import get_newest_doc_tag
 from util import copy_contents
 
 # default values in case the build config file is missing
@@ -28,7 +29,9 @@ def create_build_folders(lang):
         print(f)
         min_tags = json.load(f)
 
-    tags = [get_newest_tag(t, raw_tags) for t in min_tags[lang]]
+    # tags = [get_newest_tag(t, raw_tags) for t in min_tags[lang]]
+    tags = [get_newest_doc_tag(t, raw_tags) for t in min_tags[lang]] # returns ['v3.2.14-doc12', 'v3.3.9-doc9] format
+
 
     for tag in tags:
         subprocess.Popen(["git", "checkout", tag],
@@ -125,7 +128,7 @@ def make_full_site():
             print("Latex environment not set up - no pdf will be generated")
 
         lang_version = folder.split(os.sep)[1]  # 'matlab-v3.2.2'
-        lang, version = lang_version.split("-")   # e.g. 'matlab',  'v3.2.2'
+        lang, version, doc_version = lang_version.split("-")   # e.g. 'matlab',  'v3.2.2'
         abbr_ver = '.'.join(version.split('.')[:-1])  # e.g. 'v3.2'
         abbr_lang_ver = lang + '-' + abbr_ver
 
