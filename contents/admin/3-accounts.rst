@@ -12,6 +12,12 @@ username is alice, the SQL code for this step is:
 
  CREATE USER 'alice'@'%' IDENTIFIED BY 'alices-secret-password';
 
+Existing users can be listed using the following SQL:
+
+.. code-block:: mysql
+
+ SELECT User,Host from mysql.user; 
+
 Teams that use DataJoint typically divide their data into schemas
 grouped together by common prefixes. For example, a lab may have a
 collection of schemas that begin with ``common_``. Some common
@@ -23,7 +29,7 @@ For example, alice may have privileges to select and insert data from
 the common schemas (but not create new tables), and have all
 privileges to the pipeline schemas.
 
-Then the SQL code to grant her privileges might look like
+Then the SQL code to grant her privileges might look like:
 
 .. code-block:: mysql
 
@@ -40,15 +46,6 @@ statement.
 .. code-block:: mysql
 
  SHOW GRANTS FOR 'alice'@'%';
- +--------------------------------------------------------------------------------------------------------+
- | Grants for alice@%                                                                                     |
- +--------------------------------------------------------------------------------------------------------+
- | GRANT USAGE ON *.* TO 'alice'@'%' IDENTIFIED BY PASSWORD '*EB6CE16739B46D0FA9FE919C15B2EA6B72F41CBE'   |
- | GRANT SELECT, INSERT ON `common\_%`.* TO 'alice'@'%'                                                   |
- | GRANT ALL PRIVILEGES ON `pipeline\_%`.* TO 'alice'@'%'                                                 |
- | GRANT ALL PRIVILEGES ON `alice\_%`.* TO 'alice'@'%'                                                    |
- +--------------------------------------------------------------------------------------------------------+
- 4 rows in set (0.04 sec)
 
 Grouping with Wildcards
 -----------------------
