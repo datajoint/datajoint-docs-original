@@ -12,6 +12,12 @@ username is alice, the SQL code for this step is:
 
  CREATE USER 'alice'@'%' IDENTIFIED BY 'alices-secret-password';
 
+Existing users can be listed using the following SQL:
+
+.. code-block:: mysql
+
+ SELECT user, host from mysql.user; 
+
 Teams that use DataJoint typically divide their data into schemas
 grouped together by common prefixes. For example, a lab may have a
 collection of schemas that begin with ``common_``. Some common
@@ -23,7 +29,7 @@ For example, alice may have privileges to select and insert data from
 the common schemas (but not create new tables), and have all
 privileges to the pipeline schemas.
 
-Then the SQL code to grant her privileges might look like
+Then the SQL code to grant her privileges might look like:
 
 .. code-block:: mysql
 
@@ -33,6 +39,13 @@ Then the SQL code to grant her privileges might look like
 
 To note, the :code:`ALL PRIVILEGES` option allows the user to create
 and remove databases without administrator intervention.
+
+Once created, a user's privileges can be listed using the :code:`SHOW GRANTS`
+statement.
+
+.. code-block:: mysql
+
+ SHOW GRANTS FOR 'alice'@'%';
 
 Grouping with Wildcards
 -----------------------
