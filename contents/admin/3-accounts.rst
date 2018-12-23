@@ -16,7 +16,7 @@ Existing users can be listed using the following SQL:
 
 .. code-block:: mysql
 
- SELECT User,Host from mysql.user; 
+ SELECT user, host from mysql.user; 
 
 Teams that use DataJoint typically divide their data into schemas
 grouped together by common prefixes. For example, a lab may have a
@@ -40,7 +40,7 @@ Then the SQL code to grant her privileges might look like:
 To note, the :code:`ALL PRIVILEGES` option allows the user to create
 and remove databases without administrator intervention.
 
-Once created, grants for a user can be listed using the :code:`SHOW GRANTS`
+Once created, a user's privileges can be listed using the :code:`SHOW GRANTS`
 statement.
 
 .. code-block:: mysql
