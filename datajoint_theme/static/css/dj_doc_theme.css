@@ -145,6 +145,7 @@ a.icon.icon-home {
 }
 
 
+
 /* Resize the default footer text size */
 footer {
     font-size: 82%;
@@ -232,4 +233,35 @@ li.version-menu {
 
 li.version-menu:hover {
     background-color: #c4e8ee;
+}
+
+a.community-guide-tab > div{
+    text-align: center;
+    width: 200px;
+    position: fixed;
+    bottom: 0;
+    left: 1100px;
+    background-color: #2bc4c4;
+    color: white;
+    padding: 10px 0px 8px 0px;
+}
+a.community-guide-tab > div:hover {
+    background-color: #fabf60;
+}
+
+@media screen and (max-width: 768px) {
+    a.community-guide-tab > div {
+        left: 375px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+    a.community-guide-tab > div {
+        left: 49px;
+        background-color: #fabf60;
+        z-index: 200;
+    }
+    a.community-guide-tab > div:hover {
+        background-color: #b88b44;
+    }
 }
