@@ -7,7 +7,10 @@ Publications
 
 The following are some of the studies that used DataJoint for building their data pipelines.
 
-1. Denfield, G. H., Ecker, A. S., Shinn, T. J., Bethge, M., & Tolias, A. S. (2018). Attentional fluctuations induce shared variability in macaque primary visual cortex. `Nature communications, 9(1), 2654. <https://www.nature.com/articles/s41467-018-05123-6>`_
+1. Rosón, M. R., Bauer, Y., Kotkat, A. H., Berens, P., Euler, T., & Busse, L. (2019). Mouse dLGN receives functional input from a diverse population of retinal ganglion cells with limited convergence. `Neuron, 102(2), 462-476 <https://www.sciencedirect.com/science/article/abs/pii/S0896627319300674>`_.
+#. Ecker, A. S., Sinz, F. H., Froudarakis, E., Fahey, P. G., Cadena, S. A., Walker, E. Y., ... & Bethge, M. (2018). A rotation-equivariant convolutional neural network model of primary visual cortex. arXiv preprint `arXiv:1809.10504 <https://arxiv.org/abs/1809.10504>`_.
+#. Chettih, S. N., & Harvey, C. D. (2019). Single-neuron perturbations reveal feature-specific competition in V1. `Nature, 567(7748), 334 <https://www.nature.com/articles/s41586-019-0997-6>`_.
+#. Denfield, G. H., Ecker, A. S., Shinn, T. J., Bethge, M., & Tolias, A. S. (2018). Attentional fluctuations induce shared variability in macaque primary visual cortex. `Nature communications, 9(1), 2654. <https://www.nature.com/articles/s41467-018-05123-6>`_
 #. Shan, Kevin Q., Evgueniy V. Lubenov, and Athanassios G. Siapas. "Model-based spike sorting with a mixture of drifting t-distributions." `Journal of neuroscience methods 288 (2017): 82-98. <https://www.sciencedirect.com/science/article/pii/S016502701730225X>`_
 #. Reimer, J., McGinley, M. J., Liu, Y., Rodenkirch, C., Wang, Q., McCormick, D. A., & Tolias, A. S. (2016). Pupil fluctuations track rapid changes in adrenergic and cholinergic activity in cortex. `Nature communications, 7, 13289. <https://www.nature.com/articles/ncomms13289>`_
 #. Franke, K., Berens, P., Schubert, T., Bethge, M., Euler, T., & Baden, T. (2017). Inhibition decorrelates visual feature representations in the inner retina. `Nature, 542(7642), 439. <https://www.nature.com/articles/nature21394>`_
