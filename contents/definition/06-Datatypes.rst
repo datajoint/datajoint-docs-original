@@ -46,7 +46,7 @@ Most common datatypes
 
 -  ``longblob``: arbitrary numeric array (e.g. matrix, image, structure), up to 4 `GiB <http://en.wikipedia.org/wiki/Gibibyte>`_ in size.
    Numeric arrays are compatible between MATLAB and Python (NumPy).
-   The ``longblob`` datatype can be configured to store data :ref:`externally <external>`.
+   The ``longblob`` and other '`blob`` datatypes can be configured to store data :ref:`externally <external>` by using the ``blob@store`` syntax.
 
 Less common (but supported) datatypes
 --------------------------------------
