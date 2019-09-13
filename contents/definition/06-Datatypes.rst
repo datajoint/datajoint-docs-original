@@ -58,6 +58,16 @@ Less common (but supported) datatypes
 -  ``blob``: arbitrary numeric array, up to 64 `KiB <http://en.wikipedia.org/wiki/Kibibyte>`_
 -  ``tinyblob``: arbitrary numeric array, up to 256 bytes (actually smaller due to header info).
 
+Special datajoint-only datatypes
+--------------------------------
+
+These types abstract certain kinds of non-database data to facillitate use
+together with datajoint.
+
+- ``attach``: a :ref:`file attachment <fileattach>`, similar to email attachments, facillitating sending/recieving an opaque data file to/from a datajoint pipeline.
+
+- ``filepath@store``: a :ref:'filepath <filepath>`, used to link non-datajoint managed files into a datajoint pipeline.
+
 Datatypes not (yet) supported
 ------------------------------
 
