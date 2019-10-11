@@ -150,18 +150,7 @@ Cleanup
 -------
 
 Deletion of records containing externally stored blobs is a 'soft delete' which only removes the database-side records from the database.
-To remove the actual blob data, a separate cleanup process is run as described here.
-
-1. Remove tracking entries for unused external blob items.
-
-this will remove the tracking entry from the external storage table for any external blobs not referred to by any record.
+To cleanup the external tracking table or the actual external files, a separate process is provided as follows.
 
 .. include:: 5-blob-config_lang4.rst
 
-1. Remove actual blob files from the desired external storage location.
-
-.. important:: this action should only be performed if no modifications are being done to the tables using this external.
-
-.. include:: 5-blob-config_lang5.rst
-
-This will remove the actual unused files kept in the external storage 'external-name'.
