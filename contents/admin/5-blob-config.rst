@@ -119,8 +119,6 @@ The fields `filepath` and `contents_hash` relate to the `filepath` datatype, whi
    Instead ``fetch`` will retrieve the cached object without downloading directly from the 'real' external store.
 
 10. Cleanup is performed regularly when the database is in light use or off-line.
-    Shallow cleanup removes all objects from the external table which are not referenced by user tables.
-    Deep cleanup removes all objects from external storage with no entry in the ``~external`` table.
 
 11. DataJoint never removes objects from the local cache folder.
     The cache folder may just be periodically emptied entirely or based on file access date.
