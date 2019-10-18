@@ -59,7 +59,7 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 5. In the external storage, external files are stored in a directory layout corresponding to the hash of the filename. By default, this corresponds to the first 2 characters of the hash, followed by the second 2 characters of the hash, followed by the actual file.
 
-6. Each database schema has an auxiliary table named ``~external`` for each configured external store.
+6. Each database schema has an auxiliary table named ``~external_<storename>`` for each configured external store.
 
    It is automatically created the first time external storage is used.
    The primary key of ``~external`` is the external storage name and the hash.
