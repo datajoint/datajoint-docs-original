@@ -154,3 +154,80 @@ To cleanup the external tracking table or the actual external files, a separate 
 
 .. include:: 5-blob-config_lang4.rst
 
+
+Migration between DataJoint v0.11 and v0.12
+-------------------------------------------
+
+.. note::
+
+  Please read carefully if you have used external storage in DataJoint v0.11!
+
+The initial implementation of external storage was reworked for
+DataJoint v0.12. These changes are backwards-incompatible with DataJoint
+v0.11, and so care should be taken when upgrading. This section outlines
+some details of the change and a general process for upgrading to a
+format compatible with DataJoint v0.12 when a schema rebuild is not
+desired.
+
+The primary changes to the external data implementation are:
+
+   - The external object tracking mechanism was modified. Tracking tables
+     were extended for additional external datatypes and split into
+     per-store tables to improve database performance in schemas with
+     many external objects.
+
+   - The external storage format was modified to use a nested subfolder
+     structure ('folding') to improve performance and interoperability
+     with some filesystems that have limitations or performance problems
+     when storing large numbers of files in single directories.
+
+Depending on the circumstances, the simplest way to migrate data to
+v0.12 may be to drop and repopulate the affected schemas. This will construct
+the schema and storage structure in the v0.12 format and save the need for
+database migration. When recreation is not possible or is not preferred,
+to upgrade to DataJoint v0.12 the following process should be followed:
+
+  1) Stop write activity to all schemas using external storage
+
+  2) Perform a full backup of your database(s).
+
+  3) Upgrade your DataJoint installation to v0.12
+
+  4) Adjust your external storage configuration (in `datajoint.config`)
+     to the new v0.12 configuration format (see above).
+
+  5) Migrate external tracking tables for each schema to use the new format::
+
+      >>> import datajoint.migrate as migrate
+      >>> db_schema_name='schema_1'
+      >>> migrate.migrate_dj011_external_blob_storage_to_dj012(db_schema_name)
+    
+  6) Verify pipeline functionality after this process has completed::
+
+      >>> x = myschema.TableWithExternal.fetch('external_field', limit=1)[0]
+
+.. note::
+
+  This migration function is provided on a best-effort basis, and will
+  convert the external tracking tables into a format which is compatible
+  with DataJoint v0.12 and, while we have attempted to ensure correctness
+  of the process, has not been heavily tested. Please be sure to fully
+  back-up your data and be prepared to investigate problems with the
+  migration, should they occur.
+
+Please note:
+
+  - The migration only migrates the tracking table format and does not
+    modify the backing file structure to support folding. The DataJoint
+    v0.12 logic is able to work with this format, but to take advantage
+    of the new backend storage, manual adjustment of the tracking table
+    and files, or a full rebuild of the schema should be performed.
+
+  - Additional care to ensure all clients are using v0.12 should be
+    taken after the upgrade. Legacy clients may incorrectly create data
+    in the old format which would then need to be combined or otherwise
+    reconciled with the data in v0.12 format. You might wish to take
+    the opportunity to version-pin your installations so that future
+    changes requiring controlled upgrades can be coordinated on a system
+    wide basis.
+
