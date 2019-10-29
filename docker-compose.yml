@@ -4,7 +4,8 @@ services:
     build:
       context: .
     environment:
-      - PY_REPO=https://github.com/datajoint/datajoint-python.git
+      # - PY_REPO=https://github.com/datajoint/datajoint-python.git
+      - PY_REPO=https://github.com/guzman-raphael/datajoint-python.git
       - PY_BRANCH=master
       # - PY_BRANCH=v0.12.dev4
       - M_REPO=https://github.com/datajoint/datajoint-matlab.git
