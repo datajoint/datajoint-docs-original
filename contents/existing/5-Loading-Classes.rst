@@ -2,7 +2,7 @@
 
 .. _spawning:
 
-Spawning Classes
+Loading Classes
 ================
 
-.. include:: 2-Spawning-Classes_lang1.rst
+.. include:: 1-Loading-Classes_lang1.rst
