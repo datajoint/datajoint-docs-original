@@ -14,7 +14,7 @@ In addition, storing data in cloud-hosted relational databases (e.g. AWS RDS) ma
 
 DataJoint allows the use of `external` storage to store large data objects within its relational framework but outside of the main database.
 
-Defining an externally-stored attribute is used using the notation ``blob@storename`` (see also: :ref:`definition syntax <definitions>` and works the same way as a ``longblob`` attribute from the users perspective, however its data are stored in an external storage system rather than in the relational database.
+Defining an externally-stored attribute is used using the notation ``blob@storename`` (see also: :ref:`definition syntax <definitions>`) and works the same way as a ``longblob`` attribute from the users perspective. However, its data are stored in an external storage system rather than in the relational database.
 
 Various systems can play the role of external storage, including a shared file system accessible to all team members with access to these objects or a cloud storage solutions such as AWS S3.
 
@@ -31,8 +31,7 @@ For example, the following table stores motion-aligned two-photon movies.
 All :ref:`insert <insert>` and :ref:`fetch <fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
 Similar to blobs, external attributes cannot be used in restriction conditions.
 
-Multiple external storage configurations may be used simultaneously,
-with the ``@storename`` portion of the attribute definition determining the storage location.
+Multiple external storage configurations may be used simultaneously with the ``@storename`` portion of the attribute definition determining the storage location.
 
 .. code-block:: text
 
@@ -62,10 +61,10 @@ DataJoint organizes external storage to preserve the same data integrity princip
 6. Each database schema has an auxiliary table named ``~external_<storename>`` for each configured external store.
 
    It is automatically created the first time external storage is used.
-   The primary key of ``~external`` is the external storage name and the hash.
+   The primary key of ``~external_<storename>`` is the external storage name and the hash.
    Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
 
-   Below are sample entries in ``~external``.
+   Below are sample entries in ``~external_<storename>``.
 
    .. only:: latex
 
@@ -105,22 +104,22 @@ DataJoint organizes external storage to preserve the same data integrity princip
               - NULL
               - 2017-06-07 23:14:01
 
-The fields `filepath` and `contents_hash` relate to the `filepath` datatype, which will be discussed separately.
+   The fields `filepath` and `contents_hash` relate to the `filepath` datatype, which will be discussed separately.
 
-6. Attributes of type ``external`` are declared as renamed :ref:`foreign keys <dependencies>` referencing the ``~external`` table (but are not shown as such to the user).
+7. Attributes of type ``@<storename>`` are declared as renamed :ref:`foreign keys <dependencies>` referencing the ``~external_<storename>`` table (but are not shown as such to the user).
 
-7. The :ref:`insert <insert>` operation encodes and hashes the blob data. If an external object is not present in storage for the same hash, the object is saved and if the save operation is successful, a corresponding entities in ``~external`` table for that store is created.
+8. The :ref:`insert <insert>` operation encodes and hashes the blob data. If an external object is not present in storage for the same hash, the object is saved and if the save operation is successful, a corresponding entities in ``~external_<storename>`` table for that store is created.
 
-8. The :ref:`delete <delete>`  operation first deletes the foreign key reference in the target table. The external table entry and actual external object is not actually deleted at this time (soft-delete).
+9. The :ref:`delete <delete>`  operation first deletes the foreign key reference in the target table. The external table entry and actual external object is not actually deleted at this time (`soft-delete`).
 
-9. The :ref:`fetch <fetch>` operation uses the hash values to find the data.
+10. The :ref:`fetch <fetch>` operation uses the hash values to find the data.
    In order to prevent excessive network overhead, a special external store named ``cache`` can be configured.
    If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly.
    Instead ``fetch`` will retrieve the cached object without downloading directly from the 'real' external store.
 
-10. Cleanup is performed regularly when the database is in light use or off-line.
+11. Cleanup is performed regularly when the database is in light use or off-line.
 
-11. DataJoint never removes objects from the local cache folder.
+12. DataJoint never removes objects from the local cache folder.
     The cache folder may just be periodically emptied entirely or based on file access date.
     If dedicated cache folders are maintained for each schema, then a special procedure will be provided to remove all objects that are no longer listed in ``~/external``.
 
@@ -147,7 +146,7 @@ The following steps must be performed to enable external storage:
 Cleanup
 -------
 
-Deletion of records containing externally stored blobs is a 'soft delete' which only removes the database-side records from the database.
+Deletion of records containing externally stored blobs is a `soft-delete` which only removes the database-side records from the database.
 To cleanup the external tracking table or the actual external files, a separate process is provided as follows.
 
 .. include:: 5-blob-config_lang4.rst
@@ -161,8 +160,8 @@ Migration between DataJoint v0.11 and v0.12
   Please read carefully if you have used external storage in DataJoint v0.11!
 
 The initial implementation of external storage was reworked for
-DataJoint v0.12. These changes are backwards-incompatible with DataJoint
-v0.11, and so care should be taken when upgrading. This section outlines
+DataJoint v0.12. These changes are backward-incompatible with DataJoint
+v0.11 so care should be taken when upgrading. This section outlines
 some details of the change and a general process for upgrading to a
 format compatible with DataJoint v0.12 when a schema rebuild is not
 desired.
@@ -175,17 +174,17 @@ The primary changes to the external data implementation are:
      many external objects.
 
    - The external storage format was modified to use a nested subfolder
-     structure ('folding') to improve performance and interoperability
+     structure (`folding`) to improve performance and interoperability
      with some filesystems that have limitations or performance problems
      when storing large numbers of files in single directories.
 
 Depending on the circumstances, the simplest way to migrate data to
 v0.12 may be to drop and repopulate the affected schemas. This will construct
 the schema and storage structure in the v0.12 format and save the need for
-database migration. When recreation is not possible or is not preferred,
-to upgrade to DataJoint v0.12 the following process should be followed:
+database migration. When recreation is not possible or is not preferred
+to upgrade to DataJoint v0.12, the following process should be followed:
 
-  1) Stop write activity to all schemas using external storage
+  1) Stop write activity to all schemas using external storage.
 
   2) Perform a full backup of your database(s).
 
@@ -194,7 +193,7 @@ to upgrade to DataJoint v0.12 the following process should be followed:
   4) Adjust your external storage configuration (in `datajoint.config`)
      to the new v0.12 configuration format (see above).
 
-  5) Migrate external tracking tables for each schema to use the new format::
+  5) Migrate external tracking tables for each schema to use the new format. For instance in Python:
 
       >>> import datajoint.migrate as migrate
       >>> db_schema_name='schema_1'
@@ -208,15 +207,15 @@ to upgrade to DataJoint v0.12 the following process should be followed:
 
   This migration function is provided on a best-effort basis, and will
   convert the external tracking tables into a format which is compatible
-  with DataJoint v0.12 and, while we have attempted to ensure correctness
-  of the process, has not been heavily tested. Please be sure to fully
+  with DataJoint v0.12. While we have attempted to ensure correctness
+  of the process, all use-cases have not been heavily tested. Please be sure to fully
   back-up your data and be prepared to investigate problems with the
   migration, should they occur.
 
 Please note:
 
   - The migration only migrates the tracking table format and does not
-    modify the backing file structure to support folding. The DataJoint
+    modify the backing file structure to support `folding`. The DataJoint
     v0.12 logic is able to work with this format, but to take advantage
     of the new backend storage, manual adjustment of the tracking table
     and files, or a full rebuild of the schema should be performed.

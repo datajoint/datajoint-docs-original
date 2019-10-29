@@ -46,7 +46,7 @@ Most common datatypes
 
 -  ``longblob``: arbitrary numeric array (e.g. matrix, image, structure), up to 4 `GiB <http://en.wikipedia.org/wiki/Gibibyte>`_ in size.
    Numeric arrays are compatible between MATLAB and Python (NumPy).
-   The ``longblob`` and other '`blob`` datatypes can be configured to store data :ref:`externally <external>` by using the ``blob@store`` syntax.
+   The ``longblob`` and other ``blob`` datatypes can be configured to store data :ref:`externally <external>` by using the ``blob@store`` syntax.
 
 Less common (but supported) datatypes
 --------------------------------------
@@ -58,15 +58,15 @@ Less common (but supported) datatypes
 -  ``blob``: arbitrary numeric array, up to 64 `KiB <http://en.wikipedia.org/wiki/Kibibyte>`_
 -  ``tinyblob``: arbitrary numeric array, up to 256 bytes (actually smaller due to header info).
 
-Special datajoint-only datatypes
+Special DataJoint-only datatypes
 --------------------------------
 
 These types abstract certain kinds of non-database data to facillitate use
-together with datajoint.
+together with DataJoint.
 
-- ``attach``: a :ref:`file attachment <fileattach>`, similar to email attachments, facillitating sending/recieving an opaque data file to/from a datajoint pipeline.
+- ``attach``: a :ref:`file attachment <fileattach>`, similar to email attachments, facillitating sending/receiving an opaque data file to/from a DataJoint pipeline.
 
-- ``filepath@store``: a :ref:'filepath <filepath>`, used to link non-datajoint managed files into a datajoint pipeline.
+- ``filepath@store``: a :ref:`filepath <filepath>`, used to link non-DataJoint managed files into a DataJoint pipeline.
 
 Datatypes not (yet) supported
 ------------------------------
