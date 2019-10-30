@@ -13,11 +13,13 @@ services:
       # - M_BRANCH=master
       - M_REPO=https://github.com/guzman-raphael/datajoint-matlab.git
       - M_BRANCH=docs-virt-module
-      - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
+      # - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
+      - DOCS_REPO=https://github.com/guzman-raphael/datajoint-docs.git
+      - DOCS_BRANCH=spawn_classes
     working_dir: /src
     user: 1000:1000
-    command: TEST
-    # command: PROD
+    # command: TEST
+    command: PROD
     volumes:
       - .:/src/datajoint-docs
     ports:
