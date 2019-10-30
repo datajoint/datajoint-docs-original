@@ -137,19 +137,19 @@ The following steps must be performed to enable external storage:
 
   .. include:: 5-blob-config_lang2.rst
 
-  ``protocol`` [`s3`, `file`] Specifies whether `s3` or `file` external storage is desired.
+  - ``protocol`` [`s3`, `file`] Specifies whether `s3` or `file` external storage is desired.
   
-  ``endpoint`` [`s3`] Specifies the remote endpoint to the external data for all schemas as well as the target port.
+  - ``endpoint`` [`s3`] Specifies the remote endpoint to the external data for all schemas as well as the target port.
 
-  ``bucket`` [`s3`] Specifies the appropriate `s3` bucket organization.
+  - ``bucket`` [`s3`] Specifies the appropriate `s3` bucket organization.
 
-  ``location`` [`s3`, `file`] Specifies the subdirectory within the root or bucket of store to preserve data. External objects are thus stored remotely with the following path structure: ``<bucket (if applicable)>/<location>/<schema_name>/<subfolding_strategy>/<object>``.
+  - ``location`` [`s3`, `file`] Specifies the subdirectory within the root or bucket of store to preserve data. External objects are thus stored remotely with the following path structure: ``<bucket (if applicable)>/<location>/<schema_name>/<subfolding_strategy>/<object>``.
 
-  ``access_key`` [`s3`] Specifies the access key credentials for accessing the external location.
+  - ``access_key`` [`s3`] Specifies the access key credentials for accessing the external location.
 
-  ``secret_key`` [`s3`] Specifies the secret key credentials for accessing the external location.
+  - ``secret_key`` [`s3`] Specifies the secret key credentials for accessing the external location.
 
-  ``secure`` [`s3`] Optional specification to establish secure external storage connection with TLS (aka SSL, HTTPS). Defaults to ``False``.
+  - ``secure`` [`s3`] Optional specification to establish secure external storage connection with TLS (aka SSL, HTTPS). Defaults to ``False``.
 
 2. Optionally, for each schema specify the ``cache`` folder for local fetch cache.
 

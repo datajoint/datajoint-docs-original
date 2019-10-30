@@ -7,7 +7,7 @@ External Data
 File Attachment Datatype
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. include:: 5-blob-config_lang1.rst
+.. include:: ../admin/5-blob-config_lang5.rst
 
 Configuration & Usage
 ---------------------
@@ -78,11 +78,11 @@ And then retrieved to the current directory using ``fetch``:
 Filepath Datatype
 ~~~~~~~~~~~~~~~~~
 
-.. include:: 5-blob-config_lang1.rst
+.. include:: ../admin/5-blob-config_lang5.rst
 
 .. note::
 
-  Filepath Datatype is available as a preview feature in v0.12. This means that the feature is required to be explicitly enabled. To do so, make sure to set the `environment variable <https://en.wikipedia.org/wiki/Environment_variable>`_ ``FILEPATH_FEATURE_SWITCH=TRUE`` prior to use.
+  Filepath Datatype is available as a preview feature in DataJoint Python v0.12. This means that the feature is required to be explicitly enabled. To do so, make sure to set the `environment variable <https://en.wikipedia.org/wiki/Environment_variable>`_ ``FILEPATH_FEATURE_SWITCH=TRUE`` prior to use.
 
 Configuration & Usage
 ---------------------
