@@ -9,6 +9,7 @@ DataJoint supports the following datatypes.
 To conserve database resources, use the smallest and most restrictive datatype sufficient for your data.
 This also ensures that only valid data are entered into the pipeline.
 
+.. _commontypes:
 
 Most common datatypes
 ----------------------

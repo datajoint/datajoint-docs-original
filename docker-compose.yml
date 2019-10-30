@@ -16,6 +16,8 @@ services:
       - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
     working_dir: /src
     user: 1000:1000
+    command: TEST
+    # command: PROD
     volumes:
       - .:/src/datajoint-docs
     ports:
