@@ -2,8 +2,11 @@
 
 cp datajoint-docs/build_config_template.py datajoint-docs/build_config.py
 sed -i "s|https://REPLACE-HERE-WITH-PATH-TO-COMMON-DOC.git|${DOCS_REPO}|g" datajoint-docs/build_config.py
+sed -i "s|REPLACE-HERE-WITH-COMMON-BRANCH|${DOCS_BRANCH}|g" datajoint-docs/build_config.py
 sed -i "s|https://REPLACE-HERE-WITH-PATH-TO-MATLAB-DOC.git|${M_REPO}|g" datajoint-docs/build_config.py
+sed -i "s|REPLACE-HERE-WITH-MATLAB-BRANCH|${M_BRANCH}|g" datajoint-docs/build_config.py
 sed -i "s|https://REPLACE-HERE-WITH-PATH-TO-PYTHON-DOC.git|${PY_REPO}|g" datajoint-docs/build_config.py
+sed -i "s|REPLACE-HERE-WITH-PYTHON-BRANCH|${PY_BRANCH}|g" datajoint-docs/build_config.py
 sed -i 's|PATH-TO-LOCALLY-PLACED-MATLAB-FOLDER|../datajoint-matlab|g' datajoint-docs/build_config.py
 sed -i 's|PATH-TO-LOCALLY-PLACED-PYTHON-FOLDER|../datajoint-python|g' datajoint-docs/build_config.py
 

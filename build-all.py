@@ -168,7 +168,7 @@ if __name__ == "__main__":
     # if build_config file exists, override the default git_url values with config values
     try:
         import build_config as config
-        git_urls = dict(git_urls, **config.config_urls)
+        git_urls = dict(git_urls, **config.config_repos)
     except:
         print("build_config.py file missing - will use default values for git repo")
 
@@ -178,13 +178,13 @@ if __name__ == "__main__":
     os.makedirs('build-all')
 
     subprocess.Popen(
-        ["git", "clone", git_urls['common'], "datajoint-docs"], cwd="build-all").wait()
+        ["git", "clone", "-b", git_urls['common-branch'], "--single-branch", git_urls['common'], "datajoint-docs"], cwd="build-all").wait()
 
     subprocess.Popen(
-        ["git", "clone", git_urls['matlab'], "datajoint-matlab"], cwd="build-all").wait()
+        ["git", "clone", "-b", git_urls['matlab-branch'], "--single-branch", git_urls['matlab'], "datajoint-matlab"], cwd="build-all").wait()
 
     subprocess.Popen(
-        ["git", "clone", git_urls['python'], "datajoint-python"], cwd="build-all").wait()
+        ["git", "clone", "-b", git_urls['python-branch'], "--single-branch", git_urls['python'], "datajoint-python"], cwd="build-all").wait()
 
     create_build_folders("matlab")
     create_build_folders("python")

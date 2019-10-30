@@ -4,15 +4,18 @@
 ## RENAME this file to build_config.py to start using non-default paths for getting the documents
 
 ## set the git repo 
-config_urls = {
+config_repos = {
     ## common doc - default is preset to "https://github.com/datajoint/datajoint-docs.git"
     'common': "https://REPLACE-HERE-WITH-PATH-TO-COMMON-DOC.git",
+    'common-branch': "REPLACE-HERE-WITH-COMMON-BRANCH",
 
     ## MATLAB doc - default is preset to "https://github.com/datajoint/datajoint-matlab.git"
     'matlab': "https://REPLACE-HERE-WITH-PATH-TO-MATLAB-DOC.git",
+    'matlab-branch': "REPLACE-HERE-WITH-MATLAB-BRANCH",
 
     ## Python doc - default is preset to "https://github.com/datajoint/datajoint-python.git"
-    'python': "https://REPLACE-HERE-WITH-PATH-TO-PYTHON-DOC.git"
+    'python': "https://REPLACE-HERE-WITH-PATH-TO-PYTHON-DOC.git",
+    'python-branch': "REPLACE-HERE-WITH-PYTHON-BRANCH"
 }
 
 
