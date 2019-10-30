@@ -114,14 +114,14 @@ DataJoint organizes external storage to preserve the same data integrity princip
 
 10. The :ref:`fetch <fetch>` operation uses the hash values to find the data.
    In order to prevent excessive network overhead, a special external store named ``cache`` can be configured.
-   If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external`` directly.
-   Instead ``fetch`` will retrieve the cached object without downloading directly from the 'real' external store.
+   If the ``cache`` is enabled, the ``fetch`` operation need not access ``~external_<storename>`` directly.
+   Instead ``fetch`` will retrieve the cached object without downloading directly from the `real` external store.
 
 11. Cleanup is performed regularly when the database is in light use or off-line.
 
-12. DataJoint never removes objects from the local cache folder.
-    The cache folder may just be periodically emptied entirely or based on file access date.
-    If dedicated cache folders are maintained for each schema, then a special procedure will be provided to remove all objects that are no longer listed in ``~/external``.
+12. DataJoint never removes objects from the local ``cache`` folder.
+    The ``cache`` folder may just be periodically emptied entirely or based on file access date.
+    If dedicated ``cache`` folders are maintained for each schema, then a special procedure will be provided to remove all objects that are no longer listed in ``~external_<storename>``.
 
 Data removal from external storage is separated from the delete operations to ensure that data are not lost in race conditions between inserts and deletes of the same objects, especially in cases of transactional processing or in processes that are likely to get terminated.
 The cleanup steps are performed in a separate process when the risks of race conditions are minimal.
