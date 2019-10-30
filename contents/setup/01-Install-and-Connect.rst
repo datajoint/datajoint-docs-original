@@ -23,5 +23,5 @@ TLS Configuration
 
 Starting with v0.12 (Python) and v3.3.1 (MATLAB), DataJoint will by default
 use TLS if it is available. TLS can be forced on or off with the boolean
-`use_tls` in MATLAB, or `dj.config['database.use_tls']` in Python.
+``use_tls`` in MATLAB, or ``dj.config['database.use_tls']`` in Python.
 

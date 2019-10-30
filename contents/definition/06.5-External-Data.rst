@@ -7,6 +7,8 @@ External Data
 File Attachment Datatype
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. include:: 5-blob-config_lang1.rst
+
 Configuration & Usage
 ---------------------
 
@@ -75,6 +77,8 @@ And then retrieved to the current directory using ``fetch``:
 
 Filepath Datatype
 ~~~~~~~~~~~~~~~~~
+
+.. include:: 5-blob-config_lang1.rst
 
 .. note::
 

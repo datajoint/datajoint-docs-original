@@ -28,8 +28,8 @@ For example, the following table stores motion-aligned two-photon movies.
     aligned_movie :  blob@external  # motion-aligned movie in 'external' store
 
 
-All :ref:`insert <insert>` and :ref:`fetch <fetch>` operations work identically for ``external`` attributes as they do for blob attributes, with the same serialization protocol.
-Similar to blobs, external attributes cannot be used in restriction conditions.
+All :ref:`insert <insert>` and :ref:`fetch <fetch>` operations work identically for `external` attributes as they do for `blob` attributes, with the same serialization protocol.
+Similar to `blobs`, `external` attributes cannot be used in restriction conditions.
 
 Multiple external storage configurations may be used simultaneously with the ``@storename`` portion of the attribute definition determining the storage location.
 
@@ -40,29 +40,31 @@ Multiple external storage configurations may be used simultaneously with the ``@
     ---
     aligned_movie :  blob@external-raw  # motion-aligned movie in 'external-raw' store
 
+.. _principles:
+
 Principles of operation
 -----------------------
 External storage is organized to emulate individual attribute values in the relational database.
 DataJoint organizes external storage to preserve the same data integrity principles as in relational storage.
 
-1. The external storage locations are specified in the DataJoint connection configuration, with one specification for each store.
+1. The external storage locations are specified in the DataJoint connection configuration with one specification for each store.
 
 .. include:: 5-blob-config_lang1.rst
 
 2. Each schema corresponds to a dedicated folder at the storage location with the same name as the database schema.
 
 3. Stored objects are identified by the `SHA-256 <https://en.wikipedia.org/wiki/SHA-2>`_ hashes (in web-safe base-64 ASCII) of their serialized contents.
-   This scheme allows for the same object used multiple times in the same schema to be stored only once.
+   This scheme allows for the same object—used multiple times in the same schema—to be stored only once.
 
-4. In the external storage, the objects are saved as files with the hash as the filename. 
+4. In the ``external-raw`` storage, the objects are saved as files with the hash as the filename. 
 
-5. In the external storage, external files are stored in a directory layout corresponding to the hash of the filename. By default, this corresponds to the first 2 characters of the hash, followed by the second 2 characters of the hash, followed by the actual file.
+5. In the ``external`` storage, external files are stored in a directory layout corresponding to the hash of the filename. By default, this corresponds to the first 2 characters of the hash, followed by the second 2 characters of the hash, followed by the actual file.
 
 6. Each database schema has an auxiliary table named ``~external_<storename>`` for each configured external store.
 
    It is automatically created the first time external storage is used.
    The primary key of ``~external_<storename>`` is the hash of the data (for blobs and attachments) or of the relative paths to the files for filepath-based storage.
-   Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the timestamp of the last event (creation, update, or deletion).
+   Other attributes are the ``count`` of references by tables in the schema, the ``size`` of the object in bytes, and the ``timestamp`` of the last event (creation, update, or deletion).
 
    Below are sample entries in ``~external_<storename>``.
 
@@ -104,11 +106,11 @@ DataJoint organizes external storage to preserve the same data integrity princip
               - NULL
               - 2017-06-07 23:14:01
 
-   The fields `filepath` and `contents_hash` relate to the `filepath` datatype, which will be discussed separately.
+   The fields `filepath` and `contents_hash` relate to the :ref:`filepath <filepath>` datatype, which will be discussed separately.
 
 7. Attributes of type ``@<storename>`` are declared as renamed :ref:`foreign keys <dependencies>` referencing the ``~external_<storename>`` table (but are not shown as such to the user).
 
-8. The :ref:`insert <insert>` operation encodes and hashes the blob data. If an external object is not present in storage for the same hash, the object is saved and if the save operation is successful, a corresponding entities in ``~external_<storename>`` table for that store is created.
+8. The :ref:`insert <insert>` operation encodes and hashes the blob data. If an external object is not present in storage for the same hash, the object is saved and if the save operation is successful, corresponding entities in table ``~external_<storename>`` for that store are created.
 
 9. The :ref:`delete <delete>`  operation first deletes the foreign key reference in the target table. The external table entry and actual external object is not actually deleted at this time (`soft-delete`).
 
@@ -131,15 +133,25 @@ Configuration
 -------------
 The following steps must be performed to enable external storage:
 
-1. Assign external location settings for each storage as shown in the Step 1 example above.
+1. Assign external location settings for each storage as shown in the :ref:`Step 1 <principles>` example above.
 
   .. include:: 5-blob-config_lang2.rst
 
-  ``location`` specifies the root path to the external data for all schemas as well as the protocol in the prefix such as ``file://`` or ``s3://``.
+  ``protocol`` [`s3`, `file`] Specifies whether `s3` or `file` external storage is desired.
+  
+  ``endpoint`` [`s3`] Specifies the remote endpoint to the external data for all schemas as well as the target port.
 
-  ``account`` and ``token`` specify the credentials for accessing the external location.
+  ``bucket`` [`s3`] Specifies the appropriate `s3` bucket organization.
 
-2. Optionally, for each schema specify the cache folder for local fetch cache.
+  ``location`` [`s3`, `file`] Specifies the subdirectory within the root or bucket of store to preserve data. External objects are thus stored remotely with the following path structure: ``<bucket (if applicable)>/<location>/<schema_name>/<subfolding_strategy>/<object>``.
+
+  ``access_key`` [`s3`] Specifies the access key credentials for accessing the external location.
+
+  ``secret_key`` [`s3`] Specifies the secret key credentials for accessing the external location.
+
+  ``secure`` [`s3`] Optional specification to establish secure external storage connection with TLS (aka SSL, HTTPS). Defaults to ``False``.
+
+2. Optionally, for each schema specify the ``cache`` folder for local fetch cache.
 
 .. include:: 5-blob-config_lang3.rst
 

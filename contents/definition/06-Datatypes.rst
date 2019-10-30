@@ -65,9 +65,9 @@ Special DataJoint-only datatypes
 These types abstract certain kinds of non-database data to facillitate use
 together with DataJoint.
 
-- ``attach``: a :ref:`file attachment <fileattach>`, similar to email attachments, facillitating sending/receiving an opaque data file to/from a DataJoint pipeline.
+- ``attach``: a :ref:`file attachment <fileattach>` similar to email attachments facillitating sending/receiving an opaque data file to/from a DataJoint pipeline.
 
-- ``filepath@store``: a :ref:`filepath <filepath>`, used to link non-DataJoint managed files into a DataJoint pipeline.
+- ``filepath@store``: a :ref:`filepath <filepath>` used to link non-DataJoint managed files into a DataJoint pipeline.
 
 Datatypes not (yet) supported
 ------------------------------
