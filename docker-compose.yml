@@ -1,6 +1,6 @@
 version: '2.4'
 services:
-  docs:
+  site:
     build:
       context: .
     environment:
@@ -10,8 +10,11 @@ services:
       - M_REPO=https://github.com/datajoint/datajoint-matlab.git
       - M_BRANCH=master
       - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
+      - DOCS_BRANCH=master
     working_dir: /src
     user: 1000:1000
+    # command: TEST
+    command: PROD
     volumes:
       - .:/src/datajoint-docs
     ports:

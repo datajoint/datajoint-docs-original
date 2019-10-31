@@ -110,3 +110,6 @@ ENV/
 
 # figure file management
 studio/*png
+
+# local docker-compose
+local-docker-compose.yml
