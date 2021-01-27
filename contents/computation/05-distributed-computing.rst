@@ -45,18 +45,14 @@ Inspecting the job record for failure details can proceed much like any other Da
 
 .. include:: 06-distributed-computing_lang4.rst
 
-.. todo?: might be 'interesting' to rerun a given error job -
-   however this requires reconverting the ndarray back to a dict before
-   calling add tuples in the Python case.. so this would probably be
-   best provided by in a library utility function..
-
-
 After any system or code errors have been resolved, the table can simply be cleaned of errors and the computation rerun.
 
 .. include:: 06-distributed-computing_lang5.rst
 
+In some cases, it may be preferable to inspect the jobs table records using populate keys.
+Since job keys are hashed and stored as a blob in the jobs table to support the varying types of keys, we need to query using the key hash instead of simply using the raw key data.
 
-.. todo: how to make the 'dj-jobs.py' example script available? listing?
+.. include: 06-distributed-computing_jobs_by_key.rst
 
 Managing connections
 --------------------
