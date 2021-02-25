@@ -113,3 +113,6 @@ studio/*png
 
 # local docker-compose
 local-docker-compose.yml
+
+# VSCode config
+.vscode
