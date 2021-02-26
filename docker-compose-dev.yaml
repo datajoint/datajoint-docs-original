@@ -1,14 +1,16 @@
-# COMMAND=TEST DOCS_VERSION=$(cat contents/conf.py | grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)") HOST_UID=$(id -u) docker-compose -f docker-compose-dev.yaml up
+# MODE=TEST DOCS_VERSION=$(cat contents/conf.py | grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)") HOST_UID=$(id -u) docker-compose -f docker-compose-dev.yaml up
 #
 # Intended for normal development. Does not currently supports hot/live reloading. To reflect
-# new updates will need to docker-compose down -> up. COMMAND=TEST will build using single
+# new updates will need to docker-compose down -> up. MODE=TEST will build using single
 # branch config passed into env variables i.e. faster (see docker-compose-build.yaml).
-# COMMAND=PROD will use all versions included in build_version.json.
+# MODE=PROD will use all versions included in build_version.json.
 # Note: If requirements or Dockerfile change, will need to add --build flag to docker-compose.
 # Make sure to add an entry into your /etc/hosts file as `127.0.0.1 fakeservices.datajoint.io`
 # This serves as an alias for the domain to resolve locally.
 # With this config and the configuration below in NGINX, you should be able to verify it is
 # running properly by navigating in your browser to `https://fakeservices.datajoint.io`.
+# If you don't update your hosts file, you will still have access at `https://localhost`
+# however it should simply display 'Not secure' since the cert will be invalid.
 version: "2.4"
 x-net: &net
   networks:
@@ -25,7 +27,7 @@ services:
       - -lc
       - |
         set -e
-        echo "----- Serving $${COMMAND} docs now... -----"
+        echo "----- Serving $${MODE} docs -----"
         cd build
         python3 -m http.server
   fakeservices.datajoint.io:

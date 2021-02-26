@@ -33,7 +33,7 @@ jobs:
     env:
       DOCKER_CLIENT_TIMEOUT: "120"
       COMPOSE_HTTP_TIMEOUT: "120"
-      COMMAND: "PROD"
+      MODE: "PROD"
     steps:
       - uses: actions/checkout@v2
       - name: Compile static artifacts
