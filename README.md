@@ -5,6 +5,14 @@ All DataJoint documentations are presented at [DataJoint documentation website](
 Documentation is generated using [Sphinx](http://www.sphinx-doc.org/en/stable/) with custom rendering theme 
 largely based on the [Read The Doc theme](https://github.com/rtfd/sphinx_rtd_theme).
 
+# Developing Locally
+It is recommended to use any of the 2 available docker environments for developing: `build` and `dev`. Ensure that you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed following the specific instructions for your operating system. For details regarding each environment, see the respective `*.docker-compose.yaml` files which contain a header comment at the top which indicate:
+
+1. The recommended command to run the environment.
+2. The intended usage for the environment along with other important notes.
+
+Read on for more details on running the docs natively and documentation guidelines.
+
 # License
 The documentation can be distributed for free use under the [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/).  Any copy or derivation of the documentation must include attribution to "DataJoint contributors" and include the URL reference https://docs.datajoint.io
 
