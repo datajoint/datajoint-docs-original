@@ -11,7 +11,7 @@ It is recommended to use any of the 2 available docker environments for developi
 1. The recommended command to run the environment.
 2. The intended usage for the environment along with other important notes.
 
-Read on for more details on running the docs natively and documentation guidelines.
+Read on for more details on running the docs natively and writing style guidelines.
 
 # License
 The documentation can be distributed for free use under the [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/).  Any copy or derivation of the documentation must include attribution to "DataJoint contributors" and include the URL reference https://docs.datajoint.io
