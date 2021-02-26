@@ -9,6 +9,10 @@ from collections import defaultdict
 from util import get_newest_tag 
 from util import get_newest_doc_tag
 from util import copy_contents
+from os import getenv
+
+build_directory = getenv('DOCS_BUILD_DIRECTORY', 'full_site')
+build_ref_directory = getenv('DOCS_REF_DIRECTORY', 'build-all')
 
 # default values in case the build config file is missing
 git_urls = {
@@ -18,12 +22,12 @@ git_urls = {
 }
 
 def create_build_folders(lang): 
-    """
+    f"""
     Prepares the necessary parts for full-versioned documentation site building by 
     cloning and checking out appropriate tags from the `lang` respective repositories. 
-    Prepared parts will be inside `build-all` directory 
+    Prepared parts will be inside {build_ref_directory} directory
     """
-    raw_tags = subprocess.Popen(["git", "tag"], cwd= path.join("build-all", "datajoint-" + lang), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
+    raw_tags = subprocess.Popen(["git", "tag"], cwd= path.join(build_ref_directory, "datajoint-" + lang), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
 
     with open("build_versions.json") as f:
         print(f)
@@ -35,16 +39,16 @@ def create_build_folders(lang):
 
     for tag in tags:
         subprocess.Popen(["git", "checkout", tag],
-                         cwd=path.join("build-all", "datajoint-" + lang), stdout=subprocess.PIPE).wait()
-        dsrc_lang = path.join("build-all", "datajoint-" + lang, "docs-parts")
-        dst_build_folder = path.join("build-all", lang + "-" + tag)
+                         cwd=path.join(build_ref_directory, "datajoint-" + lang), stdout=subprocess.PIPE).wait()
+        dsrc_lang = path.join(build_ref_directory, "datajoint-" + lang, "docs-parts")
+        dst_build_folder = path.join(build_ref_directory, lang + "-" + tag)
         dst_main = path.join(dst_build_folder, "contents")
         dst_temp = path.join(dst_main, "comm")
 
         if path.exists(dst_build_folder):
             shutil.rmtree(dst_build_folder)
 
-        # copy over the lang source doc contents into the build folder 
+        # copy over the lang source doc contents into the build folder
         shutil.copytree(dsrc_lang, dst_main)
 
         # grab which version of the common folder the lang doc needs to be merged with
@@ -52,12 +56,12 @@ def create_build_folders(lang):
             # expected in this format { "comm_version" : "v0.0"}
             version_info = json.load(f)
 
-        raw_tags_comm = subprocess.Popen(["git", "tag"], cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
+        raw_tags_comm = subprocess.Popen(["git", "tag"], cwd=path.join(build_ref_directory, "datajoint-docs"), stdout=subprocess.PIPE).communicate()[0].decode("utf-8").split()
         comm_to_build = get_newest_tag(version_info['comm_version'], raw_tags_comm)
 
-        subprocess.Popen(["git", "checkout", comm_to_build],cwd=path.join("build-all", "datajoint-docs"), stdout=subprocess.PIPE).wait()
-        dsrc_comm = path.join("build-all", "datajoint-docs", "contents")
-        # copy over the cmmon source doc contents into the build folder 
+        subprocess.Popen(["git", "checkout", comm_to_build],cwd=path.join(build_ref_directory, "datajoint-docs"), stdout=subprocess.PIPE).wait()
+        dsrc_comm = path.join(build_ref_directory, "datajoint-docs", "contents")
+        # copy over the cmmon source doc contents into the build folder
         shutil.copytree(dsrc_comm, dst_temp)
 
         # unpacking the content of common into lang-specific build folder
@@ -72,7 +76,7 @@ def create_build_folders(lang):
         shutil.copy2(path.join("contents", "conf.py"), path.join(dst_build_folder, "contents", "conf.py"))
         shutil.copy2("report.txt", path.join(dst_build_folder, "report.txt"))
 
-        # add current_version <p> tag into the datajoint_theme folder 
+        # add current_version <p> tag into the datajoint_theme folder
         with open(path.join(dst_build_folder, 'datajoint_theme', 'this_version.html'), 'w+') as f:
             f.write('<p class="thisVersion">' + lang + "-" + ".".join(tag.split(".")[:-1]) + '</p>')
 
@@ -83,16 +87,16 @@ def create_build_folders(lang):
 
 # generate site folder with all contents using the above build folders
 def make_full_site():
-    """
-    Builds the full-versioned site using the `build-all` directory and puts the resulting html/pdf into `full_site` directory.
+    f"""
+    Builds the full-versioned site using the {build_ref_directory} directory and puts the resulting html/pdf into {build_directory} directory.
     """
 
-    if path.exists('full_site'):
-        shutil.rmtree('full_site')
-    os.makedirs('full_site')
+    if path.exists(build_directory):
+        shutil.rmtree(build_directory)
+    os.makedirs(build_directory)
     
     # build individual lang-ver folder
-    to_make = [folder for folder in glob.glob(path.join('build-all', '**')) if not path.basename(folder).startswith('datajoint')]
+    to_make = [folder for folder in glob.glob(path.join(build_ref_directory, '**')) if not path.basename(folder).startswith('datajoint')]
 
     with open("build_versions.json") as f:
         min_tags = json.load(f)
@@ -106,7 +110,7 @@ def make_full_site():
                 f.write('<li class="version-menu"><a href="/{lang}/{ver}">{lang}-{ver}</a></li>\n'.format(lang=lang, ver=ver))
        
     # copy over the full version-menu listing to datajoint_theme FIRST, 
-    # then build individual folders, and copy to full_site folder 
+    # then build individual folders, and copy to f'{build_directory}' folder
 
     for folder in to_make:
         shutil.copy2(path.join('datajoint_theme', 'version-menu.html'), path.join(folder, "datajoint_theme", "version-menu.html"))
@@ -132,15 +136,15 @@ def make_full_site():
         abbr_ver = '.'.join(version.split('.')[:-1])  # e.g. 'v3.2'
         abbr_lang_ver = lang + '-' + abbr_ver
 
-        shutil.copytree(path.join(folder, "site"), path.join('full_site', lang_version.split("-")[0], abbr_ver))
+        shutil.copytree(path.join(folder, "site"), path.join(build_directory, lang_version.split("-")[0], abbr_ver))
 
         if path.exists(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf')):
             os.rename(path.join(folder, '_build', 'latex', 'DataJointDocs.pdf'), path.join(folder, '_build', 'latex', 'DataJointDocs_{}.pdf'.format(abbr_lang_ver)))
-            shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_{}.pdf'.format(abbr_lang_ver)), path.join('full_site', lang_version.split("-")[0], abbr_ver))
+            shutil.copy2(path.join(folder, '_build', 'latex', 'DataJointDocs_{}.pdf'.format(abbr_lang_ver)), path.join(build_directory, lang_version.split("-")[0], abbr_ver))
 
     for lang in min_tags:
         available_vers= defaultdict(list)
-        for to_sort in glob.glob(path.join('full_site', lang, '**')):
+        for to_sort in glob.glob(path.join(build_directory, lang, '**')):
             version = path.basename(to_sort).strip("v")
             major_v, minor_v = version.split(".")
             major_v = int(major_v)
@@ -154,12 +158,12 @@ def make_full_site():
   
         newest_ver = "v{maj}.{min}".format(maj=str(newest_ver_maj), min=str(newest_ver_min))
 
-        src_path = path.join('full_site', lang, newest_ver)
+        src_path = path.join(build_directory, lang, newest_ver)
         # make the latest version of each language available by default
-        copy_contents(src_path, path.join('full_site', lang))
+        copy_contents(src_path, path.join(build_directory, lang))
 
-    copy_contents('dj_root_theme', 'full_site')
-    copy_contents(path.join('full_site', 'python', '_static'), path.join('full_site', '_static'))
+    copy_contents('dj_root_theme', build_directory)
+    copy_contents(path.join(build_directory, 'python', '_static'), path.join(build_directory, '_static'))
 
 
 ##########################################################
@@ -173,18 +177,18 @@ if __name__ == "__main__":
         print("build_config.py file missing - will use default values for git repo")
 
     # ensure build folder is clean before the build
-    if path.exists('build-all'):
-        shutil.rmtree('build-all')
-    os.makedirs('build-all')
+    if path.exists(build_ref_directory):
+        shutil.rmtree(build_ref_directory)
+    os.makedirs(build_ref_directory)
 
     subprocess.Popen(
-        ["git", "clone", "-b", git_urls['common-branch'], "--single-branch", git_urls['common'], "datajoint-docs"], cwd="build-all").wait()
+        ["git", "clone", "-b", git_urls['common-branch'], "--single-branch", git_urls['common'], "datajoint-docs"], cwd=build_ref_directory).wait()
 
     subprocess.Popen(
-        ["git", "clone", "-b", git_urls['matlab-branch'], "--single-branch", git_urls['matlab'], "datajoint-matlab"], cwd="build-all").wait()
+        ["git", "clone", "-b", git_urls['matlab-branch'], "--single-branch", git_urls['matlab'], "datajoint-matlab"], cwd=build_ref_directory).wait()
 
     subprocess.Popen(
-        ["git", "clone", "-b", git_urls['python-branch'], "--single-branch", git_urls['python'], "datajoint-python"], cwd="build-all").wait()
+        ["git", "clone", "-b", git_urls['python-branch'], "--single-branch", git_urls['python'], "datajoint-python"], cwd=build_ref_directory).wait()
 
     create_build_folders("matlab")
     create_build_folders("python")

@@ -1,0 +1,53 @@
+# COMMAND=TEST DOCS_VERSION=$(cat contents/conf.py | grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)") HOST_UID=$(id -u) docker-compose -f docker-compose-build.yaml up --exit-code-from datajoint-docs --build
+#
+# Intended for updating dependencies and docker image.
+# Used to build release artifacts. COMMAND=TEST will build using single branch config passed
+# into env variables i.e. faster. COMMAND=PROD will use all versions included in
+# build_version.json.
+version: "2.4"
+services:
+  datajoint-docs:
+    build: .
+    image: datajoint/datajoint-docs:${DOCS_VERSION}
+    environment:
+      - PY_REPO=https://github.com/datajoint/datajoint-python.git
+      - PY_BRANCH=master
+      - M_REPO=https://github.com/datajoint/datajoint-matlab.git
+      - M_BRANCH=master
+      - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
+      - DOCS_BRANCH=master
+      - DOCS_BUILD_DIRECTORY=build
+      - DOCS_REF_DIRECTORY=build-ref
+      - COMMAND
+    user: ${HOST_UID}:anaconda
+    volumes:
+      - .:/home/dja/datajoint-docs
+    entrypoint:
+      - sh
+      - -lc
+      - |
+        set -e
+        /entrypoint.sh
+
+        cp datajoint-docs/build_config_template.py datajoint-docs/build_config.py
+         sed -i "s|https://REPLACE-HERE-WITH-PATH-TO-COMMON-DOC.git|$${DOCS_REPO}|g" datajoint-docs/build_config.py
+         sed -i "s|REPLACE-HERE-WITH-COMMON-BRANCH|$${DOCS_BRANCH}|g" datajoint-docs/build_config.py
+         sed -i "s|https://REPLACE-HERE-WITH-PATH-TO-MATLAB-DOC.git|$${M_REPO}|g" datajoint-docs/build_config.py
+         sed -i "s|REPLACE-HERE-WITH-MATLAB-BRANCH|$${M_BRANCH}|g" datajoint-docs/build_config.py
+         sed -i "s|https://REPLACE-HERE-WITH-PATH-TO-PYTHON-DOC.git|$${PY_REPO}|g" datajoint-docs/build_config.py
+         sed -i "s|REPLACE-HERE-WITH-PYTHON-BRANCH|$${PY_BRANCH}|g" datajoint-docs/build_config.py
+         sed -i 's|PATH-TO-LOCALLY-PLACED-MATLAB-FOLDER|../datajoint-matlab|g' datajoint-docs/build_config.py
+         sed -i 's|PATH-TO-LOCALLY-PLACED-PYTHON-FOLDER|../datajoint-python|g' datajoint-docs/build_config.py
+
+         if [ "$$COMMAND" = "PROD" ]; then
+             cd datajoint-docs
+             python3 build-all.py
+         else
+             git clone -b $${PY_BRANCH} --single-branch $${PY_REPO}
+             git clone -b $${M_BRANCH} --single-branch $${M_REPO}
+             cd datajoint-docs
+             python3 build-local.py
+         fi
+         echo "----- Finishing building '$${COMMAND}' build -----"
+
+        "$${@}"
