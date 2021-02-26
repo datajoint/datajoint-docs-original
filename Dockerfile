@@ -3,9 +3,8 @@ ARG DISTRO=alpine
 ARG IMAGE=djlab
 FROM datajoint/${IMAGE}:py${PY_VER}-${DISTRO}
 COPY --chown=dja:anaconda requirements.txt $PIP_REQUIREMENTS
+COPY --chown=dja:anaconda requirements_apk.txt $APK_REQUIREMENTS
 RUN \
-  echo "msttcorefonts-installer make texlive-full imagemagick git" | tr " " "\n" \
-    > "${APK_REQUIREMENTS}" && \
   /entrypoint.sh echo "Requirements updated..." && \
   rm "$APK_REQUIREMENTS" && \
   rm "$PIP_REQUIREMENTS"

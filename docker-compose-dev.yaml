@@ -27,7 +27,7 @@ services:
       - -lc
       - |
         set -e
-        echo "----- Serving $${MODE} docs -----"
+        echo "----- Serving '$${MODE}' docs -----"
         cd build
         python3 -m http.server
   fakeservices.datajoint.io:

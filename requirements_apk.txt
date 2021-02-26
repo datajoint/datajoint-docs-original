@@ -1,0 +1,5 @@
+msttcorefonts-installer
+make
+texlive-full
+imagemagick
+git
