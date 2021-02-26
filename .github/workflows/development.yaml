@@ -95,23 +95,12 @@ jobs:
           asset_path: static-djlabbook-${{env.DOCS_VERSION}}.zip
           asset_name: static-djlabbook-${{env.DOCS_VERSION}}.zip
           asset_content_type: application/zip
-          # fail_on_unmatched_files: true
   publish-docs:
     if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      # - name: Build docs
-      #   uses: ammaraskar/sphinx-action@master
-      #   with:
-      #     docs-folder: "docs/"
-      # # - name: Upload docs artifact
-      # #   uses: actions/upload-artifact@v1
-      # #   with:
-      # #     name: docs-html
-      # #     path: docs/_build/html/
-      # #     retention-days: 1
       - name: Commit documentation changes
         run: |
           git clone https://github.com/${GITHUB_REPOSITORY}.git \
