@@ -2,7 +2,7 @@
 
 Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) convention.
 
-## [0.1.2] - 2021-02-26
+## [0.1.3] - 2021-02-26
 ### Added
 - Included `datajoint-matlab` `3.4.X` documentation. PR #257
 - Version tracking of `common` docs. PR #257
@@ -19,4 +19,4 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 - `local-docker-compose.yml` environment. PR #257
 - `entrypoint.sh` which is now unnecessary for the image. PR #257
 
-[0.1.2]: https://github.com/datajoint/datajoint-docs/releases/tag/0.1.2
+[0.1.3]: https://github.com/datajoint/datajoint-docs/releases/tag/0.1.3
