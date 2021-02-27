@@ -8,7 +8,7 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 - Version tracking of `common` docs. PR #257
 - Created a changelog. PR #257
 - Added `build` and `dev` docker environments. PR #257
-- Added CI/CD with GitHub Actions. (#258) PR #257
+- Added CI/CD with GitHub Actions. (#258) PR #257, #261
 - Added `docker-compose.yaml` to ignored files in git tracking to allow for local customization. PR #257
 - Enhanced repo reference directory and HTML build target directories to be configurable via environment variables. PR #257
 
