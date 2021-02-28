@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Backups and Recovery &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
+  
+
+  
+    <link rel="apple-touch-icon" sizes="57x57" href="../_static/favicons/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="../_static/favicons/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../_static/favicons/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../_static/favicons/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../_static/favicons/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="../_static/favicons/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="../_static/favicons/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="../_static/favicons/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon", sizes="180x180", href="../_static/favicons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="../_static/favicons/android-icon-192x192.png"/>
+    <link rel="icon", type="image/png", sizes="32x32", href="../_static/favicons/favicon-32x32.png"/>
+    <link rel="icon", type="image/png", sizes="96x96", href="../_static/favicons/favicon-96x96.png"/>
+    <link rel="icon", type="image/png", sizes="16x16", href="../_static/favicons/favicon-16x16.png"/>
+    <link rel="manifest", href="../_static/favicons/manifest.json"/>
+    <link rel="mask-icon", href="../_static/favicons/safari-pinned-tab.svg", color="#5bbad5"/>
+    <meta name="msapplication-TileImage" content="../_static/favicons/mstile-150X150.png"/>
+    <meta name="theme-color", content="#ffffff"/>
+  
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/dj_doc_theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="DataJoint Documentation matlab-v3.2 documentation" href="../index.html"/>
+        <link rel="up" title="Server Administration" href="Admin.html"/>
+        <link rel="next" title="Client Setup" href="../setup/Setup.html"/>
+        <link rel="prev" title="External Store" href="5-blob-config.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/djDocsLogo.svg" class="logo" />
+          
+          </a>
+
+          
+           
+            <span>
+            <p class="thisVersion">matlab-v3.2</p> 
+            
+              <a href="../DataJointDocs_matlab-v3.2.pdf" download>&nbsp;
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+            
+            </span>
+          
+          
+              <ul class="dropdown-versions">
+                <li class="menu-text" onclick="dropmenu()">switch versions &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></li>
+                <div id="dropdown-menu" class="dd-content">
+                <li class="version-menu"><a href="/python/v0.12">python-v0.12</a></li>
+<li class="version-menu"><a href="/python/v0.11">python-v0.11</a></li>
+<li class="version-menu"><a href="/matlab/v3.4">matlab-v3.4</a></li>
+<li class="version-menu"><a href="/matlab/v3.3">matlab-v3.3</a></li>
+<li class="version-menu"><a href="/matlab/v3.2">matlab-v3.2</a></li>
+                </div>
+              </ul>
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/Intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/01-Data-Pipelines.html">Data Pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/01-Data-Pipelines.html#what-is-a-data-pipeline">What is a data pipeline?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/01-Data-Pipelines.html#what-is-datajoint">What is DataJoint?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/01-Data-Pipelines.html#how-datajoint-works">How DataJoint works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/01-Data-Pipelines.html#real-life-example">Real-life example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/01-Data-Pipelines.html#summary-of-datajoint-features">Summary of DataJoint features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/02-Teamwork.html">Teamwork</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#data-management-in-a-science-project">Data management in a science project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#data-centric-project-organization">Data-centric project organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#team-roles">Team roles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/04-Input-and-Output.html">Input and Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/04-Input-and-Output.html#where-are-my-data">Where are my data?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/04-Input-and-Output.html#do-i-have-to-manually-enter-all-my-data-into-the-database">Do I have to manually enter all my data into the database?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/04-Input-and-Output.html#won-t-the-database-get-too-big-if-all-my-data-are-there">Won’t the database get too big if all my data are there?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/04-Input-and-Output.html#why-not-just-process-the-data-and-save-them-back-to-a-file">Why not just process the data and save them back to a file?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/04-Input-and-Output.html#how-do-i-get-my-data-out">How do I get my data out?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/04-Input-and-Output.html#interfaces">Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/05-Community.html">Community</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/05-Community.html#multi-lab-collaboratives">Multi-lab collaboratives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/05-Community.html#invidiual-labs">Invidiual Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/06-Publications.html">Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/07-Publishing.html">Publishing Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/07-Publishing.html#provide-access-to-a-datajoint-server">Provide access to a DataJoint server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/07-Publishing.html#containerizing-as-a-datajoint-pipeline">Containerizing as a DataJoint pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/07-Publishing.html#exporting-into-a-collection-of-files">Exporting into a collection of files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/08-Progress.html">Progress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/09-License.html">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/10-Issues.html">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/11-Contribute.html">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/12-FAQs.html">FAQs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/12-FAQs.html#how-do-i-use-guis-with-datajoint">How do I use GUIs with DataJoint?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/12-FAQs.html#does-datajoint-support-other-programming-languages">Does DataJoint support other programming languages?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/12-FAQs.html#is-datajoint-another-orm">Is DataJoint another ORM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/12-FAQs.html#how-can-i-use-datajoint-with-a-lims">How can I use DataJoint with a LIMS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/12-FAQs.html#what-is-the-difference-between-datajoint-and-alyx">What is the difference between DataJoint and Alyx?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Admin.html">Server Administration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-hosting.html">Database Server Hosting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1-hosting.html#cloud-hosting">Cloud hosting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1-hosting.html#self-hosting">Self hosting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1-hosting.html#general-server-hardware-support-requirements">General server / hardware support requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2-configuration.html">Relational Database Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2-configuration.html#hardware-considerations">Hardware considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#cpu">CPU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#ram">RAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#disk">Disk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#networking">Networking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#general-recommendations">General recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2-configuration.html#large-scale-installations">Large-scale installations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#master-slave-replication">Master-slave replication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2-configuration.html#multi-master-replication">Multi-master replication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2-configuration.html#recommendations">Recommendations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-configuration.html#docker">Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-accounts.html">User Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-accounts.html#grouping-with-wildcards">Grouping with Wildcards</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4-bulk.html">Bulk Storage Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4-bulk.html#why-external-bulk-storage">Why External Bulk Storage?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#cost">Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#flexibility">Flexibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#performance">Performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#data-sharing">Data Sharing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4-bulk.html#bulk-storage-scenarios">Bulk Storage Scenarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-bulk.html#bulk-storage-considerations">Bulk Storage Considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#performance-characteristics">Performance Characteristics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#network-traffic">Network Traffic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4-bulk.html#data-coherency">Data Coherency</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5-blob-config.html">External Store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5-blob-config.html#principles-of-operation">Principles of operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-blob-config.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-blob-config.html#cleanup">Cleanup</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Backups and Recovery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-hosted-backups">Cloud hosted backups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disk-based-backup">Disk-based backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysqldump">MySQLDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#percona-xtrabackup">Percona XTraBackup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#locking-and-ddl-issues">Locking and DDL issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replication-and-snapshots-for-backup">Replication and snapshots for backup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup/Setup.html">Client Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../setup/01-Install-and-Connect.html">Install and Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html">DataJoint Python Windows Install Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#quick-steps">Quick steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#step-1-install-python">Step 1: install Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#step-2-verify-installation">Step 2: verify installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#step-3-install-datajoint">Step 3: install DataJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#optional-step-4-install-packages-for-erd-support">(Optional) step 4: install packages for ERD support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#install-graphviz">Install Graphviz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#install-pydotplus">Install PyDotPlus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#install-matplotlib">Install Matplotlib</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#optional-step-5-install-jupyter-notebook">(Optional) step 5: install Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#git-for-windows">Git for Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup/02-DataJoint-Python-Windows-Install-Guide.html#mysql-for-windows">MySQL for Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/Concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/01-Data-Model.html">Data Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/01-Data-Model.html#what-is-a-data-model">What is a data model?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/01-Data-Model.html#relational-data-model">Relational data model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../concepts/01-Data-Model.html#core-principles-of-the-relational-data-model">Core principles of the relational data model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/01-Data-Model.html#datajoint-is-a-refinement-of-the-relational-data-model">DataJoint is a refinement of the relational data model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/02-Terminology.html">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/02-Terminology.html#datajoint-databases-schemas-packages-and-modules">DataJoint: databases, schemas, packages, and modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/02-Terminology.html#base-tables">Base tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/02-Terminology.html#relvars-and-relation-values">Relvars and relation values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/02-Terminology.html#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/03-Normalization.html">Entity Normalization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/03-Normalization.html#criteria-of-a-well-formed-entity-set">Criteria of a well-formed entity set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/03-Normalization.html#entity-normalization-in-schema-design">Entity normalization in schema design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/03-Normalization.html#entity-normalization-in-data-queries">Entity normalization in data queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/03-Normalization.html#examples-of-poor-normalization">Examples of poor normalization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../concepts/03-Normalization.html#indirect-attributes">Indirect attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../concepts/03-Normalization.html#repeated-attributes">Repeated attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../concepts/03-Normalization.html#attributes-that-do-not-apply-to-all-entities">Attributes that do not apply to all entities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../concepts/03-Normalization.html#transient-attributes">Transient attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/04-Integrity.html">Data Integrity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#entity-integrity">Entity integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#referential-integrity">Referential integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#group-integrity">Group integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#relationships">Relationships</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../definition/Definition.html">Data Definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../definition/01-Creating-Schemas.html">Creating Schemas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/01-Creating-Schemas.html#schemas">Schemas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../definition/01-Creating-Schemas.html#manual">Manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../definition/01-Creating-Schemas.html#automatic">Automatic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/01-Creating-Schemas.html#working-with-existing-data">Working with existing data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/02-Creating-Tables.html">Creating Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/02-Creating-Tables.html#classes-represent-tables">Classes represent tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../definition/02-Creating-Tables.html#data-tiers">Data tiers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/02-Creating-Tables.html#defining-a-table">Defining a table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/02-Creating-Tables.html#valid-class-names">Valid class names</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/03-Table-Definition.html">Table Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/03-Table-Definition.html#table-creation-on-the-database-server">Table creation on the database server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/03-Table-Definition.html#changing-the-definition-of-an-existing-table">Changing the definition of an existing table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/03-Table-Definition.html#reverse-engineering-the-table-definition">Reverse-engineering the table definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../definition/03-Table-Definition.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/04-Definition-Syntax.html">Definition Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/04-Definition-Syntax.html#attribute-names">Attribute names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/04-Definition-Syntax.html#default-values">Default values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/05-Data-Tiers.html">Data Tiers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/05-Data-Tiers.html#internal-conventions-for-naming-tables">Internal conventions for naming tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/05-Data-Tiers.html#part-tables">Part tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/06-Datatypes.html">Datatypes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/06-Datatypes.html#most-common-datatypes">Most common datatypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/06-Datatypes.html#less-common-but-supported-datatypes">Less common (but supported) datatypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/06-Datatypes.html#datatypes-not-yet-supported">Datatypes not (yet) supported</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/07-Primary-Key.html">Primary Key</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/07-Primary-Key.html#primary-keys-in-datajoint">Primary keys in DataJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/07-Primary-Key.html#defining-a-primary-key">Defining a primary key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/07-Primary-Key.html#entity-integrity">Entity integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/07-Primary-Key.html#datatypes-in-primary-keys">Datatypes in primary keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/07-Primary-Key.html#choosing-primary-key-attributes">Choosing primary key attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../definition/07-Primary-Key.html#using-hashes-as-primary-keys">Using hashes as primary keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../definition/07-Primary-Key.html#auto-increment"><code class="docutils literal notranslate"><span class="pre">auto_increment</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/10-Dependencies.html">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/10-Dependencies.html#understanding-dependencies">Understanding dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/10-Dependencies.html#defining-a-dependency">Defining a dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/10-Dependencies.html#how-dependencies-work">How dependencies work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/10-Dependencies.html#referential-integrity">Referential integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/10-Dependencies.html#dependencies-with-renamed-attributes">Dependencies with renamed attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/10-Dependencies.html#foreign-key-options">Foreign key options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/11-ERD.html">ERD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/11-ERD.html#diagram-notation">Diagram notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../definition/11-ERD.html#diagramming-an-entire-schema">Diagramming an entire schema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../definition/11-ERD.html#initializing-with-a-single-table">Initializing with a single table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../definition/11-ERD.html#adding-erds-together">Adding ERDs together</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../definition/11-ERD.html#expanding-erds-upstream-and-downstream">Expanding ERDs upstream and downstream</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/12-Example.html">Manual Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/13-Lookup-Tables.html">Lookup Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../definition/14-Drop.html">Drop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../definition/14-Drop.html#dropping-part-tables">Dropping part tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../existing/Existing.html">Work with Existing Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../existing/1-Virtual-Modules.html">Virtual Modules</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manipulation/Manipulation.html">Data Manipulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manipulation/0-Manipulation.html">Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulation/1-Insert.html">Insert</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulation/1-Insert.html#batched-inserts">Batched inserts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulation/1-Insert.html#server-side-inserts">Server-side inserts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulation/2-Delete.html">Delete</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulation/2-Delete.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulation/2-Delete.html#deleting-from-part-tables">Deleting from part tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulation/3-Cautious-Update.html">Cautious Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulation/4-Transactions.html">Transactions</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../queries/Queries.html">Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../queries/01-Queries.html">Query Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/01-Queries.html#checking-for-returned-entities">Checking for returned entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/01-Queries.html#normalization-in-queries">Normalization in queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/02-Example-Schema.html">Example Schema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/02-Example-Schema.html#example-schema-erd">Example schema ERD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/03-Fetch.html">Fetch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#fetch-the-primary-key">Fetch the primary key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#fetch-entire-query">Fetch entire query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#obtaining-the-primary-key-along-with-individual-values">Obtaining the primary key along with individual values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#rename-and-calculate">Rename and calculate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/04-Iteration.html">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/05-Operators.html">Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/05-Operators.html#principles-of-relational-algebra">Principles of relational algebra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/05-Operators.html#matching-entities">Matching entities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../queries/05-Operators.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/05-Operators.html#join-compatibility">Join compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/06-Restriction.html">Restriction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-operators-and">Restriction operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-table">Restriction by a table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-table-with-no-common-attributes">Restriction by a table with no common attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-an-empty-table">Restriction by an empty table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-mapping">Restriction by a mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-string">Restriction by a string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-collection">Restriction by a collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-boolean-expression">Restriction by a Boolean expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/06-Restriction.html#restriction-by-a-query">Restriction by a query</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/07-Join.html">Join</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/07-Join.html#join-operator">Join operator <code class="docutils literal notranslate"><span class="pre">*</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../queries/07-Join.html#principles-of-joins">Principles of joins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../queries/07-Join.html#examples-of-joins">Examples of joins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../queries/07-Join.html#properties-of-join">Properties of join</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/08-Proj.html">Proj</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/08-Proj.html#simple-projection">Simple projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/08-Proj.html#renaming">Renaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/08-Proj.html#calculations">Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/09-Aggr.html">Aggr</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/09-Aggr.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/10-Union.html">Union</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../queries/10-Union.html#union-operator">Union operator <code class="docutils literal notranslate"><span class="pre">+</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../queries/10-Union.html#principles-of-union">Principles of union</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../queries/10-Union.html#examples-of-union">Examples of union</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../queries/10-Union.html#properties-of-union">Properties of union</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../queries/11-Universal-Sets.html">Universal Sets</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computation/Computation.html">Computation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computation/01-autopopulate.html">Auto-populate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#make">Make</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#populate">Populate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#populate-options">Populate options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#progress">Progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../computation/02-keysource.html">Key Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../computation/02-keysource.html#default-key-source">Default key source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/02-keysource.html#custom-key-source">Custom key source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../computation/03-master-part.html">Master-Part Relationship</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../computation/03-master-part.html#populating">Populating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/03-master-part.html#deleting">Deleting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/03-master-part.html#multiple-parts">Multiple parts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../computation/04-transactions.html">Transactions in Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../computation/05-distributed-computing.html">Distributed Computing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../computation/05-distributed-computing.html#job-reservations">Job reservations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/05-distributed-computing.html#managing-connections">Managing connections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DataJoint Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="Admin.html">Server Administration</a> &raquo;</li>
+        
+      <li>Backups and Recovery</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+      <!--  -->
+        <!-- <p class="thisVersion">matlab-v3.2</p> -->
+      <!--  -->
+      <a href="http://datajoint.io" target="_blank">
+        <img id="breadcrumbsThumbnail" src="../_static/themeImages/datajointIOfull.svg">
+      </a>
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="backups-and-recovery">
+<span id="backup"></span><h1>Backups and Recovery<a class="headerlink" href="#backups-and-recovery" title="Permalink to this headline">¶</a></h1>
+<p>Backing up your DataJoint installation is critical to ensuring that your work is safe and can be continued in the event of system failures, and several mechanisms are available to use.</p>
+<p>Much like your live installation, your backup will consist of two portions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Backup of the Relational Data</p></li>
+<li><p>Backup of optional external bulk storage</p></li>
+</ul>
+</div></blockquote>
+<p>This section primarily deals with backup of the relational data since most of the optional bulk storage options use “regular” flat-files for storage and can be backed up via any “normal” disk backup regime.</p>
+<p>There are many options to backup MySQL; subsequent sections discuss a few options.</p>
+<div class="section" id="cloud-hosted-backups">
+<h2>Cloud hosted backups<a class="headerlink" href="#cloud-hosted-backups" title="Permalink to this headline">¶</a></h2>
+<p>In the case of cloud-hosted options, many cloud vendors provide automated backup of your data, and some facility for downloading such backups externally.
+Due to the wide variety of cloud-specific options, discussion of these options falls outside of the scope of this documentation.
+However, since the cloud server is also a MySQL server, other options listed here may work for your situation.</p>
+</div>
+<div class="section" id="disk-based-backup">
+<h2>Disk-based backup<a class="headerlink" href="#disk-based-backup" title="Permalink to this headline">¶</a></h2>
+<p>The simplest option for many cases is to perform a disk-level backup of your MySQL installation using standard disk backup tools.
+It should be noted that all database activity should be stopped for the duration of the backup to prevent errors with the backed up data.
+This can be done in one of two ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Stopping the MySQL server program</p></li>
+<li><p>Using database locks</p></li>
+</ul>
+</div></blockquote>
+<p>These methods are required since MySQL data operations can be ongoing in the background even when no user activity is ongoing.
+To use a database lock to perform a backup, the following commands can be used as the MySQL administrator:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">FLUSH</span> <span class="kp">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
+<span class="k">UNLOCK</span> <span class="kp">TABLES</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The backup should be performed between the issuing of these two commands, ensuring the database data is consistent on disk when it is backed up.</p>
+</div>
+<div class="section" id="mysqldump">
+<h2>MySQLDump<a class="headerlink" href="#mysqldump" title="Permalink to this headline">¶</a></h2>
+<p>Disk based backups may not be feasible for every installation, or a database may require constant activity such that stopping it for backups is not feasible.
+In such cases, the simplest option is <a class="reference external" href="https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/using-mysqldump.html">MySQLDump</a>, a command line tool that prints the contents of your database contents in SQL form.</p>
+<p>This tool is generally acceptable for most cases and is especially well suited for smaller installations due to its simplicity and ease of use.</p>
+<p>For larger installations, the lower speed of MySQLDump can be a limitation, since it has to convert the database contents to and from SQL rather than dealing with the database files directly.
+Additionally, since backups are performed within a transaction, the backup will be valid up to the time the backup began rather than to its completion, which can make ensuring that the latest data are fully backed up more difficult as the time it takes to run a backup grows.</p>
+</div>
+<div class="section" id="percona-xtrabackup">
+<h2>Percona XTraBackup<a class="headerlink" href="#percona-xtrabackup" title="Permalink to this headline">¶</a></h2>
+<p>The Percona <code class="docutils literal notranslate"><span class="pre">xtrabackup</span></code> tool provides near-realtime backup capability of a MySQL installation, with extended support for replicated databases, and is a good tool for backing up larger databases.</p>
+<p>However, this tool requires local disk access as well as reasonably fast backup media, since it builds an ongoing transaction log in real time to ensure that backups are valid up to the point of their completion.
+This strategy fails if it cannot keep up with the write speed of the database.
+Further, the backups it generates are in binary format and include incomplete database transactions, which require careful attention to detail when restoring.</p>
+<p>As such, this solution is recommended only for advanced use cases or larger databases where limitations of the other solutions may apply.</p>
+</div>
+<div class="section" id="locking-and-ddl-issues">
+<h2>Locking and DDL issues<a class="headerlink" href="#locking-and-ddl-issues" title="Permalink to this headline">¶</a></h2>
+<p>One important thing to note is that at the time of writing, MySQL’s transactional system is not <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">definition</span> <span class="pre">language</span></code> aware, meaning that changes to table structures occurring during some backup schemes can result in corrupted backup copies.
+If schema changes will be occurring during your backup window, it is a good idea to ensure that appropriate locking mechanisms are used to prevent these changes during critical steps of the backup process.</p>
+<p>However, on busy installations which cannot be stopped, the use of locks in many backup utilities may cause issues if your programs expect to write data to the database during the backup window.</p>
+<p>In such cases it might make sense to review the given backup tools for locking related options or to use other mechanisms such as replicas or alternate backup tools to prevent interaction of the database.</p>
+</div>
+<div class="section" id="replication-and-snapshots-for-backup">
+<h2>Replication and snapshots for backup<a class="headerlink" href="#replication-and-snapshots-for-backup" title="Permalink to this headline">¶</a></h2>
+<p>Larger databases consisting of many Terabytes of data may take many hours or even days to backup and restore, and so downtime resulting from system failure can create major impacts to ongoing work.</p>
+<p>While not backup tools per-se, use of MySQL master-slave replication and disk snapshots can be useful to assist in reducing the downtime resulting from a full database outage.</p>
+<p>Replicas can be configured so that one copy of the data is immediately online in the event of server crash.
+When a server fails in this case, users and programs simply restart and point to the new server before resuming work.</p>
+<p>Replicas can also reduce the system load generated by regular backup procedures, since they can be backed up instead of the main server.
+Additionally they can allow more flexibility in a given backup scheme, such as allowing for disk snapshots on a busy system that would not otherwise be able to be stopped.
+A replica copy can be stopped temporarily and then resumed while a disk snapshot or other backup operation occurs.</p>
+</div>
+</div>
+
+
+            <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">
+              <div>
+                Talk to the Community
+              </div>
+            </a>
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../setup/Setup.html" class="btn btn-neutral float-right" title="Client Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="5-blob-config.html" class="btn btn-neutral" title="External Store" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2019, Vathes LLC.
+    <a href="http://tutorials.datajoint.io" target="_blank">
+      <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
+    </a>
+    <br />
+    <a href="https://datajoint.io" target="_blank">DataJoint.io</a>
+    </p>
+
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  <script type="text/javascript" src="../_static/js/dropdown.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

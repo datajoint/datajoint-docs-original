@@ -12,6 +12,7 @@ _static/thumbs/
 site/
 build-all/
 build-local/
+build-ref/
 loc_built_site/
 full_site/
 version-menu.html
@@ -111,8 +112,8 @@ ENV/
 # figure file management
 studio/*png
 
-# local docker-compose
-local-docker-compose.yml
+# personal compose file
+docker-compose.y*ml
 
-# VSCode config
+# VSCode settings
 .vscode
