@@ -5,7 +5,7 @@
 Input and Output
 ================
 
-Where are my data?
+Where is my data?
 ------------------
 
 New users often ask this question thinking of passive **data repositories** -- collections of files and folders and a separate collection of metadata -- information about how the files were collected and what they contain.

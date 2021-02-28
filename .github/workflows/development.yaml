@@ -119,7 +119,7 @@ jobs:
           cp -r build/* gh-pages/
           cp .gitignore gh-pages/
           touch gh-pages/.nojekyll
-          echo "testdocs.datajoint.io" > gh-pages/CNAME
+          echo "docs.datajoint.io" > gh-pages/CNAME
           cd gh-pages
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
