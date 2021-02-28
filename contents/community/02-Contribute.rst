@@ -6,13 +6,15 @@ Contribute
 ==========
 Thank you for your interest in contributing! 🤝
 
-To help keep everyone in alignment and coordinated in the community effort, we've created this document. It serves as the contribution guidelines that outline how open-source software development is to be conducted. Any software development that makes reference to this can be assumed to adopt the policies outlined below. We've structured it in FAQ format to make it easier to digest. Feel free review the questions below to determine any specific policy.
+To help keep everyone in alignment and coordinated in the community effort, we've created this document. It serves as the contribution guideline that outlines how open-source software development is to be conducted. Any software development that makes reference to this document can be assumed to adopt the policies outlined below. We've structured the guideline in a FAQ (frequently asked questions) format to make it easier to digest. Feel free to review the questions below to determine any specific policy.
+
+The principal maintainer of DataJoint and associated tools is the DataJoint Neuro team (Vathes Inc.) The pronouns "we" and "us" in this guideline refer to the principal maintainers. We invite reviews and contributions of the open-source software. We compiled these guidelines to make this work clear and efficient.
 
 Which issue should I contribute towards?
 ----------------------------------------
-There is primarily 3 things to consider when looking to contribute.
+There are three primary things to consider when looking to contribute.
 
-- **Availability**: Simply if anyone is currently working on a fix. This is represented by who is ``assigned``. Issues that are ``unassigned`` mean that there is no one yet working on resolving the issue.
+- **Availability**: An indication of whether anyone is currently working on a fix for the given issue. Availability is indicated by who is ``assigned``. Issues that are ``unassigned`` mean that there is no one yet working on resolving the issue and the issue is available for someone to work on. If an issue has been assigned, than any additional work on that issue should be coordinated with the assignee.
 - **Specification**: In order for issues to be properly addressed, the requirements of satisfying and closing the issue should be clear. If it is not, a label will be added as ``unspecified``. This could be due to more debug info being necessary, more details on intended behavior, or perhaps that further discussion is required to determine a good solution. Feel free to help us arrive at a proper specification.
 - **Priority**: As a community, we work on a concerted effort to bring about the realization of the milestones. We utilize milestones as a planning tool to help focus a group of changes around a release. To determine the priority of issues, simply have a look at the next milestone that is expected to arrive. Therefore, each milestone following this can be understood as lower in priority respectively. Bear in mind that much like a hurricane forecast, the execution plan is much more likely to be accurate the closer to today's date as opposed to milestones further out. Extremely low priority issues are assigned to the ``Backburner`` milestone. Since ``Backburner`` does not have a target date, this indicates that its issues may be deferred indefinitely. Occasionally the maintainers will move issues from ``Backburner`` as it makes sense to address them within a release. Also, issues ``unassigned`` to a milestone can be understood as new issues which have not been triaged.
 
@@ -41,7 +43,7 @@ What is generally expected from new contributions are the following:
 - Additional documentation to reflect new feature or behavior introduced.
 - Necessary updates to the changelog following `Keep a Changelog <https://keepachangelog.com/en/1.0.0/>`_ convention.
 - A contributor should not approve or merge their own PR.
-- Reviewer suggestions or feedback should not be directly committed to a branch on contributor's fork. A less intrusive way to collaborate would be for the reviewer to PR to the contributor's fork/branch that is associated with the main PR currently in review.
+- Reviewer suggestions or feedback should not be directly committed to a branch on a contributor's fork. A less intrusive way to collaborate would be for the reviewer to PR to the contributor's fork/branch that is associated with the main PR currently in review.
 
 Maintainers will also ensure that PR's have the appropriate assignment for reviewer, milestone, and project.
 
