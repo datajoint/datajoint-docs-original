@@ -81,7 +81,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          tag_name: ${{steps.changelog_reader.outputs.version}}
+          tag_name: v${{steps.changelog_reader.outputs.version}}
           release_name: Release ${{steps.changelog_reader.outputs.version}}
           body: ${{steps.changelog_reader.outputs.changes}}
           prerelease: ${{steps.changelog_reader.outputs.status == 'prereleased'}}
@@ -92,8 +92,8 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           upload_url: ${{steps.create_gh_release.outputs.upload_url}}
-          asset_path: static-djlabbook-${{env.DOCS_VERSION}}.zip
-          asset_name: static-djlabbook-${{env.DOCS_VERSION}}.zip
+          asset_path: static-djdocs-${{env.DOCS_VERSION}}.zip
+          asset_name: static-djdocs-${{env.DOCS_VERSION}}.zip
           asset_content_type: application/zip
   publish-docs:
     if: github.event_name == 'push'
@@ -101,6 +101,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Determine package version
+        run: |
+          export DOCS_VERSION=$(cat contents/conf.py | \
+            grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)")
+          echo "DOCS_VERSION=${DOCS_VERSION}" >> $GITHUB_ENV
+      - name: Fetch static artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: static-djdocs-${{env.DOCS_VERSION}}
+          path: build
       - name: Commit documentation changes
         run: |
           git clone https://github.com/${GITHUB_REPOSITORY}.git \
