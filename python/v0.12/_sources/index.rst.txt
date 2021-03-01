@@ -64,3 +64,9 @@ For a guided introduction to DataJoint, please explore our tutorials at http://t
 
    computation/Computation.rst
 
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
+
+   community/Community.rst
+
