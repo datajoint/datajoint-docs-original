@@ -2,6 +2,10 @@
 
 Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) convention.
 
+## [0.1.5] - 2021-03-11
+### Added
+- Numbering for easy reference in `Contribute` section. PR #262
+
 ## [0.1.4] - 2021-03-01
 ### Added
 - Added `Community` section. PR #259
@@ -33,5 +37,6 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 - `local-docker-compose.yml` environment. PR #257
 - `entrypoint.sh` which is now unnecessary for the image. PR #257
 
+[0.1.5]: https://github.com/datajoint/datajoint-docs/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/datajoint/datajoint-docs/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/datajoint/datajoint-docs/releases/tag/v0.1.3
