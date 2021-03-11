@@ -10,8 +10,8 @@ To help keep everyone in alignment and coordinated in the community effort, we'v
 
 The principal maintainer of DataJoint and associated tools is the DataJoint Neuro team (Vathes Inc.). The pronouns "we" and "us" in this guideline refer to the principal maintainers. We invite reviews and contributions of the open-source software. We compiled these guidelines to make this work clear and efficient.
 
-Which issue should I contribute towards?
-----------------------------------------
+1) Which issue should I contribute towards?
+-------------------------------------------
 There are three primary things to consider when looking to contribute.
 
 - **Availability**: An indication of whether anyone is currently working on a fix for the given issue. Availability is indicated by who is ``assigned``. Issues that are ``unassigned`` mean that there is no one yet working on resolving the issue and the issue is available for someone to work on. If an issue has been assigned, then any additional work on that issue should be coordinated with the assignee.
@@ -20,8 +20,8 @@ There are three primary things to consider when looking to contribute.
 
 After considering the above, you may comment on the issue you'd like to help fix and a maintainer will assign it to you.
 
-What is the proper etiquette for proposing changes as contribution?
--------------------------------------------------------------------
+2) What is the proper etiquette for proposing changes as contribution?
+----------------------------------------------------------------------
 What is generally expected from new contributions are the following:
 
 - Any proposed contributor changes should be introduced in the form of a pull request (PR) from their fork.
@@ -47,12 +47,12 @@ What is generally expected from new contributions are the following:
 
 Maintainers will also ensure that PR's have the appropriate assignment for reviewer, milestone, and project.
 
-How can I track the progress of an issue that has been assigned?
-----------------------------------------------------------------
+3) How can I track the progress of an issue that has been assigned?
+-------------------------------------------------------------------
 Since milestones represent the development plan, projects represent the actual execution. Projects are typically fixed-time sprints (1-2 weeks). A 'workable' number of issues that have been assigned to developers and assigned to the next milestone are selected and tracked in each project to provide greater granularity in the week-to-week progress. Automation is included observing the ``Automated kanban with reviews`` template. Maintainers will adjust the project assignment to reflect the order in which to resolve the milestone issues.
 
-What is the release process? How do I know when my merged contribution will officially make it into a release?
-----------------------------------------------------------------------------------------------------
+4) What is the release process? How do I know when my merged contribution will officially make it into a release?
+-----------------------------------------------------------------------------------------------------------------
 Releases follow the standard definition of `semantic versioning <https://semver.org/spec/v2.0.0.html>`_. Meaning:
 
 ``MAJOR`` . ``MINOR`` . ``PATCH``
@@ -65,34 +65,34 @@ Each release requires tagging the commit appropriately and is then issued in the
 
 Minor releases are triggered when all the issues assigned to a milestone are resolved and closed. Patch releases are triggered periodically from ``main`` or ``master`` after a reasonable number of PR merges have come in.
 
-I am not yet too comfortable contributing but would like to engage the community. What is the policy on community engagement?
------------------------------------------------------------------------------------------------------------------------------
+5) I am not yet too comfortable contributing but would like to engage the community. What is the policy on community engagement?
+--------------------------------------------------------------------------------------------------------------------------------
 In order to follow the appropriate process and setting, please reference the following flow for your desired mode of engagement:
 
-Generally, how do I perform **__________**?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5a) Generally, how do I perform **__________**?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If the documentation does not provide clear enough instruction, please see StackOverflow posts related to the `datajoint <https://stackoverflow.com/questions/tagged/datajoint>`_ tag or ask a new question tagging it appropriately. You may refer to our `datajoint tag wiki <https://stackoverflow.com/tags/datajoint/info>`_ for more details on its proper use.
 
-I just encountered this error, how can I resolve it?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5b) I just encountered this error, how can I resolve it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please see StackOverflow posts related to the `datajoint <https://stackoverflow.com/questions/tagged/datajoint>`_ tag or ask a new question tagging it appropriately. You may refer to our `datajoint tag wiki <https://stackoverflow.com/tags/datajoint/info>`_ for more details on its proper use.
 
-I just encountered this error and I am sure it is a bug, how do I report it?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5c) I just encountered this error and I am sure it is a bug, how do I report it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please file it under the issue tracker associated with the open-source software.
 
-I have an idea or new feature request, how do I submit it?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5d) I have an idea or new feature request, how do I submit it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please file it under the issue tracker associated with the open-source software.
 
-I am curious why the maintainers choose to **__________**? i.e. questions that are 'opinionated' in nature with answers that some might disagree.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5e) I am curious why the maintainers choose to **__________**? i.e. questions that are 'opinionated' in nature with answers that some might disagree.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please join the community on the `DataJoint Slack <https://join.slack.com/t/datajoint/shared_invite/enQtMjkwNjQxMjI5MDk0LTQ3ZjFiZmNmNGVkYWFkYjgwYjdhNTBlZTBmMWEyZDc2NzZlYTBjOTNmYzYwOWRmOGFmN2MyYzU0OWQ0MWZiYTE>`_ and ask on the most relevant channel. There, you may engage directly with the maintainers for proper discourse.
 
-What is the timeline or roadmap for the release of certain supported features?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5f) What is the timeline or roadmap for the release of certain supported features?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please refer to milestones and projects associated with the open-source software.
 
-I need urgent help best suited for live debugging, how can I reach out directly?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5g) I need urgent help best suited for live debugging, how can I reach out directly?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Please join the community on the `DataJoint Slack <https://join.slack.com/t/datajoint/shared_invite/enQtMjkwNjQxMjI5MDk0LTQ3ZjFiZmNmNGVkYWFkYjgwYjdhNTBlZTBmMWEyZDc2NzZlYTBjOTNmYzYwOWRmOGFmN2MyYzU0OWQ0MWZiYTE>`_ and ask on the most relevant channel. Please bear in mind that as open-source community software, availability of the maintainers might be limited.
