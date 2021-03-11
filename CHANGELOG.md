@@ -4,7 +4,7 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 
 ## [0.1.5] - 2021-03-11
 ### Added
-- Numbering for easy reference in `Contribute` section. PR #
+- Numbering for easy reference in `Contribute` section. PR #262
 
 ## [0.1.4] - 2021-03-01
 ### Added
