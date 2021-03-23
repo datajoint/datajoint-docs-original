@@ -2,6 +2,6 @@ sphinx==3.3.1 # search breaks with later versions
 sphinx_rtd_theme
 numpy
 matplotlib
-recommonmark
+m2r2
 #RunNotebook
 #sphinx_bootstrap_theme
