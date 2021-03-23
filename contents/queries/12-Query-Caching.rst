@@ -7,7 +7,7 @@ Query Caching
 
 Query caching allows avoiding repeated queries to the database by caching the results locally for faster retrieval.
 
-To enable queries, set the query cache local path in ``dj.config`` and activate the query caching.
+To enable queries, set the query cache local path in ``dj.config``, create the directory, and activate the query caching.
 
 .. include:: 12-Query-Caching_lang1.rst
 
@@ -19,6 +19,6 @@ To turn off query caching, use
 
 While query caching is enabled, any insert or delete calls and any transactions are disabled and will raise an error. This ensures that stale data are not used for updating the database in violation of data integrity.
 
-To clear and remove a specific cache, use
+To clear and remove the query cache, use
 
 .. include:: 12-Query-Caching_lang3.rst
