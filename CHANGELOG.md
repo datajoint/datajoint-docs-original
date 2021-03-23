@@ -4,7 +4,13 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 
 ## [0.2.0] - 2021-03-24
 ### Added
-- Add `update1` documentation and reference it properly to datajoint-python, release 0.13.
+- Add `update1` documentation and reference it properly to datajoint-python, release 0.13. PR #264
+- Add `query_caching` documentation and reference it properly to datajoint-python, release 0.13. PR #264
+- Add transpiler design documentation and reference it properly to datajoint-python, release 0.13. PR #264
+
+### Changed
+- Modify the markdown parsing to `m2r2` and allow content to be included. PR #264
+- Update reverse proxy image from `datajoint` org. PR #264
 
 ## [0.1.5] - 2021-03-11
 ### Added
