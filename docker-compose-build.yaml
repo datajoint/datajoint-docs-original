@@ -10,12 +10,12 @@ services:
     build: .
     image: datajoint/datajoint-docs:${DOCS_VERSION}
     environment:
-      - PY_REPO=https://github.com/guzman-raphael/datajoint-python.git
-      - PY_BRANCH=adjustments
+      - PY_REPO=https://github.com/datajoint/datajoint-python.git
+      - PY_BRANCH=master
       - M_REPO=https://github.com/datajoint/datajoint-matlab.git
       - M_BRANCH=master
-      - DOCS_REPO=https://github.com/guzman-raphael/datajoint-docs.git
-      - DOCS_BRANCH=release013-compatibility
+      - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
+      - DOCS_BRANCH=master
       - DOCS_BUILD_DIRECTORY=build
       - DOCS_REF_DIRECTORY=build-ref
       - MODE
