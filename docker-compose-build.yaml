@@ -14,8 +14,8 @@ services:
       - PY_BRANCH=adjustments
       - M_REPO=https://github.com/datajoint/datajoint-matlab.git
       - M_BRANCH=master
-      - DOCS_REPO=https://github.com/datajoint/datajoint-docs.git
-      - DOCS_BRANCH=master
+      - DOCS_REPO=https://github.com/guzman-raphael/datajoint-docs.git
+      - DOCS_BRANCH=release013-compatibility
       - DOCS_BUILD_DIRECTORY=build
       - DOCS_REF_DIRECTORY=build-ref
       - MODE
