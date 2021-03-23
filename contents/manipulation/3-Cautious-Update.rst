@@ -15,3 +15,7 @@ The process of deleting existing entities and inserting new entities with correc
 This approach applies specifically to automated tables (see :ref:`auto`).
 However, manual tables are often edited outside DataJoint through other interfaces.
 It is up to the user's discretion to allow updates in manual tables, and the user must be cognizant of the fact that updates will not trigger re-computation of dependent data.
+
+To update, you may perform it as:
+
+.. include:: 1-Update_lang1.rst
