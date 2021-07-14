@@ -2,6 +2,10 @@
 
 Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) convention.
 
+## [0.2.1] - 2021-07-14
+### Changed
+- Modify the TLD of docs site from `docs.datajoint.io` -> `docs.datajoint.org`. PR #266
+
 ## [0.2.0] - 2021-03-24
 ### Added
 - Add `update1` documentation and reference it properly to datajoint-python, release 0.13. PR #264
@@ -47,6 +51,7 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 - `local-docker-compose.yml` environment. PR #257
 - `entrypoint.sh` which is now unnecessary for the image. PR #257
 
+[0.2.1]: https://github.com/datajoint/datajoint-docs/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/datajoint/datajoint-docs/compare/v0.1.5...v0.2.0
 [0.1.5]: https://github.com/datajoint/datajoint-docs/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/datajoint/datajoint-docs/compare/v0.1.3...v0.1.4

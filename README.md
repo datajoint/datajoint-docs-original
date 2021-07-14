@@ -1,7 +1,7 @@
 # DataJoint Technical Reference
 This repository contains the source for comprehensive technical reference documentation for the DataJoint framework. 
 
-All DataJoint documentations are presented at [DataJoint documentation website](http://docs.datajoint.io/).
+All DataJoint documentations are presented at [DataJoint documentation website](http://docs.datajoint.org/).
 Documentation is generated using [Sphinx](http://www.sphinx-doc.org/en/stable/) with custom rendering theme 
 largely based on the [Read The Doc theme](https://github.com/rtfd/sphinx_rtd_theme).
 
@@ -17,7 +17,7 @@ Read on for more details on running the docs natively and writing style guidelin
 With the current GitHub Actions code pipeline, all that is needed to make a release is to `git tag` a version locally and push with `git push upstream vX.X.X`. This will automatically run build, tests, and publish steps. To see the specifics, have a look in `.github/workflows/development.yaml` and to run the steps manually, see `Notes on Tagging` section below.
 
 # License
-The documentation can be distributed for free use under the [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/).  Any copy or derivation of the documentation must include attribution to "DataJoint contributors" and include the URL reference https://docs.datajoint.io
+The documentation can be distributed for free use under the [Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/).  Any copy or derivation of the documentation must include attribution to "DataJoint contributors" and include the URL reference https://docs.datajoint.org
 
 
 # Building All Versions (Full Site)
