@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Transactions &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,7 +622,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="transactions">
+  <section id="transactions">
 <span id="id1"></span><h1>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h1>
 <p>In some cases, a sequence of several operations must be performed as a single operation:
 interrupting the sequence of such operations halfway would leave the data in an invalid state.
@@ -644,7 +645,7 @@ The <code class="docutils literal notranslate"><span class="pre">transaction</sp
 </div>
 <p>Here, to external observers, both inserts will take effect together upon exiting from the <code class="docutils literal notranslate"><span class="pre">with</span></code> block or will not have any effect at all.
 For example, if the second insert fails due to an error, the first insert will be rolled back.</p>
-</div>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

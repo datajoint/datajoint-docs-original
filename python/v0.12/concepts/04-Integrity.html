@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Data Integrity &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,11 +675,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="data-integrity">
+  <section id="data-integrity">
 <span id="integrity"></span><h1>Data Integrity<a class="headerlink" href="#data-integrity" title="Permalink to this headline">¶</a></h1>
 <p>The term <strong>data integrity</strong> describes  guarantees made by the data management process that prevent errors and corruption in data due to technical failures and human errors arising in the course of continuous use by multiple agents.
 DataJoint pipelines respect the following forms of data integrity: <strong>entity integrity</strong>, <strong>referential integrity</strong>, and <strong>group integrity</strong> as described in more detail below.</p>
-<div class="section" id="entity-integrity">
+<section id="entity-integrity">
 <span id="id1"></span><h2>Entity integrity<a class="headerlink" href="#entity-integrity" title="Permalink to this headline">¶</a></h2>
 <p>In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
 <strong>Entity integrity</strong> is the guarantee made by the data management process that entities from the real world are reliably and uniquely represented in the database system.
@@ -691,8 +692,8 @@ Such a system violates entity integrity, because the same student may be assigne
 The ID numbers succeed in uniquely identifying each student record but fail to do so for the actual students.</p>
 <p>Note that a database cannot guarantee or enforce entity integrity by itself.
 Entity integrity is a property of the entire data management process as a whole, including institutional practices and user actions in addition to database configurations.</p>
-</div>
-<div class="section" id="referential-integrity">
+</section>
+<section id="referential-integrity">
 <span id="id2"></span><h2>Referential integrity<a class="headerlink" href="#referential-integrity" title="Permalink to this headline">¶</a></h2>
 <p><strong>Referential integrity</strong> is the guarantee made by the data management process that related data across the database remain present, correctly associated, and mutually consistent.
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
@@ -712,14 +713,14 @@ For this reason, the DataJoint workflow does not include updates to entities onc
 Allowing updates to upstream entities would break the referential integrity of any dependent data downstream.
 For example, permitting a user to change the name of a mouse subject would invalidate any experimental sessions that used that mouse, presuming the mouse name was part of the primary key.
 The proper way to change data in DataJoint is to delete the existing entities and to insert corrected ones, preserving referential integrity.</p>
-</div>
-<div class="section" id="group-integrity">
+</section>
+<section id="group-integrity">
 <span id="id3"></span><h2>Group integrity<a class="headerlink" href="#group-integrity" title="Permalink to this headline">¶</a></h2>
 <p><strong>Group integrity</strong> denotes the guarantee made by the data management process that entities composed of multiple parts always appear in their complete form.
 Group integrity in DataJoint is formalized through <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">master-part</span></a> relationships.
 The master-part relationship has important implications for dependencies, because a downstream entity depending on a master entity set may be considered to depend on the parts as well.</p>
-</div>
-<div class="section" id="relationships">
+</section>
+<section id="relationships">
 <span id="id4"></span><h2>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h2>
 <p>In DataJoint, the term <strong>relationship</strong> is used rather generally to describe the effects of particular configurations of <a class="reference internal" href="../definition/10-Dependencies.html#dependencies"><span class="std std-ref">dependencies</span></a> between multiple entity sets.
 It is often useful to classify relationships as one-to-one, many-to-one, one-to-many, and many-to-many.</p>
@@ -742,9 +743,9 @@ A dependency of an entity set containing the death dates of mice on an entity se
 <span class="s2">  &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../_images/doc_1-1.png" src="../_images/doc_1-1.png" />
-</div>
+</figure>
 <p>In a <strong>one-to-many relationship</strong>, multiple entities in a downstream table may depend on the same entity in the upstream table.
 The example below shows a table containing individual channel data from multi-channel recordings, representing a one-to-many relationship.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@schema</span>
@@ -767,9 +768,9 @@ The example below shows a table containing individual channel data from multi-ch
 <span class="s2">  &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../_images/doc_1-many.png" src="../_images/doc_1-many.png" />
-</div>
+</figure>
 <p>In a <strong>many-to-one relationship</strong>, each entity in a table is associated with multiple entities from another table.
 Many-to-one relationships between two tables are usually established using a separate membership table.
 The example below includes a table of mouse subjects, a table of subject groups, and a membership <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">part table</span></a> listing the subjects in each group.
@@ -797,9 +798,9 @@ A many-to-one relationship exists between the <code class="docutils literal notr
 <span class="s2">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../_images/doc_many-1.png" src="../_images/doc_many-1.png" />
-</div>
+</figure>
 <p>In a <strong>many-to-many relationship</strong>, multiple entities in one table may each relate to multiple entities in another upstream table.
 Many-to-many relationships between two tables are usually established using a separate association table.
 Each entity in the association table links one entity from each of the two upstream tables it depends on.
@@ -825,12 +826,12 @@ Entities in a third table represent the modes used for each session.</p>
 <span class="s2">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../_images/doc_many-many.png" src="../_images/doc_many-many.png" />
-</div>
+</figure>
 <p>The types of relationships between entity sets are expressed in the <a class="reference internal" href="../definition/11-ERD.html#erd"><span class="std std-ref">ERD</span></a> of a schema.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

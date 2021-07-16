@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Relational Database Server &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,58 +704,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="relational-database-server">
+  <section id="relational-database-server">
 <span id="configuration"></span><h1>Relational Database Server<a class="headerlink" href="#relational-database-server" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="hardware-considerations">
+<section id="hardware-considerations">
 <h2>Hardware considerations<a class="headerlink" href="#hardware-considerations" title="Permalink to this headline">¶</a></h2>
 <p>As in any computer system, CPU, RAM memory, disk storage, and network speed are important components of performance.
 The relational database component of DataJoint is no exception to this rule.
 This section discusses the various factors relating to selecting a server for your DataJoint pipelines.</p>
-<div class="section" id="cpu">
+<section id="cpu">
 <h3>CPU<a class="headerlink" href="#cpu" title="Permalink to this headline">¶</a></h3>
 <p>CPU speed and parallelism (number of cores/threads) will impact the speed of queries and the number of simultaneous queries which can be efficiently supported by the system.
 It is a good rule of thumb to have enough cores to support the number of active users and background tasks you expect to have running during a typical ‘busy’ day of usage.
 For example, a team of 10 people might want to have 8 cores to support a few active queries and background tasks.</p>
-</div>
-<div class="section" id="ram">
+</section>
+<section id="ram">
 <h3>RAM<a class="headerlink" href="#ram" title="Permalink to this headline">¶</a></h3>
 <p>The amount of RAM will impact the amount of DataJoint data kept in memory, allowing for faster querying of data since the data can be searched and returned to the user without needing to access the slower disk drives.
 It is a good idea to get enough memory to fully store the more important and frequently accessed portions of your dataset with room to spare, especially if in-database blob storage is used instead of external <a class="reference internal" href="4-bulk.html#bulk-storage-systems"><span class="std std-ref">bulk storage</span></a>.</p>
-</div>
-<div class="section" id="disk">
+</section>
+<section id="disk">
 <h3>Disk<a class="headerlink" href="#disk" title="Permalink to this headline">¶</a></h3>
 <p>The disk storage for a DataJoint database server should have fast random access, ideally with flash-based storage to eliminate the rotational delay of mechanical hard drives.</p>
-</div>
-<div class="section" id="networking">
+</section>
+<section id="networking">
 <h3>Networking<a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h3>
 <p>When network connections are used, network speed and latency are important to ensure that large query results can be quickly transferred across the network and that delays due to data entry/query round-trip have minimal impact on the runtime of the program.</p>
-</div>
-<div class="section" id="general-recommendations">
+</section>
+<section id="general-recommendations">
 <h3>General recommendations<a class="headerlink" href="#general-recommendations" title="Permalink to this headline">¶</a></h3>
 <p>DataJoint datasets can consist of many thousands or even millions of records.
 Generally speaking one would want to make sure that the relational database system has sufficient CPU speed and parallelism to support a typical number of concurrent users and to execute searches quickly.
 The system should have enough RAM to store the primary key values of commonly used tables and operating system caches.
 Disk storage should be fast enough to support quick loading of and searching through the data.
 Lastly, network bandwidth must be sufficient to support transferring user records quickly.</p>
-</div>
-</div>
-<div class="section" id="large-scale-installations">
+</section>
+</section>
+<section id="large-scale-installations">
 <h2>Large-scale installations<a class="headerlink" href="#large-scale-installations" title="Permalink to this headline">¶</a></h2>
 <p>Database replication may be beneficial if system downtime or precise database responsiveness is a concern
 Replication can allow for easier coordination of maintenance activities, faster recovery in the event of system problems, and distribution of the database workload across server machines to increase throughput and responsiveness.</p>
-<div class="section" id="master-slave-replication">
+<section id="master-slave-replication">
 <h3>Master-slave replication<a class="headerlink" href="#master-slave-replication" title="Permalink to this headline">¶</a></h3>
 <p>Master/slave replication allows for creation of a read-only database copy which is updated in real time.
 This copy can be used for backup or queries which are not time sensitive.
 It can also be upgraded with read-write usage in the event that the main database fails.</p>
-</div>
-<div class="section" id="multi-master-replication">
+</section>
+<section id="multi-master-replication">
 <h3>Multi-master replication<a class="headerlink" href="#multi-master-replication" title="Permalink to this headline">¶</a></h3>
 <p>Multi-master replication configurations allow for all replicas to be used in a read/write fashion, with the workload being distributed among all machines.
 However, multi-master replication is also more complicated, requiring front-end machines to distribute the workload, similar performance characteristics on all replicas to prevent bottlenecks, and redundant network connections to ensure the replicated machines are always in sync.</p>
-</div>
-</div>
-<div class="section" id="recommendations">
+</section>
+</section>
+<section id="recommendations">
 <h2>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
 <p>It is usually best to go with the simplest solution which can suit the requirements of the installation, adjusting workloads where possible and adding complexity only as needs dictate.</p>
 <p>Resource requirements of course depend on the data collection and processing needs of the given pipeline, but there are general size guidelines that can inform any system configuration decisions.
@@ -795,12 +799,12 @@ These requirements can be reduced through the use of external or cloud storage, 
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="docker">
+</section>
+<section id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
 <p>A Docker image is available for a MySQL server configured to work with DataJoint: <a class="reference external" href="https://github.com/datajoint/mysql-docker">https://github.com/datajoint/mysql-docker</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>External Store &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,7 +622,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="external-store">
+  <section id="external-store">
 <span id="external"></span><h1>External Store<a class="headerlink" href="#external-store" title="Permalink to this headline">¶</a></h1>
 <p>DataJoint organizes most of its data in a relational database.
 Relational databases excel at representing relationships between entities and storing structured data.
@@ -650,7 +651,7 @@ In this case, the specific external storage name is specified:</p>
 aligned_movie :  external-raw  # motion-aligned movie
 </pre></div>
 </div>
-<div class="section" id="principles-of-operation">
+<section id="principles-of-operation">
 <h2>Principles of operation<a class="headerlink" href="#principles-of-operation" title="Permalink to this headline">¶</a></h2>
 <p>External storage is organized to emulate individual attribute values in the relational database.
 DataJoint organizes external storage to preserve the same data integrity principles as in relational storage.</p>
@@ -732,8 +733,8 @@ If dedicated cache folders are maintained for each schema, then a special proced
 <p>Data removal from external storage is separated from the delete operations to ensure that data are not lost in race conditions between inserts and deletes of the same objects, especially in cases of transactional processing or in processes that are likely to get terminated.
 The cleanup steps are performed in a separate process when the risks of race conditions are minimal.
 The process performing the cleanups must be isolated to prevent interruptions resulting in loss of data integrity.</p>
-</div>
-<div class="section" id="configuration">
+</section>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>The following steps must be performed to enable external storage:</p>
 <ol class="arabic simple">
@@ -753,8 +754,8 @@ The process performing the cleanups must be isolated to prevent interruptions re
 </pre></div>
 </div>
 </div></blockquote>
-</div>
-<div class="section" id="cleanup">
+</section>
+<section id="cleanup">
 <h2>Cleanup<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h2>
 <p>Deletion of records containing externally stored blobs is a ‘soft delete’ which only removes the database-side records from the database.
 To remove the actual blob data, a separate cleanup process is run as described here.</p>
@@ -776,8 +777,8 @@ To remove the actual blob data, a separate cleanup process is run as described h
 </pre></div>
 </div>
 <p>This will remove the actual unused files kept in the external storage ‘external-name’.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

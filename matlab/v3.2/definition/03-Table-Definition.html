@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Table Definition &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,7 +598,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="table-definition">
+  <section id="table-definition">
 <span id="definitions"></span><h1>Table Definition<a class="headerlink" href="#table-definition" title="Permalink to this headline">¶</a></h1>
 <p>DataJoint models data as sets of <strong>entities</strong> with shared <strong>attributes</strong>, often visualized as tables with rows and columns.
 Each row represents a single entity and the values of all of its attributes.
@@ -622,12 +623,12 @@ This solution is thought to be convenient since MATLAB does not provide convenie
 </pre></div>
 </div>
 <p>This defines the class <code class="docutils literal notranslate"><span class="pre">User</span></code> that creates the table in the database and provides all its data manipulation functionality.</p>
-<div class="section" id="table-creation-on-the-database-server">
+<section id="table-creation-on-the-database-server">
 <h2>Table creation on the database server<a class="headerlink" href="#table-creation-on-the-database-server" title="Permalink to this headline">¶</a></h2>
 <p>Users do not need to do anything special to have the table created in the database.
 The table is created upon the first attempt to use the class for manipulating its data (e.g. inserting or fetching entities).</p>
-</div>
-<div class="section" id="changing-the-definition-of-an-existing-table">
+</section>
+<section id="changing-the-definition-of-an-existing-table">
 <h2>Changing the definition of an existing table<a class="headerlink" href="#changing-the-definition-of-an-existing-table" title="Permalink to this headline">¶</a></h2>
 <p>Once the table is created in the database, the definition string has no further effect.
 In other words, changing the definition string in the class of an existing table will not actually update the table definition.
@@ -636,12 +637,12 @@ This means that all the data will be lost, and the new definition will be applie
 <p>Therefore, in the initial phases of designing a DataJoint pipeline, it is common to experiment with variations of the design before populating it with substantial amounts of data.</p>
 <p>It is possible to modify a table without dropping it.
 This topic is covered separately.</p>
-</div>
-<div class="section" id="reverse-engineering-the-table-definition">
+</section>
+<section id="reverse-engineering-the-table-definition">
 <h2>Reverse-engineering the table definition<a class="headerlink" href="#reverse-engineering-the-table-definition" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint objects provide the <code class="docutils literal notranslate"><span class="pre">describe</span></code> method, which displays the table definition used to define the table when it was created in the database.
 This definition may differ from the definition string of the class if the definition string has been edited after creation of the table.</p>
-<div class="section" id="examples">
+<section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">describe</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">User</span><span class="p">)</span>
 </pre></div>
@@ -650,9 +651,9 @@ This definition may differ from the definition string of the class if the defini
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">syncDef</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">User</span><span class="p">)</span>    <span class="c">% updates the table definition in file +lab/User.m</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

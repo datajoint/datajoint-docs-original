@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Bulk Storage Systems &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,14 +704,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bulk-storage-systems">
+  <section id="bulk-storage-systems">
 <span id="id1"></span><h1>Bulk Storage Systems<a class="headerlink" href="#bulk-storage-systems" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="why-external-bulk-storage">
+<section id="why-external-bulk-storage">
 <h2>Why External Bulk Storage?<a class="headerlink" href="#why-external-bulk-storage" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint supports the storage of large data objects associated with
 relational records externally from the MySQL Database itself. This is
 significant and useful for a number of reasons.</p>
-<div class="section" id="cost">
+<section id="cost">
 <h3>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h3>
 <p>One of these is that the high-performance storage commonly used in
 database systems is more expensive than that used in more typical
@@ -715,8 +719,8 @@ commodity storage, and so storing the smaller identifying information
 typically used in queries on fast, relational database storage and
 storing the larger bulk data used for analysis or processing on lower
 cost commodity storage can allow for large savings in storage expense.</p>
-</div>
-<div class="section" id="flexibility">
+</section>
+<section id="flexibility">
 <h3>Flexibility<a class="headerlink" href="#flexibility" title="Permalink to this headline">¶</a></h3>
 <p>Storing bulk data separately also facilitates more flexibility in
 usage, since the bulk data can managed using separate maintenance
@@ -728,8 +732,8 @@ another storage system, this downtime can be reduced to a matter of
 minutes. Similarly, due to the lower cost of bulk commodity storage,
 more emphasis can be put into redundancy of this data and backups to
 help protect the non-relational data.</p>
-</div>
-<div class="section" id="performance">
+</section>
+<section id="performance">
 <h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
 <p>Storing the non-relational bulk data separately can have system
 performance impacts by removing data transfer, disk I/O, and memory
@@ -737,17 +741,17 @@ load from the database server and shifting these to the bulk storage
 system. Additionally, datajoint supports caching of bulk data records
 which can allow for faster processing of records which already have
 been retrieved in previous queries.</p>
-</div>
-<div class="section" id="data-sharing">
+</section>
+<section id="data-sharing">
 <h3>Data Sharing<a class="headerlink" href="#data-sharing" title="Permalink to this headline">¶</a></h3>
 <p>DataJoint provides pluggable support for different external bulk
 storage backends, which can provide benefits for data sharing by
 publishing bulk data to S3-Protocol compatible data shares both in the
 cloud and on locally managed systems and other common tools for data
 sharing, such as Globus, etc.</p>
-</div>
-</div>
-<div class="section" id="bulk-storage-scenarios">
+</section>
+</section>
+<section id="bulk-storage-scenarios">
 <h2>Bulk Storage Scenarios<a class="headerlink" href="#bulk-storage-scenarios" title="Permalink to this headline">¶</a></h2>
 <p>Typical bulk storage considerations relate to the cost of the storage
 backend per unit of storage, the amount of data which will be stored,
@@ -801,14 +805,14 @@ given in the following table:</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="bulk-storage-considerations">
+</section>
+<section id="bulk-storage-considerations">
 <h2>Bulk Storage Considerations<a class="headerlink" href="#bulk-storage-considerations" title="Permalink to this headline">¶</a></h2>
 <p>Although external bulk storage provides a variety of advantages for
 storage cost and data sharing, it also uses slightly different data
 input/retrieval semantics and as such has different performance
 characteristics.</p>
-<div class="section" id="performance-characteristics">
+<section id="performance-characteristics">
 <h3>Performance Characteristics<a class="headerlink" href="#performance-characteristics" title="Permalink to this headline">¶</a></h3>
 <p>In the direct database connection scenario, entire result sets are
 either added or retrieved from the database in a single stream
@@ -821,15 +825,15 @@ these impacts may be addressed by code changes in a future release of
 DataJoint, to some extent, the impact is directly related from needing
 to coordinate the activities of the database data stream with the
 external storage system, and so cannot be avoided.</p>
-</div>
-<div class="section" id="network-traffic">
+</section>
+<section id="network-traffic">
 <h3>Network Traffic<a class="headerlink" href="#network-traffic" title="Permalink to this headline">¶</a></h3>
 <p>Some of the external storage solutions mentioned above incur cost both
 at a data volume and transfer bandwidth level. The number of users
 querying the database, data access, and use of caches should be
 considered in these cases to reduce this cost if applicable.</p>
-</div>
-<div class="section" id="data-coherency">
+</section>
+<section id="data-coherency">
 <h3>Data Coherency<a class="headerlink" href="#data-coherency" title="Permalink to this headline">¶</a></h3>
 <p>When storing all data directly in the relational data store, it is
 relatively easy to ensure that all data in the database is consistent
@@ -842,9 +846,9 @@ facilitate a guarantee that external files are uniquely named
 throughout their lifecycle, the pairing of a given relational dataset
 against a given filesystem state is loosely coupled, and so an
 incorrect pairing could result in processing failures or other issues.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

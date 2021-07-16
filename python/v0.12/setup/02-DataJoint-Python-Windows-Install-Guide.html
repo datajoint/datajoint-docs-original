@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>DataJoint Python Windows Install Guide &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,11 +675,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="datajoint-python-windows-install-guide">
+  <section id="datajoint-python-windows-install-guide">
 <span id="windows"></span><h1>DataJoint Python Windows Install Guide<a class="headerlink" href="#datajoint-python-windows-install-guide" title="Permalink to this headline">¶</a></h1>
 <p>This document outlines the steps necessary to install DataJoint on Windows for use in connecting to a remote server hosting a DataJoint database.
 Some limited discussion of installing MySQL is discussed in <a class="reference internal" href="#mysql-for-windows">MySQL for Windows</a>, but is not covered in-depth since this is an uncommon usage scenario and not strictly required to connect to DataJoint pipelines.</p>
-<div class="section" id="quick-steps">
+<section id="quick-steps">
 <h2>Quick steps<a class="headerlink" href="#quick-steps" title="Permalink to this headline">¶</a></h2>
 <p>Quick install steps for advanced users are as follows:</p>
 <ul class="simple">
@@ -691,8 +692,8 @@ Some limited discussion of installing MySQL is discussed in <a class="reference 
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pydotplus</span> <span class="pre">matplotlib</span></code></p></li>
 </ul>
 <p>Detailed instructions follow.</p>
-</div>
-<div class="section" id="step-1-install-python">
+</section>
+<section id="step-1-install-python">
 <h2>Step 1: install Python<a class="headerlink" href="#step-1-install-python" title="Permalink to this headline">¶</a></h2>
 <p>Python for Windows is available from:</p>
 <p><a class="reference external" href="https://www.python.org/downloads/windows">https://www.python.org/downloads/windows</a></p>
@@ -704,16 +705,16 @@ Some limited discussion of installing MySQL is discussed in <a class="reference 
 Be sure to select options as follows:</p>
 <img alt="../_images/install-python-advanced-1.png" src="../_images/install-python-advanced-1.png" />
 <img alt="../_images/install-python-advanced-2.png" src="../_images/install-python-advanced-2.png" />
-</div>
-<div class="section" id="step-2-verify-installation">
+</section>
+<section id="step-2-verify-installation">
 <h2>Step 2: verify installation<a class="headerlink" href="#step-2-verify-installation" title="Permalink to this headline">¶</a></h2>
 <p>To verify the Python installation and make sure that your system is ready to install DataJoint, open a command window by entering <code class="docutils literal notranslate"><span class="pre">cmd</span></code> into the Windows search bar:</p>
 <a class="reference internal image-reference" href="../_images/cmd-prompt.png"><img alt="../_images/cmd-prompt.png" src="../_images/cmd-prompt.png" style="width: 42%;" /></a>
 <p>From here <code class="docutils literal notranslate"><span class="pre">python</span></code> and the Python package manager <code class="docutils literal notranslate"><span class="pre">pip</span></code> can be verified by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-V</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">-V</span></code>, respectively:</p>
 <img alt="../_images/verify-python-install.png" src="../_images/verify-python-install.png" />
 <p>If you receive the error message that either <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span></code> is not a recognized command, please uninstall Python and ensure that the option to add Python to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable was properly configured.</p>
-</div>
-<div class="section" id="step-3-install-datajoint">
+</section>
+<section id="step-3-install-datajoint">
 <h2>Step 3: install DataJoint<a class="headerlink" href="#step-3-install-datajoint" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint (and other Python modules) can be easily installed using the <code class="docutils literal notranslate"><span class="pre">pip</span></code> Python package manager which is installed as a part of Python and was verified in the previous step.</p>
 <p>To install DataJoint simply run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">datajoint</span></code>:</p>
@@ -725,11 +726,11 @@ When finished, a summary of the activity should be presented:</p>
 <p class="admonition-title">Note</p>
 <p>You can find out more about the packages installed here and many other freely available open source packages via <a class="reference external" href="https://pypi.python.org/pypi">pypi</a>, the Python package index site.</p>
 </div>
-</div>
-<div class="section" id="optional-step-4-install-packages-for-erd-support">
+</section>
+<section id="optional-step-4-install-packages-for-erd-support">
 <h2>(Optional) step 4: install packages for ERD support<a class="headerlink" href="#optional-step-4-install-packages-for-erd-support" title="Permalink to this headline">¶</a></h2>
 <p>To draw ERD diagrams of your DataJoint schema, the following additional steps should be followed.</p>
-<div class="section" id="install-graphviz">
+<section id="install-graphviz">
 <h3>Install Graphviz<a class="headerlink" href="#install-graphviz" title="Permalink to this headline">¶</a></h3>
 <p>DataJoint currently utilizes <a class="reference external" href="http://graphviz.org">Graphviz</a> to generate the ERD visualizations.
 Although a Windows version of Graphviz is available from the main site, it is an older and out of date 32-bit version.
@@ -751,20 +752,20 @@ option to add Python to the PATH variable was properly configured.</p>
 <p class="admonition-title">Important</p>
 <p>in some cases, running the <code class="docutils literal notranslate"><span class="pre">dot</span> <span class="pre">-c</span></code> command in a command prompt is required to properly initialize the Graphviz installation.</p>
 </div>
-</div>
-<div class="section" id="install-pydotplus">
+</section>
+<section id="install-pydotplus">
 <h3>Install PyDotPlus<a class="headerlink" href="#install-pydotplus" title="Permalink to this headline">¶</a></h3>
 <p>The PyDotPlus library links the Graphviz installation to DataJoint and is easily installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <img alt="../_images/install-pydotplus.png" src="../_images/install-pydotplus.png" />
-</div>
-<div class="section" id="install-matplotlib">
+</section>
+<section id="install-matplotlib">
 <h3>Install Matplotlib<a class="headerlink" href="#install-matplotlib" title="Permalink to this headline">¶</a></h3>
 <p>The Matplotlib library provides useful plotting utilities which are also used by DataJoint’s ERD drawing facility.
 The package is easily installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <img alt="../_images/install-matplotlib.png" src="../_images/install-matplotlib.png" />
-</div>
-</div>
-<div class="section" id="optional-step-5-install-jupyter-notebook">
+</section>
+</section>
+<section id="optional-step-5-install-jupyter-notebook">
 <h2>(Optional) step 5: install Jupyter Notebook<a class="headerlink" href="#optional-step-5-install-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
 <p>As described on <a class="reference external" href="http://jupyter.org">the jupyter.org website</a>:</p>
 <blockquote>
@@ -782,21 +783,21 @@ It is easily installed from <code class="docutils literal notranslate"><span cla
 <img alt="../_images/run-jupyter-1.png" src="../_images/run-jupyter-1.png" />
 <img alt="../_images/run-jupyter-2.png" src="../_images/run-jupyter-2.png" />
 <p>You now should be able to use the notebook viewer to navigate the filesystem and to create new project folders and interactive Jupyter/Python/DataJoint notebooks.</p>
-</div>
-<div class="section" id="git-for-windows">
+</section>
+<section id="git-for-windows">
 <h2>Git for Windows<a class="headerlink" href="#git-for-windows" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://git-scm.com/">Git</a> version control system is not a part of DataJoint but is recommended for interacting with the broader Python/Git/GitHub sharing ecosystem.</p>
 <p>The Git for Windows installer is available from <a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>.</p>
 <img alt="../_images/install-git-1.png" src="../_images/install-git-1.png" />
 <p>The default settings should be sufficient and correct in most cases.</p>
-</div>
-<div class="section" id="mysql-for-windows">
+</section>
+<section id="mysql-for-windows">
 <h2>MySQL for Windows<a class="headerlink" href="#mysql-for-windows" title="Permalink to this headline">¶</a></h2>
 <p>For hosting pipelines locally, the MySQL server package is required.</p>
 <p>MySQL for windows can be installed via the installers available from the <a class="reference external" href="https://dev.mysql.com/downloads/windows/">MySQL website</a>.
 Please note that although DataJoint should be fully compatible with a Windows MySQL server installation, this mode of operation is not tested by the DataJoint team.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

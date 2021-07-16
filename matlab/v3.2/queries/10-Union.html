@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Union &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,11 +598,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="union">
+  <section id="union">
 <span id="id1"></span><h1>Union<a class="headerlink" href="#union" title="Permalink to this headline">¶</a></h1>
 <p>The union operator is not yet implemented – this page serves as the specification for the upcoming implementation.
 Union is rarely needed in practice.</p>
-<div class="section" id="union-operator">
+<section id="union-operator">
 <h2>Union operator <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#union-operator" title="Permalink to this headline">¶</a></h2>
 <p>The result of the union operator <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">+</span> <span class="pre">B</span></code> contains all the entities from both operands.
 <a class="reference internal" href="../concepts/03-Normalization.html#normalization"><span class="std std-ref">Entity normalization</span></a> requires that the operands in a union both belong to the same entity type with the same primary key using homologous attributes.
@@ -609,7 +610,7 @@ In the absence of any secondary attributes, the result of a union is the simple 
 <p>When secondary attributes are present, they must have the same names and datatypes in both operands.
 The two operands must also be <strong>disjoint</strong>, without any duplicate primary key values across both inputs.
 These requirements prevent ambiguity of attribute values and preserve entity identity.</p>
-<div class="section" id="principles-of-union">
+<section id="principles-of-union">
 <h3>Principles of union<a class="headerlink" href="#principles-of-union" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>As in all operators, the order of the attributes in the operands is not significant.</p></li>
@@ -622,27 +623,27 @@ Otherwise, an error will be raised.</p></li>
 <li><p>For entities that are found in both <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> (based on the primary key), the secondary attributes will be filled from the corresponding entities in <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p></li>
 <li><p>For entities that are only found in either <code class="docutils literal notranslate"><span class="pre">A</span></code> or <code class="docutils literal notranslate"><span class="pre">B</span></code>, the other operand’s secondary attributes will filled with null values.</p></li>
 </ol>
-</div>
-<div class="section" id="examples-of-union">
+</section>
+<section id="examples-of-union">
 <h3>Examples of union<a class="headerlink" href="#examples-of-union" title="Permalink to this headline">¶</a></h3>
 <p>Example 1 : Note that the order of the attributes does not matter.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/union-example1.png"><img alt="" src="../_images/union-example1.png" style="width: 404px;" /></a>
-</div>
+</figure>
 <p>Example 2 : Non-key attributes are combined from both tables and filled with NULLs when missing.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/union-example2.png"><img alt="" src="../_images/union-example2.png" style="width: 539px;" /></a>
-</div>
-</div>
-<div class="section" id="properties-of-union">
+</figure>
+</section>
+<section id="properties-of-union">
 <h3>Properties of union<a class="headerlink" href="#properties-of-union" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Commutative: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">+</span> <span class="pre">B</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">+</span> <span class="pre">A</span></code>.</p></li>
 <li><p>Associative: <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">+</span> <span class="pre">B)</span> <span class="pre">+</span> <span class="pre">C</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">+</span> <span class="pre">(B</span> <span class="pre">+</span> <span class="pre">C)</span></code>.</p></li>
 </ol>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

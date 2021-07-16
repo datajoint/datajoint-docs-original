@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Creating Tables &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,21 +675,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="creating-tables">
+  <section id="creating-tables">
 <span id="table"></span><h1>Creating Tables<a class="headerlink" href="#creating-tables" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="classes-represent-tables">
+<section id="classes-represent-tables">
 <h2>Classes represent tables<a class="headerlink" href="#classes-represent-tables" title="Permalink to this headline">¶</a></h2>
 <p>To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
 Computer programmers refer to this concept as <a class="reference external" href="https://en.wikipedia.org/wiki/Object-relational_mapping">object-relational mapping</a>.
 For example, the class <code class="docutils literal notranslate"><span class="pre">experiment.Subject</span></code> in the DataJoint client language may correspond to the table called <code class="docutils literal notranslate"><span class="pre">subject</span></code> on the database server.
 Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.</p>
-<div class="section" id="data-tiers">
+<section id="data-tiers">
 <h3>Data tiers<a class="headerlink" href="#data-tiers" title="Permalink to this headline">¶</a></h3>
 <p>The table class must inherit from one of the following superclasses to indicate its data tier: <code class="docutils literal notranslate"><span class="pre">dj.Lookup</span></code>, <code class="docutils literal notranslate"><span class="pre">dj.Manual</span></code>, <code class="docutils literal notranslate"><span class="pre">dj.Imported</span></code>, <code class="docutils literal notranslate"><span class="pre">dj.Computed</span></code>, or <code class="docutils literal notranslate"><span class="pre">dj.Part</span></code>.
 See <a class="reference internal" href="05-Data-Tiers.html#tiers"><span class="std std-ref">Data Tiers</span></a> and <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">Master-Part Relationship</span></a>.</p>
-</div>
-</div>
-<div class="section" id="defining-a-table">
+</section>
+</section>
+<section id="defining-a-table">
 <h2>Defining a table<a class="headerlink" href="#defining-a-table" title="Permalink to this headline">¶</a></h2>
 <p>To define a DataJoint table in Python:</p>
 <ol class="arabic simple">
@@ -714,7 +715,7 @@ See <a class="reference internal" href="05-Data-Tiers.html#tiers"><span class="s
 If a table does not already exist, the decorator creates one on the database using the definition property.
 The decorator attaches the information about the table to the class, and then returns the class.</p>
 <p>The class will become usable after you define the <code class="docutils literal notranslate"><span class="pre">definition</span></code> property as described in <a class="reference internal" href="03-Table-Definition.html#definitions"><span class="std std-ref">Table Definition</span></a>.</p>
-<div class="section" id="datajoint-classes-in-python">
+<section id="datajoint-classes-in-python">
 <h3>DataJoint classes in Python<a class="headerlink" href="#datajoint-classes-in-python" title="Permalink to this headline">¶</a></h3>
 <p>DataJoint for Python is implemented through the use of classes providing access to the actual tables stored on the database.
 Since only a single table exists on the database for any class, interactions with all instances of the class are equivalent.
@@ -724,9 +725,9 @@ All of the basic functionality of DataJoint is built to operate on the classes t
 For example, calling <code class="docutils literal notranslate"><span class="pre">Person.insert(...)</span></code> (on the class) and <code class="docutils literal notranslate"><span class="pre">Person.insert(...)</span></code> (on an instance) both have the identical effect of inserting data into the table on the database server.
 DataJoint does not prevent a user from working with instances, but the workflow is complete without the need for instantiation.
 It is up to the user whether to implement additional functionality as class methods or methods called on instances.</p>
-</div>
-</div>
-<div class="section" id="valid-class-names">
+</section>
+</section>
+<section id="valid-class-names">
 <h2>Valid class names<a class="headerlink" href="#valid-class-names" title="Permalink to this headline">¶</a></h2>
 <p>Note that in both MATLAB and Python, the class names must follow the CamelCase compound word notation:</p>
 <ul class="simple">
@@ -737,8 +738,8 @@ It is up to the user whether to implement additional functionality as class meth
 <p><code class="docutils literal notranslate"><span class="pre">TwoPhotonScan</span></code>, <code class="docutils literal notranslate"><span class="pre">Scan2P</span></code>, <code class="docutils literal notranslate"><span class="pre">Ephys</span></code>, <code class="docutils literal notranslate"><span class="pre">MembraneVoltage</span></code></p>
 <p>Invalid class names:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Two_photon_Scan</span></code>, <code class="docutils literal notranslate"><span class="pre">twoPhotonScan</span></code>, <code class="docutils literal notranslate"><span class="pre">2PhotonScan</span></code>, <code class="docutils literal notranslate"><span class="pre">membranePotential</span></code>, <code class="docutils literal notranslate"><span class="pre">membrane_potential</span></code></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Virtual Modules &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,7 +598,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="virtual-modules">
+  <section id="virtual-modules">
 <span id="virtual"></span><h1>Virtual Modules<a class="headerlink" href="#virtual-modules" title="Permalink to this headline">¶</a></h1>
 <p>Virtual modules provide a way to access the classes corresponding to tables in a DataJoint schema without having to create local files.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">TableAccessor</span></code> object is created as a property of a schema during each schema’s creation.
@@ -605,7 +606,7 @@ This property is named <code class="docutils literal notranslate"><span class="p
 The <code class="docutils literal notranslate"><span class="pre">TableAccessor</span></code> <code class="docutils literal notranslate"><span class="pre">v</span></code> itself has properties that refer to the tables of the schema.
 For example, one can access the <code class="docutils literal notranslate"><span class="pre">Session</span></code> table using <code class="docutils literal notranslate"><span class="pre">schema.v.Session</span></code> with no need for any <code class="docutils literal notranslate"><span class="pre">Session</span></code> class to exist in MATLAB.
 Tab completion of table names is possible because the table names are added as dynamic properties of <code class="docutils literal notranslate"><span class="pre">TableAccessor</span></code>.</p>
-</div>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

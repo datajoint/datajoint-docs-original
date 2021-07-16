@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Restriction &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,16 +675,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="restriction">
+  <section id="restriction">
 <span id="id1"></span><h1>Restriction<a class="headerlink" href="#restriction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="restriction-operators-and">
+<section id="restriction-operators-and">
 <h2>Restriction operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#restriction-operators-and" title="Permalink to this headline">¶</a></h2>
 <p>The restriction operator <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">cond</span></code> selects the subset of entities from <code class="docutils literal notranslate"><span class="pre">A</span></code> that meet the condition <code class="docutils literal notranslate"><span class="pre">cond</span></code>.
 The exclusion operator <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">cond</span></code> selects the complement of restriction, i.e. the subset of entities from  <code class="docutils literal notranslate"><span class="pre">A</span></code> that do not meet the condition <code class="docutils literal notranslate"><span class="pre">cond</span></code>.</p>
-<div class="figure align-center" id="id2">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/op-restrict.png"><img alt="Restriction and exclusion" src="../_images/op-restrict.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">Restriction and exclusion.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Restriction and exclusion.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The condition <code class="docutils literal notranslate"><span class="pre">cond</span></code> may be one of the following:</p>
 <ul class="simple">
 <li><p>another table</p></li>
@@ -697,48 +700,60 @@ The exclusion operator <code class="docutils literal notranslate"><span class="p
 </ul>
 <p>As the restriction and exclusion operators are complementary, queries can be constructed using both operators that will return the same results.
 For example, the queries <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">cond</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">Not(cond)</span></code> will return the same entities.</p>
-</div>
-<div class="section" id="restriction-by-a-table">
+</section>
+<section id="restriction-by-a-table">
 <h2>Restriction by a table<a class="headerlink" href="#restriction-by-a-table" title="Permalink to this headline">¶</a></h2>
 <p>When restricting table <code class="docutils literal notranslate"><span class="pre">A</span></code> with another table, written <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">B</span></code>, the two tables must be <strong>join-compatible</strong> (see <a class="reference internal" href="05-Operators.html#join-compatible"><span class="std std-ref">Join compatibility</span></a>).
 The result will contain all entities from <code class="docutils literal notranslate"><span class="pre">A</span></code> for which there exist a matching entity in <code class="docutils literal notranslate"><span class="pre">B</span></code>.
 Exclusion of table <code class="docutils literal notranslate"><span class="pre">A</span></code> with table <code class="docutils literal notranslate"><span class="pre">B</span></code>, or <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">B</span></code>, will contain all entities from <code class="docutils literal notranslate"><span class="pre">A</span></code> for which there are no matching entities in <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
-<div class="figure align-center" id="id3">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/restrict-example1.png"><img alt="Restriction by another table" src="../_images/restrict-example1.png" style="width: 546px;" /></a>
-<p class="caption"><span class="caption-text">Restriction by another table.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id4">
+<figcaption>
+<p><span class="caption-text">Restriction by another table.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/diff-example1.png"><img alt="Exclusion by another table" src="../_images/diff-example1.png" style="width: 539px;" /></a>
-<p class="caption"><span class="caption-text">Exclusion by another table.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="restriction-by-a-table-with-no-common-attributes">
+<figcaption>
+<p><span class="caption-text">Exclusion by another table.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="restriction-by-a-table-with-no-common-attributes">
 <h3>Restriction by a table with no common attributes<a class="headerlink" href="#restriction-by-a-table-with-no-common-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Restriction of table <code class="docutils literal notranslate"><span class="pre">A</span></code> with another table <code class="docutils literal notranslate"><span class="pre">B</span></code> having none of the same attributes as <code class="docutils literal notranslate"><span class="pre">A</span></code> will simply return all entities in <code class="docutils literal notranslate"><span class="pre">A</span></code>, unless <code class="docutils literal notranslate"><span class="pre">B</span></code> is empty as described below.
 Exclusion of table <code class="docutils literal notranslate"><span class="pre">A</span></code> with <code class="docutils literal notranslate"><span class="pre">B</span></code> having no common attributes will return no entities, unless <code class="docutils literal notranslate"><span class="pre">B</span></code> is empty as described below.</p>
-<div class="figure align-center" id="id7">
+<figure class="align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/restrict-example2.png"><img alt="Restriction by a table with no common attributes" src="../_images/restrict-example2.png" style="width: 571px;" /></a>
-<p class="caption"><span class="caption-text">Restriction by a table having no common attributes.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id8">
+<figcaption>
+<p><span class="caption-text">Restriction by a table having no common attributes.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
 <a class="reference internal image-reference" href="../_images/diff-example2.png"><img alt="Exclusion by a table having no common attributes" src="../_images/diff-example2.png" style="width: 571px;" /></a>
-<p class="caption"><span class="caption-text">Exclusion by a table having no common attributes.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="restriction-by-an-empty-table">
+<figcaption>
+<p><span class="caption-text">Exclusion by a table having no common attributes.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="restriction-by-an-empty-table">
 <h3>Restriction by an empty table<a class="headerlink" href="#restriction-by-an-empty-table" title="Permalink to this headline">¶</a></h3>
 <p>Restriction of table <code class="docutils literal notranslate"><span class="pre">A</span></code> with an empty table will return no entities regardless of whether there are any matching attributes.
 Exclusion of table <code class="docutils literal notranslate"><span class="pre">A</span></code> with an empty table will return all entities in <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
-<div class="figure align-center" id="id11">
+<figure class="align-center" id="id11">
 <a class="reference internal image-reference" href="../_images/restrict-example3.png"><img alt="Restriction by an empty table" src="../_images/restrict-example3.png" style="width: 563px;" /></a>
-<p class="caption"><span class="caption-text">Restriction by an empty table.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id12">
+<figcaption>
+<p><span class="caption-text">Restriction by an empty table.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id12">
 <a class="reference internal image-reference" href="../_images/diff-example3.png"><img alt="Exclusion by an empty table" src="../_images/diff-example3.png" style="width: 571px;" /></a>
-<p class="caption"><span class="caption-text">Exclusion by an empty table.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="restriction-by-a-mapping">
+<figcaption>
+<p><span class="caption-text">Exclusion by an empty table.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="restriction-by-a-mapping">
 <h2>Restriction by a mapping<a class="headerlink" href="#restriction-by-a-mapping" title="Permalink to this headline">¶</a></h2>
 <p>A key-value mapping may be used as an operand in restriction.
 For each key that is an attribute in <code class="docutils literal notranslate"><span class="pre">A</span></code>, the paired value is treated as part of an equality condition.
@@ -752,8 +767,8 @@ You are interested in sessions from January 1st, 2018, so you write the followin
 </div>
 <p>Our mapping contains a typo omitting the final <code class="docutils literal notranslate"><span class="pre">e</span></code> from <code class="docutils literal notranslate"><span class="pre">session_date</span></code>, so no keys in our mapping will match any attribute in <code class="docutils literal notranslate"><span class="pre">Session</span></code>.
 As such, our query will return all of the entities of <code class="docutils literal notranslate"><span class="pre">Session</span></code>.</p>
-</div>
-<div class="section" id="restriction-by-a-string">
+</section>
+<section id="restriction-by-a-string">
 <h2>Restriction by a string<a class="headerlink" href="#restriction-by-a-string" title="Permalink to this headline">¶</a></h2>
 <p>Restriction can be performed when <code class="docutils literal notranslate"><span class="pre">cond</span></code> is an explicit condition on attribute values, expressed as a string.
 Such conditions may include arithmetic operations, functions, range tests, etc.
@@ -765,8 +780,8 @@ Restriction of table <code class="docutils literal notranslate"><span class="pre
 <span class="n">Experiment</span> <span class="o">&amp;</span> <span class="s1">&#39;duration &gt;= 60&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="restriction-by-a-collection">
+</section>
+<section id="restriction-by-a-collection">
 <h2>Restriction by a collection<a class="headerlink" href="#restriction-by-a-collection" title="Permalink to this headline">¶</a></h2>
 <p>A collection can be a list, a tuple, or a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a list:</span>
@@ -787,19 +802,21 @@ For example, if you restrict the <code class="docutils literal notranslate"><spa
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Student</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">[</span><span class="s1">&#39;first_name = &quot;Aaron&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name = &quot;Aaronson&quot;&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id15">
+<figure class="align-center" id="id15">
 <img alt="restriction by collection" src="../_images/python_collection.png" />
-<p class="caption"><span class="caption-text">Restriction by a collection, returning all entities matching any condition in the collection.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Restriction by a collection, returning all entities matching any condition in the collection.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Restriction by an empty collection returns no entities.
 Exclusion of table <code class="docutils literal notranslate"><span class="pre">A</span></code> by an empty collection returns all the entities of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
-</div>
-<div class="section" id="restriction-by-a-boolean-expression">
+</section>
+<section id="restriction-by-a-boolean-expression">
 <h2>Restriction by a Boolean expression<a class="headerlink" href="#restriction-by-a-boolean-expression" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">False</span></code> are equivalent to <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">True</span></code> are empty.</p>
-</div>
-<div class="section" id="restriction-by-an-andlist">
+</section>
+<section id="restriction-by-an-andlist">
 <h2>Restriction by an <code class="docutils literal notranslate"><span class="pre">AndList</span></code><a class="headerlink" href="#restriction-by-an-andlist" title="Permalink to this headline">¶</a></h2>
 <p>The special function <code class="docutils literal notranslate"><span class="pre">dj.AndList</span></code> represents logical conjunction (logical AND).
 Restriction of table <code class="docutils literal notranslate"><span class="pre">A</span></code> by an <code class="docutils literal notranslate"><span class="pre">AndList</span></code> will return all entities in <code class="docutils literal notranslate"><span class="pre">A</span></code> that meet <em>all</em> of the conditions in the list.
@@ -808,12 +825,12 @@ Usually, it is more convenient to simply write out all of the conditions, as <co
 However, when a list of conditions has already been generated, the list can simply be passed as the argument to <code class="docutils literal notranslate"><span class="pre">dj.AndList</span></code>.</p>
 <p>Restriction of table <code class="docutils literal notranslate"><span class="pre">A</span></code> by an empty <code class="docutils literal notranslate"><span class="pre">AndList</span></code>, as in <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">dj.AndList([])</span></code>, will return all of the entities in <code class="docutils literal notranslate"><span class="pre">A</span></code>.
 Exclusion by an empty <code class="docutils literal notranslate"><span class="pre">AndList</span></code> will return no entities.</p>
-</div>
-<div class="section" id="restriction-by-a-not-object">
+</section>
+<section id="restriction-by-a-not-object">
 <h2>Restriction by a <code class="docutils literal notranslate"><span class="pre">Not</span></code> object<a class="headerlink" href="#restriction-by-a-not-object" title="Permalink to this headline">¶</a></h2>
 <p>The special function <code class="docutils literal notranslate"><span class="pre">dj.Not</span></code> represents logical negation, such that <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">dj.Not(cond)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-</span> <span class="pre">cond</span></code>.</p>
-</div>
-<div class="section" id="restriction-by-a-query">
+</section>
+<section id="restriction-by-a-query">
 <h2>Restriction by a query<a class="headerlink" href="#restriction-by-a-query" title="Permalink to this headline">¶</a></h2>
 <p>Restriction by a query object is a generalization of restriction by a table (which is also a query object), because DataJoint queries always produce well-defined entity sets, as described in  <a class="reference internal" href="../concepts/03-Normalization.html#normalization"><span class="std std-ref">entity normalization</span></a>.
 As such, restriction by queries follows the same behavior as restriction by tables described above.</p>
@@ -823,8 +840,8 @@ The <code class="docutils literal notranslate"><span class="pre">Experiment</spa
 <span class="n">Experiment</span> <span class="o">&amp;</span> <span class="n">query</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

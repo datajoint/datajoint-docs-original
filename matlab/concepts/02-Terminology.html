@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Terminology &mdash; DataJoint Documentation matlab-v3.4 documentation</title>
@@ -176,6 +177,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-28-2021">3.4.3 – May 28, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#march-16-2021">3.4.2 – March 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#december-18-2020">3.4.1 – December 18, 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#december-11-2020">3.4.0 – December 11, 2020</a></li>
@@ -646,7 +648,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="terminology">
+  <section id="terminology">
 <span id="id1"></span><h1>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h1>
 <p>DataJoint introduces a principled data model, which is described in detail in <a class="reference external" href="https://arxiv.org/abs/1807.11104">Yatsenko et al., 2018</a>.
 This data model is a conceptual refinement of the Relational Data Model and also draws on the Entity-Relationship Model (ERM).</p>
@@ -732,7 +734,7 @@ As a result, similar concepts may be described using different sets of terminolo
 </tr>
 </tbody>
 </table>
-<div class="section" id="datajoint-databases-schemas-packages-and-modules">
+<section id="datajoint-databases-schemas-packages-and-modules">
 <h2>DataJoint: databases, schemas, packages, and modules<a class="headerlink" href="#datajoint-databases-schemas-packages-and-modules" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>database</strong> is collection of tables on the database server.
 DataJoint users do not interact with it directly.</p>
@@ -746,21 +748,21 @@ DataJoint users do not interact with it directly.</p>
 Very commonly classes for tables in one database are organized as a distinct Python module.
 Thus, typical DataJoint projects have one module per database.
 However, this organization is up to the user’s discretion.</p>
-</div>
-<div class="section" id="base-tables">
+</section>
+<section id="base-tables">
 <h2>Base tables<a class="headerlink" href="#base-tables" title="Permalink to this headline">¶</a></h2>
 <p><strong>Base tables</strong> are tables stored in the database, and are often referred to simply as <em>tables</em> in DataJoint.
 Base tables are distinguished from <strong>derived tables</strong>, which result from relational <a class="reference internal" href="../queries/05-Operators.html#operators"><span class="std std-ref">operators</span></a>.</p>
-</div>
-<div class="section" id="relvars-and-relation-values">
+</section>
+<section id="relvars-and-relation-values">
 <h2>Relvars and relation values<a class="headerlink" href="#relvars-and-relation-values" title="Permalink to this headline">¶</a></h2>
 <p>Early versions of the DataJoint documentation referred to the relation objects as <strong>relvars</strong> <a class="reference external" href="https://en.wikipedia.org/wiki/Relvar">https://en.wikipedia.org/wiki/Relvar</a>.
 This term emphasizes the fact that relational variables and expressions do not contain actual data but are rather symbolic representations of data to be retrieved from the database.
 The specific value of a relvar would then be referred to as the <strong>relation value</strong>.
 The value of a relvar can change with changes in the state of the database.</p>
 <p>The more recent iteration of the documentation has grown less pedantic and more often uses the term <em>table</em> instead.</p>
-</div>
-<div class="section" id="metadata">
+</section>
+<section id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <p>The vocabulary of DataJoint does not include this term.</p>
 <p>In data science, the term <strong>metadata</strong> commonly means “data about the data” rather than the data themselves.
@@ -772,8 +774,8 @@ Such “metadata” are used to search and to classify the data and are in fact 
 These fields may originate from manual annotations, preprocessing, or analyses just as easily as from recordings or behavioral performance.
 Since “metadata” in the neuroscience sense are not distinguished from any other data in a pipeline, DataJoint avoids the term entirely.
 Instead, DataJoint differentiates data into <a class="reference internal" href="../definition/05-Data-Tiers.html#tiers"><span class="std std-ref">data tiers</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

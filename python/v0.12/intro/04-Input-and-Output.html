@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Input and Output &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,9 +675,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="input-and-output">
+  <section id="input-and-output">
 <span id="input-output"></span><h1>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="where-is-my-data">
+<section id="where-is-my-data">
 <h2>Where is my data?<a class="headerlink" href="#where-is-my-data" title="Permalink to this headline">¶</a></h2>
 <p>New users often ask this question thinking of passive <strong>data repositories</strong> – collections of files and folders and a separate collection of metadata – information about how the files were collected and what they contain.
 Let’s address metadata first, since the answer there is easy: Everything goes in the database!
@@ -691,22 +692,22 @@ Below these “manual tables” that contain metadata and file paths are a serie
 For example, in an imaging application, the very large raw .TIFF stacks would reside on the filesystem, but the extracted fluorescent trace timeseries for each cell in the image would be stored as a numerical array directly in the database.
 Or the raw video used for animal tracking might be stored in a standard video format on the filesystem, but the computed X/Y positions of the animal would be stored in the database.
 Storing these intermediate computations in the database makes them easily available for downstream analyses and queries.</p>
-</div>
-<div class="section" id="do-i-have-to-manually-enter-all-my-data-into-the-database">
+</section>
+<section id="do-i-have-to-manually-enter-all-my-data-into-the-database">
 <h2>Do I have to manually enter all my data into the database?<a class="headerlink" href="#do-i-have-to-manually-enter-all-my-data-into-the-database" title="Permalink to this headline">¶</a></h2>
 <p>No! While some of the data will be manually entered (the same way that it would be manually recorded in a lab notebook), the advantage of DataJoint is that standard downstream processing steps can be run automatically on all new data with a single command.
 This is where the notion of a <strong>data pipeline</strong> comes into play.
 When the workflow of cleaning and processing the data, extracting important features, and performing basic analyses is all implemented in a DataJoint pipeline, minimal effort is required to analyze newly-collected data.
 Depending on the size of the raw files and the complexity of analysis, useful results may be available in a matter of minutes or hours.
 Because these results are stored in the database, they can be made available to anyone who is given access credentials for additional downstream analyses.</p>
-</div>
-<div class="section" id="won-t-the-database-get-too-big-if-all-my-data-are-there">
+</section>
+<section id="won-t-the-database-get-too-big-if-all-my-data-are-there">
 <h2>Won’t the database get too big if all my data are there?<a class="headerlink" href="#won-t-the-database-get-too-big-if-all-my-data-are-there" title="Permalink to this headline">¶</a></h2>
 <p>Typically, this is not a problem.
 If you find that your database is getting larger than a few dozen TB, DataJoint provides transparent solutions for storing very large chunks of data (larger than the 4 GB that can be natively stored as a LONGBLOB in MySQL).
 However, in many scenarios even long time series or images can be stored directly in the database with little effect on performance.</p>
-</div>
-<div class="section" id="why-not-just-process-the-data-and-save-them-back-to-a-file">
+</section>
+<section id="why-not-just-process-the-data-and-save-them-back-to-a-file">
 <h2>Why not just process the data and save them back to a file?<a class="headerlink" href="#why-not-just-process-the-data-and-save-them-back-to-a-file" title="Permalink to this headline">¶</a></h2>
 <p>There are two main advantages to storing results in the database.
 The first is data integrity.
@@ -721,12 +722,12 @@ Neither of these important features of data integrity can be guaranteed by a fil
 Accessing arbitrarily complex subsets of the data can be achieved with DataJoint’s flexible query language.
 When data are stored in files, collecting the desired data requires trawling through the file hierarchy, finding and loading the files of interest, and selecting the interesting parts of the data.</p>
 <p>This brings us to the final important question:</p>
-</div>
-<div class="section" id="how-do-i-get-my-data-out">
+</section>
+<section id="how-do-i-get-my-data-out">
 <h2>How do I get my data out?<a class="headerlink" href="#how-do-i-get-my-data-out" title="Permalink to this headline">¶</a></h2>
 <p>This is the fun part.  See <a class="reference internal" href="../queries/Queries.html#queries"><span class="std std-ref">Queries</span></a> for details of the DataJoint query language directly from MATLAB and Python.</p>
-</div>
-<div class="section" id="interfaces">
+</section>
+<section id="interfaces">
 <h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
 <p>Multiple interfaces may be used to get the data into and out of the pipeline.</p>
 <p>Some labs use third-party GUI applications such as <a class="reference external" href="https://www.heidisql.com/">HeidiSQL</a> and <a class="reference external" href="https://www.navicat.com/">Navicat</a>, for example.
@@ -738,8 +739,8 @@ For example, the <a class="reference external" href="https://internationalbrainl
 For implementation details, see <a class="reference external" href="https://github.com/int-brain-lab/IBL-pipeline">https://github.com/int-brain-lab/IBL-pipeline</a>.</p>
 <p>Other labs (e.g. Sinz Lab) have developed GUI interfaces using the Flask web framework in Python.</p>
 <p>GUIs, Google Docs integration, LIMS integration, Slack integration, <em>etc.</em></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

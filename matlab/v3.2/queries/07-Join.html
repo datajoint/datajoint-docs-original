@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Join &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,35 +598,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="join">
+  <section id="join">
 <span id="id1"></span><h1>Join<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="join-operator">
+<section id="join-operator">
 <h2>Join operator <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#join-operator" title="Permalink to this headline">¶</a></h2>
 <p>The Join operator <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> combines the matching information in <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>.
 The result contains all matching combinations of entities from both arguments.</p>
-<div class="section" id="principles-of-joins">
+<section id="principles-of-joins">
 <h3>Principles of joins<a class="headerlink" href="#principles-of-joins" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>The operands <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> must be <strong>join-compatible</strong>.</p></li>
 <li><p>The primary key of the result is the union of the primary keys of the operands.</p></li>
 </ol>
-</div>
-<div class="section" id="examples-of-joins">
+</section>
+<section id="examples-of-joins">
 <h3>Examples of joins<a class="headerlink" href="#examples-of-joins" title="Permalink to this headline">¶</a></h3>
 <p>Example 1 : When the operands have no common attributes, the result is the cross product – all combinations of entities.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/join-example1.png"><img alt="" src="../_images/join-example1.png" style="width: 464px;" /></a>
-</div>
+</figure>
 <p>Example 2 : When the operands have common attributes, only entities with matching values are kept.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/join-example2.png"><img alt="" src="../_images/join-example2.png" style="width: 689px;" /></a>
-</div>
+</figure>
 <p>Example 3 : Joining on secondary attribute.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <a class="reference internal image-reference" href="../_images/join-example3.png"><img alt="" src="../_images/join-example3.png" style="width: 689px;" /></a>
-</div>
-</div>
-<div class="section" id="properties-of-join">
+</figure>
+</section>
+<section id="properties-of-join">
 <h3>Properties of join<a class="headerlink" href="#properties-of-join" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>When <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> have the same attributes, the join <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> becomes equivalent to the set intersection <code class="docutils literal notranslate"><span class="pre">A</span></code> ∩ <code class="docutils literal notranslate"><span class="pre">B</span></code>.
@@ -633,9 +634,9 @@ Hence, DataJoint does not need a separate intersection operator.</p></li>
 <li><p>Commutativity: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">*</span> <span class="pre">A</span></code>.</p></li>
 <li><p>Associativity: <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">*</span> <span class="pre">B)</span> <span class="pre">*</span> <span class="pre">C</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">(B</span> <span class="pre">*</span> <span class="pre">C)</span></code>.</p></li>
 </ol>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

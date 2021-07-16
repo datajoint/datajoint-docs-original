@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Query Objects &mdash; DataJoint Documentation matlab-v3.3 documentation</title>
@@ -643,7 +644,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="query-objects">
+  <section id="query-objects">
 <span id="id1"></span><h1>Query Objects<a class="headerlink" href="#query-objects" title="Permalink to this headline">¶</a></h1>
 <p><strong>Data queries</strong> retrieve data from the database.
 A data query is performed with the help of a <strong>query object</strong>, which is a symbolic representation of the query that does not in itself contain any actual data.
@@ -662,17 +663,19 @@ In the image below, the object <code class="docutils literal notranslate"><span 
 Displaying the object gives a preview of the entities that will be returned by <code class="docutils literal notranslate"><span class="pre">query</span></code>.
 Note that this preview only lists a few of the entities that will be returned.
 Also, the preview does not contain any data for attributes of datatype <code class="docutils literal notranslate"><span class="pre">blob</span></code>.</p>
-<div class="figure align-center" id="id2">
+<figure class="align-center" id="id2">
 <img alt="query object preview" src="../_images/query_object_preview.png" />
-<p class="caption"><span class="caption-text">Defining a query object and previewing the entities returned by the query.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Defining a query object and previewing the entities returned by the query.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Once the desired query object is formed, the query can be executed using its <a class="reference internal" href="03-Fetch.html#fetch"><span class="std std-ref">fetch</span></a> methods.
 To <strong>fetch</strong> means to transfer the data represented by the query object from the database server into the workspace of the host language.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Here fetching from the <code class="docutils literal notranslate"><span class="pre">query</span></code> object produces the struct array <code class="docutils literal notranslate"><span class="pre">s</span></code> of the queried data.</p>
-<div class="section" id="checking-for-returned-entities">
+<section id="checking-for-returned-entities">
 <h2>Checking for returned entities<a class="headerlink" href="#checking-for-returned-entities" title="Permalink to this headline">¶</a></h2>
 <p>The preview of the query object shown above displayed only a few of the entities returned by the query but also displayed the total number of entities that would be returned.
 It can be useful to know the number of entities returned by a query, or even whether a query will return any entities at all, without having to fetch all the data themselves.</p>
@@ -682,14 +685,14 @@ It can be useful to know the number of entities returned by a query, or even whe
 <span class="n">n</span> <span class="p">=</span> <span class="n">count</span><span class="p">(</span><span class="n">ephys</span><span class="p">.</span><span class="n">Session</span> <span class="o">&amp;</span> <span class="s">&#39;session_date &gt;= &quot;2018-01-01&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="normalization-in-queries">
+</section>
+<section id="normalization-in-queries">
 <h2>Normalization in queries<a class="headerlink" href="#normalization-in-queries" title="Permalink to this headline">¶</a></h2>
 <p>Query objects adhere to entity <a class="reference internal" href="../concepts/03-Normalization.html#normalization"><span class="std std-ref">entity normalization</span></a> just like the stored tables do.
 The result of a query is a well-defined entity set with an readily identifiable entity class and designated primary attributes that jointly distinguish any two entities from each other.
 The query <a class="reference internal" href="05-Operators.html#operators"><span class="std std-ref">operators</span></a> are designed to keep the result normalized even in complex query expressions.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

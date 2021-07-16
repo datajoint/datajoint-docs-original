@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Proj &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,10 +598,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="proj">
+  <section id="proj">
 <span id="id1"></span><h1>Proj<a class="headerlink" href="#proj" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">proj</span></code> operator represents <strong>projection</strong> and is used to select attributes (columns) from a table, to rename them, or to create new calculated attributes.</p>
-<div class="section" id="simple-projection">
+<section id="simple-projection">
 <h2>Simple projection<a class="headerlink" href="#simple-projection" title="Permalink to this headline">¶</a></h2>
 <p>The simple projection selects a subset of attributes of the original table.
 However, the primary key attributes are always included.</p>
@@ -609,8 +610,8 @@ The primary key attribute is in bold.</p>
 <p>Then <code class="docutils literal notranslate"><span class="pre">department.proj()</span></code> will have attribute <strong>dept</strong>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">department.proj('dept')</span></code> will have attribute <strong>dept</strong>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">department.proj('dept_name',</span> <span class="pre">'dept_phone')</span></code> will have attributes <strong>dept</strong>, <em>dept_name</em>, and <em>dept_phone</em>.</p>
-</div>
-<div class="section" id="renaming">
+</section>
+<section id="renaming">
 <h2>Renaming<a class="headerlink" href="#renaming" title="Permalink to this headline">¶</a></h2>
 <p>In addition to selecting attributes, <code class="docutils literal notranslate"><span class="pre">proj</span></code> can rename them.
 Any attribute can be renamed, including primary key attributes.</p>
@@ -631,8 +632,8 @@ However,</p>
 </pre></div>
 </div>
 <p>yields all ordered pairs of all cells in each slice.</p>
-</div>
-<div class="section" id="calculations">
+</section>
+<section id="calculations">
 <h2>Calculations<a class="headerlink" href="#calculations" title="Permalink to this headline">¶</a></h2>
 <p>In addition to selecting or renaming attributes, <code class="docutils literal notranslate"><span class="pre">proj</span></code> can compute new attributes from existing ones.</p>
 <p>For example, let <code class="docutils literal notranslate"><span class="pre">tab</span></code> have attributes <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, <code class="docutils literal notranslate"><span class="pre">scan</span></code>, <code class="docutils literal notranslate"><span class="pre">surface_z</span></code>, and <code class="docutils literal notranslate"><span class="pre">scan_z</span></code>.
@@ -643,8 +644,8 @@ To obtain the new attribute <code class="docutils literal notranslate"><span cla
 </div>
 <p>Calculations are passed to SQL and are not parsed by DataJoint.
 For available functions, you may refer to the <a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/functions.html">MySQL documentation</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

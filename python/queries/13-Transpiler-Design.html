@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Transpiler Design &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,7 +704,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="transpiler-design">
+  <section id="transpiler-design">
 <span id="id1"></span><h1>Transpiler Design<a class="headerlink" href="#transpiler-design" title="Permalink to this headline">¶</a></h1>
 <p>This section contains the information and reasoning that went into the design of the DataJoint-to-SQL transpiler.</p>
 <p>MySQL appears to differ from standard SQL by the sequence of evaluating the clauses of the SELECT statement.</p>
@@ -714,7 +718,7 @@
 <p>Moving <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> to an earlier phase allows the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> and <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clauses to use alias column names created by the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> clause.
 The current implementation targets the MySQL implementation where table column aliases can be used in <code class="docutils literal notranslate"><span class="pre">HAVING</span></code>.
 If postgres or CockroachDB cannot be coerced to work this way, restrictions of aggregations will have to be updated accordingly.</p>
-<div class="section" id="queryexpression">
+<section id="queryexpression">
 <h2>QueryExpression<a class="headerlink" href="#queryexpression" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> is the main object representing a distinct <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.
 It implements operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, and <code class="docutils literal notranslate"><span class="pre">proj</span></code>  — restriction, join, and projection.</p>
@@ -725,12 +729,12 @@ It implements operators <code class="docutils literal notranslate"><span class="
 The joint operator <code class="docutils literal notranslate"><span class="pre">*</span></code> adds new elements to the <code class="docutils literal notranslate"><span class="pre">support</span></code> attribute.</p>
 <p>At least one element must be present in <code class="docutils literal notranslate"><span class="pre">support</span></code>. Multiple elements in <code class="docutils literal notranslate"><span class="pre">support</span></code> indicate a join.</p>
 <p>From the user’s perspective <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> objects are immutable: once created they cannot be modified. All operators derive new objects.</p>
-<div class="section" id="alias-attributes">
+<section id="alias-attributes">
 <h3>Alias attributes<a class="headerlink" href="#alias-attributes" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">proj</span></code> can create an alias attribute by renaming an existing attribute or calculating a new attribute.
 Alias attributes are the primary reason why subqueries are sometimes required.</p>
-</div>
-<div class="section" id="subqueries">
+</section>
+<section id="subqueries">
 <h3>Subqueries<a class="headerlink" href="#subqueries" title="Permalink to this headline">¶</a></h3>
 <p>Projections, restrictions, and joins do not necessarily trigger new subqueries: the resulting <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> object simply merges the properties of its inputs into self: <code class="docutils literal notranslate"><span class="pre">heading</span></code>, <code class="docutils literal notranslate"><span class="pre">restriction</span></code>, and <code class="docutils literal notranslate"><span class="pre">support</span></code>.</p>
 <p>The input object is treated as a subquery in the following cases:</p>
@@ -747,8 +751,8 @@ Alias attributes are the primary reason why subqueries are sometimes required.</
 <li><p>If attempting to restrict by a non-join-compatible expression</p></li>
 </ol>
 <p>A subquery is created by creating a new <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> object (or a subclass object) with its <code class="docutils literal notranslate"><span class="pre">support</span></code> pointing to the input object.</p>
-</div>
-<div class="section" id="join-compatibility">
+</section>
+<section id="join-compatibility">
 <h3>Join compatibility<a class="headerlink" href="#join-compatibility" title="Permalink to this headline">¶</a></h3>
 <p>The join is always natural (i.e. <em>equijoin</em> on the namesake attributes).</p>
 <p><strong>Before version 0.13:</strong> As of version <code class="docutils literal notranslate"><span class="pre">0.12.*</span></code> and earlier, two query expressions were considered join-compatible if their namesake attributes were the primary key of at least one of the input expressions. This rule was easiest to implement but does not provide best semantics.</p>
@@ -758,20 +762,20 @@ Alias attributes are the primary reason why subqueries are sometimes required.</
 This compatibility requirement will be further restricted to require that the namesake attributes ultimately derive from the same primary key attribute by being passed down through foreign keys.</p>
 </div></blockquote>
 <p>The same join compatibility rules apply when restricting one query expression with another.</p>
-</div>
-<div class="section" id="join-mechanics">
+</section>
+<section id="join-mechanics">
 <h3>Join mechanics<a class="headerlink" href="#join-mechanics" title="Permalink to this headline">¶</a></h3>
 <p>Any restriction applied to the inputs of a join can be applied to its output.
 Therefore, those inputs that are not turned into queries donate their supports, restrictions, and projections to the join itself.</p>
-</div>
-</div>
-<div class="section" id="table">
+</section>
+</section>
+<section id="table">
 <h2>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Table</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> implementing table manipulation methods such as <code class="docutils literal notranslate"><span class="pre">insert</span></code>, <code class="docutils literal notranslate"><span class="pre">insert1</span></code>, <code class="docutils literal notranslate"><span class="pre">delete</span></code>, <code class="docutils literal notranslate"><span class="pre">update1</span></code>, and <code class="docutils literal notranslate"><span class="pre">drop</span></code>.</p>
 <p>The restriction operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> applied to a <code class="docutils literal notranslate"><span class="pre">Table</span></code> preserves its class identity so that the result remains of type <code class="docutils literal notranslate"><span class="pre">Table</span></code>.
 However, <code class="docutils literal notranslate"><span class="pre">proj</span></code> converts the result into a <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> object. This may produce a base query that is not an instance of Table.</p>
-</div>
-<div class="section" id="aggregation">
+</section>
+<section id="aggregation">
 <h2>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Aggregation</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code>.
 Its main input is the <em>aggregating</em> query expression and it takes an additional second input — the <em>aggregated</em> query expression.</p>
@@ -789,8 +793,8 @@ With respect to the second input, the projection part of aggregation allows only
 <li><p>In joins, aggregation always turns into a subquery.</p></li>
 </ol>
 <p>All other rules for subqueries remain the same as for <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code></p>
-</div>
-<div class="section" id="union">
+</section>
+<section id="union">
 <h2>Union<a class="headerlink" href="#union" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Union</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code>.
 A <code class="docutils literal notranslate"><span class="pre">Union</span></code> object results from the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator on two <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> objects.
@@ -798,27 +802,27 @@ Its <code class="docutils literal notranslate"><span class="pre">support</span><
 Thus the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator on unions simply merges their supports, making a bigger union.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Union</span></code> operator performs an OUTER JOIN of its inputs provided that the inputs have the same primary key and no secondary attributes in common.</p>
 <p>Union treats all its inputs as subqueries except for unrestricted Union objects.</p>
-</div>
-<div class="section" id="universal-sets-dj-u">
+</section>
+<section id="universal-sets-dj-u">
 <h2>Universal Sets <code class="docutils literal notranslate"><span class="pre">dj.U</span></code><a class="headerlink" href="#universal-sets-dj-u" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dj.U</span></code> is a special operand in query expressions that allows performing special operations.  By itself, it can never form a query and is not a subclass of <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code>. Other query expressions are modified through participation in operations with <code class="docutils literal notranslate"><span class="pre">dj.U</span></code>.</p>
-<div class="section" id="aggegating-by-dj-u">
+<section id="aggegating-by-dj-u">
 <h3>Aggegating by <code class="docutils literal notranslate"><span class="pre">dj.U</span></code><a class="headerlink" href="#aggegating-by-dj-u" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="resttricting-a-dj-u-object-with-a-queryexpression-object">
+</section>
+<section id="resttricting-a-dj-u-object-with-a-queryexpression-object">
 <h3>Resttricting a <code class="docutils literal notranslate"><span class="pre">dj.U</span></code> object with a <code class="docutils literal notranslate"><span class="pre">QueryExpression</span></code> object<a class="headerlink" href="#resttricting-a-dj-u-object-with-a-queryexpression-object" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="joining-a-dj-u-object">
+</section>
+<section id="joining-a-dj-u-object">
 <h3>Joining a <code class="docutils literal notranslate"><span class="pre">dj.U</span></code> object<a class="headerlink" href="#joining-a-dj-u-object" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="query-backprojection">
+</section>
+</section>
+<section id="query-backprojection">
 <h2>Query “Backprojection”<a class="headerlink" href="#query-backprojection" title="Permalink to this headline">¶</a></h2>
 <p>Once a QueryExpression is used in a <code class="docutils literal notranslate"><span class="pre">fetch</span></code> operation or becomes a subquery in another query, it can project out all unnecessary attributes from its own inputs, recursively.
 This is implemented by the <code class="docutils literal notranslate"><span class="pre">finalize</span></code> method.
 This simplification produces much leaner queries resulting in improved query performance in version 0.13, especially on complex queries with blob data, compensating for MySQL’s deficiencies in query optimization.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Distributed Computing &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,9 +675,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="distributed-computing">
+  <section id="distributed-computing">
 <span id="distributed"></span><h1>Distributed Computing<a class="headerlink" href="#distributed-computing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="job-reservations">
+<section id="job-reservations">
 <h2>Job reservations<a class="headerlink" href="#job-reservations" title="Permalink to this headline">¶</a></h2>
 <p>Running <code class="docutils literal notranslate"><span class="pre">populate</span></code> on the same table on multiple computers will causes them to attempt to compute the same data all at once.
 This will not corrupt the data since DataJoint will reject any duplication.
@@ -741,8 +742,8 @@ error trace.</p>
 </div>
 <p>In some cases, it may be preferable to inspect the jobs table records using populate keys.
 Since job keys are hashed and stored as a blob in the jobs table to support the varying types of keys, we need to query using the key hash instead of simply using the raw key data.</p>
-</div>
-<div class="section" id="managing-connections">
+</section>
+<section id="managing-connections">
 <h2>Managing connections<a class="headerlink" href="#managing-connections" title="Permalink to this headline">¶</a></h2>
 <p>The DataJoint method <code class="docutils literal notranslate"><span class="pre">dj.kill</span></code> allows for viewing and termination of database connections.
 Restrictive conditions can be used to identify specific connections.
@@ -753,8 +754,8 @@ Restrictions are specified as strings and can involve any of the attributes of <
 <code class="docutils literal notranslate"><span class="pre">dj.kill('TIME</span> <span class="pre">&gt;</span> <span class="pre">600')</span></code> lists only connections older than 10 minutes.</p>
 </div></blockquote>
 <p>A list of connections meeting the restriction conditions (if present) are presented to the user, along with the option to kill processes.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

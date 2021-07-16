@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Drop &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,7 +622,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="drop">
+  <section id="drop">
 <span id="id1"></span><h1>Drop<a class="headerlink" href="#drop" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">drop</span></code> method completely removes a table from the database, including its definition.
 It also removes all dependent tables, recursively.
@@ -631,15 +632,15 @@ DataJoint will first display the tables being dropped and the number of entities
 <span class="n">Person</span><span class="o">.</span><span class="n">drop</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="section" id="dropping-part-tables">
+<section id="dropping-part-tables">
 <h2>Dropping part tables<a class="headerlink" href="#dropping-part-tables" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">part table</span></a> is usually removed as a consequence of calling <code class="docutils literal notranslate"><span class="pre">drop</span></code> on its master table.</p>
 <p>A <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">part table</span></a> is usually removed as a consequence of calling <code class="docutils literal notranslate"><span class="pre">drop</span></code> on its master table.
 To enforce this workflow, calling <code class="docutils literal notranslate"><span class="pre">drop</span></code> directly on a part table produces an error.
 In some cases, it may be necessary to override this behavior.
 To remove a part table without removing its master, use the argument <code class="docutils literal notranslate"><span class="pre">force=True</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

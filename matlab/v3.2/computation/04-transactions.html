@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Transactions in Make &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,7 +598,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="transactions-in-make">
+  <section id="transactions-in-make">
 <span id="make-transactions"></span><h1>Transactions in Make<a class="headerlink" href="#transactions-in-make" title="Permalink to this headline">¶</a></h1>
 <p>Each call of the <a class="reference internal" href="01-autopopulate.html#make"><span class="std std-ref">make</span></a> method is enclosed in a transaction.
 DataJoint users do not need to explicitly manage transactions but must be aware of their use.</p>
@@ -609,7 +610,7 @@ If the <code class="docutils literal notranslate"><span class="pre">make</span><
 <p>Transactions are particularly important in maintaining <a class="reference internal" href="../concepts/04-Integrity.html#group-integrity"><span class="std std-ref">group integrity</span></a> with <a class="reference internal" href="03-master-part.html#master-part"><span class="std std-ref">master-part relationships</span></a>.
 The <code class="docutils literal notranslate"><span class="pre">make</span></code> call of a master table first inserts the master entity and then inserts all the matching part entities in the part tables.
 None of the entities become visible to other processes until the entire <code class="docutils literal notranslate"><span class="pre">make</span></code> call completes, at which point they all become visible.</p>
-</div>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

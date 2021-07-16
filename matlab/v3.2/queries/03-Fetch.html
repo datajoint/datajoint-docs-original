@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Fetch &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,7 +598,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="fetch">
+  <section id="fetch">
 <span id="id1"></span><h1>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h1>
 <p>Data queries in DataJoint comprise two distinct steps:</p>
 <ol class="arabic simple">
@@ -631,7 +632,7 @@ The second syntax is more commonly used to avoid extra variables.</p>
 <span class="n">result</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="section" id="fetch-the-primary-key">
+<section id="fetch-the-primary-key">
 <h2>Fetch the primary key<a class="headerlink" href="#fetch-the-primary-key" title="Permalink to this headline">¶</a></h2>
 <p>Without any arguments, the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> method retrieves the primary key values of the table in the form of a single column <code class="docutils literal notranslate"><span class="pre">struct</span></code>.
 The attribute names become the fieldnames of the <code class="docutils literal notranslate"><span class="pre">struct</span></code>.</p>
@@ -640,8 +641,8 @@ The attribute names become the fieldnames of the <code class="docutils literal n
 </pre></div>
 </div>
 <p>Note that MATLAB allows calling functions without the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
-</div>
-<div class="section" id="fetch-entire-query">
+</section>
+<section id="fetch-entire-query">
 <h2>Fetch entire query<a class="headerlink" href="#fetch-entire-query" title="Permalink to this headline">¶</a></h2>
 <p>With a single-quoted asterisk (<code class="docutils literal notranslate"><span class="pre">'*'</span></code>) as the input argument, the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> command retrieves the entire result as a struct array.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="s">&#39;*&#39;</span><span class="p">);</span>
@@ -653,8 +654,8 @@ The attribute names become the fieldnames of the <code class="docutils literal n
 When <code class="docutils literal notranslate"><span class="pre">query</span></code> is a table object rather than a query expression, <code class="docutils literal notranslate"><span class="pre">query.sizeOnDisk()</span></code> reports the estimated size of the entire table.
 It can be used to assess whether running <code class="docutils literal notranslate"><span class="pre">query.fetch('*')</span></code> would be wise.
 Please note that it is only currently possible to query the size of entire tables stored directly in the database .</p>
-</div>
-<div class="section" id="as-separate-variables">
+</section>
+<section id="as-separate-variables">
 <h2>As separate variables<a class="headerlink" href="#as-separate-variables" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">fetch1</span></code> and <code class="docutils literal notranslate"><span class="pre">fetchn</span></code> methods are used to retrieve each attribute into a separate variable.
 DataJoint needs two different methods to tell MATLAB whether the result should be in array or scalar form; for numerical fields it does not matter (because scalars are still matrices in MATLAB) but non-uniform collections of values must be enclosed in cell arrays.</p>
@@ -667,8 +668,8 @@ DataJoint needs two different methods to tell MATLAB whether the result should b
 <span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="n">imgs</span><span class="p">]</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;image&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="obtaining-the-primary-key-along-with-individual-values">
+</section>
+<section id="obtaining-the-primary-key-along-with-individual-values">
 <h2>Obtaining the primary key along with individual values<a class="headerlink" href="#obtaining-the-primary-key-along-with-individual-values" title="Permalink to this headline">¶</a></h2>
 <p>It is often convenient to know the primary key values corresponding to attribute values retrieved by <code class="docutils literal notranslate"><span class="pre">fetchn</span></code>.
 This can be done by adding a special input argument indicating the request and another output argument to receive the key values:</p>
@@ -678,8 +679,8 @@ This can be done by adding a special input argument indicating the request and a
 </div>
 <p>The resulting value of <code class="docutils literal notranslate"><span class="pre">keys</span></code> will be a column array of type <code class="docutils literal notranslate"><span class="pre">struct</span></code>.
 This mechanism is only implemented for <code class="docutils literal notranslate"><span class="pre">fetchn</span></code>.</p>
-</div>
-<div class="section" id="rename-and-calculate">
+</section>
+<section id="rename-and-calculate">
 <h2>Rename and calculate<a class="headerlink" href="#rename-and-calculate" title="Permalink to this headline">¶</a></h2>
 <p>In DataJoint for MATLAB, all <code class="docutils literal notranslate"><span class="pre">fetch</span></code> methods have all the same capability as the <a class="reference internal" href="08-Proj.html#proj"><span class="std std-ref">proj</span></a> operator.
 For example, renaming an attribute can be accomplished using the syntax below.</p>
@@ -687,8 +688,8 @@ For example, renaming an attribute can be accomplished using the syntax below.</
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="08-Proj.html#proj"><span class="std std-ref">Proj</span></a> for an in-depth description of projection.</p>
-</div>
-<div class="section" id="sorting-and-limiting-the-results">
+</section>
+<section id="sorting-and-limiting-the-results">
 <h2>Sorting and limiting the results<a class="headerlink" href="#sorting-and-limiting-the-results" title="Permalink to this headline">¶</a></h2>
 <p>To sort the result, add the additional <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> argument in <code class="docutils literal notranslate"><span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">fetchn</span></code> methods as the last argument.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% retrieve field ``course_name`` from courses</span>
@@ -704,8 +705,8 @@ For example, to return the most advanced courses, one could do the following:</p
 </pre></div>
 </div>
 <p>The limit clause is passed directly to SQL and follows the same <a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/select.html">rules</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

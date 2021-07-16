@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Data Model &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,9 +675,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="data-model">
+  <section id="data-model">
 <span id="model"></span><h1>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-a-data-model">
+<section id="what-is-a-data-model">
 <h2>What is a data model?<a class="headerlink" href="#what-is-a-data-model" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>data model</strong> refers to a conceptual framework for thinking about data and about operations on data.
 A data model defines the mental toolbox of the data scientist; it has less to do with the architecture of the data systems, although architectures are often intertwined with data models.</p>
@@ -685,13 +686,13 @@ A data model defines the mental toolbox of the data scientist; it has less to do
 For example, items in CSV files are listed in rows, and the attributes of each item are stored in columns.
 Various <strong>spreadsheet</strong> models allow forming dependencies between cells and groups of cells, including complex calculations.</p>
 <p>The <strong>object data model</strong> is common in programming, where data are represented as objects in memory with properties and methods for transformations of such data.</p>
-</div>
-<div class="section" id="relational-data-model">
+</section>
+<section id="relational-data-model">
 <span id="relational-model"></span><h2>Relational data model<a class="headerlink" href="#relational-data-model" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>relational model</strong> is a way of thinking about data as sets and operations on sets.
 Formalized almost a half-century ago (<a class="reference external" href="https://dl.acm.org/citation.cfm?doid=362384.362685">Codd, 1969</a>), the relational data model provides the most rigorous approach to structured data storage and the most precise approach to data querying.
 The model is defined by the principles of data representation, domain constraints, uniqueness constraints, referential constraints, and declarative queries as summarized below.</p>
-<div class="section" id="core-principles-of-the-relational-data-model">
+<section id="core-principles-of-the-relational-data-model">
 <h3>Core principles of the relational data model<a class="headerlink" href="#core-principles-of-the-relational-data-model" title="Permalink to this headline">¶</a></h3>
 <dl class="simple">
 <dt><strong>Data representation.</strong></dt><dd><p>Data are represented and manipulated in the form of relations.
@@ -722,9 +723,9 @@ SQL thoroughly dominates in the space of relational databases and is often confl
 Various terminologies are used to describe related concepts from the relational data model.
 Similar to spreadsheets, relations are often visualized as tables with <em>attributes</em> corresponding to <em>columns</em> and <em>entities</em> corresponding to <em>rows</em>.
 In particular, SQL uses the terms <em>table</em>, <em>column</em>, and <em>row</em>.</p>
-</div>
-</div>
-<div class="section" id="datajoint-is-a-refinement-of-the-relational-data-model">
+</section>
+</section>
+<section id="datajoint-is-a-refinement-of-the-relational-data-model">
 <h2>DataJoint is a refinement of the relational data model<a class="headerlink" href="#datajoint-is-a-refinement-of-the-relational-data-model" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint is a conceptual refinement of the relational data model offering a more expressive and rigorous framework for database programming (<a class="reference external" href="https://arxiv.org/abs/1807.11104">Yatsenko et al., 2018</a>).
 The DataJoint model facilitates clear conceptual modeling, efficient schema design, and precise and flexible data queries.
@@ -742,8 +743,8 @@ These libraries work by transpiling DataJoint queries into SQL before passing th
 </dd>
 </dl>
 <p>The key refinement of DataJoint over other relational data models and their implementations is DataJoint’s support of <a class="reference internal" href="03-Normalization.html#normalization"><span class="std std-ref">entity normalization</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

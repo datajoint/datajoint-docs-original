@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Database Server Hosting &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,7 +598,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="database-server-hosting">
+  <section id="database-server-hosting">
 <span id="hosting"></span><h1>Database Server Hosting<a class="headerlink" href="#database-server-hosting" title="Permalink to this headline">¶</a></h1>
 <p>Let’s say a person, a lab, or a multi-lab consortium decide to use DataJoint as their data pipeline platform.
 What IT resources and support will be required?</p>
@@ -605,22 +606,22 @@ What IT resources and support will be required?</p>
 Large blocks of data associated with these records such as multidimensional numeric arrays (signals, images, scans, movies, etc) can be stored within the database or stored in additionally configured <a class="reference internal" href="4-bulk.html#bulk-storage-systems"><span class="std std-ref">bulk storage</span></a>.</p>
 <p>The first decisions you need to make are where this server will be hosted and how it will be administered.
 The server may be hosted on your personal computer, on a dedicated machine in your lab, or in a cloud-based database service.</p>
-<div class="section" id="cloud-hosting">
+<section id="cloud-hosting">
 <h2>Cloud hosting<a class="headerlink" href="#cloud-hosting" title="Permalink to this headline">¶</a></h2>
 <p>Increasingly, many teams make use of cloud-hosted database services, which allow great flexibility and easy administration of the database server.
 A cloud hosting option will be provided through <a class="reference external" href="https://hub.datajoint.io">https://hub.datajoint.io</a>.
 The hub simplifies the setup for labs that wish to host their data pipelines in the cloud and allows sharing pipelines between multiple groups and locations.
 Being an open-source solution, other cloud services such as Amazon RDS can also be used in this role, albeit with less DataJoint-centric customization.</p>
-</div>
-<div class="section" id="self-hosting">
+</section>
+<section id="self-hosting">
 <h2>Self hosting<a class="headerlink" href="#self-hosting" title="Permalink to this headline">¶</a></h2>
 <p>In the most basic configuration, the relational database software and DataJoint are installed onto a single computer which is used by an individual user.
 To support a small group of users, a larger computer can be used instead and configured for remote access.
 As the number of users grows, individual workstations can be installed with the DataJoint software and used to connect to a larger and more specialized centrally located database server machine.</p>
 <p>For even larger groups or multi-site collaborations, multiple database servers may be configured in a replicated fashion to support larger workloads and simultaneous multi-site access.
 The following section provides some basic guidelines for these configurations here and in the subsequent sections of the documentation.</p>
-</div>
-<div class="section" id="general-server-hardware-support-requirements">
+</section>
+<section id="general-server-hardware-support-requirements">
 <h2>General server / hardware support requirements<a class="headerlink" href="#general-server-hardware-support-requirements" title="Permalink to this headline">¶</a></h2>
 <p>The following table lists some likely scenarios for DataJoint database server deployments and some reasonable estimates of the required computer hardware.
 The required IT/systems support needed to ensure smooth operations in the absence of local database expertise is also listed.</p>
@@ -660,8 +661,8 @@ The required IT/systems support needed to ensure smooth operations in the absenc
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

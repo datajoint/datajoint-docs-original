@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>ERD &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,13 +598,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="erd">
+  <section id="erd">
 <span id="id1"></span><h1>ERD<a class="headerlink" href="#erd" title="Permalink to this headline">¶</a></h1>
 <p>ERD stands for <strong>entity relationship diagram</strong>.
 Objects of type <code class="docutils literal notranslate"><span class="pre">dj.ERD</span></code> allow visualizing portions of the data pipeline in graphical form.
 Tables are depicted as nodes and <a class="reference internal" href="10-Dependencies.html#dependencies"><span class="std std-ref">dependencies</span></a> as directed edges between them.
 The <cite>draw</cite> method plots the graph.</p>
-<div class="section" id="diagram-notation">
+<section id="diagram-notation">
 <h2>Diagram notation<a class="headerlink" href="#diagram-notation" title="Permalink to this headline">¶</a></h2>
 <p>Consider the following ERD</p>
 <img alt="../_images/mp-erd.png" src="../_images/mp-erd.png" />
@@ -620,8 +621,8 @@ This means that the referenced table becomes part of the primary key of the depe
 <li><p>If the primary key of the dependent table has no other attributes besides the foreign key, the foreign key is a thick solid line, indicating a 1:{0,1} relationship.</p></li>
 <li><p>Foreign keys made without renaming the foreign key attributes are in black whereas foreign keys that rename the attributes are indicated in red.</p></li>
 </ul>
-</div>
-<div class="section" id="diagramming-an-entire-schema">
+</section>
+<section id="diagramming-an-entire-schema">
 <h2>Diagramming an entire schema<a class="headerlink" href="#diagramming-an-entire-schema" title="Permalink to this headline">¶</a></h2>
 <p>The schema object for a package can be obtained using its <code class="docutils literal notranslate"><span class="pre">getSchema</span></code> function.
 (See <a class="reference internal" href="01-Creating-Schemas.html#schema"><span class="std std-ref">Creating Schemas</span></a>.)</p>
@@ -639,15 +640,15 @@ This means that the referenced table becomes part of the primary key of the depe
 <span class="n">erd</span> <span class="s">stimulus</span> <span class="s">experiment</span> <span class="s">preprocess.Sync</span>
 </pre></div>
 </div>
-<div class="section" id="initializing-with-a-single-table">
+<section id="initializing-with-a-single-table">
 <h3>Initializing with a single table<a class="headerlink" href="#initializing-with-a-single-table" title="Permalink to this headline">¶</a></h3>
 <p>A <cite>dj.ERD</cite> object can be initialized with a single table.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>A single node makes a rather boring graph but ERDs can be added together or subtracted from each other using graph algebra.</p>
-</div>
-<div class="section" id="adding-erds-together">
+</section>
+<section id="adding-erds-together">
 <h3>Adding ERDs together<a class="headerlink" href="#adding-erds-together" title="Permalink to this headline">¶</a></h3>
 <p>However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs.
 The corresponding foreign keys will be automatically</p>
@@ -655,8 +656,8 @@ The corresponding foreign keys will be automatically</p>
 <span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span> <span class="o">+</span> <span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Species</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="expanding-erds-upstream-and-downstream">
+</section>
+<section id="expanding-erds-upstream-and-downstream">
 <h3>Expanding ERDs upstream and downstream<a class="headerlink" href="#expanding-erds-upstream-and-downstream" title="Permalink to this headline">¶</a></h3>
 <p>Adding a number to an ERD object adds nodes downstream in the pipeline while subtracting a number from ERD object adds nodes upstream in the pipeline.</p>
 <p>Examples:</p>
@@ -672,9 +673,9 @@ The corresponding foreign keys will be automatically</p>
 <span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

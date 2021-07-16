@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>User Management &mdash; DataJoint Documentation matlab-v3.2 documentation</title>
@@ -597,7 +598,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="user-management">
+  <section id="user-management">
 <span id="accounts"></span><h1>User Management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h1>
 <p>Create user accounts on the MySQL server. For example, if your
 username is alice, the SQL code for this step is:</p>
@@ -630,7 +631,7 @@ statement.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SHOW</span> <span class="n">GRANTS</span> <span class="k">FOR</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="section" id="grouping-with-wildcards">
+<section id="grouping-with-wildcards">
 <h2>Grouping with Wildcards<a class="headerlink" href="#grouping-with-wildcards" title="Permalink to this headline">¶</a></h2>
 <p>Depending on the complexity of your installation, using additional
 wildcards to group access rules together might make managing user
@@ -659,8 +660,8 @@ and protected schemas for background proccesing, etc. For example:</p>
 <code class="code docutils literal notranslate"><span class="pre">group\_shared</span></code> databases, but in the case of the
 <code class="code docutils literal notranslate"><span class="pre">group\_wonderland</span></code> databases, read write access is restricted
 to alice.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

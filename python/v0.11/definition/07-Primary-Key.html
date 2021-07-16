@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Primary Key &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,9 +622,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="primary-key">
+  <section id="primary-key">
 <span id="id1"></span><h1>Primary Key<a class="headerlink" href="#primary-key" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="primary-keys-in-datajoint">
+<section id="primary-keys-in-datajoint">
 <h2>Primary keys in DataJoint<a class="headerlink" href="#primary-keys-in-datajoint" title="Permalink to this headline">¶</a></h2>
 <p>Entities in tables are neither named nor numbered.
 DataJoint does not answer questions of the type “What is the 10th element of this table?”
@@ -642,8 +643,8 @@ An experiment performed on a mouse may be identified in the table <code class="d
 Even <strong>table expressions</strong>, i.e. those tables produced through operations on other tables, have a well-defined primary key.
 All operators on tables are designed in such a way that the results always have a well-defined primary key.</p>
 <p>In all representations of tables in DataJoint, the primary key attributes are always listed before other attributes and highlighted for emphasis (e.g. in a <strong>bold</strong> font or marked with an asterisk *)</p>
-</div>
-<div class="section" id="defining-a-primary-key">
+</section>
+<section id="defining-a-primary-key">
 <h2>Defining a primary key<a class="headerlink" href="#defining-a-primary-key" title="Permalink to this headline">¶</a></h2>
 <p>In table declarations, the primary key attributes always come first and are separated from the other attributes with a line containing at least three hyphens.
 For example, the following is the definition of a table containing database users where <code class="docutils literal notranslate"><span class="pre">username</span></code> is the primary key.</p>
@@ -655,8 +656,8 @@ For example, the following is the definition of a table containing database user
 <span class="n">role</span> <span class="p">:</span> <span class="n">enum</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;contributor&#39;</span><span class="p">,</span> <span class="s1">&#39;viewer&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="entity-integrity">
+</section>
+<section id="entity-integrity">
 <h2>Entity integrity<a class="headerlink" href="#entity-integrity" title="Permalink to this headline">¶</a></h2>
 <p>The primary key defines and enforces the desired property of databases known as <a class="reference internal" href="../concepts/04-Integrity.html#integrity"><span class="std std-ref">entity integrity</span></a>.
 <strong>Entity integrity</strong> ensures that there is a one-to-one and unambiguous mapping between real-world entities and their representations in the database system.
@@ -665,8 +666,8 @@ The data management process must prevent any duplication or misidentification of
 * Every table must have a primary key.
 * Primary key attributes cannot have default values (with the exception of <code class="docutils literal notranslate"><span class="pre">auto_increment</span></code> and <code class="docutils literal notranslate"><span class="pre">CURRENT_TIMESTAMP</span></code>; see below).
 * Operators on tables are defined with respect to the primary key and preserve a primary key in their results.</p>
-</div>
-<div class="section" id="datatypes-in-primary-keys">
+</section>
+<section id="datatypes-in-primary-keys">
 <h2>Datatypes in primary keys<a class="headerlink" href="#datatypes-in-primary-keys" title="Permalink to this headline">¶</a></h2>
 <p>All integer types, dates, timestamps, and short character strings make good primary key attributes.
 Character strings are somewhat less suitable because they can be long and because they may have invisible trailing spaces.
@@ -675,8 +676,8 @@ Enums are okay as long as they do not need to be modified after <a class="refere
 Finally, DataJoint does not support blob types in primary keys.</p>
 <p>The primary key may be composite, i.e. comprising several attributes.
 In DataJoint, hierarchical designs often produce tables whose primary keys comprise many attributes.</p>
-</div>
-<div class="section" id="choosing-primary-key-attributes">
+</section>
+<section id="choosing-primary-key-attributes">
 <h2>Choosing primary key attributes<a class="headerlink" href="#choosing-primary-key-attributes" title="Permalink to this headline">¶</a></h2>
 <p>A primary key comprising real-world attributes is a good choice when such real-world attributes are already properly and permanently assigned.
 Whatever characteristics are used to uniquely identify the actual entities can be used to identify their representations in the database.</p>
@@ -690,7 +691,7 @@ Just like the SSN, well managed primary keys tend to get institutionalized and f
 <p>Your lab must maintain a system for uniquely identifying important entities.
 For example, experiment subjects and experiment protocols must have unique IDs.
 Use these as the primary keys in the corresponding tables in your DataJoint databases.</p>
-<div class="section" id="using-hashes-as-primary-keys">
+<section id="using-hashes-as-primary-keys">
 <h3>Using hashes as primary keys<a class="headerlink" href="#using-hashes-as-primary-keys" title="Permalink to this headline">¶</a></h3>
 <p>Some tables include too many attributes in their primary keys.
 For example, the stimulus condition in a psychophysics experiment may have a dozen parameters such that a change in any one of them makes a different valid stimulus condition.
@@ -701,8 +702,8 @@ To be most useful, primary keys need to be relatively short.</p>
 For example, MD5 or SHA-1 hash algorithms can be used for this purpose.
 To keep their representations human-readable, they may be encoded in base-64 ASCII.
 For example, the 128-bit MD5 hash can be represented by 21 base-64 ASCII characters, but for many applications, taking the first 8 to 12 characters is sufficient to avoid collisions.</p>
-</div>
-<div class="section" id="auto-increment">
+</section>
+<section id="auto-increment">
 <h3><code class="docutils literal notranslate"><span class="pre">auto_increment</span></code><a class="headerlink" href="#auto-increment" title="Permalink to this headline">¶</a></h3>
 <p>Some entities are created by the very action of being entered into the database.
 The action of entering them into the database gives them their identity.
@@ -732,9 +733,9 @@ Then you can do the following:</p>
 </pre></div>
 </div>
 <p>Note that the first option uses a <a class="reference internal" href="../queries/11-Universal-Sets.html#universal-sets"><span class="std std-ref">universal set</span></a>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

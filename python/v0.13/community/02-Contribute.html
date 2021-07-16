@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Contribute &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,12 +704,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="contribute">
+  <section id="contribute">
 <span id="id1"></span><h1>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h1>
 <p>Thank you for your interest in contributing! 🤝</p>
 <p>To help keep everyone in alignment and coordinated in the community effort, we’ve created this document. It serves as the contribution guideline that outlines how open-source software development is to be conducted. Any software development that makes reference to this document can be assumed to adopt the policies outlined below. We’ve structured the guideline in a FAQ (frequently asked questions) format to make it easier to digest. Feel free to review the questions below to determine any specific policy.</p>
 <p>The principal maintainer of DataJoint and associated tools is the DataJoint Neuro team (Vathes Inc.). The pronouns “we” and “us” in this guideline refer to the principal maintainers. We invite reviews and contributions of the open-source software. We compiled these guidelines to make this work clear and efficient.</p>
-<div class="section" id="which-issue-should-i-contribute-towards">
+<section id="which-issue-should-i-contribute-towards">
 <h2>1) Which issue should I contribute towards?<a class="headerlink" href="#which-issue-should-i-contribute-towards" title="Permalink to this headline">¶</a></h2>
 <p>There are three primary things to consider when looking to contribute.</p>
 <ul class="simple">
@@ -714,8 +718,8 @@
 <li><p><strong>Priority</strong>: As a community, we work on a concerted effort to bring about the realization of the milestones. We utilize milestones as a planning tool to help focus a group of changes around a release. To determine the priority of issues, simply have a look at the next milestone that is expected to arrive. Therefore, each milestone following this can be understood as lower in priority respectively. Bear in mind that much like a hurricane forecast, the execution plan is much more likely to be accurate the closer to today’s date as opposed to milestones further out. Extremely low priority issues are assigned to the <code class="docutils literal notranslate"><span class="pre">Backburner</span></code> milestone. Since <code class="docutils literal notranslate"><span class="pre">Backburner</span></code> does not have a target date, this indicates that its issues may be deferred indefinitely. Occasionally the maintainers will move issues from <code class="docutils literal notranslate"><span class="pre">Backburner</span></code> as it makes sense to address them within a release. Also, issues <code class="docutils literal notranslate"><span class="pre">unassigned</span></code> to a milestone can be understood as new issues which have not been triaged.</p></li>
 </ul>
 <p>After considering the above, you may comment on the issue you’d like to help fix and a maintainer will assign it to you.</p>
-</div>
-<div class="section" id="what-is-the-proper-etiquette-for-proposing-changes-as-contribution">
+</section>
+<section id="what-is-the-proper-etiquette-for-proposing-changes-as-contribution">
 <h2>2) What is the proper etiquette for proposing changes as contribution?<a class="headerlink" href="#what-is-the-proper-etiquette-for-proposing-changes-as-contribution" title="Permalink to this headline">¶</a></h2>
 <p>What is generally expected from new contributions are the following:</p>
 <ul>
@@ -747,12 +751,12 @@
 <li><p>Reviewer suggestions or feedback should not be directly committed to a branch on a contributor’s fork. A less intrusive way to collaborate would be for the reviewer to PR to the contributor’s fork/branch that is associated with the main PR currently in review.</p></li>
 </ul>
 <p>Maintainers will also ensure that PR’s have the appropriate assignment for reviewer, milestone, and project.</p>
-</div>
-<div class="section" id="how-can-i-track-the-progress-of-an-issue-that-has-been-assigned">
+</section>
+<section id="how-can-i-track-the-progress-of-an-issue-that-has-been-assigned">
 <h2>3) How can I track the progress of an issue that has been assigned?<a class="headerlink" href="#how-can-i-track-the-progress-of-an-issue-that-has-been-assigned" title="Permalink to this headline">¶</a></h2>
 <p>Since milestones represent the development plan, projects represent the actual execution. Projects are typically fixed-time sprints (1-2 weeks). A ‘workable’ number of issues that have been assigned to developers and assigned to the next milestone are selected and tracked in each project to provide greater granularity in the week-to-week progress. Automation is included observing the <code class="docutils literal notranslate"><span class="pre">Automated</span> <span class="pre">kanban</span> <span class="pre">with</span> <span class="pre">reviews</span></code> template. Maintainers will adjust the project assignment to reflect the order in which to resolve the milestone issues.</p>
-</div>
-<div class="section" id="what-is-the-release-process-how-do-i-know-when-my-merged-contribution-will-officially-make-it-into-a-release">
+</section>
+<section id="what-is-the-release-process-how-do-i-know-when-my-merged-contribution-will-officially-make-it-into-a-release">
 <h2>4) What is the release process? How do I know when my merged contribution will officially make it into a release?<a class="headerlink" href="#what-is-the-release-process-how-do-i-know-when-my-merged-contribution-will-officially-make-it-into-a-release" title="Permalink to this headline">¶</a></h2>
 <p>Releases follow the standard definition of <a class="reference external" href="https://semver.org/spec/v2.0.0.html">semantic versioning</a>. Meaning:</p>
 <p><code class="docutils literal notranslate"><span class="pre">MAJOR</span></code> . <code class="docutils literal notranslate"><span class="pre">MINOR</span></code> . <code class="docutils literal notranslate"><span class="pre">PATCH</span></code></p>
@@ -763,40 +767,40 @@
 </ol>
 <p>Each release requires tagging the commit appropriately and is then issued in the normal medium for release e.g. PyPi, NPM, YARN, GitHub Release, etc.</p>
 <p>Minor releases are triggered when all the issues assigned to a milestone are resolved and closed. Patch releases are triggered periodically from <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> after a reasonable number of PR merges have come in.</p>
-</div>
-<div class="section" id="i-am-not-yet-too-comfortable-contributing-but-would-like-to-engage-the-community-what-is-the-policy-on-community-engagement">
+</section>
+<section id="i-am-not-yet-too-comfortable-contributing-but-would-like-to-engage-the-community-what-is-the-policy-on-community-engagement">
 <h2>5) I am not yet too comfortable contributing but would like to engage the community. What is the policy on community engagement?<a class="headerlink" href="#i-am-not-yet-too-comfortable-contributing-but-would-like-to-engage-the-community-what-is-the-policy-on-community-engagement" title="Permalink to this headline">¶</a></h2>
 <p>In order to follow the appropriate process and setting, please reference the following flow for your desired mode of engagement:</p>
-<div class="section" id="a-generally-how-do-i-perform">
+<section id="a-generally-how-do-i-perform">
 <h3>5a) Generally, how do I perform <strong>__________</strong>?<a class="headerlink" href="#a-generally-how-do-i-perform" title="Permalink to this headline">¶</a></h3>
 <p>If the documentation does not provide clear enough instruction, please see StackOverflow posts related to the <a class="reference external" href="https://stackoverflow.com/questions/tagged/datajoint">datajoint</a> tag or ask a new question tagging it appropriately. You may refer to our <a class="reference external" href="https://stackoverflow.com/tags/datajoint/info">datajoint tag wiki</a> for more details on its proper use.</p>
-</div>
-<div class="section" id="b-i-just-encountered-this-error-how-can-i-resolve-it">
+</section>
+<section id="b-i-just-encountered-this-error-how-can-i-resolve-it">
 <h3>5b) I just encountered this error, how can I resolve it?<a class="headerlink" href="#b-i-just-encountered-this-error-how-can-i-resolve-it" title="Permalink to this headline">¶</a></h3>
 <p>Please see StackOverflow posts related to the <a class="reference external" href="https://stackoverflow.com/questions/tagged/datajoint">datajoint</a> tag or ask a new question tagging it appropriately. You may refer to our <a class="reference external" href="https://stackoverflow.com/tags/datajoint/info">datajoint tag wiki</a> for more details on its proper use.</p>
-</div>
-<div class="section" id="c-i-just-encountered-this-error-and-i-am-sure-it-is-a-bug-how-do-i-report-it">
+</section>
+<section id="c-i-just-encountered-this-error-and-i-am-sure-it-is-a-bug-how-do-i-report-it">
 <h3>5c) I just encountered this error and I am sure it is a bug, how do I report it?<a class="headerlink" href="#c-i-just-encountered-this-error-and-i-am-sure-it-is-a-bug-how-do-i-report-it" title="Permalink to this headline">¶</a></h3>
 <p>Please file it under the issue tracker associated with the open-source software.</p>
-</div>
-<div class="section" id="d-i-have-an-idea-or-new-feature-request-how-do-i-submit-it">
+</section>
+<section id="d-i-have-an-idea-or-new-feature-request-how-do-i-submit-it">
 <h3>5d) I have an idea or new feature request, how do I submit it?<a class="headerlink" href="#d-i-have-an-idea-or-new-feature-request-how-do-i-submit-it" title="Permalink to this headline">¶</a></h3>
 <p>Please file it under the issue tracker associated with the open-source software.</p>
-</div>
-<div class="section" id="e-i-am-curious-why-the-maintainers-choose-to-i-e-questions-that-are-opinionated-in-nature-with-answers-that-some-might-disagree">
+</section>
+<section id="e-i-am-curious-why-the-maintainers-choose-to-i-e-questions-that-are-opinionated-in-nature-with-answers-that-some-might-disagree">
 <h3>5e) I am curious why the maintainers choose to <strong>__________</strong>? i.e. questions that are ‘opinionated’ in nature with answers that some might disagree.<a class="headerlink" href="#e-i-am-curious-why-the-maintainers-choose-to-i-e-questions-that-are-opinionated-in-nature-with-answers-that-some-might-disagree" title="Permalink to this headline">¶</a></h3>
 <p>Please join the community on the <a class="reference external" href="https://join.slack.com/t/datajoint/shared_invite/enQtMjkwNjQxMjI5MDk0LTQ3ZjFiZmNmNGVkYWFkYjgwYjdhNTBlZTBmMWEyZDc2NzZlYTBjOTNmYzYwOWRmOGFmN2MyYzU0OWQ0MWZiYTE">DataJoint Slack</a> and ask on the most relevant channel. There, you may engage directly with the maintainers for proper discourse.</p>
-</div>
-<div class="section" id="f-what-is-the-timeline-or-roadmap-for-the-release-of-certain-supported-features">
+</section>
+<section id="f-what-is-the-timeline-or-roadmap-for-the-release-of-certain-supported-features">
 <h3>5f) What is the timeline or roadmap for the release of certain supported features?<a class="headerlink" href="#f-what-is-the-timeline-or-roadmap-for-the-release-of-certain-supported-features" title="Permalink to this headline">¶</a></h3>
 <p>Please refer to milestones and projects associated with the open-source software.</p>
-</div>
-<div class="section" id="g-i-need-urgent-help-best-suited-for-live-debugging-how-can-i-reach-out-directly">
+</section>
+<section id="g-i-need-urgent-help-best-suited-for-live-debugging-how-can-i-reach-out-directly">
 <h3>5g) I need urgent help best suited for live debugging, how can I reach out directly?<a class="headerlink" href="#g-i-need-urgent-help-best-suited-for-live-debugging-how-can-i-reach-out-directly" title="Permalink to this headline">¶</a></h3>
 <p>Please join the community on the <a class="reference external" href="https://join.slack.com/t/datajoint/shared_invite/enQtMjkwNjQxMjI5MDk0LTQ3ZjFiZmNmNGVkYWFkYjgwYjdhNTBlZTBmMWEyZDc2NzZlYTBjOTNmYzYwOWRmOGFmN2MyYzU0OWQ0MWZiYTE">DataJoint Slack</a> and ask on the most relevant channel. Please bear in mind that as open-source community software, availability of the maintainers might be limited.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

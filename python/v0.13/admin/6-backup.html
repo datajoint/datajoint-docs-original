@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Backups and Recovery &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,7 +704,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="backups-and-recovery">
+  <section id="backups-and-recovery">
 <span id="backup"></span><h1>Backups and Recovery<a class="headerlink" href="#backups-and-recovery" title="Permalink to this headline">¶</a></h1>
 <p>Backing up your DataJoint installation is critical to ensuring that your work is safe and can be continued in the event of system failures, and several mechanisms are available to use.</p>
 <p>Much like your live installation, your backup will consist of two portions:</p>
@@ -712,13 +716,13 @@
 </div></blockquote>
 <p>This section primarily deals with backup of the relational data since most of the optional bulk storage options use “regular” flat-files for storage and can be backed up via any “normal” disk backup regime.</p>
 <p>There are many options to backup MySQL; subsequent sections discuss a few options.</p>
-<div class="section" id="cloud-hosted-backups">
+<section id="cloud-hosted-backups">
 <h2>Cloud hosted backups<a class="headerlink" href="#cloud-hosted-backups" title="Permalink to this headline">¶</a></h2>
 <p>In the case of cloud-hosted options, many cloud vendors provide automated backup of your data, and some facility for downloading such backups externally.
 Due to the wide variety of cloud-specific options, discussion of these options falls outside of the scope of this documentation.
 However, since the cloud server is also a MySQL server, other options listed here may work for your situation.</p>
-</div>
-<div class="section" id="disk-based-backup">
+</section>
+<section id="disk-based-backup">
 <h2>Disk-based backup<a class="headerlink" href="#disk-based-backup" title="Permalink to this headline">¶</a></h2>
 <p>The simplest option for many cases is to perform a disk-level backup of your MySQL installation using standard disk backup tools.
 It should be noted that all database activity should be stopped for the duration of the backup to prevent errors with the backed up data.
@@ -736,31 +740,31 @@ To use a database lock to perform a backup, the following commands can be used a
 </pre></div>
 </div>
 <p>The backup should be performed between the issuing of these two commands, ensuring the database data is consistent on disk when it is backed up.</p>
-</div>
-<div class="section" id="mysqldump">
+</section>
+<section id="mysqldump">
 <h2>MySQLDump<a class="headerlink" href="#mysqldump" title="Permalink to this headline">¶</a></h2>
 <p>Disk based backups may not be feasible for every installation, or a database may require constant activity such that stopping it for backups is not feasible.
 In such cases, the simplest option is <a class="reference external" href="https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/using-mysqldump.html">MySQLDump</a>, a command line tool that prints the contents of your database contents in SQL form.</p>
 <p>This tool is generally acceptable for most cases and is especially well suited for smaller installations due to its simplicity and ease of use.</p>
 <p>For larger installations, the lower speed of MySQLDump can be a limitation, since it has to convert the database contents to and from SQL rather than dealing with the database files directly.
 Additionally, since backups are performed within a transaction, the backup will be valid up to the time the backup began rather than to its completion, which can make ensuring that the latest data are fully backed up more difficult as the time it takes to run a backup grows.</p>
-</div>
-<div class="section" id="percona-xtrabackup">
+</section>
+<section id="percona-xtrabackup">
 <h2>Percona XTraBackup<a class="headerlink" href="#percona-xtrabackup" title="Permalink to this headline">¶</a></h2>
 <p>The Percona <code class="docutils literal notranslate"><span class="pre">xtrabackup</span></code> tool provides near-realtime backup capability of a MySQL installation, with extended support for replicated databases, and is a good tool for backing up larger databases.</p>
 <p>However, this tool requires local disk access as well as reasonably fast backup media, since it builds an ongoing transaction log in real time to ensure that backups are valid up to the point of their completion.
 This strategy fails if it cannot keep up with the write speed of the database.
 Further, the backups it generates are in binary format and include incomplete database transactions, which require careful attention to detail when restoring.</p>
 <p>As such, this solution is recommended only for advanced use cases or larger databases where limitations of the other solutions may apply.</p>
-</div>
-<div class="section" id="locking-and-ddl-issues">
+</section>
+<section id="locking-and-ddl-issues">
 <h2>Locking and DDL issues<a class="headerlink" href="#locking-and-ddl-issues" title="Permalink to this headline">¶</a></h2>
 <p>One important thing to note is that at the time of writing, MySQL’s transactional system is not <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">definition</span> <span class="pre">language</span></code> aware, meaning that changes to table structures occurring during some backup schemes can result in corrupted backup copies.
 If schema changes will be occurring during your backup window, it is a good idea to ensure that appropriate locking mechanisms are used to prevent these changes during critical steps of the backup process.</p>
 <p>However, on busy installations which cannot be stopped, the use of locks in many backup utilities may cause issues if your programs expect to write data to the database during the backup window.</p>
 <p>In such cases it might make sense to review the given backup tools for locking related options or to use other mechanisms such as replicas or alternate backup tools to prevent interaction of the database.</p>
-</div>
-<div class="section" id="replication-and-snapshots-for-backup">
+</section>
+<section id="replication-and-snapshots-for-backup">
 <h2>Replication and snapshots for backup<a class="headerlink" href="#replication-and-snapshots-for-backup" title="Permalink to this headline">¶</a></h2>
 <p>Larger databases consisting of many Terabytes of data may take many hours or even days to backup and restore, and so downtime resulting from system failure can create major impacts to ongoing work.</p>
 <p>While not backup tools per-se, use of MySQL master-slave replication and disk snapshots can be useful to assist in reducing the downtime resulting from a full database outage.</p>
@@ -769,8 +773,8 @@ When a server fails in this case, users and programs simply restart and point to
 <p>Replicas can also reduce the system load generated by regular backup procedures, since they can be backed up instead of the main server.
 Additionally they can allow more flexibility in a given backup scheme, such as allowing for disk snapshots on a busy system that would not otherwise be able to be stopped.
 A replica copy can be stopped temporarily and then resumed while a disk snapshot or other backup operation occurs.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

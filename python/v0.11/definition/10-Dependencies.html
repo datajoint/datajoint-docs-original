@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Dependencies &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,9 +622,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dependencies">
+  <section id="dependencies">
 <span id="id1"></span><h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="understanding-dependencies">
+<section id="understanding-dependencies">
 <h2>Understanding dependencies<a class="headerlink" href="#understanding-dependencies" title="Permalink to this headline">¶</a></h2>
 <p>A schema contains collections of tables of related data.
 Accordingly, entities in one table often derive some of their meaning or context from entities in other tables.
@@ -641,8 +642,8 @@ The edges are directed and the overall graph is a <strong>directed acyclic graph
 The tables at the top of the flow need to be populated first, followed by those tables one step below and so forth until the last table is populated at the bottom of the pipeline.
 The top of the pipeline tends to be dominated by lookup tables (gray stars) and manual tables (green squares).
 The middle has many imported tables (blue triangles), and the bottom has computed tables (red stars).</p>
-</div>
-<div class="section" id="defining-a-dependency">
+</section>
+<section id="defining-a-dependency">
 <h2>Defining a dependency<a class="headerlink" href="#defining-a-dependency" title="Permalink to this headline">¶</a></h2>
 <p>Foreign keys are defined with arrows <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> in the <a class="reference internal" href="03-Table-Definition.html#definitions"><span class="std std-ref">table definition</span></a>, pointing to another table.</p>
 <p>A foreign key may be defined as part of the <a class="reference internal" href="07-Primary-Key.html#primary-key"><span class="std std-ref">Primary Key</span></a>.</p>
@@ -678,8 +679,8 @@ experimenter        : varchar(20)        # person who performed this experiment
 </div>
 <p>This displayed heading reflects the actual attributes in the table.
 The foreign keys have been replaced by the primary key attributes of the referenced tables, including their data types and comments.</p>
-</div>
-<div class="section" id="how-dependencies-work">
+</section>
+<section id="how-dependencies-work">
 <h2>How dependencies work<a class="headerlink" href="#how-dependencies-work" title="Permalink to this headline">¶</a></h2>
 <p>The foreign key <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">A</span></code> in the definition of table <code class="docutils literal notranslate"><span class="pre">B</span></code> has the following effects:</p>
 <ol class="arabic simple">
@@ -698,15 +699,15 @@ In DataJoint terms, <code class="docutils literal notranslate"><span class="pre"
 <p class="admonition-title">Note</p>
 <p>Note to those already familiar with the theory of relational databases: The usage of the words “depends” and “dependency” here should not be confused with the unrelated concept of <em>functional dependencies</em> that is used to define normal forms.</p>
 </div>
-</div>
-<div class="section" id="referential-integrity">
+</section>
+<section id="referential-integrity">
 <h2>Referential integrity<a class="headerlink" href="#referential-integrity" title="Permalink to this headline">¶</a></h2>
 <p>Dependencies enforce the desired property of databases known as <strong>referential integrity</strong>.
 Referential integrity is the guarantee made by the data management process that related data across the database remain present, correctly associated, and mutually consistent.
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 An entity in table <code class="docutils literal notranslate"><span class="pre">B</span></code> depends on an entity in table <code class="docutils literal notranslate"><span class="pre">A</span></code> when they belong to them or are computed from them.</p>
-</div>
-<div class="section" id="dependencies-with-renamed-attributes">
+</section>
+<section id="dependencies-with-renamed-attributes">
 <h2>Dependencies with renamed attributes<a class="headerlink" href="#dependencies-with-renamed-attributes" title="Permalink to this headline">¶</a></h2>
 <p>In most cases, a dependency includes the primary key attributes of the referenced table as they appear in its table definition.
 Sometimes it can be helpful to choose a new name for a foreign key attribute that better fits the context of the dependent table.
@@ -748,8 +749,8 @@ connection_strength : double  # (pA) peak synaptic current</p>
 <p>In this case, the primary key of <code class="docutils literal notranslate"><span class="pre">Synapse</span></code> will be (<code class="docutils literal notranslate"><span class="pre">animal_id</span></code>, <code class="docutils literal notranslate"><span class="pre">presynaptic_slice</span></code>, <code class="docutils literal notranslate"><span class="pre">presynaptic_cell</span></code>, <code class="docutils literal notranslate"><span class="pre">postsynaptic_slice</span></code>, <code class="docutils literal notranslate"><span class="pre">postsynaptic_cell</span></code>).
 This primary key still imposes the constraint that synapses can only form between cells within the same animal but now allows connecting cells across different slices.</p>
 <p>In the ERD, renamed foreign keys are shown as red lines with an additional dot node in the middle to indicate that a renaming took place.</p>
-</div>
-<div class="section" id="foreign-key-options">
+</section>
+<section id="foreign-key-options">
 <h2>Foreign key options<a class="headerlink" href="#foreign-key-options" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -782,8 +783,8 @@ With the <code class="docutils literal notranslate"><span class="pre">unique</sp
 </pre></div>
 </div>
 <p>Foreign keys made from the primary key cannot be nullable but may be unique.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

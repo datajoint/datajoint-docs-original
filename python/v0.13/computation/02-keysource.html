@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Key Source &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,9 +704,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="key-source">
+  <section id="key-source">
 <span id="keysource"></span><h1>Key Source<a class="headerlink" href="#key-source" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="default-key-source">
+<section id="default-key-source">
 <h2>Default key source<a class="headerlink" href="#default-key-source" title="Permalink to this headline">¶</a></h2>
 <p><strong>Key source</strong> refers to the set of primary key values over which <a class="reference internal" href="01-autopopulate.html#auto"><span class="std std-ref">autopopulate</span></a> iterates, calling the <code class="docutils literal notranslate"><span class="pre">make</span></code> method at each iteration.
 Each <code class="docutils literal notranslate"><span class="pre">key</span></code> from the key source is passed to the table’s <code class="docutils literal notranslate"><span class="pre">make</span></code> call.
@@ -712,11 +716,11 @@ The <code class="docutils literal notranslate"><span class="pre">Stimulus</span>
 The <code class="docutils literal notranslate"><span class="pre">Modality</span></code> table contains one attribute <code class="docutils literal notranslate"><span class="pre">modality</span></code> with one of three values, “EEG”, “fMRI”, and “PET”.
 The <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> table has primary dependencies on both the <code class="docutils literal notranslate"><span class="pre">Stimulus</span></code> and <code class="docutils literal notranslate"><span class="pre">Modality</span></code> tables.</p>
 <p>The key source for <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> will then be all six combinations of <code class="docutils literal notranslate"><span class="pre">stimulus_type</span></code> and <code class="docutils literal notranslate"><span class="pre">modality</span></code> as shown in the figure below.</p>
-<div class="figure align-center">
+<figure class="align-center">
 <img alt="Combination of stimulus_type and modality" src="../_images/key_source_combination.png" />
-</div>
-</div>
-<div class="section" id="custom-key-source">
+</figure>
+</section>
+<section id="custom-key-source">
 <h2>Custom key source<a class="headerlink" href="#custom-key-source" title="Permalink to this headline">¶</a></h2>
 <p>A custom key source can be configured by setting the <code class="docutils literal notranslate"><span class="pre">key_source</span></code> property within a table class, after the <code class="docutils literal notranslate"><span class="pre">definition</span></code> string.</p>
 <p>Any <a class="reference internal" href="../queries/01-Queries.html#query-objects"><span class="std std-ref">query object</span></a> can be used as the key source.
@@ -727,8 +731,8 @@ Other designs may involve using only one of a table’s primary dependencies.</p
 However, the <code class="docutils literal notranslate"><span class="pre">populate</span></code> method of <code class="docutils literal notranslate"><span class="pre">EEG</span></code> should only ingest recordings where the <code class="docutils literal notranslate"><span class="pre">recording_type</span></code> is <code class="docutils literal notranslate"><span class="pre">EEG</span></code>.
 Setting a custom key source prevents the <code class="docutils literal notranslate"><span class="pre">populate</span></code> call from iterating over recordings of the wrong type.</p>
 <p>A custom key source can be configured by setting the <code class="docutils literal notranslate"><span class="pre">key_source</span></code> property within a table class, after the <code class="docutils literal notranslate"><span class="pre">definition</span></code> string.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

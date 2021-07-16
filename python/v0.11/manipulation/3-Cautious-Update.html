@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Cautious Update &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,7 +622,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cautious-update">
+  <section id="cautious-update">
 <span id="update"></span><h1>Cautious Update<a class="headerlink" href="#cautious-update" title="Permalink to this headline">¶</a></h1>
 <p>In database programming, the <strong>update</strong> operation refers to modifying the values of individual attributes in an entity within a table without replacing the entire entity.
 Such an in-place update mechanism is not part of DataJoint’s data manipulation model, because it circumvents data <a class="reference internal" href="../concepts/04-Integrity.html#referential-integrity"><span class="std std-ref">dependency constraints</span></a>.</p>
@@ -631,7 +632,7 @@ The process of deleting existing entities and inserting new entities with correc
 <p>This approach applies specifically to automated tables (see <a class="reference internal" href="../computation/01-autopopulate.html#auto"><span class="std std-ref">Auto-populate</span></a>).
 However, manual tables are often edited outside DataJoint through other interfaces.
 It is up to the user’s discretion to allow updates in manual tables, and the user must be cognizant of the fact that updates will not trigger re-computation of dependent data.</p>
-</div>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

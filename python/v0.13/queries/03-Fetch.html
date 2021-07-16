@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Fetch &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,7 +704,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="fetch">
+  <section id="fetch">
 <span id="id1"></span><h1>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h1>
 <p>Data queries in DataJoint comprise two distinct steps:</p>
 <ol class="arabic simple">
@@ -711,7 +715,7 @@
 Furthermore, the order is not guaranteed to be the same in any two queries, and the contents of two identical queries may change between two sequential invocations unless they are wrapped in a transaction.
 Therefore, if you wish to fetch matching pairs of attributes, do so in one <code class="docutils literal notranslate"><span class="pre">fetch</span></code> call.</p>
 <p>The examples below are based on the <a class="reference internal" href="02-Example-Schema.html#query-example"><span class="std std-ref">example schema</span></a> for this part of the documentation.</p>
-<div class="section" id="entire-table">
+<section id="entire-table">
 <h2>Entire table<a class="headerlink" href="#entire-table" title="Permalink to this headline">¶</a></h2>
 <p>The following statement retrieves the entire table as a NumPy <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.recarray.html">recarray</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">()</span>
@@ -723,23 +727,52 @@ Therefore, if you wish to fetch matching pairs of attributes, do so in one <code
 </div>
 <p>In some cases, the amount of data returned by fetch can be quite large; in these cases it can be useful to use the <code class="docutils literal notranslate"><span class="pre">size_on_disk</span></code> attribute to determine if running a bare fetch would be wise.
 Please note that it is only currently possible to query the size of entire tables stored directly in the database at this time.</p>
-</div>
-<div class="section" id="as-separate-variables">
+</section>
+<section id="as-separate-variables">
 <h2>As separate variables<a class="headerlink" href="#as-separate-variables" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span> <span class="n">img</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch1</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span>  <span class="c1"># when query has exactly one entity</span>
 <span class="n">name</span><span class="p">,</span> <span class="n">img</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span>  <span class="c1"># [name, ...] [image, ...]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="primary-key-values">
+</section>
+<section id="primary-key-values">
 <h2>Primary key values<a class="headerlink" href="#primary-key-values" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">keydict</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">fetch1</span><span class="p">(</span><span class="s2">&quot;KEY&quot;</span><span class="p">)</span>  <span class="c1"># single key dict when tab has exactly one entity</span>
 <span class="n">keylist</span> <span class="o">=</span> <span class="n">tab</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;KEY&quot;</span><span class="p">)</span>  <span class="c1"># list of key dictionaries [{}, ...]</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">KEY</span></code> can also used when returning attribute values as separate variables, such that one of the returned variables contains the entire primary keys.</p>
+</section>
+<section id="sorting-and-limiting-the-results">
+<h2>Sorting and limiting the results<a class="headerlink" href="#sorting-and-limiting-the-results" title="Permalink to this headline">¶</a></h2>
+<p>To sort the result, use the <code class="docutils literal notranslate"><span class="pre">order_by</span></code> keyword argument.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ascending order:</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="c1"># descending order:</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">&#39;name desc&#39;</span><span class="p">)</span>
+<span class="c1"># by name first, year second:</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;name desc&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">))</span>
+<span class="c1"># sort by the primary key:</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">&#39;KEY&#39;</span><span class="p">)</span>
+<span class="c1"># sort by name but for same names order by primary key:</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;KEY desc&#39;</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="usage-with-pandas">
+<p>The <code class="docutils literal notranslate"><span class="pre">order_by</span></code> argument can be a string specifying the attribute to sort by. By default the sort is in ascending order. Use <code class="docutils literal notranslate"><span class="pre">'attr</span> <span class="pre">desc'</span></code> to sort in descending order by attribute <code class="docutils literal notranslate"><span class="pre">attr</span></code>.  The value can also be a sequence of strings, in which case, the sort performed on all the attributes jointly in the order specified.</p>
+<p>The special attribute name <code class="docutils literal notranslate"><span class="pre">'KEY'</span></code> represents the primary key attributes in order that they appear in the index. Otherwise, this name can be used as any other argument.</p>
+<p>If an attribute happens to be a SQL reserved word, it needs to be enclosed in backquotes.  For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">&#39;`select` desc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">order_by</span></code> value is eventually passed  to the <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> <a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html">clause</a>.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">limit</span></code> and <code class="docutils literal notranslate"><span class="pre">offset</span></code> arguments can be used to limit the result to a subset of entities.</p>
+<p>For example, one could do the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that an <code class="docutils literal notranslate"><span class="pre">offset</span></code> cannot be used without specifying a <code class="docutils literal notranslate"><span class="pre">limit</span></code> as well.</p>
+</section>
+<section id="usage-with-pandas">
 <h2>Usage with Pandas<a class="headerlink" href="#usage-with-pandas" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <a class="reference external" href="http://pandas.pydata.org/">library</a> is a popular library for data analysis in Python which can easily be used with DataJoint query results.
 Since the records returned by <code class="docutils literal notranslate"><span class="pre">fetch()</span></code> are contained within a <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code>, they can be easily converted to <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> objects by passing them into the <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> constructor.
@@ -753,8 +786,8 @@ For example:</p>
 </pre></div>
 </div>
 <p>Returning results as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is not possible when fetching a particular subset of attributes or when <code class="docutils literal notranslate"><span class="pre">as_dict</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

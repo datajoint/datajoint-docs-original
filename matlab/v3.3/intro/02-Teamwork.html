@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Teamwork &mdash; DataJoint Documentation matlab-v3.3 documentation</title>
@@ -643,28 +644,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="teamwork">
+  <section id="teamwork">
 <span id="id1"></span><h1>Teamwork<a class="headerlink" href="#teamwork" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="data-management-in-a-science-project">
+<section id="data-management-in-a-science-project">
 <h2>Data management in a science project<a class="headerlink" href="#data-management-in-a-science-project" title="Permalink to this headline">¶</a></h2>
 <p>Science labs organize their projects as a sequence of activities of experiment design, data acquisition, and processing and analysis.</p>
-<div class="figure align-center" id="id3">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/data-science-before.png"><img alt="data science in a science lab" src="../_images/data-science-before.png" style="width: 520px;" /></a>
-<p class="caption"><span class="caption-text">Workflow and dataflow in a common findings-centered approach to data science in a science lab.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Workflow and dataflow in a common findings-centered approach to data science in a science lab.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Many labs lack a uniform data management strategy that would span longitudinally across the entire project lifecycle as well as laterally across different projects.</p>
 <p>Prior to publishing their findings, the research team may need to publish the data to support their findings.
 Without a data management system, this requires custom repackaging of the data to conform to the <a class="reference external" href="https://www.nature.com/articles/sdata201618">FAIR principles</a> for scientific data management.</p>
-</div>
-<div class="section" id="data-centric-project-organization">
+</section>
+<section id="data-centric-project-organization">
 <h2>Data-centric project organization<a class="headerlink" href="#data-centric-project-organization" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint is designed to support a data-centric approach to large science projects in which data are viewed as a principal output of the research project and are managed systematically throughout in a single framework through the entire process.</p>
 <p>This approach requires formulating a general data science plan and upfront investment for setting up resources and processes and training the teams.
 The team uses DataJoint to build data pipelines to support multiple projects.</p>
-<div class="figure align-center" id="id4">
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/data-science-after.png"><img alt="data science in a science lab" src="../_images/data-science-after.png" style="width: 510px;" /></a>
-<p class="caption"><span class="caption-text">Workflow and dataflow in a data pipeline-centered approach.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Workflow and dataflow in a data pipeline-centered approach.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Data pipelines support project data across their entire lifecycle, including the following functions</p>
 <ul class="simple">
 <li><p>experiment design</p></li>
@@ -677,14 +682,16 @@ The team uses DataJoint to build data pipelines to support multiple projects.</p
 <li><p>export for sharing and publishing</p></li>
 </ul>
 <p>Through all these activities, all these data are made accessible to all authorized participants and distributed computations can be done in parallel without compromising data integrity.</p>
-</div>
-<div class="section" id="team-roles">
+</section>
+<section id="team-roles">
 <span id="id2"></span><h2>Team roles<a class="headerlink" href="#team-roles" title="Permalink to this headline">¶</a></h2>
 <p>The adoption of a uniform data management framework allows separation of roles and division of labor among team members, leading to greater efficiency and better scaling.</p>
-<div class="figure align-center" id="id5">
+<figure class="align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/data-engineering.png"><img alt="data science vs engineering" src="../_images/data-engineering.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-text">Distinct responsibilities of data science and data engineering.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Distinct responsibilities of data science and data engineering.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Scientists</p>
 <blockquote>
 <div><p>design and conduct experiments, collecting data.
@@ -708,8 +715,8 @@ Data engineers can provide general solutions such as web hosting, data publishin
 <p>DataJoint is designed to delineate a clean boundary between <strong>data science</strong> and <strong>data engineering</strong>.
 This allows data scientists to use the same uniform data model for data pipelines backed by a variety of information technologies.
 This delineation also enables economies of scale as a single data engineering team can support a wide spectrum of science projects.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

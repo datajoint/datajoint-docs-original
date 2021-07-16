@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Master-Part Relationship &mdash; DataJoint Documentation python-v0.11 documentation</title>
@@ -621,7 +622,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="master-part-relationship">
+  <section id="master-part-relationship">
 <span id="master-part"></span><h1>Master-Part Relationship<a class="headerlink" href="#master-part-relationship" title="Permalink to this headline">¶</a></h1>
 <p>Often an entity in one table is inseparably associated with a group of entities in another, forming a <strong>master-part</strong> relationship.
 The master-part relationship ensures that all parts of a complex representation appear together or not at all.
@@ -655,7 +656,7 @@ The part is subclassed from <code class="docutils literal notranslate"><span cla
                 <span class="k">for</span> <span class="n">roi_pixels</span><span class="p">,</span> <span class="n">roi_weights</span> <span class="ow">in</span> <span class="n">mylib</span><span class="o">.</span><span class="n">segment</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="section" id="populating">
+<section id="populating">
 <h2>Populating<a class="headerlink" href="#populating" title="Permalink to this headline">¶</a></h2>
 <p>Master-part relationships can form in any data tier, but DataJoint observes them more strictly for auto-populated tables.
 To populate both the master <code class="docutils literal notranslate"><span class="pre">Segmentation</span></code> and the part <code class="docutils literal notranslate"><span class="pre">Segmentation.ROI</span></code>, it is sufficient to call the <code class="docutils literal notranslate"><span class="pre">populate</span></code> method of the master:</p>
@@ -666,16 +667,16 @@ To populate both the master <code class="docutils literal notranslate"><span cla
 This ensures that partial results never appear in the database.</p>
 <p>For example, imagine that a segmentation is performed, but an error occurs halfway through inserting the results.
 If this situation were allowed to persist, then it might appear that 20 ROIs were detected where 45 had actually been found.</p>
-</div>
-<div class="section" id="deleting">
+</section>
+<section id="deleting">
 <h2>Deleting<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h2>
 <p>To delete from a master-part pair, one should never delete from the part tables directly.
 The only valid method to delete from a part table is to delete the master.
 This has been an unenforced rule, but upcoming versions of DataJoint will prohibit direct deletes from the master table.
 DataJoint’s <a class="reference internal" href="../manipulation/2-Delete.html#delete"><span class="std std-ref">delete</span></a> operation is also enclosed in a transaction.</p>
 <p>Together, the rules of master-part relationships ensure a key aspect of data integrity: results of computations involving multiple components and steps appear in their entirety or not at all.</p>
-</div>
-<div class="section" id="multiple-parts">
+</section>
+<section id="multiple-parts">
 <h2>Multiple parts<a class="headerlink" href="#multiple-parts" title="Permalink to this headline">¶</a></h2>
 <p>The master-part relationship cannot be chained or nested.
 DataJoint does not allow part tables of other part tables per se.
@@ -704,8 +705,8 @@ For example:</p>
 </div>
 <p>Conceptually, one or more channels belongs to an electrode, and one or more electrodes belong to an array.
 This example assumes that information about an array’s response (which consists ultimately of the responses of multiple electrodes each consisting of multiple channel responses) including it’s electrodes and channels are entered together.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

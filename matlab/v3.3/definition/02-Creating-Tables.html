@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Creating Tables &mdash; DataJoint Documentation matlab-v3.3 documentation</title>
@@ -643,21 +644,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="creating-tables">
+  <section id="creating-tables">
 <span id="table"></span><h1>Creating Tables<a class="headerlink" href="#creating-tables" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="classes-represent-tables">
+<section id="classes-represent-tables">
 <h2>Classes represent tables<a class="headerlink" href="#classes-represent-tables" title="Permalink to this headline">¶</a></h2>
 <p>To make it easy to work with tables in MATLAB and Python, DataJoint programs create a separate class for each table.
 Computer programmers refer to this concept as <a class="reference external" href="https://en.wikipedia.org/wiki/Object-relational_mapping">object-relational mapping</a>.
 For example, the class <code class="docutils literal notranslate"><span class="pre">experiment.Subject</span></code> in the DataJoint client language may correspond to the table called <code class="docutils literal notranslate"><span class="pre">subject</span></code> on the database server.
 Users never need to see the database directly; they only interact with data in the database by creating and interacting with DataJoint classes.</p>
-<div class="section" id="data-tiers">
+<section id="data-tiers">
 <h3>Data tiers<a class="headerlink" href="#data-tiers" title="Permalink to this headline">¶</a></h3>
 <p>The table class must inherit from one of the following superclasses to indicate its data tier: <code class="docutils literal notranslate"><span class="pre">dj.Lookup</span></code>, <code class="docutils literal notranslate"><span class="pre">dj.Manual</span></code>, <code class="docutils literal notranslate"><span class="pre">dj.Imported</span></code>, <code class="docutils literal notranslate"><span class="pre">dj.Computed</span></code>, or <code class="docutils literal notranslate"><span class="pre">dj.Part</span></code>.
 See <a class="reference internal" href="05-Data-Tiers.html#tiers"><span class="std std-ref">Data Tiers</span></a> and <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">Master-Part Relationship</span></a>.</p>
-</div>
-</div>
-<div class="section" id="defining-a-table">
+</section>
+</section>
+<section id="defining-a-table">
 <h2>Defining a table<a class="headerlink" href="#defining-a-table" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint provides the interactive script <code class="docutils literal notranslate"><span class="pre">dj.new</span></code> for creating a new table.
 It will prompt to enter the new table’s class name in the form <code class="docutils literal notranslate"><span class="pre">package.ClassName</span></code>.
@@ -692,8 +693,8 @@ This will create the file <code class="docutils literal notranslate"><span class
 <p>The most important part of the table definition is the comment preceding the <code class="docutils literal notranslate"><span class="pre">classdef</span></code>.
 DataJoint will parse this comment to define the table.</p>
 <p>The class will become usable after you edit this comment as described in <a class="reference internal" href="03-Table-Definition.html#definitions"><span class="std std-ref">Table Definition</span></a>.</p>
-</div>
-<div class="section" id="valid-class-names">
+</section>
+<section id="valid-class-names">
 <h2>Valid class names<a class="headerlink" href="#valid-class-names" title="Permalink to this headline">¶</a></h2>
 <p>Note that in both MATLAB and Python, the class names must follow the CamelCase compound word notation:</p>
 <ul class="simple">
@@ -704,8 +705,8 @@ DataJoint will parse this comment to define the table.</p>
 <p><code class="docutils literal notranslate"><span class="pre">TwoPhotonScan</span></code>, <code class="docutils literal notranslate"><span class="pre">Scan2P</span></code>, <code class="docutils literal notranslate"><span class="pre">Ephys</span></code>, <code class="docutils literal notranslate"><span class="pre">MembraneVoltage</span></code></p>
 <p>Invalid class names:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Two_photon_Scan</span></code>, <code class="docutils literal notranslate"><span class="pre">twoPhotonScan</span></code>, <code class="docutils literal notranslate"><span class="pre">2PhotonScan</span></code>, <code class="docutils literal notranslate"><span class="pre">membranePotential</span></code>, <code class="docutils literal notranslate"><span class="pre">membrane_potential</span></code></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

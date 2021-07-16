@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Delete &mdash; DataJoint Documentation matlab-v3.3 documentation</title>
@@ -643,12 +644,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="delete">
+  <section id="delete">
 <span id="id1"></span><h1>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">del</span></code> method deletes entities from a table and all dependent entries in dependent tables.</p>
 <p>Delete is often used in conjunction with the <a class="reference internal" href="../queries/06-Restriction.html#restriction"><span class="std std-ref">restriction</span></a> operator to define the subset of entities to delete.
 Delete is performed as an atomic transaction so that partial deletes never occur.</p>
-<div class="section" id="examples">
+<section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Delete the entire contents of the table <code class="docutils literal notranslate"><span class="pre">tuning.VonMises</span></code> and all its dependents:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% delete all entries from tuning.VonMises</span>
@@ -661,8 +662,8 @@ Delete is performed as an atomic transaction so that partial deletes never occur
 <span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span> <span class="o">-</span> <span class="s">&#39;mouse=1010&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="deleting-from-part-tables">
+</section>
+<section id="deleting-from-part-tables">
 <h2>Deleting from part tables<a class="headerlink" href="#deleting-from-part-tables" title="Permalink to this headline">¶</a></h2>
 <p>Entities in a <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">part table</span></a> are usually removed as a consequence of deleting the master table.</p>
 <div class="admonition note">
@@ -670,8 +671,8 @@ Delete is performed as an atomic transaction so that partial deletes never occur
 <p>This rule is currently not enforced in MATLAB, but calling <code class="docutils literal notranslate"><span class="pre">del</span></code> directly on a part table will produce an error in the future.
 See <a class="reference external" href="https://github.com/datajoint/datajoint-matlab/issues/193">issue #193</a> on <code class="docutils literal notranslate"><span class="pre">datajoint-matlab</span></code> for more information.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

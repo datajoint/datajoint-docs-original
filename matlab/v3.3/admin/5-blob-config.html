@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>External Store &mdash; DataJoint Documentation matlab-v3.3 documentation</title>
@@ -643,7 +644,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="external-store">
+  <section id="external-store">
 <span id="external"></span><h1>External Store<a class="headerlink" href="#external-store" title="Permalink to this headline">¶</a></h1>
 <p>DataJoint organizes most of its data in a relational database.
 Relational databases excel at representing relationships between entities and storing structured data.
@@ -670,7 +671,7 @@ Similar to <cite>blobs</cite>, <cite>external</cite> attributes cannot be used i
 aligned_movie :  blob@external-raw  # motion-aligned movie in &#39;external-raw&#39; store
 </pre></div>
 </div>
-<div class="section" id="principles-of-operation">
+<section id="principles-of-operation">
 <span id="principles"></span><h2>Principles of operation<a class="headerlink" href="#principles-of-operation" title="Permalink to this headline">¶</a></h2>
 <p>External storage is organized to emulate individual attribute values in the relational database.
 DataJoint organizes external storage to preserve the same data integrity principles as in relational storage.</p>
@@ -733,8 +734,8 @@ If dedicated <code class="docutils literal notranslate"><span class="pre">cache<
 <p>Data removal from external storage is separated from the delete operations to ensure that data are not lost in race conditions between inserts and deletes of the same objects, especially in cases of transactional processing or in processes that are likely to get terminated.
 The cleanup steps are performed in a separate process when the risks of race conditions are minimal.
 The process performing the cleanups must be isolated to prevent interruptions resulting in loss of data integrity.</p>
-</div>
-<div class="section" id="configuration">
+</section>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>The following steps must be performed to enable external storage:</p>
 <ol class="arabic simple">
@@ -760,8 +761,8 @@ The process performing the cleanups must be isolated to prevent interruptions re
 <p>The cache folder is not yet implemented in MATLAB.
 The feature will be added in an upcoming release: <a class="reference external" href="https://github.com/datajoint/datajoint-matlab/issues/143">https://github.com/datajoint/datajoint-matlab/issues/143</a></p>
 </div>
-</div>
-<div class="section" id="cleanup">
+</section>
+<section id="cleanup">
 <h2>Cleanup<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h2>
 <p>Deletion of records containing externally stored blobs is a <cite>soft-delete</cite> which only removes the database-side records from the database.
 To cleanup the external tracking table or the actual external files, a separate process is provided as follows.</p>
@@ -770,8 +771,8 @@ To cleanup the external tracking table or the actual external files, a separate 
 <p>External storage is not yet implemented in MATLAB.
 The feature will be added in an upcoming release: <a class="reference external" href="https://github.com/datajoint/datajoint-matlab/issues/143">https://github.com/datajoint/datajoint-matlab/issues/143</a></p>
 </div>
-</div>
-<div class="section" id="migration-between-datajoint-v0-11-and-v0-12">
+</section>
+<section id="migration-between-datajoint-v0-11-and-v0-12">
 <h2>Migration between DataJoint v0.11 and v0.12<a class="headerlink" href="#migration-between-datajoint-v0-11-and-v0-12" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -848,8 +849,8 @@ changes requiring controlled upgrades can be coordinated on a system
 wide basis.</p></li>
 </ul>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

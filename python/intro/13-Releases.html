@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Release Notes &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,18 +704,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="release-notes">
+  <section id="release-notes">
 <span id="releases"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="mar-24-2021">
+<section id="may-7-2021">
+<h2>0.13.2 – May 7, 2021<a class="headerlink" href="#may-7-2021" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Update <cite>setuptools_certificate</cite> dependency to new name <cite>otumat</cite></p></li>
+<li><p>Bugfix - Explicit calls to <cite>dj.Connection</cite> throw error due to missing <cite>host_input</cite> (#895) PR #907</p></li>
+<li><p>Bugfix - Correct count of deleted items. (#897) PR #912</p></li>
+</ul>
+</section>
+<section id="apr-16-2021">
+<h2>0.13.1 – Apr 16, 2021<a class="headerlink" href="#apr-16-2021" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add <cite>None</cite> as an alias for <cite>IS NULL</cite> comparison in <cite>dict</cite> restrictions (#824) PR #893</p></li>
+<li><p>Drop support for MySQL 5.6 since it has reached EOL PR #893</p></li>
+<li><p>Bugfix - <cite>schema.list_tables()</cite> is not topologically sorted (#838) PR #893</p></li>
+<li><p>Bugfix - Diagram part tables do not show proper class name (#882) PR #893</p></li>
+<li><p>Bugfix - Error in complex restrictions (#892) PR #893</p></li>
+<li><p>Bugfix - WHERE and GROUP BY clases are dropped on joins with aggregation (#898, #899) PR #893</p></li>
+</ul>
+</section>
+<section id="mar-24-2021">
 <h2>0.13.0 – Mar 24, 2021<a class="headerlink" href="#mar-24-2021" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Re-implement query transpilation into SQL, fixing issues (#386, #449, #450, #484). PR #754</p></li>
-<li><p>Re-implement cascading deletes for better performance. PR #839.</p></li>
-<li><p>Add table method <cite>.update1</cite> to update a row in the table with new values PR #763</p></li>
-<li><p>Python datatypes are now enabled by default in blobs (#761). PR #785</p></li>
+<li><p>Re-implement query transpilation into SQL, fixing issues (#386, #449, #450, #484, #558). PR #754</p></li>
+<li><p>Re-implement cascading deletes for better performance. PR #839</p></li>
+<li><p>Add support for deferred schema activation to allow for greater modularity. (#834) PR #839</p></li>
+<li><p>Add query caching mechanism for offline development (#550) PR #839</p></li>
+<li><p>Add table method <cite>.update1</cite> to update a row in the table with new values (#867) PR #763, #889</p></li>
+<li><p>Python datatypes are now enabled by default in blobs (#761). PR #859</p></li>
 <li><p>Added permissive join and restriction operators <cite>&#64;</cite> and <cite>^</cite> (#785) PR #754</p></li>
 <li><p>Support DataJoint datatype and connection plugins (#715, #729) PR 730, #735</p></li>
-<li><p>Add <cite>dj.key_hash</cite> alias to <cite>dj.hash.key_hash</cite></p></li>
+<li><p>Add <cite>dj.key_hash</cite> alias to <cite>dj.hash.key_hash</cite> (#804) PR #862</p></li>
 <li><p>Default enable_python_native_blobs to True</p></li>
 <li><p>Bugfix - Regression error on joins with same attribute name (#857) PR #878</p></li>
 <li><p>Bugfix - Error when <cite>fetch1(‘KEY’)</cite> when <cite>dj.config[‘fetch_format’]=’frame’</cite> set (#876) PR #880, #878</p></li>
@@ -719,16 +744,16 @@
 <li><p>Add deprecation warning for <cite>_update</cite>. PR #889</p></li>
 <li><p>Add <cite>purge_query_cache</cite> utility. PR #889</p></li>
 <li><p>Add tests for query caching and permissive join and restriction. PR #889</p></li>
-<li><p>Drop support for Python 3.5</p></li>
+<li><p>Drop support for Python 3.5 (#829) PR #861</p></li>
 </ul>
-</div>
-<div class="section" id="mar-12-2021">
+</section>
+<section id="mar-12-2021">
 <h2>0.12.9 – Mar 12, 2021<a class="headerlink" href="#mar-12-2021" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix bug with fetch1 with <cite>dj.config[‘fetch_format’]=”frame”</cite>. Issue #876 (PR #880)</p></li>
 </ul>
-</div>
-<div class="section" id="jan-12-2021">
+</section>
+<section id="jan-12-2021">
 <h2>0.12.8 – Jan 12, 2021<a class="headerlink" href="#jan-12-2021" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>table.children, .parents, .descendents, and ancestors can return queryable objects. PR #833</p></li>
@@ -739,16 +764,16 @@
 <li><p>Add more S3 logging for debugging. (#831) PR #832</p></li>
 <li><p>Convert testing framework from TravisCI to GitHub Actions (#841) PR #840</p></li>
 </ul>
-</div>
-<div class="section" id="oct-27-2020">
+</section>
+<section id="oct-27-2020">
 <h2>0.12.7 – Oct 27, 2020<a class="headerlink" href="#oct-27-2020" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix case sensitivity issues to adapt to MySQL 8+.  PR #819</p></li>
 <li><p>Fix pymysql regression bug (#814) PR #816</p></li>
 <li><p>Adapted attribute types now have <cite>dtype=object</cite> in all recarray results. PR #811</p></li>
 </ul>
-</div>
-<div class="section" id="may-15-2020">
+</section>
+<section id="may-15-2020">
 <h2>0.12.6 – May 15, 2020<a class="headerlink" href="#may-15-2020" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add <cite>order_by</cite> to <cite>dj.kill</cite> (#668, #779) PR #775, #783</p></li>
@@ -760,8 +785,8 @@
 <li><p>Bugfix - <cite>delete_external_files=True</cite> does not remove from S3 (#686) PR #781</p></li>
 <li><p>Bugfix - pandas fetch throws error when <cite>fetch_format=’frame’</cite> PR #774</p></li>
 </ul>
-</div>
-<div class="section" id="feb-24-2020">
+</section>
+<section id="feb-24-2020">
 <h2>0.12.5 – Feb 24, 2020<a class="headerlink" href="#feb-24-2020" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Rename module <cite>dj.schema</cite> into <cite>dj.schemas</cite>. <cite>dj.schema</cite> remains an alias for class <cite>dj.Schema</cite>. (#731) PR #732</p></li>
@@ -770,8 +795,8 @@
 <li><p>Bugfix - Unable to run unit tests using nosetests (#723) PR #724</p></li>
 <li><p>Bugfix - <cite>suppress_errors</cite> does not suppress loss of connection error (#720) PR #721</p></li>
 </ul>
-</div>
-<div class="section" id="jan-14-2020">
+</section>
+<section id="jan-14-2020">
 <h2>0.12.4 – Jan 14, 2020<a class="headerlink" href="#jan-14-2020" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Support for simple scalar datatypes in blobs (#690) PR #709</p></li>
@@ -779,29 +804,29 @@
 <li><p>Improve the log table to avoid primary key collisions PR #713</p></li>
 <li><p>Improve documentation in README PR #713</p></li>
 </ul>
-</div>
-<div class="section" id="nov-22-2019">
+</section>
+<section id="nov-22-2019">
 <h2>0.12.3 – Nov 22, 2019<a class="headerlink" href="#nov-22-2019" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bugfix - networkx 2.4 causes error in diagrams (#675) PR #705</p></li>
 <li><p>Bugfix - include table definition in doc string and help (#698, #699) PR #706</p></li>
 <li><p>Bugfix - job reservation fails when native python datatype support is disabled (#701) PR #702</p></li>
 </ul>
-</div>
-<div class="section" id="nov-11-2019">
+</section>
+<section id="nov-11-2019">
 <h2>0.12.2 – Nov 11, 2019<a class="headerlink" href="#nov-11-2019" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bugfix - Convoluted error thrown if there is a reference to a non-existent table attribute (#691) PR #696</p></li>
 <li><p>Bugfix - Insert into external does not trim leading slash if defined in <cite>dj.config[‘stores’][‘&lt;store&gt;’][‘location’]</cite> (#692) PR #693</p></li>
 </ul>
-</div>
-<div class="section" id="nov-2-2019">
+</section>
+<section id="nov-2-2019">
 <h2>0.12.1 – Nov 2, 2019<a class="headerlink" href="#nov-2-2019" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Bugfix - AttributeAdapter converts into a string (#684) PR #688</p></li>
 </ul>
-</div>
-<div class="section" id="oct-31-2019">
+</section>
+<section id="oct-31-2019">
 <h2>0.12.0 – Oct 31, 2019<a class="headerlink" href="#oct-31-2019" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Dropped support for Python 3.4</p></li>
@@ -831,15 +856,15 @@
 <li><p>Bugfixes (#521, #205, #279, #477, #570, #581, #597, #596, #618, #633, #643, #644, #647, #648, #650, #656)</p></li>
 <li><p>Minor improvements (#538)</p></li>
 </ul>
-</div>
-<div class="section" id="nov-15-2018">
+</section>
+<section id="nov-15-2018">
 <h2>0.11.1 – Nov 15, 2018<a class="headerlink" href="#nov-15-2018" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix ordering of attributes in proj (#483 and #516)</p></li>
 <li><p>Prohibit direct insert into auto-populated tables (#511)</p></li>
 </ul>
-</div>
-<div class="section" id="oct-25-2018">
+</section>
+<section id="oct-25-2018">
 <h2>0.11.0 – Oct 25, 2018<a class="headerlink" href="#oct-25-2018" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Full support of dependencies with renamed attributes using projection syntax (#300, #345, #436, #506, #507)</p></li>
@@ -850,8 +875,8 @@
 <li><p>Improve memory management in <code class="docutils literal notranslate"><span class="pre">populate</span></code> (#461, #486)</p></li>
 <li><p>Fix query errors and redundancies (#456, #463, #482)</p></li>
 </ul>
-</div>
-<div class="section" id="aug-28-2018">
+</section>
+<section id="aug-28-2018">
 <h2>0.10.1  – Aug 28, 2018<a class="headerlink" href="#aug-28-2018" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix ERD Tooltip message (#431)</p></li>
@@ -861,8 +886,8 @@
 <li><p>Bugfix in restriction of the form (A &amp; B) * B (#463)</p></li>
 <li><p>Improved error messages (#466)</p></li>
 </ul>
-</div>
-<div class="section" id="jan-10-2018">
+</section>
+<section id="jan-10-2018">
 <h2>0.10.0 – Jan 10, 2018<a class="headerlink" href="#jan-10-2018" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Deletes are more efficient (#424)</p></li>
@@ -874,8 +899,8 @@
 <li><p>Compatibility with pymysql 0.8.0+</p></li>
 <li><p>More efficient loading of dependencies (#403)</p></li>
 </ul>
-</div>
-<div class="section" id="nov-17-2017">
+</section>
+<section id="nov-17-2017">
 <h2>0.9.0 – Nov 17, 2017<a class="headerlink" href="#nov-17-2017" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Made graphviz installation optional</p></li>
@@ -883,8 +908,8 @@
 <li><p>Implement union operator +</p></li>
 <li><p>Implement file-based external storage</p></li>
 </ul>
-</div>
-<div class="section" id="jul-26-2017">
+</section>
+<section id="jul-26-2017">
 <h2>0.8.0 – Jul 26, 2017<a class="headerlink" href="#jul-26-2017" title="Permalink to this headline">¶</a></h2>
 <p>Documentation and tutorials available at <a class="reference external" href="https://docs.datajoint.io">https://docs.datajoint.io</a> and <a class="reference external" href="https://tutorials.datajoint.io">https://tutorials.datajoint.io</a>
 * improved the ERD graphics and features using the graphviz libraries (#207, #333)
@@ -898,46 +923,46 @@
 * job keys are entered in the jobs table (#316, #243)
 * simplified the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">fetch1</span></code> syntax, deprecating the <code class="docutils literal notranslate"><span class="pre">fetch[...]</span></code> syntax (#319)
 * the jobs tables now store the connection ids to allow identifying abandoned jobs (#288, #317)</p>
-</div>
-<div class="section" id="mar-8-2017">
+</section>
+<section id="mar-8-2017">
 <h2>0.5.0 (#298) – Mar 8, 2017<a class="headerlink" href="#mar-8-2017" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>All fetched integers are now 64-bit long and all fetched floats are double precision.</p></li>
 <li><p>Added <code class="docutils literal notranslate"><span class="pre">dj.create_virtual_module</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="feb-6-2017">
+</section>
+<section id="feb-6-2017">
 <h2>0.4.10 (#286) – Feb 6, 2017<a class="headerlink" href="#feb-6-2017" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Removed Vagrant and Readthedocs support</p></li>
 <li><p>Explicit saving of configuration (issue #284)</p></li>
 </ul>
-</div>
-<div class="section" id="feb-2-2017">
+</section>
+<section id="feb-2-2017">
 <h2>0.4.9 (#285) – Feb 2, 2017<a class="headerlink" href="#feb-2-2017" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed setup.py for pip install</p></li>
 </ul>
-</div>
-<div class="section" id="jan-24-2017">
+</section>
+<section id="jan-24-2017">
 <h2>0.4.7 (#281) – Jan 24, 2017<a class="headerlink" href="#jan-24-2017" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed issues related to order of attributes in projection.</p></li>
 </ul>
-</div>
-<div class="section" id="dec-22-2016">
+</section>
+<section id="dec-22-2016">
 <h2>0.4.6 (#277) – Dec 22, 2016<a class="headerlink" href="#dec-22-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Proper handling of interruptions during populate</p></li>
 </ul>
-</div>
-<div class="section" id="dec-20-2016">
+</section>
+<section id="dec-20-2016">
 <h2>0.4.5 (#274) – Dec 20, 2016<a class="headerlink" href="#dec-20-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Populate reports how many keys remain to be populated at the start.</p></li>
 </ul>
-</div>
-<div class="section" id="dec-6-2016">
+</section>
+<section id="dec-6-2016">
 <h2>0.4.3  (#271) – Dec 6, 2016<a class="headerlink" href="#dec-6-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed aggregation issues (#270)</p></li>
@@ -945,63 +970,63 @@
 <li><p>dropped support of view (reversed #257)</p></li>
 <li><p>more elegant handling of insufficient privileges (#268)</p></li>
 </ul>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2>0.4.2 (#267)  – Dec 6, 2016<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>improved table appearance in Jupyter</p></li>
 </ul>
-</div>
-<div class="section" id="oct-28-2016">
+</section>
+<section id="oct-28-2016">
 <h2>0.4.1 (#266) – Oct 28, 2016<a class="headerlink" href="#oct-28-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>bugfix for very long error messages</p></li>
 </ul>
-</div>
-<div class="section" id="sep-27-2016">
+</section>
+<section id="sep-27-2016">
 <h2>0.3.9 – Sep 27, 2016<a class="headerlink" href="#sep-27-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added support for datatype <code class="docutils literal notranslate"><span class="pre">YEAR</span></code></p></li>
 <li><p>Fixed issues with <code class="docutils literal notranslate"><span class="pre">dj.U</span></code> and the <code class="docutils literal notranslate"><span class="pre">aggr</span></code> operator (#246, #247)</p></li>
 </ul>
-</div>
-<div class="section" id="aug-2-2016">
+</section>
+<section id="aug-2-2016">
 <h2>0.3.8  – Aug 2, 2016<a class="headerlink" href="#aug-2-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>added the <code class="docutils literal notranslate"><span class="pre">_update</span></code> method in <code class="docutils literal notranslate"><span class="pre">base_relation</span></code>. It allows updating values in existing tuples.</p></li>
 <li><p>bugfix in reading values of type double.  Previously it was cast as float32.</p></li>
 </ul>
-</div>
-<div class="section" id="jul-31-2016">
+</section>
+<section id="jul-31-2016">
 <h2>0.3.7  – Jul 31, 2016<a class="headerlink" href="#jul-31-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>added parameter <code class="docutils literal notranslate"><span class="pre">ignore_extra_fields</span></code> in <code class="docutils literal notranslate"><span class="pre">insert</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">insert(...,</span> <span class="pre">skip_duplicates=True)</span></code> now relies on <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">IGNORE</span></code>.  Previously it explicitly checked if tuple already exists.</p></li>
 <li><p>table previews now include blob attributes displaying the string &lt;BLOB&gt;</p></li>
 </ul>
-</div>
-<div class="section" id="jul-30-2016">
+</section>
+<section id="jul-30-2016">
 <h2>0.3.6  – Jul 30, 2016<a class="headerlink" href="#jul-30-2016" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>bugfix in <code class="docutils literal notranslate"><span class="pre">schema.spawn_missing_classes</span></code>.  Previously, spawned part classes would not show in ERDs.</p></li>
 <li><p>dj.key now causes fetch to return as a list of dicts.  Previously it was a recarray.</p></li>
 </ul>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2>0.3.5<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dj.set_password()</span></code> now asks for user confirmation before changing the password.</p></li>
 <li><p>fixed issue #228</p></li>
 </ul>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h2>0.3.4<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added method the <code class="docutils literal notranslate"><span class="pre">ERD.add_parts</span></code> method, which adds the part tables of all tables currently in the ERD.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ERD()</span> <span class="pre">+</span> <span class="pre">arg</span></code> and <code class="docutils literal notranslate"><span class="pre">ERD()</span> <span class="pre">-</span> <span class="pre">arg</span></code> can now accept relation classes as arg.</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h2>0.3.3<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Suppressed warnings (redirected them to logging).  Previoiusly, scipy would throw warnings in ERD, for example.</p></li>
@@ -1009,16 +1034,16 @@
 <li><p>ERD() no longer text the context argument.</p></li>
 <li><p>ERD.draw() now takes an optional context argument.  By default uses the caller’s locals.</p></li>
 </ul>
-</div>
-<div class="section" id="id7">
+</section>
+<section id="id7">
 <h2>0.3.2<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed issue #223:  <code class="docutils literal notranslate"><span class="pre">insert</span></code> can insert relations without fetching.</p></li>
 <li><p>ERD() now takes the <code class="docutils literal notranslate"><span class="pre">context</span></code> argument, which specifies in which context to look for classes. The default is taken from the argument (schema or relation).</p></li>
 <li><p>ERD.draw() no longer has the <code class="docutils literal notranslate"><span class="pre">prefix</span></code> argument: class names are shown as found in the context.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Auto-populate &mdash; DataJoint Documentation matlab-v3.3 documentation</title>
@@ -643,7 +644,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="auto-populate">
+  <section id="auto-populate">
 <span id="auto"></span><h1>Auto-populate<a class="headerlink" href="#auto-populate" title="Permalink to this headline">¶</a></h1>
 <p>Auto-populated tables are used to define, execute, and coordinate computations in a DataJoint pipeline.</p>
 <p>Tables in the initial portions of the pipeline are populated from outside the pipeline.
@@ -655,7 +656,7 @@ Otherwise it is <strong>computed</strong>.</p>
 <p>Auto-populated tables are defined and queried exactly as other tables.
 (See <a class="reference internal" href="../definition/12-Example.html#example"><span class="std std-ref">Manual Tables</span></a>.)
 Their data definition follows the same <a class="reference internal" href="../definition/04-Definition-Syntax.html#definition-syntax"><span class="std std-ref">definition syntax</span></a>.</p>
-<div class="section" id="make">
+<section id="make">
 <span id="id1"></span><h2>Make<a class="headerlink" href="#make" title="Permalink to this headline">¶</a></h2>
 <p>For auto-populated tables, data should never be entered using <a class="reference internal" href="../manipulation/1-Insert.html#insert"><span class="std std-ref">insert</span></a> directly.
 Instead these tables must define the callback method <code class="docutils literal notranslate"><span class="pre">make(self,</span> <span class="pre">key)</span></code>.
@@ -695,8 +696,8 @@ The key represents the partially filled entity, usually already containing the <
 <li><p>Inserts the entire entity into <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">make</span></code> may populate multiple entities in one call when <code class="docutils literal notranslate"><span class="pre">key</span></code> does not specify the entire primary key of the populated table.</p>
-</div>
-<div class="section" id="populate">
+</section>
+<section id="populate">
 <h2>Populate<a class="headerlink" href="#populate" title="Permalink to this headline">¶</a></h2>
 <p>The inherited <code class="docutils literal notranslate"><span class="pre">populate</span></code> method of <code class="docutils literal notranslate"><span class="pre">dj.Imported</span></code> and <code class="docutils literal notranslate"><span class="pre">dj.Computed</span></code> automatically calls <code class="docutils literal notranslate"><span class="pre">make</span></code> for every key for which the auto-populated table is missing data.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">FilteredImage</span></code> table can be populated as</p>
@@ -706,14 +707,14 @@ The key represents the partially filled entity, usually already containing the <
 <p>Note that it is not necessary to specify which data needs to be computed.
 DataJoint will call <code class="docutils literal notranslate"><span class="pre">make</span></code>, one-by-one, for every key in <code class="docutils literal notranslate"><span class="pre">Image</span></code> for which <code class="docutils literal notranslate"><span class="pre">FilteredImage</span></code> has not yet been computed.</p>
 <p>Chains of auto-populated tables form computational pipelines in DataJoint.</p>
-</div>
-<div class="section" id="populate-options">
+</section>
+<section id="populate-options">
 <h2>Populate options<a class="headerlink" href="#populate-options" title="Permalink to this headline">¶</a></h2>
 <p>Behavior of the <code class="docutils literal notranslate"><span class="pre">populate</span></code> method depends on the number of output arguments requested in the function call.
 When no output arguments are requested, errors will halt population.
 With two output arguments (<code class="docutils literal notranslate"><span class="pre">failedKeys</span></code> and <code class="docutils literal notranslate"><span class="pre">errors</span></code>), <code class="docutils literal notranslate"><span class="pre">populate</span></code> will catch any encountered errors and return them along with the offending keys.</p>
-</div>
-<div class="section" id="progress">
+</section>
+<section id="progress">
 <h2>Progress<a class="headerlink" href="#progress" title="Permalink to this headline">¶</a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">parpopulate</span></code> works identically to <code class="docutils literal notranslate"><span class="pre">populate</span></code> except that it uses a job reservation mechanism to allow multiple processes to populate the same table in parallel without collision.
 When running <code class="docutils literal notranslate"><span class="pre">parpopulate</span></code> for the first time, DataJoint will create a job reservation table and its class <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;.Jobs</span></code> with the following declaration:</p>
@@ -739,8 +740,8 @@ If the job results in error, the job record is left in place with the status set
 Consequently, jobs that ended in error during the last execution will not be attempted again until you delete the corresponding entities from <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;.Jobs</span></code>.</p>
 <p>The primary key of the jobs table comprises the name of the class and a 32-character hash of the job’s primary key.
 However, the key is saved in a separate field for error debugging purposes.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Aggr &mdash; DataJoint Documentation matlab-v3.4 documentation</title>
@@ -176,6 +177,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-28-2021">3.4.3 – May 28, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#march-16-2021">3.4.2 – March 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#december-18-2020">3.4.1 – December 18, 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#december-11-2020">3.4.0 – December 11, 2020</a></li>
@@ -646,7 +648,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="aggr">
+  <section id="aggr">
 <span id="id1"></span><h1>Aggr<a class="headerlink" href="#aggr" title="Permalink to this headline">¶</a></h1>
 <p><strong>Aggregation</strong>, performed with the <code class="docutils literal notranslate"><span class="pre">aggr</span></code> operator, is a special form of <code class="docutils literal notranslate"><span class="pre">proj</span></code> with the additional feature of allowing aggregation calculations on another table.
 It has the form <code class="docutils literal notranslate"><span class="pre">tab.aggr(other,</span> <span class="pre">...)</span></code> where <code class="docutils literal notranslate"><span class="pre">other</span></code> is another table.
@@ -656,7 +658,7 @@ Aggregation allows adding calculated attributes to each entity in <code class="d
 Aggregation functions can only be used in the definitions of new attributes within the <code class="docutils literal notranslate"><span class="pre">aggr</span></code> operator.</p>
 <p>As with <code class="docutils literal notranslate"><span class="pre">proj</span></code>, the output of <code class="docutils literal notranslate"><span class="pre">aggr</span></code> has the same entity class, the same primary key, and the same number of elements as <code class="docutils literal notranslate"><span class="pre">tab</span></code>.
 Primary key attributes are always included in the output and may be renamed, just like in <code class="docutils literal notranslate"><span class="pre">proj</span></code>.</p>
-<div class="section" id="examples">
+<section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Number of students in each course section</span>
 <span class="n">university</span><span class="p">.</span><span class="n">Section</span><span class="p">.</span><span class="n">aggr</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Enroll</span><span class="p">,</span> <span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span>
@@ -664,8 +666,8 @@ Primary key attributes are always included in the output and may be renamed, jus
 <span class="n">university</span><span class="p">.</span><span class="n">Course</span><span class="p">.</span><span class="n">aggr</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Grade</span> <span class="o">*</span> <span class="n">university</span><span class="p">.</span><span class="n">LetterGrade</span><span class="p">,</span> <span class="s">&#39;avg(points)-&gt;avg_grade&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

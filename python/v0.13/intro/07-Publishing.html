@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Publishing Data &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -701,31 +705,31 @@
            <div itemprop="articleBody">
             
   <p>. progress: 2.0 100% Dimitri</p>
-<div class="section" id="publishing-data">
+<section id="publishing-data">
 <span id="publishing"></span><h1>Publishing Data<a class="headerlink" href="#publishing-data" title="Permalink to this headline">¶</a></h1>
 <p>DataJoint is a framework for building data pipelines that support rigorous flow of structured data between experimenters, data scientists, and computing agents <em>during</em> data acquisition and processing within a centralized project.
 Publishing final datasets for the outside world may require additional steps and conversion.</p>
-<div class="section" id="provide-access-to-a-datajoint-server">
+<section id="provide-access-to-a-datajoint-server">
 <h2>Provide access to a DataJoint server<a class="headerlink" href="#provide-access-to-a-datajoint-server" title="Permalink to this headline">¶</a></h2>
 <p>One approach for publishing data is to grant public access to an existing pipeline.
 Then public users will be able to query the data pipelines using DataJoint’s query language and output interfaces just like any other users of the pipeline.
 For security, this may require synchronizing the data onto a separate read-only public server.</p>
-</div>
-<div class="section" id="containerizing-as-a-datajoint-pipeline">
+</section>
+<section id="containerizing-as-a-datajoint-pipeline">
 <h2>Containerizing as a DataJoint pipeline<a class="headerlink" href="#containerizing-as-a-datajoint-pipeline" title="Permalink to this headline">¶</a></h2>
 <p>Containerization platforms such as <a class="reference external" href="https://www.docker.com/">docker</a> allow convenient distribution of environments including database services and data.
 It is convenient to publish DataJoint pipelines as a docker container that deploys the populated DataJoint pipeline.
 One example of publishing a DataJoint pipeline as a docker container is
 &gt; Sinz, F., Ecker, A.S., Fahey, P., Walker, E., Cobos, E., Froudarakis, E., Yatsenko, D., Pitkow, Z., Reimer, J. and Tolias, A., 2018. Stimulus domain transfer in recurrent models for large scale cortical population prediction on video. In Advances in Neural Information Processing Systems (pp. 7198-7209).  <a class="reference external" href="https://www.biorxiv.org/content/early/2018/10/25/452672">https://www.biorxiv.org/content/early/2018/10/25/452672</a></p>
 <p>The code and the data can be found at <a class="reference external" href="https://github.com/sinzlab/Sinz2018_NIPS">https://github.com/sinzlab/Sinz2018_NIPS</a></p>
-</div>
-<div class="section" id="exporting-into-a-collection-of-files">
+</section>
+<section id="exporting-into-a-collection-of-files">
 <h2>Exporting into a collection of files<a class="headerlink" href="#exporting-into-a-collection-of-files" title="Permalink to this headline">¶</a></h2>
 <p>Another option for publishing and archiving data is to  export the data from the DataJoint pipeline into a collection of files.
 DataJoint provides features for exporting and importing sections of the pipeline.
 Several ongoing projects are implementing the capability to export from DataJoint pipelines into <a class="reference external" href="https://neurodatawithoutborders.github.io/">Neurodata Without Borders</a> files.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

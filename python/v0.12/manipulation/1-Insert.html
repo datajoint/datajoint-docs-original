@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Insert &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,7 +675,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="insert">
+  <section id="insert">
 <span id="id1"></span><h1>Insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> method of DataJoint table objects inserts entities into the table.</p>
 <p>In Python there is a separate method <code class="docutils literal notranslate"><span class="pre">insert1</span></code> to insert one entity at a time.
@@ -709,7 +710,7 @@ The entity may have the form of a Python dictionary with key names matching the 
 Applies only in auto-populated tables.
 (Default <code class="docutils literal notranslate"><span class="pre">None</span></code>.)</p>
 </div></blockquote>
-<div class="section" id="batched-inserts">
+<section id="batched-inserts">
 <h2>Batched inserts<a class="headerlink" href="#batched-inserts" title="Permalink to this headline">¶</a></h2>
 <p>Inserting a set of entities in a single <code class="docutils literal notranslate"><span class="pre">insert</span></code> differs from inserting the same set of entities one-by-one in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in two ways:</p>
 <ol class="arabic simple">
@@ -721,8 +722,8 @@ If even one insert fails because it violates any constraint, then none of the en
 </ol>
 <p>However, inserting too many entities in a single query may run against buffer size or packet size limits of the database server.
 Due to these limitations, performing inserts of very large numbers of entities should be broken up into moderately sized batches, such as a few hundred at a time.</p>
-</div>
-<div class="section" id="server-side-inserts">
+</section>
+<section id="server-side-inserts">
 <h2>Server-side inserts<a class="headerlink" href="#server-side-inserts" title="Permalink to this headline">¶</a></h2>
 <p>Data inserted into a table often come from other tables already present on the database server.
 In such cases, data can be <a class="reference internal" href="../queries/03-Fetch.html#fetch"><span class="std std-ref">fetched</span></a> from the first table and then inserted into another table, but this results in transfers back and forth between the database and the local system.
@@ -738,8 +739,8 @@ Since the entities are already present on the database in the <code class="docut
 <span class="n">phase_two</span><span class="o">.</span><span class="n">Protocol</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">protocols</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

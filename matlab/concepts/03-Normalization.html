@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Entity Normalization &mdash; DataJoint Documentation matlab-v3.4 documentation</title>
@@ -176,6 +177,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-28-2021">3.4.3 – May 28, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#march-16-2021">3.4.2 – March 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#december-18-2020">3.4.1 – December 18, 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#december-11-2020">3.4.0 – December 11, 2020</a></li>
@@ -646,7 +648,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="entity-normalization">
+  <section id="entity-normalization">
 <span id="normalization"></span><h1>Entity Normalization<a class="headerlink" href="#entity-normalization" title="Permalink to this headline">¶</a></h1>
 <p>DataJoint uses a uniform way of representing any data.
 It does so in the form of <strong>entity sets</strong>, unordered collections of entities of the same type.
@@ -655,7 +657,7 @@ Entity normalization is a conceptual refinement of the <a class="reference inter
 Entity normalization leads to clear and logical database designs and to easily comprehensible data queries.</p>
 <p>Entity sets are a type of <strong>relation</strong> (from the <a class="reference internal" href="01-Data-Model.html#relational-model"><span class="std std-ref">relational data model</span></a>) and are often visualized as <strong>tables</strong>.
 Hence the terms <strong>relation</strong>, <strong>entity set</strong>, and <strong>table</strong> can be used interchangeably when entity normalization is assumed.</p>
-<div class="section" id="criteria-of-a-well-formed-entity-set">
+<section id="criteria-of-a-well-formed-entity-set">
 <h2>Criteria of a well-formed entity set<a class="headerlink" href="#criteria-of-a-well-formed-entity-set" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>All elements of an entity set belong to the same well-defined and readily identified <strong>entity type</strong> from the model world.</p></li>
@@ -664,8 +666,8 @@ Hence the terms <strong>relation</strong>, <strong>entity set</strong>, and <str
 <li><p>Primary key attribute values cannot be missing, i.e. set to null.</p></li>
 <li><p>All elements of an entity set participate in the same types of relationships with other entity sets.</p></li>
 </ol>
-</div>
-<div class="section" id="entity-normalization-in-schema-design">
+</section>
+<section id="entity-normalization-in-schema-design">
 <h2>Entity normalization in schema design<a class="headerlink" href="#entity-normalization-in-schema-design" title="Permalink to this headline">¶</a></h2>
 <p>Entity normalization applies to schema design in that the designer is responsible for the identification of the essential entity types in their model world and of the dependencies among the entity types.</p>
 <p>The term entity normalization may also apply to a procedure for refactoring a schema design that does not meet the above criteria into one that does.
@@ -674,42 +676,42 @@ In other cases, this may require converting attributes into their own entity set
 Technically speaking, entity normalization entails compliance with the <a class="reference external" href="https://en.wikipedia.org/wiki/Boyce%E2%80%93Codd_normal_form">Boyce-Codd normal form</a> while lacking the representational power for the applicability of more complex normal forms (<a class="reference external" href="https://dl.acm.org/citation.cfm?id=358054">Kent, 1983</a>).
 Adherence to entity normalization prevents redundancies in storage and data manipulation anomalies.
 The same criteria originally motivated the formulation of the classical relational normal forms.</p>
-</div>
-<div class="section" id="entity-normalization-in-data-queries">
+</section>
+<section id="entity-normalization-in-data-queries">
 <h2>Entity normalization in data queries<a class="headerlink" href="#entity-normalization-in-data-queries" title="Permalink to this headline">¶</a></h2>
 <p>Entity normalization applies to data queries as well.
 DataJoint’s <a class="reference internal" href="../queries/05-Operators.html#operators"><span class="std std-ref">query operators</span></a> are designed to preserve the entity normalization of their inputs.
 For example, the outputs of operators <a class="reference internal" href="../queries/06-Restriction.html#restriction"><span class="std std-ref">restriction</span></a>, <a class="reference internal" href="../queries/08-Proj.html#proj"><span class="std std-ref">proj</span></a>, and <a class="reference internal" href="../queries/09-Aggr.html#aggr"><span class="std std-ref">aggr</span></a> retain the same entity type as the (first) input.
 The <a class="reference internal" href="../queries/07-Join.html#join"><span class="std std-ref">join</span></a> operator produces a new entity type comprising the pairing of the entity types of its inputs.
 <a class="reference internal" href="../queries/11-Universal-Sets.html#universal-sets"><span class="std std-ref">Universal sets</span></a> explicitly introduce virtual entity sets when necessary to accomplish a query.</p>
-</div>
-<div class="section" id="examples-of-poor-normalization">
+</section>
+<section id="examples-of-poor-normalization">
 <h2>Examples of poor normalization<a class="headerlink" href="#examples-of-poor-normalization" title="Permalink to this headline">¶</a></h2>
 <p>Design choices lacking entity normalization may lead to data inconsistencies or anomalies.
 Below are several examples of poorly normalized designs and their normalized alternatives.</p>
-<div class="section" id="indirect-attributes">
+<section id="indirect-attributes">
 <h3>Indirect attributes<a class="headerlink" href="#indirect-attributes" title="Permalink to this headline">¶</a></h3>
 <p>All attributes should apply to the entity itself.
 Avoid attributes that actually apply to one of the entity’s other attributes.
 For example, consider the table <code class="docutils literal notranslate"><span class="pre">Author</span></code> with attributes <code class="docutils literal notranslate"><span class="pre">author_name</span></code>, <code class="docutils literal notranslate"><span class="pre">institution</span></code>, and <code class="docutils literal notranslate"><span class="pre">institution_address</span></code>.
 The attribute <code class="docutils literal notranslate"><span class="pre">institution_address</span></code> should really be held in a separate <code class="docutils literal notranslate"><span class="pre">Institution</span></code> table that <code class="docutils literal notranslate"><span class="pre">Author</span></code> depends on.</p>
-</div>
-<div class="section" id="repeated-attributes">
+</section>
+<section id="repeated-attributes">
 <h3>Repeated attributes<a class="headerlink" href="#repeated-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Avoid tables with repeated attributes of the same category.
 A better solution is to create a separate table that depends on the first (often a <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">part table</span></a>), with multiple individual entities rather than repeated attributes.
 For example, consider the table <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> that includes the attributes <code class="docutils literal notranslate"><span class="pre">equipment1`,</span> <span class="pre">``equipment2</span></code>, and <code class="docutils literal notranslate"><span class="pre">equipment3</span></code>.
 A better design would be to create a <code class="docutils literal notranslate"><span class="pre">ProtocolEquipment</span></code> table that links each entity in <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> with multiple entities in <code class="docutils literal notranslate"><span class="pre">Equipment</span></code> through <a class="reference internal" href="../definition/10-Dependencies.html#dependencies"><span class="std std-ref">dependencies</span></a>.</p>
-</div>
-<div class="section" id="attributes-that-do-not-apply-to-all-entities">
+</section>
+<section id="attributes-that-do-not-apply-to-all-entities">
 <h3>Attributes that do not apply to all entities<a class="headerlink" href="#attributes-that-do-not-apply-to-all-entities" title="Permalink to this headline">¶</a></h3>
 <p>All attributes should be relevant to every entity in a table.
 Attributes that apply only to a subset of entities in a table likely belong in a separate table containing only that subset of entities.
 For example, a table <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> should include the attribute <code class="docutils literal notranslate"><span class="pre">stimulus</span></code> only if all experiment protocols include stimulation.
 If the not all entities in <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> involve stimulation, then the <code class="docutils literal notranslate"><span class="pre">stimulus</span></code> attribute should be moved to a part table that has <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> as its master.
 Only protocols using stimulation will have an entry in this part table.</p>
-</div>
-<div class="section" id="transient-attributes">
+</section>
+<section id="transient-attributes">
 <h3>Transient attributes<a class="headerlink" href="#transient-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Attributes should be relevant to all entities in a table at all times.
 Attributes that do not apply to all entities should be moved to another dependent table containing only the appropriate entities.
@@ -717,9 +719,9 @@ This principle also applies to attributes that have not yet become meaningful fo
 For example, consider the table <code class="docutils literal notranslate"><span class="pre">Mouse</span></code> with attributes <code class="docutils literal notranslate"><span class="pre">birth_date</span></code> and <code class="docutils literal notranslate"><span class="pre">death_date</span></code>, where <code class="docutils literal notranslate"><span class="pre">death_date</span></code> is set to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> for living mice.
 Since the <code class="docutils literal notranslate"><span class="pre">death_date</span></code> attribute is not meaningful for mice that are still living, the proper design would include a separate table <code class="docutils literal notranslate"><span class="pre">DeceasedMouse</span></code> that depends on <code class="docutils literal notranslate"><span class="pre">Mouse</span></code>.
 <code class="docutils literal notranslate"><span class="pre">DeceasedMouse</span></code> would only contain entities for dead mice, which improves integrity and averts the need for <a class="reference internal" href="../manipulation/3-Cautious-Update.html#update"><span class="std std-ref">updates</span></a>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

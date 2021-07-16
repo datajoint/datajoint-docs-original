@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>FAQs &mdash; DataJoint Documentation python-v0.13 documentation</title>
@@ -176,6 +177,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="13-Releases.html#mar-12-2021">0.12.9 – Mar 12, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="13-Releases.html#jan-12-2021">0.12.8 – Jan 12, 2021</a></li>
@@ -493,6 +496,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#entire-table">Entire table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#as-separate-variables">As separate variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#primary-key-values">Primary key values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#sorting-and-limiting-the-results">Sorting and limiting the results</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../queries/03-Fetch.html#usage-with-pandas">Usage with Pandas</a></li>
 </ul>
 </li>
@@ -700,20 +704,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="faqs">
+  <section id="faqs">
 <span id="faq"></span><h1>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="how-do-i-use-guis-with-datajoint">
+<section id="how-do-i-use-guis-with-datajoint">
 <h2>How do I use GUIs with DataJoint?<a class="headerlink" href="#how-do-i-use-guis-with-datajoint" title="Permalink to this headline">¶</a></h2>
 <p>It is common to enter data during experiments using a graphical user interface.</p>
-</div>
-<div class="section" id="does-datajoint-support-other-programming-languages">
+</section>
+<section id="does-datajoint-support-other-programming-languages">
 <h2>Does DataJoint support other programming languages?<a class="headerlink" href="#does-datajoint-support-other-programming-languages" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint was originally developed to support MATLAB, followed by Python.
 DataJoint’s data model and data representation are largely language independent, which means that any language with a DataJoint client can work with a data pipeline defined in any other language.
 DataJoint clients for other programming languages will be implemented based on demand.
 All languages must comply to the same data model and computation approach as defined in <a class="reference external" href="https://arxiv.org/abs/1807.11104">DataJoint: a simpler relational data model</a>.</p>
-</div>
-<div class="section" id="is-datajoint-another-orm">
+</section>
+<section id="is-datajoint-another-orm">
 <h2>Is DataJoint another ORM?<a class="headerlink" href="#is-datajoint-another-orm" title="Permalink to this headline">¶</a></h2>
 <p>Programmers are familiar with object-relational mappings (ORM) in various programming languages.
 Python in particular has several popular ORMs such as <a class="reference external" href="https://www.sqlalchemy.org/">SQLAlchemy</a> and <a class="reference external" href="https://tutorial.djangogirls.org/en/django_orm/">Django ORM</a>.
@@ -726,12 +730,12 @@ ORMs usually forgo key concepts, features, and capabilities of the relational mo
 DataJoint supports data integrity (entity integrity, referential integrity, and group integrity) and provides a fully capable relational query language.
 DataJoint remains absolutely data-centric, with the primary focus on the structure and integrity of the data pipeline.
 Other ORMs are more application-centric, primarily focusing on the application design while the database plays a secondary role supporting the application with object persistence and sharing.</p>
-</div>
-<div class="section" id="how-can-i-use-datajoint-with-a-lims">
+</section>
+<section id="how-can-i-use-datajoint-with-a-lims">
 <h2>How can I use DataJoint with a LIMS?<a class="headerlink" href="#how-can-i-use-datajoint-with-a-lims" title="Permalink to this headline">¶</a></h2>
 <p>Lab Information Management Systems (LIMS)</p>
-</div>
-<div class="section" id="what-is-the-difference-between-datajoint-and-alyx">
+</section>
+<section id="what-is-the-difference-between-datajoint-and-alyx">
 <h2>What is the difference between DataJoint and Alyx?<a class="headerlink" href="#what-is-the-difference-between-datajoint-and-alyx" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/cortex-lab/alyx">Alyx</a> is an experiment management database application developed in Kenneth Harris’ lab at UCL.</p>
 <p>Alyx is an application with a fixed pipeline design with a nice graphical user interface.
@@ -741,8 +745,8 @@ DataJoint could be used as a more general purposes tool to design, implement, an
 The purposes are partly overlapping and complementary.
 The <a class="reference external" href="https://internationalbrainlab.com">International Brain Lab project</a> is developing a bridge from Alyx to DataJoint, hosted as an <a class="reference external" href="https://github.com/vathes/ibl-pipeline">open-source project</a>.
 It implements a DataJoint schema that replicates the major features of the Alyx application and a synchronization script from an existing Alyx database to its DataJoint counterpart.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">

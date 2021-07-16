@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Operators &mdash; DataJoint Documentation python-v0.12 documentation</title>
@@ -674,7 +675,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="operators">
+  <section id="operators">
 <span id="id1"></span><h1>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="01-Queries.html#query-objects"><span class="std std-ref">Data queries</span></a> have the form of expressions using operators to derive the desired table.
 The expressions themselves do not contain any data.
@@ -721,7 +722,7 @@ Since the expressions are only symbolic representations, repeated <code class="d
 </tr>
 </tbody>
 </table>
-<div class="section" id="principles-of-relational-algebra">
+<section id="principles-of-relational-algebra">
 <h2>Principles of relational algebra<a class="headerlink" href="#principles-of-relational-algebra" title="Permalink to this headline">¶</a></h2>
 <p>DataJoint’s algebra improves upon the classical relational algebra and upon other query languages to simplify and enhance the construction and interpretation of precise and efficient data queries.</p>
 <ol class="arabic simple">
@@ -735,8 +736,8 @@ This includes results of queries.
 Operators use attribute names to determine how to perform the operation.
 The order of the attributes is not significant.</p></li>
 </ol>
-</div>
-<div class="section" id="matching-entities">
+</section>
+<section id="matching-entities">
 <span id="matching"></span><h2>Matching entities<a class="headerlink" href="#matching-entities" title="Permalink to this headline">¶</a></h2>
 <p>Binary operators in DataJoint are based on the concept of <strong>matching entities</strong>; this phrase will be used throughout the documentation.</p>
 <blockquote>
@@ -758,7 +759,7 @@ Then the definition of matching entities is simplified:</p>
 <div class="line">Two entities match when their common attributes contain the same values.</div>
 </div>
 <p>Matching entities can be <strong>merged</strong> into a single entity without any conflicts of attribute names and values.</p>
-<div class="section" id="examples">
+<section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <p>This is a matching pair of entities:</p>
 <a class="reference internal image-reference" href="../_images/matched_tuples1.png"><img alt="../_images/matched_tuples1.png" src="../_images/matched_tuples1.png" style="width: 366px;" /></a>
@@ -766,9 +767,9 @@ Then the definition of matching entities is simplified:</p>
 <a class="reference internal image-reference" href="../_images/matched_tuples2.png"><img alt="../_images/matched_tuples2.png" src="../_images/matched_tuples2.png" style="width: 366px;" /></a>
 <p>but these entities do <em>not</em> match:</p>
 <a class="reference internal image-reference" href="../_images/matched_tuples3.png"><img alt="../_images/matched_tuples3.png" src="../_images/matched_tuples3.png" style="width: 366px;" /></a>
-</div>
-</div>
-<div class="section" id="join-compatibility">
+</section>
+</section>
+<section id="join-compatibility">
 <span id="join-compatible"></span><h2>Join compatibility<a class="headerlink" href="#join-compatibility" title="Permalink to this headline">¶</a></h2>
 <p>All binary operators with other tables as their two operands require that the operands be <strong>join-compatible</strong>, which means that:</p>
 <ol class="arabic simple">
@@ -778,8 +779,8 @@ Then the definition of matching entities is simplified:</p>
 <p>These restrictions are introduced both for performance reasons and for conceptual reasons.
 For performance, they encourage queries that rely on indexes.
 For conceptual reasons, they encourage database design in which entities in different tables are related to each other by the use of primary keys and foreign keys.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <a class="community-guide-tab" target="_blank" href="https://datajoint.slack.com/join/shared_invite/enQtMjkwNjQxMjI5MDk0LWIzN2ExYzBiM2NlODQxN2YxODAxNWQwOWVkNjVmZDkzYzEwMjM5OWJkM2EwYTRhYmRiZDgxMjUzYjBlZWVjMzA">
