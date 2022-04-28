@@ -39,7 +39,7 @@ jobs:
       - name: Compile static artifacts
         run: |
           export DOCS_VERSION=$(cat contents/conf.py | \
-            grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)")
+            grep -Po '(?<=^release\s=\s")[0-9.]*(?="$)')
           export HOST_UID=$(id -u)
           mkdir build
           docker-compose -f docker-compose-build.yaml up \
@@ -60,7 +60,7 @@ jobs:
       - name: Determine package version
         run: |
           export DOCS_VERSION=$(cat contents/conf.py | \
-            grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)")
+            grep -Po '(?<=^release\s=\s")[0-9.]*(?="$)')
           echo "DOCS_VERSION=${DOCS_VERSION}" >> $GITHUB_ENV
       - name: Get changelog entry
         id: changelog_reader
@@ -104,7 +104,7 @@ jobs:
       - name: Determine package version
         run: |
           export DOCS_VERSION=$(cat contents/conf.py | \
-            grep -Po "(?<=^release\s=\s')[0-9.]*(?='$)")
+            grep -Po '(?<=^release\s=\s")[0-9.]*(?="$)')
           echo "DOCS_VERSION=${DOCS_VERSION}" >> $GITHUB_ENV
       - name: Fetch static artifacts
         uses: actions/download-artifact@v2
