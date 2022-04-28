@@ -21,7 +21,7 @@ services:
       - MODE
     user: ${HOST_UID}:anaconda
     volumes:
-      - .:/home/dja/datajoint-docs
+      - .:/home/anaconda/datajoint-docs
     entrypoint:
       - sh
       - -lc
