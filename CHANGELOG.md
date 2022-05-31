@@ -76,7 +76,6 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 - `local-docker-compose.yml` environment. PR #257
 - `entrypoint.sh` which is now unnecessary for the image. PR #257
 
-[0.2.3]: https://github.com/datajoint/datajoint-docs/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/datajoint/datajoint-docs/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/datajoint/datajoint-docs/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/datajoint/datajoint-docs/compare/v0.1.5...v0.2.0
