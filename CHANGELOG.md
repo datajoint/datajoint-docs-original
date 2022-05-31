@@ -4,6 +4,8 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 
 ## [0.2.3] - 2022-05-31
 
+### Added
+
 - Add instructions on how to disable checksums for filepath external data PR #277
 
 ## [0.2.2] - 2022-04-28
