@@ -163,14 +163,25 @@ as follows:
      This will ensure that downstream results dependent on the ``filepath``
      record are updated to reflect the newer ``filepath`` contents.
 
-It is possible to skip the checksum but it is not recommended as you no longer
-have the integrity guarantee, you should only do so if you are experiencing significant
-delays in fetching large files. To disable checksums you can set a threshold in bytes
+Disable Fetch Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+  It is possible to skip the checksum but it is not recommended as you no longer
+  have the integrity guarantee, you should only do so if you are experiencing significant
+  delays in fetching large files. 
+
+This only applies to external ``filepath`` fetches.
+
+To disable checksums you can set a threshold in bytes
 for when to stop using checksums like in the example below:
 
 .. code-block:: python
 
-    dj.config["filepath_checksum_size_limit"] = 1024*1024*1024 # This is 1GB so all files over that will not be checked
+    dj.config["filepath_checksum_size_limit"] = 1024**3 # This is 1GB so all files over that will not be checked
+
+The default is ``None`` which means it will always verify checksums
 
 .. TODO: purging filepath data
 
