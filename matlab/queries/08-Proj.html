@@ -670,7 +670,7 @@ Any attribute can be renamed, including primary key attributes.</p>
 <p>For example, let table <code class="docutils literal notranslate"><span class="pre">tab</span></code> have attributes <strong>mouse</strong>, <strong>session</strong>, <em>session_date</em>, <em>stimulus</em>, and <em>behavior</em>.
 The primary key attributes are in bold.</p>
 <p>Then</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="s">&#39;mouse-&gt;animal&#39;</span><span class="p">,</span> <span class="s">&#39;stimulus&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="s">&#39;mouse-&gt;animal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;stimulus&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>will have attributes <strong>animal</strong>, <strong>session</strong>, and <em>stimulus</em>.</p>
@@ -678,7 +678,7 @@ The primary key attributes are in bold.</p>
 For example, let <code class="docutils literal notranslate"><span class="pre">tab</span></code> have attributes <strong>slice</strong>, and <strong>cell</strong>.
 Then <code class="docutils literal notranslate"><span class="pre">tab</span> <span class="pre">*</span> <span class="pre">tab</span></code> will simply yield <code class="docutils literal notranslate"><span class="pre">tab</span></code>.
 However,</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">*</span> <span class="n">tab</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="s">&#39;cell-&gt;other&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tab</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="s">&#39;cell-&gt;other&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>yields all ordered pairs of all cells in each slice.</p>
@@ -689,7 +689,7 @@ However,</p>
 <p>For example, let <code class="docutils literal notranslate"><span class="pre">tab</span></code> have attributes <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, <code class="docutils literal notranslate"><span class="pre">scan</span></code>, <code class="docutils literal notranslate"><span class="pre">surface_z</span></code>, and <code class="docutils literal notranslate"><span class="pre">scan_z</span></code>.
 To obtain the new attribute <code class="docutils literal notranslate"><span class="pre">depth</span></code> computed as <code class="docutils literal notranslate"><span class="pre">scan_z</span> <span class="pre">-</span> <span class="pre">surface_z</span></code> and then to restrict to
 <code class="docutils literal notranslate"><span class="pre">depth</span> <span class="pre">&gt;</span> <span class="pre">500</span></code>:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="s">&#39;scan_z-surface_z -&gt; depth&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">&#39;depth &gt; 500&#39;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="p">.</span><span class="n">proj</span><span class="p">(</span><span class="s">&#39;scan_z-surface_z -&gt; depth&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;depth &gt; 500&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Calculations are passed to SQL and are not parsed by DataJoint.
@@ -724,7 +724,7 @@ For available functions, you may refer to the <a class="reference external" href
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

@@ -648,11 +648,11 @@
 <span id="accounts"></span><h1>User Management<a class="headerlink" href="#user-management" title="Permalink to this headline">¶</a></h1>
 <p>Create user accounts on the MySQL server. For example, if your
 username is alice, the SQL code for this step is:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="n">USER</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;alices-secret-password&#39;</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="w"> </span><span class="k">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;alices-secret-password&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Existing users can be listed using the following SQL:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">user</span><span class="p">,</span> <span class="n">host</span> <span class="k">from</span> <span class="n">mysql</span><span class="p">.</span><span class="n">user</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">user</span><span class="p">,</span><span class="w"> </span><span class="k">host</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Teams that use DataJoint typically divide their data into schemas
@@ -665,16 +665,16 @@ begin with her username.</p>
 the common schemas (but not create new tables), and have all
 privileges to the pipeline schemas.</p>
 <p>Then the SQL code to grant her privileges might look like:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="ss">`common\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
-<span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="ss">`pipeline\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
-<span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="ss">`alice\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`common\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`pipeline\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`alice\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>To note, the <code class="code docutils literal notranslate"><span class="pre">ALL</span> <span class="pre">PRIVILEGES</span></code> option allows the user to create
 and remove databases without administrator intervention.</p>
 <p>Once created, a user’s privileges can be listed using the <code class="code docutils literal notranslate"><span class="pre">SHOW</span> <span class="pre">GRANTS</span></code>
 statement.</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SHOW</span> <span class="n">GRANTS</span> <span class="k">FOR</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SHOW</span><span class="w"> </span><span class="k">GRANTS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="grouping-with-wildcards">
@@ -683,11 +683,11 @@ statement.</p>
 wildcards to group access rules together might make managing user
 access rules simpler. For example, the following equivalent
 convention:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="ss">`user_alice\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`user_alice\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Could then facilitate using a rule like:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="k">SELECT</span> <span class="k">ON</span> <span class="ss">`user\_%\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;bob&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`user\_%\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;bob&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>to enable <code class="docutils literal notranslate"><span class="pre">bob</span></code> to query all other users tables using the
@@ -695,11 +695,11 @@ convention:</p>
 give him access to <code class="docutils literal notranslate"><span class="pre">alice\_%</span></code>, <code class="docutils literal notranslate"><span class="pre">charlie\_%</span></code>, and so on.</p>
 <p>This convention can be further expanded to create notions of groups
 and protected schemas for background proccesing, etc. For example:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="ss">`group\_shared\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
-<span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="ss">`group\_shared\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;bob&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`group\_shared\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`group\_shared\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;bob&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="ss">`group\_wonderland\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
-<span class="k">GRANT</span> <span class="k">SELECT</span> <span class="k">ON</span> <span class="ss">`group\_wonderland\_%`</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;alice&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`group\_wonderland\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n n-Quoted">`group\_wonderland\_%`</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;alice&#39;</span><span class="nv">@&#39;%&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>could allow both bob an alice to read/write into the
@@ -736,7 +736,7 @@ to alice.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

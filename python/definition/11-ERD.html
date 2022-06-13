@@ -177,6 +177,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/13-Releases.html">Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#jun-13-2022">0.13.6 – Jun 13, 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-19-2022">0.13.5 – May 19, 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-28-2022">0.13.4 – Mar 28, 2022</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#feb-9-2022">0.13.3 – Feb 9, 2022</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#may-7-2021">0.13.2 – May 7, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#apr-16-2021">0.13.1 – Apr 16, 2021</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/13-Releases.html#mar-24-2021">0.13.0 – Mar 24, 2021</a></li>
@@ -730,26 +734,26 @@ This means that the referenced table becomes part of the primary key of the depe
 </section>
 <section id="diagramming-an-entire-schema">
 <h2>Diagramming an entire schema<a class="headerlink" href="#diagramming-an-entire-schema" title="Permalink to this headline">¶</a></h2>
-<p>To plot the ERD for an entire schema, an ERD object can be initialized with the schema object (which is normally used to decorate table objects)</p>
+<p>To plot the Diagram for an entire schema, an Diagram object can be initialized with the schema object (which is normally used to decorate table objects)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datajoint</span> <span class="k">as</span> <span class="nn">dj</span>
 <span class="n">schema</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="n">Schema</span><span class="p">(</span><span class="s1">&#39;my_database&#39;</span><span class="p">)</span>
-<span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>or alternatively an object that has the schema object as an attribute, such as the module defining a schema:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datajoint</span> <span class="k">as</span> <span class="nn">dj</span>
 <span class="kn">import</span> <span class="nn">seq</span>    <span class="c1"># import the sequence module defining the seq database</span>
-<span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>   <span class="c1"># draw the ERD</span>
+<span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>   <span class="c1"># draw the Diagram</span>
 </pre></div>
 </div>
 <p>Note that calling the <code class="docutils literal notranslate"><span class="pre">.draw()</span></code> method is not necessary when working in a Jupyter notebook.
-The preferred workflow is to simply let the object display itself, for example by writing <code class="docutils literal notranslate"><span class="pre">dj.ERD(seq)</span></code>.
-The ERD will then render in the notebook using its <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code> method.
-An ERD displayed without <code class="docutils literal notranslate"><span class="pre">.draw()</span></code> will be rendered as an SVG, and hovering the mouse over a table will reveal a compact version of the output of the <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method.</p>
+You can simply let the object display itself, for example by entering <code class="docutils literal notranslate"><span class="pre">dj.Diagram(seq)</span></code> in a notebook cell.
+The Diagram will automatically render in the notebook by calling its <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code> method.
+A Diagram displayed without <code class="docutils literal notranslate"><span class="pre">.draw()</span></code> will be rendered as an SVG, and hovering the mouse over a table will reveal a compact version of the output of the <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method.</p>
 <section id="initializing-with-a-single-table">
 <h3>Initializing with a single table<a class="headerlink" href="#initializing-with-a-single-table" title="Permalink to this headline">¶</a></h3>
 <p>A <cite>dj.ERD</cite> object can be initialized with a single table.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>A single node makes a rather boring graph but ERDs can be added together or subtracted from each other using graph algebra.</p>
@@ -758,8 +762,8 @@ An ERD displayed without <code class="docutils literal notranslate"><span class=
 <h3>Adding ERDs together<a class="headerlink" href="#adding-erds-together" title="Permalink to this headline">¶</a></h3>
 <p>However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs.
 The corresponding foreign keys will be automatically</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the ERD with tables Genome and Species from module seq.</span>
-<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span> <span class="o">+</span> <span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Species</span><span class="p">))</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the Diagram with tables Genome and Species from module seq.</span>
+<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span> <span class="o">+</span> <span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Species</span><span class="p">))</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -768,15 +772,15 @@ The corresponding foreign keys will be automatically</p>
 <p>Adding a number to an ERD object adds nodes downstream in the pipeline while subtracting a number from ERD object adds nodes upstream in the pipeline.</p>
 <p>Examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all the tables directly downstream from ``seq.Genome``:</span>
-<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot all the tables directly upstream from ``seq.Genome``:</span>
-<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the local neighborhood of ``seq.Genome``</span>
-<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="p">(</span><span class="n">dj</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -810,7 +814,7 @@ The corresponding foreign keys will be automatically</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

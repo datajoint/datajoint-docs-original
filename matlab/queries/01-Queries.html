@@ -654,12 +654,12 @@
 A data query is performed with the help of a <strong>query object</strong>, which is a symbolic representation of the query that does not in itself contain any actual data.
 The simplest query object is an instance of a <strong>table class</strong>, representing the contents of an entire table.</p>
 <p>For example, if  <code class="docutils literal notranslate"><span class="pre">experiment.Session</span></code> is a DataJoint table class, you can create a query object to retrieve its entire contents as follows:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="p">=</span> <span class="n">experiment</span><span class="p">.</span><span class="n">Session</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">query</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">experiment</span><span class="p">.</span><span class="n">Session</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>More generally, a query object may be formed as a <strong>query expression</strong> constructed by applying <a class="reference internal" href="05-Operators.html#operators"><span class="std std-ref">operators</span></a> to other query objects.</p>
 <p>For example, the following query retrieves information about all experiments and scans for mouse 102 (excluding experiments with no scans):</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="p">=</span> <span class="n">experiment</span><span class="p">.</span><span class="n">Session</span> <span class="o">*</span> <span class="n">experiment</span><span class="p">.</span><span class="n">Scan</span> <span class="o">&amp;</span> <span class="s">&#39;animal_id = 102&#39;</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">query</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">experiment</span><span class="p">.</span><span class="n">Session</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">experiment</span><span class="p">.</span><span class="n">Scan</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;animal_id = 102&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can preview the contents of the query in Python, Jupyter Notebook, or MATLAB by simply displaying the object.
@@ -675,7 +675,7 @@ Also, the preview does not contain any data for attributes of datatype <code cla
 </figure>
 <p>Once the desired query object is formed, the query can be executed using its <a class="reference internal" href="03-Fetch.html#fetch"><span class="std std-ref">fetch</span></a> methods.
 To <strong>fetch</strong> means to transfer the data represented by the query object from the database server into the workspace of the host language.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here fetching from the <code class="docutils literal notranslate"><span class="pre">query</span></code> object produces the struct array <code class="docutils literal notranslate"><span class="pre">s</span></code> of the queried data.</p>
@@ -685,8 +685,8 @@ To <strong>fetch</strong> means to transfer the data represented by the query ob
 It can be useful to know the number of entities returned by a query, or even whether a query will return any entities at all, without having to fetch all the data themselves.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">exists</span></code> method applied to a query object evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the query returns any entities and to <code class="docutils literal notranslate"><span class="pre">false</span></code> if the query result is empty.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> method applied to a query object determines the number of entities returned by the query.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% number of ephys sessions since the start of 2018.</span>
-<span class="n">n</span> <span class="p">=</span> <span class="n">count</span><span class="p">(</span><span class="n">ephys</span><span class="p">.</span><span class="n">Session</span> <span class="o">&amp;</span> <span class="s">&#39;session_date &gt;= &quot;2018-01-01&quot;&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% number of ephys sessions since the start of 2018.</span><span class="w"></span>
+<span class="n">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="n">ephys</span><span class="p">.</span><span class="n">Session</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;session_date &gt;= &quot;2018-01-01&quot;&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -725,7 +725,7 @@ The query <a class="reference internal" href="05-Operators.html#operators"><span
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

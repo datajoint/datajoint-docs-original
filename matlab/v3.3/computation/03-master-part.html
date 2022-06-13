@@ -659,15 +659,15 @@ The part table must declare the property <code class="docutils literal notransla
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm"># image segmentation</span>
 <span class="cm">-&gt; test.Image</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Segmentation</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Computed</span>
-    <span class="k">methods</span><span class="p">(</span><span class="n">Access</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span>
-<span class="k">        function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-            <span class="n">make</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">SegmentationRoi</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-        <span class="n">end</span>
-    <span class="s">end</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Segmentation</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Computed</span><span class="w"></span>
+<span class="w">    </span><span class="k">methods</span><span class="p">(</span><span class="n">Access</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">make</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">SegmentationRoi</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/SegmentationROI.m</span></code></p>
@@ -678,32 +678,32 @@ The part table must declare the property <code class="docutils literal notransla
 <span class="cm">---</span>
 <span class="cm">roi_pixels  : longblob   #  indices of pixels</span>
 <span class="cm">roi_weights : longblob   #  weights of pixels</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">SegmentationROI</span> <span class="s">&lt;</span> <span class="s">dj.Part</span>
-    <span class="k">properties</span><span class="p">(</span><span class="n">SetAccess</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span>
-        <span class="n">master</span> <span class="p">=</span> <span class="n">test</span><span class="p">.</span><span class="n">Segmentation</span>
-    <span class="n">end</span>
-    <span class="s">methods</span>
-<span class="k">        function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">image</span> <span class="p">=</span> <span class="n">fetch1</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">Image</span> <span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span> <span class="s">&#39;image&#39;</span><span class="p">);</span>
-            <span class="p">[</span><span class="n">roi_pixels</span><span class="p">,</span> <span class="n">roi_weighs</span><span class="p">]</span> <span class="p">=</span> <span class="n">mylib</span><span class="p">.</span><span class="n">segment</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
-            <span class="n">for</span> <span class="s">roi=1:length(roi_pixels)</span>
-                <span class="n">entity</span> <span class="p">=</span> <span class="n">key</span><span class="p">;</span>
-                <span class="n">entity</span><span class="p">.</span><span class="n">roi_pixels</span> <span class="p">=</span> <span class="n">roi_pixels</span><span class="p">{</span><span class="n">roi</span><span class="p">};</span>
-                <span class="n">entity</span><span class="p">.</span><span class="n">roi_weights</span> <span class="p">=</span> <span class="n">roi_weights</span><span class="p">{</span><span class="n">roi</span><span class="p">};</span>
-                <span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
-            <span class="n">end</span>
-        <span class="s">end</span>
-    <span class="n">end</span>
-<span class="s">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">SegmentationROI</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Part</span><span class="w"></span>
+<span class="w">    </span><span class="k">properties</span><span class="p">(</span><span class="n">SetAccess</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">master</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">Segmentation</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">methods</span><span class="w"></span>
+<span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="nb">image</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch1</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">Image</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;image&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">[</span><span class="n">roi_pixels</span><span class="p">,</span><span class="w"> </span><span class="n">roi_weighs</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mylib</span><span class="p">.</span><span class="n">segment</span><span class="p">(</span><span class="nb">image</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">roi</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">roi_pixels</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">entity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="n">entity</span><span class="p">.</span><span class="n">roi_pixels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">roi_pixels</span><span class="p">{</span><span class="n">roi</span><span class="p">};</span><span class="w"></span>
+<span class="w">                </span><span class="n">entity</span><span class="p">.</span><span class="n">roi_weights</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">roi_weights</span><span class="p">{</span><span class="n">roi</span><span class="p">};</span><span class="w"></span>
+<span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="populating">
 <h2>Populating<a class="headerlink" href="#populating" title="Permalink to this headline">¶</a></h2>
 <p>Master-part relationships can form in any data tier, but DataJoint observes them more strictly for auto-populated tables.
 To populate both the master <code class="docutils literal notranslate"><span class="pre">Segmentation</span></code> and the part <code class="docutils literal notranslate"><span class="pre">Segmentation.ROI</span></code>, it is sufficient to call the <code class="docutils literal notranslate"><span class="pre">populate</span></code> method of the master:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">populate</span><span class="p">(</span><span class="n">Segmentation</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">populate</span><span class="p">(</span><span class="n">Segmentation</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that the entities in the master and the matching entities in the part are inserted within a single <code class="docutils literal notranslate"><span class="pre">make</span></code> call of the master, which means that they are a processed inside a single transactions: either all are inserted and committed or the entire transaction is rolled back.
@@ -729,29 +729,29 @@ For example:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">-&gt; Probe</span>
 <span class="cm">array: int</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">ArrayResponse</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Computed</span>
-    <span class="k">methods</span><span class="p">(</span><span class="n">Access</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span>
-<span class="k">        function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-            <span class="n">make</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">ArrayResponseElectrodeResponse</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-        <span class="n">end</span>
-    <span class="s">end</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ArrayResponse</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Computed</span><span class="w"></span>
+<span class="w">    </span><span class="k">methods</span><span class="p">(</span><span class="n">Access</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">make</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">ArrayResponseElectrodeResponse</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/ArrayResponseElectrodeResponse.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">-&gt; test.ArrayResponse</span>
 <span class="cm">electrode : int % electrode number on the probe</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">ArrayResponseElectrodeResponse</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Part</span>
-    <span class="k">methods</span><span class="p">(</span><span class="n">SetAccess</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span>
-<span class="k">        function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="n">end</span>
-    <span class="s">end</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ArrayResponseElectrodeResponse</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Part</span><span class="w"></span>
+<span class="w">    </span><span class="k">methods</span><span class="p">(</span><span class="n">SetAccess</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/ArrayResponseChannelResponse.m</span></code></p>
@@ -760,14 +760,14 @@ For example:</p>
 <span class="cm">channel: int</span>
 <span class="cm">---</span>
 <span class="cm">response: longblob  % response of a channel</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">ArrayResponseChannelResponse</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Part</span>
-    <span class="k">methods</span><span class="p">(</span><span class="n">SetAccess</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span>
-<span class="k">        function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="n">end</span>
-    <span class="s">end</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ArrayResponseChannelResponse</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Part</span><span class="w"></span>
+<span class="w">    </span><span class="k">methods</span><span class="p">(</span><span class="n">SetAccess</span><span class="p">=</span><span class="n">protected</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">make</span><span class="p">(</span>self, key<span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Conceptually, one or more channels belongs to an electrode, and one or more electrodes belong to an array.
@@ -802,7 +802,7 @@ This example assumes that information about an array’s response (which consist
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

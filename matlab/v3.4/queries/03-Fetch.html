@@ -667,27 +667,27 @@ The three methods differ by the type and number of their returned variables.</p>
 <code class="docutils literal notranslate"><span class="pre">query.fetchn</span></code> will enclose any attributes of  char and blob types in  <a class="reference external" href="https://www.mathworks.com/help/matlab/cell-arrays.html">cell arrays</a> whereas <code class="docutils literal notranslate"><span class="pre">query.fetch1</span></code> will unpack them.</p>
 <p>MATLAB has two alternative forms of invoking a method on an object: using the dot notation or passing the object as the first argument.
 The following two notations produce an equivalent result:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="s">&#39;attr1&#39;</span><span class="p">)</span>
-<span class="n">result</span> <span class="p">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="s">&#39;attr1&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;attr1&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;attr1&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>However, the dot syntax only works when the query object is already assigned to a variable.
 The second syntax is more commonly used to avoid extra variables.</p>
 <p>For example, the two methods below are equivalent although the second method creates an extra variable.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span># <span class="n">Method</span> <span class="mi">1</span>
-<span class="n">result</span> <span class="p">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="p">);</span><span class="w"></span>
 
-# <span class="n">Method</span> <span class="mi">2</span>
-<span class="n">query</span> <span class="p">=</span> <span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">;</span>
-<span class="n">result</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span>
+#<span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">query</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">;</span><span class="w"></span>
+<span class="n">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="fetch-the-primary-key">
 <h2>Fetch the primary key<a class="headerlink" href="#fetch-the-primary-key" title="Permalink to this headline">¶</a></h2>
 <p>Without any arguments, the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> method retrieves the primary key values of the table in the form of a single column <code class="docutils literal notranslate"><span class="pre">struct</span></code>.
 The attribute names become the fieldnames of the <code class="docutils literal notranslate"><span class="pre">struct</span></code>.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">;</span>
-<span class="n">keys</span> <span class="p">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Student</span> <span class="o">&amp;</span> <span class="n">university</span><span class="p">.</span><span class="n">StudentMajor</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">keys</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">;</span><span class="w"></span>
+<span class="nb">keys</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">StudentMajor</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that MATLAB allows calling functions without the parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
@@ -695,9 +695,9 @@ The attribute names become the fieldnames of the <code class="docutils literal n
 <section id="fetch-entire-query">
 <h2>Fetch entire query<a class="headerlink" href="#fetch-entire-query" title="Permalink to this headline">¶</a></h2>
 <p>With a single-quoted asterisk (<code class="docutils literal notranslate"><span class="pre">'*'</span></code>) as the input argument, the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> command retrieves the entire result as a struct array.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="s">&#39;*&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="s">&#39;*&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">data</span> <span class="p">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Student</span> <span class="o">&amp;</span> <span class="n">university</span><span class="p">.</span><span class="n">StudentMajor</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">);</span>
+<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">StudentMajor</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In some cases, the amount of data returned by fetch can be quite large.
@@ -711,11 +711,11 @@ Please note that it is only currently possible to query the size of entire table
 DataJoint needs two different methods to tell MATLAB whether the result should be in array or scalar form; for numerical fields it does not matter (because scalars are still matrices in MATLAB) but non-uniform collections of values must be enclosed in cell arrays.</p>
 <p><code class="docutils literal notranslate"><span class="pre">query.fetch1</span></code> is used when <code class="docutils literal notranslate"><span class="pre">query</span></code>  contains exactly one entity, otherwise <code class="docutils literal notranslate"><span class="pre">fetch1</span></code> will raise an error.</p>
 <p><code class="docutils literal notranslate"><span class="pre">query.fetchn</span></code> returns an arbitrary number of elements with character arrays and blobs returned in the form of cell arrays, even when  <code class="docutils literal notranslate"><span class="pre">query</span></code> happens to contain a single entity.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% when tab has exactly one entity:</span>
-<span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">img</span><span class="p">]</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetch1</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;image&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% when tab has exactly one entity:</span><span class="w"></span>
+<span class="p">[</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetch1</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;image&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c">% when tab has any number of entities:</span>
-<span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="n">imgs</span><span class="p">]</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;image&#39;</span><span class="p">);</span>
+<span class="c">% when tab has any number of entities:</span><span class="w"></span>
+<span class="p">[</span><span class="n">names</span><span class="p">,</span><span class="w"> </span><span class="n">imgs</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;image&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -723,8 +723,8 @@ DataJoint needs two different methods to tell MATLAB whether the result should b
 <h2>Obtaining the primary key along with individual values<a class="headerlink" href="#obtaining-the-primary-key-along-with-individual-values" title="Permalink to this headline">¶</a></h2>
 <p>It is often convenient to know the primary key values corresponding to attribute values retrieved by <code class="docutils literal notranslate"><span class="pre">fetchn</span></code>.
 This can be done by adding a special input argument indicating the request and another output argument to receive the key values:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% retrieve names, images, and corresponding primary key values:</span>
-<span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">keys</span><span class="p">]</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;image&#39;</span><span class="p">,</span> <span class="s">&#39;KEY&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% retrieve names, images, and corresponding primary key values:</span><span class="w"></span>
+<span class="p">[</span><span class="n">names</span><span class="p">,</span><span class="w"> </span><span class="n">imgs</span><span class="p">,</span><span class="w"> </span><span class="nb">keys</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;image&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;KEY&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The resulting value of <code class="docutils literal notranslate"><span class="pre">keys</span></code> will be a column array of type <code class="docutils literal notranslate"><span class="pre">struct</span></code>.
@@ -734,7 +734,7 @@ This mechanism is only implemented for <code class="docutils literal notranslate
 <h2>Rename and calculate<a class="headerlink" href="#rename-and-calculate" title="Permalink to this headline">¶</a></h2>
 <p>In DataJoint for MATLAB, all <code class="docutils literal notranslate"><span class="pre">fetch</span></code> methods have all the same capability as the <a class="reference internal" href="08-Proj.html#proj"><span class="std std-ref">proj</span></a> operator.
 For example, renaming an attribute can be accomplished using the syntax below.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="n">BMIs</span><span class="p">]</span> <span class="p">=</span> <span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;weight/height/height -&gt; bmi&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">names</span><span class="p">,</span><span class="w"> </span><span class="n">BMIs</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="n">fetchn</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;weight/height/height -&gt; bmi&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="08-Proj.html#proj"><span class="std std-ref">Proj</span></a> for an in-depth description of projection.</p>
@@ -742,16 +742,16 @@ For example, renaming an attribute can be accomplished using the syntax below.</
 <section id="sorting-and-limiting-the-results">
 <h2>Sorting and limiting the results<a class="headerlink" href="#sorting-and-limiting-the-results" title="Permalink to this headline">¶</a></h2>
 <p>To sort the result, add the additional <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> argument in <code class="docutils literal notranslate"><span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">fetchn</span></code> methods as the last argument.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% retrieve field ``course_name`` from courses</span>
-<span class="c">% in the biology department, sorted by course number</span>
-<span class="n">notes</span> <span class="p">=</span> <span class="n">fetchn</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Course</span> <span class="o">&amp;</span> <span class="s">&#39;dept=&quot;BIOL&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;course_name&#39;</span><span class="p">,</span> <span class="c">...</span>
-     <span class="s">&#39;ORDER BY course&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% retrieve field ``course_name`` from courses</span><span class="w"></span>
+<span class="c">% in the biology department, sorted by course number</span><span class="w"></span>
+<span class="n">notes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetchn</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Course</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;dept=&quot;BIOL&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;course_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<span class="w">     </span><span class="s">&#39;ORDER BY course&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The ORDER BY argument is passed directly to SQL and follows the same syntax as the <a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html">ORDER BY clause</a></p>
 <p>Similarly, the LIMIT and OFFSET clauses can be used to limit the result to a subset of entities.
 For example, to return the most advanced courses, one could do the following:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Course</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;ORDER BY course DESC LIMIT 5&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Course</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;ORDER BY course DESC LIMIT 5&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The limit clause is passed directly to SQL and follows the same <a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/select.html">rules</a></p>
@@ -785,7 +785,7 @@ For example, to return the most advanced courses, one could do the following:</p
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

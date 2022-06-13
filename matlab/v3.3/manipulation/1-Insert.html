@@ -649,18 +649,18 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> method of DataJoint table objects inserts entities into the table.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> method inserts any number of entities in the form of a structure array with field names corresponding to the attribute names.</p>
 <p>For example</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">.</span><span class="n">username</span> <span class="p">=</span> <span class="s">&#39;alice&#39;</span><span class="p">;</span>
-<span class="n">s</span><span class="p">.</span><span class="n">first_name</span> <span class="p">=</span> <span class="s">&#39;Alice&#39;</span><span class="p">;</span>
-<span class="n">s</span><span class="p">.</span><span class="n">last_name</span> <span class="p">=</span> <span class="s">&#39;Cooper&#39;</span><span class="p">;</span>
-<span class="n">insert</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">Person</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">.</span><span class="n">username</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;alice&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">s</span><span class="p">.</span><span class="n">first_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Alice&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">s</span><span class="p">.</span><span class="n">last_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Cooper&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">insert</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">Person</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Quick entry of multiple entities takes advantage of MATLAB’s cell array notation:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">Person</span><span class="p">,</span> <span class="p">{</span>
-       <span class="s">&#39;alice&#39;</span>   <span class="s">&#39;Alice&#39;</span>   <span class="s">&#39;Cooper&#39;</span>
-       <span class="s">&#39;bob&#39;</span>     <span class="s">&#39;Bob&#39;</span>     <span class="s">&#39;Dylan&#39;</span>
-       <span class="s">&#39;carol&#39;</span>   <span class="s">&#39;Carol&#39;</span>   <span class="s">&#39;Douglas&#39;</span>
-<span class="p">})</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">insert</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">Person</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="s">&#39;alice&#39;</span><span class="w">   </span><span class="s">&#39;Alice&#39;</span><span class="w">   </span><span class="s">&#39;Cooper&#39;</span><span class="w"></span>
+<span class="w">       </span><span class="s">&#39;bob&#39;</span><span class="w">     </span><span class="s">&#39;Bob&#39;</span><span class="w">     </span><span class="s">&#39;Dylan&#39;</span><span class="w"></span>
+<span class="w">       </span><span class="s">&#39;carol&#39;</span><span class="w">   </span><span class="s">&#39;Carol&#39;</span><span class="w">   </span><span class="s">&#39;Douglas&#39;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this case, the values must match the order of the attributes in the table.</p>
@@ -687,12 +687,12 @@ Instead, data can be inserted from one table into another without transfers betw
 <p>In the example below, a new schema has been created in preparation for phase two of a project.
 Experimental protocols from the first phase of the project will be reused in the second phase.
 Since the entities are already present on the database in the <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> table of the <code class="docutils literal notranslate"><span class="pre">phase_one</span></code> schema, we can perform a server-side insert into <code class="docutils literal notranslate"><span class="pre">phase_two.Protocol</span></code> without fetching a local copy.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Server-side inserts are faster...</span>
-<span class="n">phase_two</span><span class="p">.</span><span class="n">Protocol</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">phase_one</span><span class="p">.</span><span class="n">Protocol</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Server-side inserts are faster...</span><span class="w"></span>
+<span class="n">phase_two</span><span class="p">.</span><span class="n">Protocol</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">phase_one</span><span class="p">.</span><span class="n">Protocol</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% ...than fetching before inserting</span>
-<span class="n">protocols</span> <span class="p">=</span> <span class="n">phase_one</span><span class="p">.</span><span class="n">Protocol</span><span class="p">.</span><span class="n">fetch</span><span class="p">();</span>
-<span class="n">phase_two</span><span class="p">.</span><span class="n">Protocol</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">protocols</span><span class="p">)</span>
+<span class="c">% ...than fetching before inserting</span><span class="w"></span>
+<span class="n">protocols</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">phase_one</span><span class="p">.</span><span class="n">Protocol</span><span class="p">.</span><span class="n">fetch</span><span class="p">();</span><span class="w"></span>
+<span class="n">phase_two</span><span class="p">.</span><span class="n">Protocol</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">protocols</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -725,7 +725,7 @@ Since the entities are already present on the database in the <code class="docut
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

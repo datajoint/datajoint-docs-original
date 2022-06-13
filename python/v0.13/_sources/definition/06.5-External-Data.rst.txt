@@ -163,5 +163,22 @@ as follows:
      This will ensure that downstream results dependent on the ``filepath``
      record are updated to reflect the newer ``filepath`` contents.
 
+Disable Fetch Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+  Skipping the checksum is not recommended as it ensures file integrity i.e. downloaded files are not corrupted. With S3 stores, most of the time to complete a ``.fetch()`` is from the file download itself as opposed to evaluating the checksum. This option will primarily benefit ``filepath`` usage connected to a local ``file`` store.
+
+
+To disable checksums you can set a threshold in bytes
+for when to stop evaluating checksums like in the example below:
+
+.. code-block:: python
+
+    dj.config["filepath_checksum_size_limit"] = 5 * 1024**3 # Skip for all files greater than 5GiB
+
+The default is ``None`` which means it will always verify checksums.
+
 .. TODO: purging filepath data
 

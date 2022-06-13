@@ -656,14 +656,14 @@ Delete is performed as an atomic transaction so that partial deletes never occur
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Delete the entire contents of the table <code class="docutils literal notranslate"><span class="pre">tuning.VonMises</span></code> and all its dependents:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% delete all entries from tuning.VonMises</span>
-<span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% delete all entries from tuning.VonMises</span><span class="w"></span>
+<span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% delete entries from tuning.VonMises for mouse 1010</span>
-<span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span> <span class="o">&amp;</span> <span class="s">&#39;mouse=1010&#39;</span><span class="p">)</span>
+<span class="c">% delete entries from tuning.VonMises for mouse 1010</span><span class="w"></span>
+<span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;mouse=1010&#39;</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% delete entries from tuning.VonMises except mouse 1010</span>
-<span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span> <span class="o">-</span> <span class="s">&#39;mouse=1010&#39;</span><span class="p">)</span>
+<span class="c">% delete entries from tuning.VonMises except mouse 1010</span><span class="w"></span>
+<span class="n">del</span><span class="p">(</span><span class="n">tuning</span><span class="p">.</span><span class="n">VonMises</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">&#39;mouse=1010&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -705,7 +705,7 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

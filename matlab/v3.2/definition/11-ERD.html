@@ -626,24 +626,24 @@ This means that the referenced table becomes part of the primary key of the depe
 <h2>Diagramming an entire schema<a class="headerlink" href="#diagramming-an-entire-schema" title="Permalink to this headline">¶</a></h2>
 <p>The schema object for a package can be obtained using its <code class="docutils literal notranslate"><span class="pre">getSchema</span></code> function.
 (See <a class="reference internal" href="01-Creating-Schemas.html#schema"><span class="std std-ref">Creating Schemas</span></a>.)</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">getSchema</span><span class="p">))</span>   <span class="c">% draw the ERD</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">getSchema</span><span class="p">))</span><span class="w">   </span><span class="c">% draw the ERD</span><span class="w"></span>
 </pre></div>
 </div>
 <p>DataJoint provides shortcuts to plot ERD of a table neighborhood or a schema using the <code class="docutils literal notranslate"><span class="pre">erd</span></code> command:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% plot the ERD of the stimulus schema</span>
-<span class="n">erd</span> <span class="s">stimulus</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% plot the ERD of the stimulus schema</span><span class="w"></span>
+<span class="n">erd</span><span class="w"> </span><span class="s">stimulus</span><span class="w"></span>
 
-<span class="c">% plot the neighborhood of the stimulus.Trial table</span>
-<span class="n">erd</span> <span class="s">stimulus.Trial</span>
+<span class="c">% plot the neighborhood of the stimulus.Trial table</span><span class="w"></span>
+<span class="n">erd</span><span class="w"> </span><span class="s">stimulus.Trial</span><span class="w"></span>
 
-<span class="c">% plot the stimulus and experiment schemas and the neighborhood of preprocess.Sync</span>
-<span class="n">erd</span> <span class="s">stimulus</span> <span class="s">experiment</span> <span class="s">preprocess.Sync</span>
+<span class="c">% plot the stimulus and experiment schemas and the neighborhood of preprocess.Sync</span><span class="w"></span>
+<span class="n">erd</span><span class="w"> </span><span class="s">stimulus</span><span class="w"> </span><span class="s">experiment</span><span class="w"> </span><span class="s">preprocess.Sync</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="initializing-with-a-single-table">
 <h3>Initializing with a single table<a class="headerlink" href="#initializing-with-a-single-table" title="Permalink to this headline">¶</a></h3>
 <p>A <cite>dj.ERD</cite> object can be initialized with a single table.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">))</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A single node makes a rather boring graph but ERDs can be added together or subtracted from each other using graph algebra.</p>
@@ -652,8 +652,8 @@ This means that the referenced table becomes part of the primary key of the depe
 <h3>Adding ERDs together<a class="headerlink" href="#adding-erds-together" title="Permalink to this headline">¶</a></h3>
 <p>However two graphs can be added, resulting in new graph containing the union of the sets of nodes from the two original graphs.
 The corresponding foreign keys will be automatically</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% plot the ERD with tables Genome and Species from package +seq.</span>
-<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span> <span class="o">+</span> <span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Species</span><span class="p">))</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% plot the ERD with tables Genome and Species from package +seq.</span><span class="w"></span>
+<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Species</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -661,16 +661,16 @@ The corresponding foreign keys will be automatically</p>
 <h3>Expanding ERDs upstream and downstream<a class="headerlink" href="#expanding-erds-upstream-and-downstream" title="Permalink to this headline">¶</a></h3>
 <p>Adding a number to an ERD object adds nodes downstream in the pipeline while subtracting a number from ERD object adds nodes upstream in the pipeline.</p>
 <p>Examples:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Plot all the tables directly downstream from ``seq.Genome``:</span>
-<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Plot all the tables directly downstream from ``seq.Genome``:</span><span class="w"></span>
+<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Plot all the tables directly upstream from ``seq.Genome``:</span>
-<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Plot all the tables directly upstream from ``seq.Genome``:</span><span class="w"></span>
+<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Plot the local neighborhood of ``seq.Genome``</span>
-<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Plot the local neighborhood of ``seq.Genome``</span><span class="w"></span>
+<span class="n">draw</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">ERD</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">Genome</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -704,7 +704,7 @@ The corresponding foreign keys will be automatically</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

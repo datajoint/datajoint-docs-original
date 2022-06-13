@@ -621,9 +621,9 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  home_state      : char(2) # two-letter abbreviation</span>
 <span class="cm">  home_zipcode    : char(10)</span>
 <span class="cm">  home_phone      : varchar(14)</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Student</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/Department.m</span></code></p>
@@ -633,9 +633,9 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  dept_name    : varchar(200) # full department name</span>
 <span class="cm">  dept_address : varchar(200) # mailing address</span>
 <span class="cm">  dept_phone   : varchar(14)</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Department</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Department</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/StudentMajor.m</span></code></p>
@@ -644,9 +644,9 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  ---</span>
 <span class="cm">  -&gt; university.Department</span>
 <span class="cm">  declare_date :  date # when student declared her major</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">StudentMajor</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">StudentMajor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/Course.m</span></code></p>
@@ -656,18 +656,18 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  ---</span>
 <span class="cm">  course_name : varchar(200) # e.g. &quot;Cell Biology&quot;</span>
 <span class="cm">  credits     : decimal(3,1) # number of credits earned by completing the course</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Course</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Course</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/Term.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">  term_year : year</span>
 <span class="cm">  term      : enum(&#39;Spring&#39;, &#39;Summer&#39;, &#39;Fall&#39;)</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Term</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Term</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/Section.m</span></code></p>
@@ -677,27 +677,27 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  section : char(1)</span>
 <span class="cm">  ---</span>
 <span class="cm">  room  :  varchar(12) # building and room code</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Section</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Section</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/CurrentTerm.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">  ---</span>
 <span class="cm">  -&gt; university.Term</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">CurrentTerm</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">CurrentTerm</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/Enroll.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">  -&gt; university.Section</span>
 <span class="cm">  -&gt; university.Student</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Enroll</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Enroll</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/LetterGrade.m</span></code></p>
@@ -705,9 +705,9 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  grade : char(2)</span>
 <span class="cm">  ---</span>
 <span class="cm">  points : decimal(3,2)</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">LetterGrade</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">LetterGrade</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>File <code class="docutils literal notranslate"><span class="pre">+university/Grade.m</span></code></p>
@@ -715,9 +715,9 @@ See <a class="reference external" href="https://github.com/datajoint/datajoint-m
 <span class="cm">  -&gt; university.Enroll</span>
 <span class="cm">  ---</span>
 <span class="cm">  -&gt; university.LetterGrade</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">Grade</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Grade</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="example-schema-erd">
@@ -759,7 +759,7 @@ Tables contain data on students, departments, courses, etc.</span><a class="head
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

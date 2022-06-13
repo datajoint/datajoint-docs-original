@@ -706,8 +706,8 @@ This can be done in one of two ways:</p>
 </div></blockquote>
 <p>These methods are required since MySQL data operations can be ongoing in the background even when no user activity is ongoing.
 To use a database lock to perform a backup, the following commands can be used as the MySQL administrator:</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">FLUSH</span> <span class="kp">TABLES</span> <span class="k">WITH</span> <span class="k">READ</span> <span class="k">LOCK</span><span class="p">;</span>
-<span class="k">UNLOCK</span> <span class="kp">TABLES</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">FLUSH</span><span class="w"> </span><span class="k">TABLES</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">READ</span><span class="w"> </span><span class="k">LOCK</span><span class="p">;</span><span class="w"></span>
+<span class="k">UNLOCK</span><span class="w"> </span><span class="k">TABLES</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The backup should be performed between the issuing of these two commands, ensuring the database data is consistent on disk when it is backed up.</p>
@@ -774,7 +774,7 @@ A replica copy can be stopped temporarily and then resumed while a disk snapshot
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

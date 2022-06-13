@@ -662,17 +662,17 @@ A virtual table can fill the role of the nonexistent base table, allowing querie
 <p><code class="docutils literal notranslate"><span class="pre">dj.U</span></code> is not yet implemented in MATLAB.
 The feature will be added in an upcoming release: <a class="reference external" href="https://github.com/datajoint/datajoint-matlab/issues/144">https://github.com/datajoint/datajoint-matlab/issues/144</a></p>
 </div>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% All home cities of students</span>
-<span class="n">dj</span><span class="p">.</span><span class="n">U</span><span class="p">(</span><span class="s">&#39;home_city&#39;</span><span class="p">,</span> <span class="s">&#39;home_state&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">university</span><span class="p">.</span><span class="n">Student</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% All home cities of students</span><span class="w"></span>
+<span class="n">dj</span><span class="p">.</span><span class="n">U</span><span class="p">(</span><span class="s">&#39;home_city&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;home_state&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="w"></span>
 
-<span class="c">% Total number of students from each city</span>
-<span class="n">aggr</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">U</span><span class="p">(</span><span class="s">&#39;home_city&#39;</span><span class="p">,</span> <span class="s">&#39;home_state&#39;</span><span class="p">),</span> <span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span> <span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span>
+<span class="c">% Total number of students from each city</span><span class="w"></span>
+<span class="n">aggr</span><span class="p">(</span><span class="n">dj</span><span class="p">.</span><span class="n">U</span><span class="p">(</span><span class="s">&#39;home_city&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;home_state&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% Total number of students from each state</span>
-<span class="n">aggr</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="s">&#39;home_state&#39;</span><span class="p">),</span> <span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span> <span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span>
+<span class="c">% Total number of students from each state</span><span class="w"></span>
+<span class="n">aggr</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="s">&#39;home_state&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% Total number of students in the database</span>
-<span class="n">aggr</span><span class="p">(</span><span class="n">U</span><span class="p">(),</span> <span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span> <span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span>
+<span class="c">% Total number of students in the database</span><span class="w"></span>
+<span class="n">aggr</span><span class="p">(</span><span class="n">U</span><span class="p">(),</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The result of aggregation on a universal set is restricted to the entities with matches in the aggregated table, such as <code class="docutils literal notranslate"><span class="pre">Student</span></code> in the example above.
@@ -709,7 +709,7 @@ In some cases, defining a new base table can make queries clearer and more seman
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

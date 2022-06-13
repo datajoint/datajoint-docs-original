@@ -751,7 +751,7 @@ Then the database will assign incrementing numbers at each insert.</p>
 <p>For example, let’s say that you want to auto-increment <code class="docutils literal notranslate"><span class="pre">scan_idx</span></code> in a table called <code class="docutils literal notranslate"><span class="pre">Scan</span></code> whose primary key is <code class="docutils literal notranslate"><span class="pre">(animal_id,</span> <span class="pre">session,</span> <span class="pre">scan_idx)</span></code>.
 You must already have the values for <code class="docutils literal notranslate"><span class="pre">animal_id</span></code> and <code class="docutils literal notranslate"><span class="pre">session</span></code> in the dictionary <code class="docutils literal notranslate"><span class="pre">key</span></code>.
 Then you can do the following:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">.</span><span class="n">scan_idx</span> <span class="p">=</span> <span class="n">fetch1</span><span class="p">(</span><span class="n">Scan</span> <span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span> <span class="s">&#39;max(scan_idx)+1 -&gt; next&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="p">.</span><span class="n">scan_idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">fetch1</span><span class="p">(</span><span class="n">Scan</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;max(scan_idx)+1 -&gt; next&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -785,7 +785,7 @@ Then you can do the following:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

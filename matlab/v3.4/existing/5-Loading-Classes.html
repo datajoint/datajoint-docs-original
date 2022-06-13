@@ -655,10 +655,10 @@
 <p>To facilitate working with existing pipelines, DataJoint MATLAB creates a <code class="docutils literal notranslate"><span class="pre">TableAccessor</span></code> property in each schema object.
 The <code class="docutils literal notranslate"><span class="pre">TableAccessor</span></code> property, a <em>virtual class generator</em>, is available as <code class="docutils literal notranslate"><span class="pre">schema.v</span></code>, and allows listing and querying of the tables defined on the server without needing to create the MATLAB table definitions locally.
 For example, creating a scratch <code class="docutils literal notranslate"><span class="pre">experiment</span></code> schema package and querying an existing <code class="docutils literal notranslate"><span class="pre">my_experiment.Session</span></code> table on the server can be done as follows:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="p">.</span><span class="n">createSchema</span><span class="p">(</span><span class="s">&#39;experiment&#39;</span><span class="p">,</span> <span class="s">&#39;/scratch&#39;</span><span class="p">,</span> <span class="s">&#39;my_experiment&#39;</span><span class="p">)</span>
-<span class="n">addpath</span><span class="p">(</span><span class="s">&#39;/scratch&#39;</span><span class="p">)</span>
-<span class="n">experiment_schema</span> <span class="p">=</span> <span class="n">experiment</span><span class="p">.</span><span class="n">getSchema</span><span class="p">();</span>
-<span class="n">experiment_schema</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="o">&amp;</span> <span class="s">&#39;session_id=1234&#39;</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dj</span><span class="p">.</span><span class="n">createSchema</span><span class="p">(</span><span class="s">&#39;experiment&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;/scratch&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;my_experiment&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/scratch&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">experiment_schema</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">experiment</span><span class="p">.</span><span class="n">getSchema</span><span class="p">();</span><span class="w"></span>
+<span class="n">experiment_schema</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;session_id=1234&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -695,7 +695,7 @@ For example, creating a scratch <code class="docutils literal notranslate"><span
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

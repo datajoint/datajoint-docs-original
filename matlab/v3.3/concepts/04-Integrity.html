@@ -700,10 +700,10 @@ A dependency of an entity set containing the death dates of mice on an entity se
 <span class="cm">mouse_name : varchar(64)</span>
 <span class="cm">---</span>
 <span class="cm">mouse_dob : datetime</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">Mouse</span> <span class="s">&lt;</span> <span class="s">dj.Manual</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Mouse</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/MouseDeath.m</span></code></p>
@@ -711,10 +711,10 @@ A dependency of an entity set containing the death dates of mice on an entity se
 <span class="cm">-&gt; test.Mouse</span>
 <span class="cm">---</span>
 <span class="cm">death_date : datetime</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">MouseDeath</span> <span class="s">&lt;</span> <span class="s">dj.Manual</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">MouseDeath</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -729,10 +729,10 @@ The example below shows a table containing individual channel data from multi-ch
 <span class="cm">---</span>
 <span class="cm">eeg_system : varchar(64)</span>
 <span class="cm">num_channels : int</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">EEGRecording</span> <span class="s">&lt;</span> <span class="s">dj.Manual</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">EEGRecording</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/ChannelData.m</span></code></p>
@@ -741,10 +741,10 @@ The example below shows a table containing individual channel data from multi-ch
 <span class="cm">channel_idx : int</span>
 <span class="cm">---</span>
 <span class="cm">channel_data : longblob</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">ChannelData</span> <span class="s">&lt;</span> <span class="s">dj.Imported</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ChannelData</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Imported</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -759,10 +759,10 @@ A many-to-one relationship exists between the <code class="docutils literal notr
 <span class="cm">mouse_name : varchar(64)</span>
 <span class="cm">---</span>
 <span class="cm">mouse_dob : datetime</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">Mouse</span> <span class="s">&lt;</span> <span class="s">dj.Manual</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Mouse</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/SubjectGroup.m</span></code></p>
@@ -770,20 +770,20 @@ A many-to-one relationship exists between the <code class="docutils literal notr
 <span class="cm">group_number : int</span>
 <span class="cm">---</span>
 <span class="cm">group_name : varchar(64)</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">SubjectGroup</span> <span class="s">&lt;</span> <span class="s">dj.Manual</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">SubjectGroup</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/SubjectGroupGroupMember.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">-&gt; test.SubjectGroup</span>
 <span class="cm">-&gt; test.Mouse</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">SubjectGroupGroupMember</span> <span class="s">&lt;</span> <span class="s">dj.Part</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">SubjectGroupGroupMember</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Part</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -797,30 +797,30 @@ Entities in a third table represent the modes used for each session.</p>
 <p><code class="docutils literal notranslate"><span class="pre">+test/RecordingModality.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">modality : varchar(64)</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">RecordingModality</span> <span class="s">&lt;</span> <span class="s">dj.Lookup</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">RecordingModality</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Lookup</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/MultimodalSession.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">-&gt; test.Session</span>
 <span class="cm">modes : int</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">MultimodalSession</span> <span class="s">&lt;</span> <span class="s">dj.Manual</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">MultimodalSession</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">+test/MultimodalSessionSessionMode.m</span></code></p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="cm">%{</span>
 <span class="cm">-&gt; test.MultimodalSession</span>
 <span class="cm">-&gt; test.RecordingModality</span>
-<span class="cm">%}</span>
+<span class="cm">%}</span><span class="w"></span>
 
-<span class="n">classdef</span> <span class="s">MultimodalSessionSessionMode</span> <span class="s">&lt;</span> <span class="s">dj.Part</span>
-<span class="k">end</span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">MultimodalSessionSessionMode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Part</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -857,7 +857,7 @@ Entities in a third table represent the modes used for each session.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

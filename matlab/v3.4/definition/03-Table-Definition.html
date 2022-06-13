@@ -667,9 +667,9 @@ This solution is thought to be convenient since MATLAB does not provide convenie
 <span class="cm">first_name : varchar(30)</span>
 <span class="cm">last_name  : varchar(30)</span>
 <span class="cm">role : enum(&#39;admin&#39;, &#39;contributor&#39;, &#39;viewer&#39;)</span>
-<span class="cm">%}</span>
-<span class="k">classdef</span> <span class="n">User</span> <span class="o">&lt;</span> <span class="n">dj</span><span class="p">.</span><span class="n">Manual</span>
-<span class="k">end</span>
+<span class="cm">%}</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dj</span><span class="p">.</span><span class="n">Manual</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This defines the class <code class="docutils literal notranslate"><span class="pre">User</span></code> that creates the table in the database and provides all its data manipulation functionality.</p>
@@ -694,11 +694,11 @@ This topic is covered separately.</p>
 This definition may differ from the definition string of the class if the definition string has been edited after creation of the table.</p>
 <section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">describe</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">User</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">describe</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">User</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Furthermore, DataJoint provides the <code class="docutils literal notranslate"><span class="pre">syncDef</span></code> method to update the <code class="docutils literal notranslate"><span class="pre">classdef</span></code> file definition string for the table with the definition in the actual table:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">syncDef</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">User</span><span class="p">)</span>    <span class="c">% updates the table definition in file +lab/User.m</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">syncDef</span><span class="p">(</span><span class="n">lab</span><span class="p">.</span><span class="n">User</span><span class="p">)</span><span class="w">    </span><span class="c">% updates the table definition in file +lab/User.m</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -732,7 +732,7 @@ This definition may differ from the definition string of the class if the defini
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

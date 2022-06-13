@@ -729,7 +729,7 @@ Any key-value pairs without corresponding attributes in <code class="docutils li
 Exclusion by an empty mapping or by a mapping with no matches will return no entities.</p>
 <p>For example, let’s say that table <code class="docutils literal notranslate"><span class="pre">Session</span></code> has the attribute <code class="docutils literal notranslate"><span class="pre">session_date</span></code> of <a class="reference internal" href="../definition/06-Datatypes.html#datatypes"><span class="std std-ref">datatype</span></a> <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.
 You are interested in sessions from January 1st, 2018, so you write the following restriction query using a mapping.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">ephys</span><span class="p">.</span><span class="n">Session</span> <span class="o">&amp;</span> <span class="n">struct</span><span class="p">(</span><span class="s">&#39;session_dat&#39;</span><span class="p">,</span> <span class="s">&#39;2018-01-01&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">ephys</span><span class="p">.</span><span class="n">Session</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;session_dat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2018-01-01&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Our mapping contains a typo omitting the final <code class="docutils literal notranslate"><span class="pre">e</span></code> from <code class="docutils literal notranslate"><span class="pre">session_date</span></code>, so no keys in our mapping will match any attribute in <code class="docutils literal notranslate"><span class="pre">Session</span></code>.
@@ -740,11 +740,11 @@ As such, our query will return all of the entities of <code class="docutils lite
 <p>Restriction can be performed when <code class="docutils literal notranslate"><span class="pre">cond</span></code> is an explicit condition on attribute values, expressed as a string.
 Such conditions may include arithmetic operations, functions, range tests, etc.
 Restriction of table <code class="docutils literal notranslate"><span class="pre">A</span></code> by a string containing an attribute not found in table <code class="docutils literal notranslate"><span class="pre">A</span></code> produces an error.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% All the sessions performed by Alice</span>
-<span class="n">ephys</span><span class="p">.</span><span class="n">Session</span> <span class="o">&amp;</span> <span class="s">&#39;user = &quot;Alice&quot;&#39;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% All the sessions performed by Alice</span><span class="w"></span>
+<span class="n">ephys</span><span class="p">.</span><span class="n">Session</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;user = &quot;Alice&quot;&#39;</span><span class="w"></span>
 
-<span class="c">% All the experiments at least one minute long</span>
-<span class="n">ephys</span><span class="p">.</span><span class="n">Experiment</span> <span class="o">&amp;</span> <span class="s">&#39;duration &gt;= 60&#39;</span>
+<span class="c">% All the experiments at least one minute long</span><span class="w"></span>
+<span class="n">ephys</span><span class="p">.</span><span class="n">Experiment</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;duration &gt;= 60&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -758,18 +758,18 @@ DataJoint for MATLAB has an open <a class="reference external" href="https://git
 <p>A collection can be a cell array or structure array.
 Cell arrays can contain collections of arbitrary restriction conditions.
 Structure arrays are limited to collections of mappings, each having the same attributes.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% a cell aray:</span>
-<span class="n">cond_cell</span> <span class="p">=</span> <span class="p">{</span><span class="s">&#39;first_name = &quot;Aaron&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;last_name = &quot;Aaronson&quot;&#39;</span><span class="p">}</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% a cell aray:</span><span class="w"></span>
+<span class="n">cond_cell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;first_name = &quot;Aaron&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last_name = &quot;Aaronson&quot;&#39;</span><span class="p">}</span><span class="w"></span>
 
-<span class="c">% a structure array:</span>
-<span class="n">cond_struct</span> <span class="p">=</span> <span class="n">struct</span><span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span> <span class="s">&#39;Aaron&#39;</span><span class="p">,</span> <span class="s">&#39;last_name&#39;</span><span class="p">,</span> <span class="s">&#39;Paul&#39;</span><span class="p">)</span>
-<span class="n">cond_struct</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">struct</span><span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span> <span class="s">&#39;Rosie&#39;</span><span class="p">,</span> <span class="s">&#39;last_name&#39;</span><span class="p">,</span> <span class="s">&#39;Aaronson&#39;</span><span class="p">)</span>
+<span class="c">% a structure array:</span><span class="w"></span>
+<span class="n">cond_struct</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Aaron&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Paul&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">cond_struct</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Rosie&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Aaronson&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>When <code class="docutils literal notranslate"><span class="pre">cond</span></code> is a collection of conditions, the conditions are applied by logical disjunction (logical OR).
 Thus, restriction of table <code class="docutils literal notranslate"><span class="pre">A</span></code> by a collection will return all entities in <code class="docutils literal notranslate"><span class="pre">A</span></code> that meet <em>any</em> of the conditions in the collection.
 For example, if you restrict the <code class="docutils literal notranslate"><span class="pre">Student</span></code> table by a collection containing two conditions, one for a first and one for a last name, your query will return any students with a matching first name <em>or</em> a matching last name.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">{</span><span class="s">&#39;first_name = &quot;Aaron&quot;&#39;</span><span class="p">,</span> <span class="s">&#39;last_name = &quot;Aaronson&quot;&#39;</span><span class="p">}</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">university</span><span class="p">.</span><span class="n">Student</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;first_name = &quot;Aaron&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last_name = &quot;Aaronson&quot;&#39;</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <figure class="align-center" id="id15">
@@ -792,8 +792,8 @@ Exclusion of table <code class="docutils literal notranslate"><span class="pre">
 As such, restriction by queries follows the same behavior as restriction by tables described above.</p>
 <p>The example below creates a query object corresponding to all the sessions performed by the user Alice.
 The <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> table is then restricted by the query object, returning all the experiments that are part of sessions performed by Alice.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="p">=</span> <span class="n">ephys</span><span class="p">.</span><span class="n">Session</span> <span class="o">&amp;</span> <span class="s">&#39;user = &quot;Alice&quot;&#39;</span>
-<span class="n">ephys</span><span class="p">.</span><span class="n">Experiment</span> <span class="o">&amp;</span> <span class="n">query</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">query</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ephys</span><span class="p">.</span><span class="n">Session</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s">&#39;user = &quot;Alice&quot;&#39;</span><span class="w"></span>
+<span class="n">ephys</span><span class="p">.</span><span class="n">Experiment</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">query</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -826,7 +826,7 @@ The <code class="docutils literal notranslate"><span class="pre">Experiment</spa
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

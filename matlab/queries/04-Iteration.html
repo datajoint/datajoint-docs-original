@@ -654,9 +654,9 @@
 However, it can sometimes be useful to access or to perform actions such as visualization upon individual entities sequentially.
 In DataJoint this is accomplished through iteration.</p>
 <p>In the simple example below, iteration is used to display the names and values of the primary key attributes of each entity in the simple table or table expression <code class="docutils literal notranslate"><span class="pre">tab</span></code>.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="p">=</span> <span class="n">tab</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span><span class="o">&#39;</span>
-    <span class="nb">disp</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="k">end</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tab</span><span class="p">.</span><span class="n">fetch</span><span class="p">()</span><span class="o">&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that the results returned by <code class="docutils literal notranslate"><span class="pre">fetch</span></code> must be transposed.
@@ -690,7 +690,7 @@ MATLAB iterates across columns, so the single column <code class="docutils liter
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>

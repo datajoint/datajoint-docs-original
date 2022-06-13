@@ -610,10 +610,10 @@ Aggregation functions can only be used in the definitions of new attributes with
 Primary key attributes are always included in the output and may be renamed, just like in <code class="docutils literal notranslate"><span class="pre">proj</span></code>.</p>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Number of students in each course section</span>
-<span class="n">university</span><span class="p">.</span><span class="n">Section</span><span class="p">.</span><span class="n">aggr</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Enroll</span><span class="p">,</span> <span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span>
-<span class="c">% Average grade in each course</span>
-<span class="n">university</span><span class="p">.</span><span class="n">Course</span><span class="p">.</span><span class="n">aggr</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Grade</span> <span class="o">*</span> <span class="n">university</span><span class="p">.</span><span class="n">LetterGrade</span><span class="p">,</span> <span class="s">&#39;avg(points)-&gt;avg_grade&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Number of students in each course section</span><span class="w"></span>
+<span class="n">university</span><span class="p">.</span><span class="n">Section</span><span class="p">.</span><span class="n">aggr</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Enroll</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;count(*)-&gt;n&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">% Average grade in each course</span><span class="w"></span>
+<span class="n">university</span><span class="p">.</span><span class="n">Course</span><span class="p">.</span><span class="n">aggr</span><span class="p">(</span><span class="n">university</span><span class="p">.</span><span class="n">Grade</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">university</span><span class="p">.</span><span class="n">LetterGrade</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;avg(points)-&gt;avg_grade&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -646,7 +646,7 @@ Primary key attributes are always included in the output and may be renamed, jus
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2019, Vathes LLC.
+        &copy; Copyright 2017-2022, DataJoint.
     <a href="http://tutorials.datajoint.io" target="_blank">
       <img id="footerThumbnail" src="../_static/themeImages/djTutorialLogo.svg">
     </a>
