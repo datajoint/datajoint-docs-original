@@ -168,20 +168,17 @@ Disable Fetch Verification
 
 .. note::
 
-  It is possible to skip the checksum but it is not recommended as you no longer
-  have the integrity guarantee, you should only do so if you are experiencing significant
-  delays in fetching large files. 
+  Skipping the checksum is not recommended as it ensures file integrity i.e. downloaded files are not corrupted. With S3 stores, most of the time to complete a ``.fetch()`` is from the file download itself as opposed to evaluating the checksum. This option will primarily benefit ``filepath`` usage connected to a local ``file`` store.
 
-This only applies to external ``filepath`` fetches.
 
 To disable checksums you can set a threshold in bytes
-for when to stop using checksums like in the example below:
+for when to stop evaluating checksums like in the example below:
 
 .. code-block:: python
 
-    dj.config["filepath_checksum_size_limit"] = 1024**3 # This is 1GB so all files over that will not be checked
+    dj.config["filepath_checksum_size_limit"] = 5 * 1024**3 # Skip for all files greater than 5GiB
 
-The default is ``None`` which means it will always verify checksums
+The default is ``None`` which means it will always verify checksums.
 
 .. TODO: purging filepath data
 
