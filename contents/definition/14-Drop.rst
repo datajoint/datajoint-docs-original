@@ -21,5 +21,3 @@ Dropping part tables
 --------------------
 
 A :ref:`part table <master-part>` is usually removed as a consequence of calling ``drop`` on its master table.
-
-.. include:: 14-Drop_lang2.rst
