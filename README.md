@@ -1,4 +1,7 @@
 # DataJoint Technical Reference
+
+> ⚠️ This is no longer maintained and has been superseded by [datajoint-company/datajoint-docs](https://github.com/datajoint-company/datajoint-docs). Please file new issues there (or help contribute!). We are currently migrating and generating new content until December 2022 after which we'll be decomissioning https://docs.datajoint.org and https://tutorials.datajoint.org in favor of https://datajoint.com/docs/.
+
 This repository contains the source for comprehensive technical reference documentation for the DataJoint framework. 
 
 All DataJoint documentations are presented at [DataJoint documentation website](http://docs.datajoint.org/).
