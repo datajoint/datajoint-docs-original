@@ -708,7 +708,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>This can be done by using <cite>dj.key_hash</cite> to convert the key as follows:</p>
+  <div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This is no longer maintained and has been superseded by <a class="reference external" href="https://github.com/datajoint-company/datajoint-docs">datajoint-company/datajoint-docs</a>. Please file new issues there (or help contribute!). We are currently migrating and generating new content until December 2022 after which we’ll be decomissioning <a class="reference external" href="https://docs.datajoint.org">https://docs.datajoint.org</a> and <a class="reference external" href="https://tutorials.datajoint.org">https://tutorials.datajoint.org</a> in favor of <a class="reference external" href="https://datajoint.com/docs/">https://datajoint.com/docs/</a>.</p>
+</div>
+<p>This can be done by using <cite>dj.key_hash</cite> to convert the key as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">jk</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;table_name&#39;</span><span class="p">:</span> <span class="n">JobResults</span><span class="o">.</span><span class="n">table_name</span><span class="p">,</span> <span class="s1">&#39;key_hash&#39;</span> <span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">key_hash</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})}</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">schema</span><span class="o">.</span><span class="n">jobs</span> <span class="o">&amp;</span> <span class="n">jk</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
