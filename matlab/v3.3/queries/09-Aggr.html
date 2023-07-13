@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -148,7 +148,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../intro/02-Teamwork.html">Teamwork</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#data-management-in-a-science-project">Data management in a science project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#data-centric-project-organization">Data-centric project organization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#team-roles">Team roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#team-roles-1">Team roles</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/04-Input-and-Output.html">Input and Output</a><ul>
@@ -309,10 +309,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts/04-Integrity.html">Data Integrity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#entity-integrity">Entity integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#referential-integrity">Referential integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#group-integrity">Group integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#relationships">Relationships</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#entity-integrity-1">Entity integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#referential-integrity-1">Referential integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#group-integrity-1">Group integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../concepts/04-Integrity.html#relationships-1">Relationships</a></li>
 </ul>
 </li>
 </ul>
@@ -370,7 +370,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../definition/06.5-External-Data.html#filepath-datatype">Filepath Datatype</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../definition/06.5-External-Data.html#id2">Configuration &amp; Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../definition/06.5-External-Data.html#configuration-usage-1">Configuration &amp; Usage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../definition/06.5-External-Data.html#integrity-notes">Integrity Notes</a></li>
 </ul>
 </li>
@@ -522,7 +522,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../computation/Computation.html">Computation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../computation/01-autopopulate.html">Auto-populate</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#make">Make</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#make-1">Make</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#populate">Populate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#populate-options">Populate options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#progress">Progress</a></li>
@@ -644,12 +644,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>This is no longer maintained and has been superseded by <a class="reference external" href="https://github.com/datajoint-company/datajoint-docs">datajoint-company/datajoint-docs</a>. Please file new issues there (or help contribute!). We are currently migrating and generating new content until December 2022 after which we’ll be decomissioning <a class="reference external" href="https://docs.datajoint.org">https://docs.datajoint.org</a> and <a class="reference external" href="https://tutorials.datajoint.org">https://tutorials.datajoint.org</a> in favor of <a class="reference external" href="https://datajoint.com/docs/">https://datajoint.com/docs/</a>.</p>
-</div>
-<section id="aggr">
-<span id="id1"></span><h1>Aggr<a class="headerlink" href="#aggr" title="Permalink to this headline">¶</a></h1>
+  <section id="aggr-1">
+<span id="aggr"></span><h1>Aggr<a class="headerlink" href="#aggr-1" title="Permalink to this headline">¶</a></h1>
 <p><strong>Aggregation</strong>, performed with the <code class="docutils literal notranslate"><span class="pre">aggr</span></code> operator, is a special form of <code class="docutils literal notranslate"><span class="pre">proj</span></code> with the additional feature of allowing aggregation calculations on another table.
 It has the form <code class="docutils literal notranslate"><span class="pre">tab.aggr(other,</span> <span class="pre">...)</span></code> where <code class="docutils literal notranslate"><span class="pre">other</span></code> is another table.
 Without the argument <code class="docutils literal notranslate"><span class="pre">other</span></code>, <code class="docutils literal notranslate"><span class="pre">aggr</span></code> and <code class="docutils literal notranslate"><span class="pre">proj</span></code> are exactly equivalent.

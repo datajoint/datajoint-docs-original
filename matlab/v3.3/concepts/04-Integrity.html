@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -148,7 +148,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../intro/02-Teamwork.html">Teamwork</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#data-management-in-a-science-project">Data management in a science project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#data-centric-project-organization">Data-centric project organization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#team-roles">Team roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/02-Teamwork.html#team-roles-1">Team roles</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../intro/04-Input-and-Output.html">Input and Output</a><ul>
@@ -309,10 +309,10 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Data Integrity</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#entity-integrity">Entity integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#referential-integrity">Referential integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#group-integrity">Group integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#relationships">Relationships</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#entity-integrity-1">Entity integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#referential-integrity-1">Referential integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-integrity-1">Group integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relationships-1">Relationships</a></li>
 </ul>
 </li>
 </ul>
@@ -370,7 +370,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../definition/06.5-External-Data.html#filepath-datatype">Filepath Datatype</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../definition/06.5-External-Data.html#id2">Configuration &amp; Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../definition/06.5-External-Data.html#configuration-usage-1">Configuration &amp; Usage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../definition/06.5-External-Data.html#integrity-notes">Integrity Notes</a></li>
 </ul>
 </li>
@@ -522,7 +522,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../computation/Computation.html">Computation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../computation/01-autopopulate.html">Auto-populate</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#make">Make</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#make-1">Make</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#populate">Populate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#populate-options">Populate options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../computation/01-autopopulate.html#progress">Progress</a></li>
@@ -644,16 +644,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>This is no longer maintained and has been superseded by <a class="reference external" href="https://github.com/datajoint-company/datajoint-docs">datajoint-company/datajoint-docs</a>. Please file new issues there (or help contribute!). We are currently migrating and generating new content until December 2022 after which we’ll be decomissioning <a class="reference external" href="https://docs.datajoint.org">https://docs.datajoint.org</a> and <a class="reference external" href="https://tutorials.datajoint.org">https://tutorials.datajoint.org</a> in favor of <a class="reference external" href="https://datajoint.com/docs/">https://datajoint.com/docs/</a>.</p>
-</div>
-<section id="data-integrity">
+  <section id="data-integrity">
 <span id="integrity"></span><h1>Data Integrity<a class="headerlink" href="#data-integrity" title="Permalink to this headline">¶</a></h1>
 <p>The term <strong>data integrity</strong> describes  guarantees made by the data management process that prevent errors and corruption in data due to technical failures and human errors arising in the course of continuous use by multiple agents.
 DataJoint pipelines respect the following forms of data integrity: <strong>entity integrity</strong>, <strong>referential integrity</strong>, and <strong>group integrity</strong> as described in more detail below.</p>
-<section id="entity-integrity">
-<span id="id1"></span><h2>Entity integrity<a class="headerlink" href="#entity-integrity" title="Permalink to this headline">¶</a></h2>
+<section id="entity-integrity-1">
+<span id="entity-integrity"></span><h2>Entity integrity<a class="headerlink" href="#entity-integrity-1" title="Permalink to this headline">¶</a></h2>
 <p>In a proper relational design, each table represents a collection of discrete real-world entities of some kind.
 <strong>Entity integrity</strong> is the guarantee made by the data management process that entities from the real world are reliably and uniquely represented in the database system.
 Entity integrity states that the data management process must prevent duplicate representations or misidentification of entities.
@@ -666,8 +662,8 @@ The ID numbers succeed in uniquely identifying each student record but fail to d
 <p>Note that a database cannot guarantee or enforce entity integrity by itself.
 Entity integrity is a property of the entire data management process as a whole, including institutional practices and user actions in addition to database configurations.</p>
 </section>
-<section id="referential-integrity">
-<span id="id2"></span><h2>Referential integrity<a class="headerlink" href="#referential-integrity" title="Permalink to this headline">¶</a></h2>
+<section id="referential-integrity-1">
+<span id="referential-integrity"></span><h2>Referential integrity<a class="headerlink" href="#referential-integrity-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Referential integrity</strong> is the guarantee made by the data management process that related data across the database remain present, correctly associated, and mutually consistent.
 Guaranteeing referential integrity means enforcing the constraint that no entity can exist in the database without all the other entities on which it depends.
 Referential integrity cannot exist without entity integrity: references to entity cannot be validated if the identity of the entity itself is not guaranteed.</p>
@@ -687,14 +683,14 @@ Allowing updates to upstream entities would break the referential integrity of a
 For example, permitting a user to change the name of a mouse subject would invalidate any experimental sessions that used that mouse, presuming the mouse name was part of the primary key.
 The proper way to change data in DataJoint is to delete the existing entities and to insert corrected ones, preserving referential integrity.</p>
 </section>
-<section id="group-integrity">
-<span id="id3"></span><h2>Group integrity<a class="headerlink" href="#group-integrity" title="Permalink to this headline">¶</a></h2>
+<section id="group-integrity-1">
+<span id="group-integrity"></span><h2>Group integrity<a class="headerlink" href="#group-integrity-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Group integrity</strong> denotes the guarantee made by the data management process that entities composed of multiple parts always appear in their complete form.
 Group integrity in DataJoint is formalized through <a class="reference internal" href="../computation/03-master-part.html#master-part"><span class="std std-ref">master-part</span></a> relationships.
 The master-part relationship has important implications for dependencies, because a downstream entity depending on a master entity set may be considered to depend on the parts as well.</p>
 </section>
-<section id="relationships">
-<span id="id4"></span><h2>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h2>
+<section id="relationships-1">
+<span id="relationships"></span><h2>Relationships<a class="headerlink" href="#relationships-1" title="Permalink to this headline">¶</a></h2>
 <p>In DataJoint, the term <strong>relationship</strong> is used rather generally to describe the effects of particular configurations of <a class="reference internal" href="../definition/10-Dependencies.html#dependencies"><span class="std std-ref">dependencies</span></a> between multiple entity sets.
 It is often useful to classify relationships as one-to-one, many-to-one, one-to-many, and many-to-many.</p>
 <p>In a <strong>one-to-one relationship</strong>, each entity in a downstream table has exactly one corresponding entity in the upstream table.
