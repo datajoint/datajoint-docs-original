@@ -6,7 +6,7 @@ Observes [Semantic Versioning](https://semver.org/spec/v2.0.0.html) standard and
 
 ### Fix
 
-- Remove archive note since `datajoint-matlab` legacy docs will remain live PR #280
+- Remove archive note since `datajoint-matlab` legacy docs will remain live PR #281
 
 ## [0.2.3] - 2022-10-10
 
